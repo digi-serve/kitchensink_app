@@ -1,6 +1,14 @@
 const Common = require("../../../../setup/common.js");
 
-const folderName = __dirname.match(/[^\\\/]+$/);
+const folderName = __dirname.match(/[^\\\/]+$/)[0];
+
+const testCases = [
+  require("./test_cases/Carousel.js"),
+  require("./test_cases/Text.js"),
+  require("./test_cases/Label.js"),
+  require("./test_cases/Image.js"),
+  require("./test_cases/Detail.js")
+];
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   if (
@@ -39,16 +47,8 @@ describe.only("Widget Tests", () => {
     cy.get('[data-cy="0ac51d6c-7c95-461c-aa8b-7da00afc4f48"]').click();
     cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
   });
-  describe("Carousel", () => {
-    it("Exists", () => {
-      Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
-      cy.get(
-        '[data-cy="carousel 54827db6-497b-43ae-96f9-153b63a9c977"]'
-      ).should("exist");
-      // Select tab
-      // cy.get(
-      //   "tab-Carousel-e56d4ad0-d879-43c0-934a-a4004fcc7579-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"
-      // ).click();
-    });
+
+  testCases.forEach(tc => {
+    tc(folderName, Common);
   });
 });
