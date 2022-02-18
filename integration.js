@@ -7,7 +7,8 @@ const testCases = [
   require("./test_cases/Text.js"),
   require("./test_cases/Label.js"),
   require("./test_cases/Image.js"),
-  require("./test_cases/Detail.js")
+  require("./test_cases/Detail.js"),
+  require("./test_cases/Form.js")
 ];
 
 Cypress.on("uncaught:exception", (err, runnable) => {
@@ -41,7 +42,7 @@ describe("Smoke Test", () => {
   });
 });
 
-describe.only("Widget Tests", () => {
+describe("Widget Tests", () => {
   beforeEach(() => {
     cy.get('[data-cy="portal_work_menu_sidebar"]').click();
     cy.get('[data-cy="0ac51d6c-7c95-461c-aa8b-7da00afc4f48"]').click();
