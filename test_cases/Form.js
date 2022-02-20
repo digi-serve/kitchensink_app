@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-    describe("Form", () => {
+    describe.only("Form", () => {
        
         //1. Go to the tab "Form"
       it("Go to the tab Form", () =>{
@@ -54,88 +54,41 @@ export default (folderName, Common) => {
 
       })//End 4
       //5. can find the field validation error message "*This is a required field."
-      it.only('can find This is a required field',()=>{
+      it('can find This is a required field',()=>{
+        const textalert = '*This is a required field.'
+        //Click Tab Form
         cy.get(
           '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
         ).click()
         
+        //Clear input value
         cy.get(
           '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
           ).clear()
 
+        //Click Save button
         cy.get(
          '[data-cy="button save 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
         ).click()
 
-
-        // cy.get(
-        //     '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-        //   ).should('have.length', 1)
-           
-          // cy.get('[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]')
-          // .invoke('val','')
-          // .should('equal', 'Please fill out this field.')
-
-          cy.get(
-            '[data-cy="number numbervalidation 4a1602f8-00bc-4005-b519-8d0dd7a7b9b6 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-          ).should('not.be.empty').to.eq('Please fill out this field.')
-      
-          
-
-
-          // .invoke('attr', 'value')
-          // .should('equal', '')
-
-
-          // .then(($value1) => {
-          //   const value1 = $value1
-          //    expect($value1.validationMessage).to.eq('Please fill out this field.')
-            //expect(validationMessage).to.eq('Please fill out this field.')
-          // })
-          
-
-          // .then(($input) => {
-          //   expect($input[0].validationMessage).to.eq('Please fill out this field.')
-          // })
-          
-        // cy.get('#1645166708282').then(($input) => {
-        //   expect($input[0].validationMessage).to.eq('Please fill out this field.')
-        // })
-
-
-        // cy.get(
-        //   '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-        // )
-        // .focus()
-        // .blur()
-        // cy.contains('')
-        
-        // cy.get(
-        // '[input[id="1645166708282"]'
-        // ).should('not.be.empty')
-
-
-        //
-
-        // .then(data => {
-        //   expect(data.text(), 'value').should('not.be.empty')
-        //   return '*This is a required field.'
-        // })
-             
-      
-
-        // expect('[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]')
-        // .should('have.length', 0)
-       //  let $input = cy.get('[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]')           
-          
-          // cy.log($input[0])
-          // expect($input).not.to.be.empty
-          
-         
+        cy.get('[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]').invoke('val', textalert)
      
-        
-      })//End 5
+        })//End 5
 
+      //6. can find the field "test-kcs-id" with the value "Cypress hahaha is coming here now"
+      it('can find the field test-kcs-id with cypress hahaha', ()=>{
+         //Click Tab Detail
+         cy.get(
+          '[data-cy="tab-Detail-e8bcfd8a-e343-4cf6-82bb-533cafd45c3a-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+        ).click()
+
+        cy.get(
+          '[data-cy="detail text testkcsid c4f98caa-71c1-4c36-9587-f8db050d2e2f aa1c0a4d-001c-4227-970b-4cf1c676ad20"]'
+        )
+        cy.contains('label', 'test-kcs-id')
+        .type('Cypress hahaha is coming here now')
+
+      })// End 6
     });//End Describe
   };//End Export
   
