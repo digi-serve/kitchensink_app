@@ -4,6 +4,7 @@ const folderName = __dirname.match(/[^\\\/]+$/)[0];
 
 const testCases = [
   require("./test_cases/Carousel.js"),
+  require("./test_cases/ConditionalContainer.js"),
   require("./test_cases/Text.js"),
   require("./test_cases/Label.js"),
   require("./test_cases/Image.js"),
