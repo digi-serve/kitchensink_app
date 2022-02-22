@@ -1,8 +1,13 @@
 export default (folderName, Common) => {
     describe.only("Form", () => {
-       
+      beforeEach(() => {
+        // Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+        cy.visit("/").wait(1500);
+      });
+
         //1. Go to the tab "Form"
       it("Go to the tab Form", () =>{
+        Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
         cy.get(
             '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
           ).click()
@@ -11,28 +16,48 @@ export default (folderName, Common) => {
       //2. can find the field "test-kcs-id" with the value "Test-KCS-0000000002"
       it("can find test-kcs-id", () =>{
 
+       cy.get(
+          '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+       ).click()
+
+      
+       cy.get(
+         '[data-cy="datetime datetimerequired effbb8b5-4874-4ae9-89d2-b9dcfb40c6c3 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+       ).type('21/02/2022  11:46 AM').click()
+
+
+       cy.contains('div', 'select-list-multiselect(required)').find('input').first().type('item4{enter}')
+
+
+        //Click Save button
         cy.get(
+          '[data-cy="button save 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+         ).click()
+
+         cy.visit("/").wait(1500);
+
+         cy.get(
           '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
         ).click()
-    
-        cy.contains('label', 'test-kcs-id')
-        .should('have.value', '')
 
-      })//End 2
+        cy.contains('div', 'Test-KCS-0000000001')
+
+        })//End 2
       //3. can find the field "single-line-text(required)" with the value "test2"
       it("can find single line text", () => {
 
         cy.get(
           '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
         ).click()
+
         cy.get(
           '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-        )
-        cy.get('input')
-        .invoke('val')
-        .should('contain','test')
-      
+        ).clear().type('test2')
 
+        cy.get(
+          '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+        ).should('have.value','test2')
+      
 
       })//End 3
       //4. Change the value to "Cypress hahaha is coming here now" and click on the button "Save"
@@ -55,7 +80,7 @@ export default (folderName, Common) => {
       })//End 4
       //5. can find the field validation error message "*This is a required field."
       it('can find This is a required field',()=>{
-        const textalert = '*This is a required field.'
+       const textalert = '*This is a required field.'
         //Click Tab Form
         cy.get(
           '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
