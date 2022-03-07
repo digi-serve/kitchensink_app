@@ -1,11 +1,14 @@
 export default (folderName, Common) => {
     describe("Menu", () => {
-      it("Exists", () => {
+      beforeEach(() => {
         cy.get(
           '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
         )
           .click();
 
+      });
+
+      it("Exists", () => {
         cy.get(
           '[data-cy="menu-item KitchenHome cb77ced0-a803-46b7-8a79-f9084d75d51c eac2cff7-5069-4f74-9bd9-523a3b633346"]'
         )
@@ -35,11 +38,6 @@ export default (folderName, Common) => {
 
       it("Menu Carousel", () => {
         cy.get(
-          '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-        )
-          .click();
-
-        cy.get(
           '[data-cy="menu-item Carousel e56d4ad0-d879-43c0-934a-a4004fcc7579 eac2cff7-5069-4f74-9bd9-523a3b633346"]'
         )
           .click();
@@ -50,11 +48,6 @@ export default (folderName, Common) => {
 
       it("Menu Chart", () => {
         Common.RunSQL(cy, folderName, ["add_testkcs2-Menu.sql"]);
-
-        cy.get(
-          '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-        )
-          .click();
 
         cy.get(
           '[data-cy="menu-item Chart 41d39ac7-e7d9-405d-a570-b79686ccdd5a eac2cff7-5069-4f74-9bd9-523a3b633346"]'
@@ -70,11 +63,6 @@ export default (folderName, Common) => {
       });
 
       it("Menu 1", () => {
-        cy.get(
-          '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-        )
-          .click();
-
         cy.get(
           '[data-cy="menu-item 1 93f39714-7d1b-4375-b5b2-89c94a3e96bd eac2cff7-5069-4f74-9bd9-523a3b633346"]'
         )
