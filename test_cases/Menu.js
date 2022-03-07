@@ -45,12 +45,7 @@ export default (folderName, Common) => {
         '[data-cy="menu-item Chart 41d39ac7-e7d9-405d-a570-b79686ccdd5a eac2cff7-5069-4f74-9bd9-523a3b633346"]'
       ).click();
 
-      cy.get('div[view_id^="ABViewChartPie_"]')
-        .should("include.text", "7")
-        .should("include.text", "6")
-        .should("include.text", "5")
-        .should("include.text", "9")
-        .should("include.text", "3");
+      cy.get('div[view_id^="ABViewChartPie_"]').should("exist");
     });
 
     it("Menu 1", () => {
@@ -68,11 +63,8 @@ export default (folderName, Common) => {
         '[data-cy="menu-item 2 398a96a6-21dc-4ab3-8017-b2754fa979d4 5a50210f-767b-461e-9762-66fbc263ec7f"]'
       )
         .should("be.visible")
-        .should("include.text", "2");
-
-      cy.get(
-        '[data-cy="menu-item 2 398a96a6-21dc-4ab3-8017-b2754fa979d4 5a50210f-767b-461e-9762-66fbc263ec7f"]'
-      ).click();
+        .should("include.text", "2")
+        .click();
 
       cy.get(
         '[data-cy="Popup Close Button 2 398a96a6-21dc-4ab3-8017-b2754fa979d4"]'
