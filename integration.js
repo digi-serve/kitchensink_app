@@ -8,7 +8,8 @@ const testCases = [
   require("./test_cases/Text.js"),
   require("./test_cases/Label.js"),
   require("./test_cases/Image.js"),
-  require("./test_cases/Detail.js")
+  require("./test_cases/Detail.js"),
+  require("./test_cases/Menu.js"),
 ];
 
 Cypress.on("uncaught:exception", (err, runnable) => {
