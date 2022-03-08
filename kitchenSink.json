@@ -8815,9 +8815,9 @@
                     {
                         "language_code": "en",
                         "label": "Menu.menu",
-                        "menuTextLeft": "fdgdfg",
-                        "menuTextCenter": "fdgdfg",
-                        "menuTextRight": "fdgdfg"
+                        "menuTextLeft": "Text1",
+                        "menuTextCenter": "Text2",
+                        "menuTextRight": "Text3"
                     }
                 ],
                 "position": {
