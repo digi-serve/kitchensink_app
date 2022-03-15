@@ -12,15 +12,8 @@ const testCases = [
   require("./test_cases/Menu.js"),
 ];
 
-Cypress.on("uncaught:exception", (err, runnable) => {
-  if (
-    err.message.includes(
-      "TypeError: Cannot read properties of undefined (reading 'raw')"
-    )
-  ) {
-    return false;
-  }
-});
+// Don't stop tests on uncaught errors
+Cypress.on("uncaught:exception", () => false);
 
 before(() => {
   Common.ResetDB(cy);
