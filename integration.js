@@ -1,6 +1,6 @@
 const Common = require("../../../../setup/common.js");
 
-const folderName = __dirname.match(/[^\\\/]+$/)[0];
+const folderName = __dirname.match(/[^\\/]+$/)[0];
 
 const testCases = [
    require("./test_cases/Carousel.js"),
@@ -27,6 +27,8 @@ before(() => {
 beforeEach(() => {
    Common.AuthLogin(cy);
    Common.RunSQL(cy, folderName, ["reset_tables.sql"]);
+   Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+   Common.RunSQL(cy, folderName, ["add_testkcs2-Menu.sql"]);
    cy.visit("/");
 });
 

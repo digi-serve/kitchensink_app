@@ -23,6 +23,8 @@ INSERT INTO `AB_testkcs` (
   `checkboxrequired`,
   `selectlist`,
   `selectlistrequired`,
+  `selectlistmultiselect`,
+  `selectlistmultiselectrequired`,
   `email`,
   `emailrequired`
 )
@@ -48,8 +50,10 @@ VALUES (
   NOW(),
   "0",
   "1",
-  "",
-  "",
+  "item2",
+  "item3",
+  "[{\"id\":\"item4\",\"text\":\"item4\",\"hex\":\"#673AB7\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item4\"}]},{\"id\":\"item5\",\"text\":\"item5\",\"hex\":\"#3F51B5\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item5\"}]}]",
+  "[{\"id\":\"item1\",\"text\":\"item1\",\"hex\":\"#F44336\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item1\"}]},{\"id\":\"item2\",\"text\":\"item2\",\"hex\":\"#E91E63\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item2\"}]}]",
   "email@email.com",
   "admin@email.com"
 );
@@ -77,6 +81,8 @@ INSERT INTO `AB_testkcs` (
   `checkboxrequired`,
   `selectlist`,
   `selectlistrequired`,
+  `selectlistmultiselect`,
+  `selectlistmultiselectrequired`,
   `email`,
   `emailrequired`
 )
@@ -102,8 +108,10 @@ VALUES (
   NOW(),
   "0",
   "1",
-  "",
-  "",
+  "item1",
+  "item5",
+  "[{\"id\":\"item1\",\"text\":\"item1\",\"hex\":\"#F44336\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item1\"}]},{\"id\":\"item2\",\"text\":\"item2\",\"hex\":\"#E91E63\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item2\"}]},{\"id\":\"item3\",\"text\":\"item3\",\"hex\":\"#9C27B0\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item3\"}]},{\"id\":\"item4\",\"text\":\"item4\",\"hex\":\"#673AB7\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item4\"}]},{\"id\":\"item5\",\"text\":\"item5\",\"hex\":\"#3F51B5\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item5\"}]}]",
+  "[{\"id\":\"item1\",\"text\":\"item1\",\"hex\":\"#F44336\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item1\"}]},{\"id\":\"item2\",\"text\":\"item2\",\"hex\":\"#E91E63\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item2\"}]},{\"id\":\"item3\",\"text\":\"item3\",\"hex\":\"#9C27B0\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item3\"}]},{\"id\":\"item4\",\"text\":\"item4\",\"hex\":\"#673AB7\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item4\"}]},{\"id\":\"item5\",\"text\":\"item5\",\"hex\":\"#3F51B5\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item5\"}]}]",
   "email2@email.com",
   "admin2@email.com"
 );

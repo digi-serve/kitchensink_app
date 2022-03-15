@@ -24,8 +24,8 @@ export default (folderName, Common) => {
          ).should("include.text", "Chart");
 
          cy.get('div[view_id^="ABViewContainer_"]')
-            .should("include.text", "Text2")
-            .should("include.text", "Text3");
+            .should("include.text", "text")
+            .should("include.text", "text2");
       });
 
       it("Menu Carousel", () => {
@@ -39,8 +39,6 @@ export default (folderName, Common) => {
       });
 
       it("Menu Chart", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs2-Menu.sql"]);
-
          cy.get(
             '[data-cy="menu-item Chart 41d39ac7-e7d9-405d-a570-b79686ccdd5a eac2cff7-5069-4f74-9bd9-523a3b633346"]'
          ).click();
@@ -72,15 +70,6 @@ export default (folderName, Common) => {
             .should("be.visible")
             .should("include.text", "Close")
             .click();
-
-         cy.get(
-            '[data-cy="menu-item KitchenHome cb77ced0-a803-46b7-8a79-f9084d75d51c 5a50210f-767b-461e-9762-66fbc263ec7f"]'
-         ).click();
-
-         cy.get('div[view_id^="ABViewContainer_"]').should(
-            "include.text",
-            "Text2"
-         );
       });
    });
 };

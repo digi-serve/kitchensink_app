@@ -1,26 +1,44 @@
 export default (folderName, Common) => {
-    const TARGET_VIEW_ID = "ABViewConditionalContainer_c2a24665-7aad-4f6d-b4b5-2cc7d862fa2c_component";
+   const TARGET_VIEW_ID = "ABViewConditionalContainer";
 
-    describe("ConditionalContainer", () => {
-        beforeEach(() => {
-            Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+   describe("ConditionalContainer", () => {
+      beforeEach(() => {
+         // Select the Condition container tab
+         cy.get(
+            'div[webix_tm_id="566273fc-d2ba-481a-b12d-20d50319a57a_menu"]'
+         ).click();
+      });
 
-            // Select the Condition container tab
-            cy.get('div[webix_tm_id="566273fc-d2ba-481a-b12d-20d50319a57a_menu"]').click();
-        });
+      it("Exists", () => {
+         cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("exist");
+      });
 
-        it("Exists", () => {
-            cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("exist");
-        });
+      it("Should display if panel", () => {
+         cy.get(
+            "[data-cy='number number d327bf3a-c49c-4c0f-981f-7a39fbbb81b0 f36f8849-011c-4fbe-936d-00a872dcea9d']"
+         )
+            .should("be.visible")
+            .type("Warming up")
+            .clear()
+            .type("1");
+         cy.get(
+            "[data-cy='button save f36f8849-011c-4fbe-936d-00a872dcea9d']"
+         ).click();
+         cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("have.text", "<2");
+      });
 
-        it("Should display if panel", () => {
-            cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should('have.text', 'If');
-        });
-
-        it("Should display else panel", () => {
-            // Select a new row
-            cy.get('div[view_id="ABViewGrid_9827881b-9054-11ec-ac3e-e4029b83a234_datatable"] div.detailsView').eq(1).click();
-            cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should('have.text', 'Else');
-        });
-    });
+      it("Should display else panel", () => {
+         cy.get(
+            "[data-cy='number number d327bf3a-c49c-4c0f-981f-7a39fbbb81b0 f36f8849-011c-4fbe-936d-00a872dcea9d']"
+         )
+            .should("be.visible")
+            .type("Warming up")
+            .clear()
+            .type("11");
+         cy.get(
+            "[data-cy='button save f36f8849-011c-4fbe-936d-00a872dcea9d']"
+         ).click();
+         cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("have.text", ">=2");
+      });
+   });
 };
