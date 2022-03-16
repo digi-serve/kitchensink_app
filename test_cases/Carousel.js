@@ -1,7 +1,6 @@
 export default (folderName, Common) => {
 
   describe("Carousel", () => {
-
     it("Exists", () => {
       Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
       cy.get(
