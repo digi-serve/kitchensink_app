@@ -1458,7 +1458,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "9542019d-51ab-4f0b-9ff2-238ee42ccd2d"
+          "linkColumn": "13156194-7ac7-4987-9783-8340eefabc58"
         },
         "translations": [
           {
@@ -1498,7 +1498,7 @@
           "indexField2": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "many",
           "linkViaType": "many",
-          "linkColumn": "65735495-9b90-4b65-b99d-f06aae6be6cb"
+          "linkColumn": "7f2251b8-2baa-496f-a0a8-1a43b55cc609"
         },
         "translations": [
           {
@@ -2837,7 +2837,8 @@
           "2e7a1c02-141a-4cdd-b93e-62c6c4e4765b",
           "568257d1-a957-49db-bf8f-b88979c9cd79",
           "3b55d003-c900-4fda-add0-46a6122c1b5a",
-          "5adb3510-d314-4fd7-b25e-bfd8d56bc519"
+          "5adb3510-d314-4fd7-b25e-bfd8d56bc519",
+          "b75b3530-b5de-4ca8-b136-0503c4c9a8c2"
         ],
         "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
         "objectWorkspaceViews": {
@@ -2860,7 +2861,7 @@
         }
       },
       "createdAt": "2022-03-15T02:22:23.000Z",
-      "updatedAt": "2022-03-15T02:24:19.000Z"
+      "updatedAt": "2022-03-16T08:54:51.000Z"
     },
     {
       "name": "test-kcs-forms->Title",
@@ -3024,6 +3025,43 @@
       "id": "5adb3510-d314-4fd7-b25e-bfd8d56bc519",
       "createdAt": "2022-03-15T02:24:19.378Z",
       "updatedAt": "2022-03-15T02:24:19.378Z"
+    },
+    {
+      "name": "test-kcs-forms->Number allow empty",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "number",
+        "icon": "hashtag",
+        "isImported": "0",
+        "columnName": "Number allow empty",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "typeFormat": "none",
+          "typeDecimals": "none",
+          "typeDecimalPlaces": "none",
+          "typeRounding": "none",
+          "typeThousands": "none",
+          "validation": 0,
+          "validateMinimum": "",
+          "validateMaximum": "",
+          "width": 240
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Number (allow empty)"
+          }
+        ],
+        "id": "b75b3530-b5de-4ca8-b136-0503c4c9a8c2"
+      },
+      "id": "b75b3530-b5de-4ca8-b136-0503c4c9a8c2",
+      "createdAt": "2022-03-16T08:54:51.710Z",
+      "updatedAt": "2022-03-16T08:54:51.710Z"
     },
     {
       "id": "2900d309-e9c3-434f-b937-202d8a972a11",
@@ -4267,11 +4305,12 @@
         "myAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
         "pageIDs": [
           "93f39714-7d1b-4375-b5b2-89c94a3e96bd",
-          "398a96a6-21dc-4ab3-8017-b2754fa979d4"
+          "398a96a6-21dc-4ab3-8017-b2754fa979d4",
+          "8cfc7558-4ed0-4ac3-8753-07c37ac1dc7c"
         ]
       },
       "createdAt": "2021-09-14T03:54:35.000Z",
-      "updatedAt": "2021-09-14T07:15:01.000Z"
+      "updatedAt": "2022-03-16T08:51:28.000Z"
     },
     {
       "id": "93f39714-7d1b-4375-b5b2-89c94a3e96bd",
@@ -6050,6 +6089,376 @@
       },
       "createdAt": "2021-09-14T07:15:23.000Z",
       "updatedAt": "2021-09-14T07:16:16.000Z"
+    },
+    {
+      "id": "8cfc7558-4ed0-4ac3-8753-07c37ac1dc7c",
+      "name": "Edit Form",
+      "type": "view",
+      "json": {
+        "id": "8cfc7558-4ed0-4ac3-8753-07c37ac1dc7c",
+        "type": "view",
+        "key": "page",
+        "icon": "clone",
+        "name": "Edit Form",
+        "settings": {
+          "columns": "1",
+          "removable": "true",
+          "movable": "true",
+          "gravity": [
+            "1"
+          ],
+          "type": "popup",
+          "popupWidth": "400",
+          "popupHeight": "400",
+          "pageWidth": "",
+          "fixedPageWidth": "0",
+          "pageBackground": "ab-background-default"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form"
+          }
+        ],
+        "viewIDs": [
+          "c8d8a6fb-783a-409c-949d-ac94c959a49b",
+          "ee223876-f1a2-4e69-837e-557ab2a3a3ba"
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1"
+        },
+        "isRoot": "false",
+        "myAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
+      },
+      "createdAt": "2022-03-16T08:51:28.000Z",
+      "updatedAt": "2022-03-16T09:09:28.000Z"
+    },
+    {
+      "id": "c8d8a6fb-783a-409c-949d-ac94c959a49b",
+      "name": "Edit Form.form",
+      "type": "view",
+      "json": {
+        "id": "c8d8a6fb-783a-409c-949d-ac94c959a49b",
+        "type": "view",
+        "key": "form",
+        "icon": "list-alt",
+        "name": "Edit Form.form",
+        "settings": {
+          "columns": "1",
+          "removable": "true",
+          "movable": "true",
+          "labelPosition": "left",
+          "showLabel": "1",
+          "clearOnLoad": "0",
+          "clearOnSave": "0",
+          "labelWidth": "180",
+          "height": "200",
+          "dataviewID": "8b69b2a3-ba4a-4c31-9706-5190db5c5a86",
+          "gravity": [
+            "1"
+          ]
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.form"
+          }
+        ],
+        "viewIDs": [
+          "2569c41c-44ee-4342-8d36-c199576a5756",
+          "9cc6d0fc-c148-4461-8402-47ec3126fbf2"
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "x": "0",
+          "y": "1"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T08:51:51.000Z",
+      "updatedAt": "2022-03-16T09:24:24.000Z"
+    },
+    {
+      "id": "2569c41c-44ee-4342-8d36-c199576a5756",
+      "name": "Edit Form.form.numberbox",
+      "type": "view",
+      "json": {
+        "id": "2569c41c-44ee-4342-8d36-c199576a5756",
+        "type": "view",
+        "key": "numberbox",
+        "icon": "hashtag",
+        "name": "Edit Form.form.numberbox",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "b75b3530-b5de-4ca8-b136-0503c4c9a8c2",
+          "isStepper": "0"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.form.numberbox"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "x": "0",
+          "y": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T08:55:57.000Z",
+      "updatedAt": "2022-03-16T09:24:24.000Z"
+    },
+    {
+      "id": "9cc6d0fc-c148-4461-8402-47ec3126fbf2",
+      "name": "Edit Form.form.button",
+      "type": "view",
+      "json": {
+        "id": "9cc6d0fc-c148-4461-8402-47ec3126fbf2",
+        "type": "view",
+        "key": "button",
+        "icon": "square",
+        "name": "Edit Form.form.button",
+        "settings": {
+          "includeSave": "true",
+          "includeCancel": "false",
+          "includeReset": "false",
+          "isDefault": "true"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.form.button"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "y": "1",
+          "x": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T08:52:04.000Z",
+      "updatedAt": "2022-03-16T09:24:24.000Z"
+    },
+    {
+      "id": "ee223876-f1a2-4e69-837e-557ab2a3a3ba",
+      "name": "Edit Form.detail",
+      "type": "view",
+      "json": {
+        "id": "ee223876-f1a2-4e69-837e-557ab2a3a3ba",
+        "type": "view",
+        "key": "detail",
+        "icon": "file-text-o",
+        "settings": {
+          "columns": "1",
+          "removable": "true",
+          "movable": "true",
+          "labelPosition": "left",
+          "showLabel": "1",
+          "labelWidth": "180",
+          "height": "0",
+          "dataviewID": "8b69b2a3-ba4a-4c31-9706-5190db5c5a86",
+          "gravity": [
+            "1"
+          ]
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.detail"
+          }
+        ],
+        "viewIDs": [
+          "1f71ca89-cb0c-48c1-9969-bdae16474f6d",
+          "88ba7cc4-8a4d-44a7-8f62-fcf081a3f5fe",
+          "cccead32-53fb-4ee7-a0d5-65a5d0748168",
+          "6ea78fc8-d040-4474-8ec1-c13068562c39",
+          "c2dc8243-c9b5-48b6-91fa-c754c096bacc"
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "x": "0",
+          "y": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:09:02.000Z",
+      "updatedAt": "2022-03-16T09:09:39.000Z"
+    },
+    {
+      "id": "1f71ca89-cb0c-48c1-9969-bdae16474f6d",
+      "name": "Edit Form.detail.detailtext",
+      "type": "view",
+      "json": {
+        "id": "1f71ca89-cb0c-48c1-9969-bdae16474f6d",
+        "type": "view",
+        "key": "detailtext",
+        "icon": "etsy",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "b75b3530-b5de-4ca8-b136-0503c4c9a8c2",
+          "columnSpan": "1",
+          "rowSpan": "1",
+          "height": "0",
+          "labelWidth": "120"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.detail.detailtext"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "y": "4",
+          "x": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:09:16.000Z",
+      "updatedAt": "2022-03-16T09:09:39.000Z"
+    },
+    {
+      "id": "88ba7cc4-8a4d-44a7-8f62-fcf081a3f5fe",
+      "name": "Edit Form.detail.detailcheckbox",
+      "type": "view",
+      "json": {
+        "id": "88ba7cc4-8a4d-44a7-8f62-fcf081a3f5fe",
+        "type": "view",
+        "key": "detailcheckbox",
+        "icon": "check-square-o",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "5adb3510-d314-4fd7-b25e-bfd8d56bc519",
+          "columnSpan": "1",
+          "rowSpan": "1",
+          "labelWidth": "120"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.detail.detailcheckbox"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "y": "3",
+          "x": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:09:16.000Z",
+      "updatedAt": "2022-03-16T09:09:39.000Z"
+    },
+    {
+      "id": "cccead32-53fb-4ee7-a0d5-65a5d0748168",
+      "name": "Edit Form.detail.detailtext",
+      "type": "view",
+      "json": {
+        "id": "cccead32-53fb-4ee7-a0d5-65a5d0748168",
+        "type": "view",
+        "key": "detailtext",
+        "icon": "etsy",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "3b55d003-c900-4fda-add0-46a6122c1b5a",
+          "columnSpan": "1",
+          "rowSpan": "1",
+          "height": "0",
+          "labelWidth": "120"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.detail.detailtext"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "y": "2",
+          "x": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:09:16.000Z",
+      "updatedAt": "2022-03-16T09:09:39.000Z"
+    },
+    {
+      "id": "6ea78fc8-d040-4474-8ec1-c13068562c39",
+      "name": "Edit Form.detail.detailtext",
+      "type": "view",
+      "json": {
+        "id": "6ea78fc8-d040-4474-8ec1-c13068562c39",
+        "type": "view",
+        "key": "detailtext",
+        "icon": "etsy",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "568257d1-a957-49db-bf8f-b88979c9cd79",
+          "columnSpan": "1",
+          "rowSpan": "1",
+          "height": "0",
+          "labelWidth": "120"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.detail.detailtext"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "y": "1",
+          "x": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:09:16.000Z",
+      "updatedAt": "2022-03-16T09:09:39.000Z"
+    },
+    {
+      "id": "c2dc8243-c9b5-48b6-91fa-c754c096bacc",
+      "name": "Edit Form.detail.detailtext",
+      "type": "view",
+      "json": {
+        "id": "c2dc8243-c9b5-48b6-91fa-c754c096bacc",
+        "type": "view",
+        "key": "detailtext",
+        "icon": "etsy",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "2e7a1c02-141a-4cdd-b93e-62c6c4e4765b",
+          "columnSpan": "1",
+          "rowSpan": "1",
+          "height": "0",
+          "labelWidth": "120"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Edit Form.detail.detailtext"
+          }
+        ],
+        "position": {
+          "dx": "1",
+          "dy": "1",
+          "y": "0",
+          "x": "0"
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:09:16.000Z",
+      "updatedAt": "2022-03-16T09:09:39.000Z"
     },
     {
       "id": "b52e6e96-5033-4c7f-a104-29bd5ddcac4a",
@@ -13289,7 +13698,7 @@
             "isGlobalToolbar": "1"
           },
           "detailsPage": "",
-          "editPage": "",
+          "editPage": "8cfc7558-4ed0-4ac3-8753-07c37ac1dc7c",
           "detailsTab": "",
           "editTab": "",
           "height": 400,
@@ -13313,7 +13722,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:26:35.000Z",
-      "updatedAt": "2022-03-15T06:54:41.000Z"
+      "updatedAt": "2022-03-16T08:57:26.000Z"
     },
     {
       "id": "c2a70a89-1e38-4e3e-87f3-1e753ae5f771",
@@ -13346,7 +13755,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:30:05.000Z",
-      "updatedAt": "2022-03-15T06:54:31.000Z"
+      "updatedAt": "2022-03-16T09:08:17.000Z"
     },
     {
       "id": "7e074587-ddc5-4d34-9f37-a0ab88a4258b",
@@ -13359,19 +13768,18 @@
         "icon": "list-alt",
         "name": "Form Save.form",
         "settings": {
-          "columns": "4",
+          "columns": "3",
           "removable": "true",
           "movable": "true",
-          "labelPosition": "left",
+          "labelPosition": "top",
           "showLabel": "1",
           "clearOnLoad": "0",
           "clearOnSave": "1",
-          "labelWidth": "60",
+          "labelWidth": "160",
           "height": 200,
           "dataviewID": "8b69b2a3-ba4a-4c31-9706-5190db5c5a86",
           "gravity": [
             "1",
-            "2",
             "1",
             "1"
           ],
@@ -13418,6 +13826,7 @@
         ],
         "viewIDs": [
           "227da25e-9c38-4b90-8d30-80447e35d0b8",
+          "a9451e43-ec01-47c9-9403-6da2ff51072d",
           "95659f44-5567-4213-af4e-ed6c6c29fb18"
         ],
         "position": {
@@ -13429,7 +13838,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:31:55.000Z",
-      "updatedAt": "2022-03-15T06:54:31.000Z"
+      "updatedAt": "2022-03-16T09:06:15.000Z"
     },
     {
       "id": "227da25e-9c38-4b90-8d30-80447e35d0b8",
@@ -13440,6 +13849,7 @@
         "type": "view",
         "key": "textbox",
         "icon": "i-cursor",
+        "name": "Form Save.form.textbox",
         "settings": {
           "type": "single",
           "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
@@ -13460,7 +13870,38 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:32:07.000Z",
-      "updatedAt": "2022-03-15T02:33:12.000Z"
+      "updatedAt": "2022-03-16T09:06:15.000Z"
+    },
+    {
+      "id": "a9451e43-ec01-47c9-9403-6da2ff51072d",
+      "name": "Form Save.form.numberbox",
+      "type": "view",
+      "json": {
+        "id": "a9451e43-ec01-47c9-9403-6da2ff51072d",
+        "type": "view",
+        "key": "numberbox",
+        "icon": "hashtag",
+        "settings": {
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "b75b3530-b5de-4ca8-b136-0503c4c9a8c2",
+          "isStepper": "0"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Form Save.form.numberbox"
+          }
+        ],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "x": 1,
+          "y": 1
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-03-16T09:03:57.000Z",
+      "updatedAt": "2022-03-16T09:06:15.000Z"
     },
     {
       "id": "95659f44-5567-4213-af4e-ed6c6c29fb18",
@@ -13471,6 +13912,7 @@
         "type": "view",
         "key": "button",
         "icon": "square",
+        "name": "Form Save.form.button",
         "settings": {
           "includeSave": "1",
           "includeCancel": "0",
@@ -13480,7 +13922,7 @@
           "cancelLabel": "",
           "resetLabel": "",
           "afterCancel": "",
-          "alignment": "left"
+          "alignment": "center"
         },
         "translations": [
           {
@@ -13491,13 +13933,13 @@
         "position": {
           "dx": 1,
           "dy": 1,
-          "y": 0,
-          "x": 2
+          "y": 2,
+          "x": 1
         },
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:32:07.000Z",
-      "updatedAt": "2022-03-15T02:33:22.000Z"
+      "updatedAt": "2022-03-16T09:06:15.000Z"
     },
     {
       "id": "6a43b4b9-cbad-4756-a9f8-ce58bba6e9b7",
@@ -14489,7 +14931,17 @@
           "88a3f8e8-9855-4119-b697-b397e3c527a8",
           "d1e518db-b0a7-4d8d-b8c4-9e9a0b59dd99",
           "9542019d-51ab-4f0b-9ff2-238ee42ccd2d",
-          "65735495-9b90-4b65-b99d-f06aae6be6cb"
+          "65735495-9b90-4b65-b99d-f06aae6be6cb",
+          "5a3384eb-74e9-439c-b8b3-8ceb8cd03b46",
+          "b8b8161d-5007-4b8d-84f9-65926a0d63ca",
+          "c4b49ba2-c810-4d9e-b28c-58ab40c269e8",
+          "8832b64a-3b2a-416c-bc5c-0ac414d9848d",
+          "1680b8e9-da37-417e-9081-01744d4edc61",
+          "b4681924-5bb6-4665-a849-bbb3d06866df",
+          "0432b8b8-7188-41b4-b9c1-169c17cd77e6",
+          "49e684ac-44ad-45a3-8b2e-1cdd05223d3f",
+          "13156194-7ac7-4987-9783-8340eefabc58",
+          "7f2251b8-2baa-496f-a0a8-1a43b55cc609"
         ],
         "indexIDs": [
           "26b455fa-8b80-404b-bf8f-b3d02d90a05b"
@@ -69609,7 +70061,7 @@
       "updatedAt": "2022-02-25T05:33:27.000Z"
     },
     {
-      "id": "9542019d-51ab-4f0b-9ff2-238ee42ccd2d",
+      "id": "13156194-7ac7-4987-9783-8340eefabc58",
       "type": "field",
       "name": "USER->test-kcs.user",
       "json": {
@@ -69637,13 +70089,13 @@
             "label": "test-kcs.user"
           }
         ],
-        "id": "9542019d-51ab-4f0b-9ff2-238ee42ccd2d"
+        "id": "13156194-7ac7-4987-9783-8340eefabc58"
       },
       "createdAt": "2021-09-13T07:10:12.000Z",
       "updatedAt": "2021-09-13T07:10:12.000Z"
     },
     {
-      "id": "65735495-9b90-4b65-b99d-f06aae6be6cb",
+      "id": "7f2251b8-2baa-496f-a0a8-1a43b55cc609",
       "type": "field",
       "name": "USER->test-kcs.user(multi)",
       "json": {
@@ -69671,7 +70123,7 @@
             "label": "test-kcs.user(multi)"
           }
         ],
-        "id": "65735495-9b90-4b65-b99d-f06aae6be6cb"
+        "id": "7f2251b8-2baa-496f-a0a8-1a43b55cc609"
       },
       "createdAt": "2021-09-13T07:12:06.000Z",
       "updatedAt": "2021-09-13T07:12:06.000Z"

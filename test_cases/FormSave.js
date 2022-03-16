@@ -44,5 +44,40 @@ export default (folderName, Common) => {
          cy.get(".trash").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
+      it.only("Submit Empty Number Field", () => {
+         cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
+            .should("be.visible")
+            .click();
+         cy.get(".edit").should("be.visible").click();
+         cy.get(
+            '[data-cy="detail text Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 ee223876-f1a2-4e69-837e-557ab2a3a3ba"]'
+         )
+            .should("be.visible")
+            .find(".ab-detail-component-holder")
+            .should("be.empty");
+         cy.get(
+            '[data-cy="number Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 c8d8a6fb-783a-409c-949d-ac94c959a49b"]'
+         )
+            .type("1111")
+            .clear()
+            .type("20");
+         cy.get(
+            '[data-cy="button save c8d8a6fb-783a-409c-949d-ac94c959a49b"]'
+         ).click();
+         cy.get(
+            '[data-cy="detail text Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 ee223876-f1a2-4e69-837e-557ab2a3a3ba"]'
+         ).contains("20");
+         cy.get(
+            '[data-cy="number Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 c8d8a6fb-783a-409c-949d-ac94c959a49b"]'
+         ).clear();
+         cy.get(
+            '[data-cy="button save c8d8a6fb-783a-409c-949d-ac94c959a49b"]'
+         ).click();
+         cy.get(
+            '[data-cy="detail text Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 ee223876-f1a2-4e69-837e-557ab2a3a3ba"]'
+         )
+            .find(".ab-detail-component-holder")
+            .should("be.empty");
+      });
    });
 };
