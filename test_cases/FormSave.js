@@ -44,7 +44,7 @@ export default (folderName, Common) => {
          cy.get(".trash").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
-      it.only("Submit Empty Number Field", () => {
+      it("Submit Empty Number Field", () => {
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
             .should("be.visible")
             .click();
