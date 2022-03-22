@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-  describe.only("Tab", () => {
+  describe("Tab", () => {
 
          //1. can find the text "test tab 1"
          it("can find the text test tab 1", () =>{
