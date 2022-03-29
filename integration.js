@@ -10,7 +10,7 @@ const testCases = [
    require("./test_cases/Image.js"),
    require("./test_cases/Detail.js"),
    require("./test_cases/Menu.js"),
-   require("./test_cases/Form.js")
+   require("./test_cases/Form.js"),
    require("./test_cases/FormSave.js"),
 ];
 
