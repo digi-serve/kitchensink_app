@@ -21,6 +21,10 @@ export default (folderName, Common) => {
          cy.get(".webix_ss_center_scroll").contains("Test Record Rules");
          cy.get(".webix_ss_center_scroll").contains("5");
          cy.get(".webix_ss_center_scroll").contains("Option 2");
+         cy.log(
+            "'Mr. Admin' is set in a record rule: selected via data collection current-cursor-select. That method is used in almost every module."
+         );
+         cy.get(".webix_ss_center_scroll").contains("Mr. Admin");
          cy.get(".webix_ss_center_scroll").find(".fa-square-o");
          cy.get(".trash").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
