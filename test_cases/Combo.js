@@ -19,6 +19,7 @@ export default (folderName, Common) => {
             .contains("Record A")
             .click({ force: true });
 
+         cy.log("This should be the combination of the other two index fields")
          cy.get(
             '[data-cy="detail text Combined Field 3b3e2150-8151-4d9b-8009-6c5a032b1968 a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]'
          )
