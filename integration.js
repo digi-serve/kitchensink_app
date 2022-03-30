@@ -5,6 +5,7 @@ const folderName = __dirname.match(/[^\\/]+$/)[0];
 const testCases = [
    require("./test_cases/Carousel.js"),
    require("./test_cases/ConditionalContainer.js"),
+   require("./test_cases/Combo.js"),
    require("./test_cases/Text.js"),
    require("./test_cases/Label.js"),
    require("./test_cases/Image.js"),
@@ -30,6 +31,7 @@ beforeEach(() => {
    Common.RunSQL(cy, folderName, ["reset_tables.sql"]);
    Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
    Common.RunSQL(cy, folderName, ["add_testkcs2-Menu.sql"]);
+   Common.RunSQL(cy, folderName, ["add_testkcs2-combo.sql"]);
    cy.visit("/");
 });
 
