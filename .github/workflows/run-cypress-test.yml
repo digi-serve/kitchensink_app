@@ -40,7 +40,7 @@ jobs:
         with:
           working-directory: ./ab
           project: ./test/e2e
-          config: baseUrl=http://localhost:8080,testFiles=**/*.js,responseTimeout=60000,defaultCommandTimeout=24000
+          config: baseUrl=http://localhost:8080,testFiles=**/*.js,responseTimeout=100000,defaultCommandTimeout=30000,retries=2
 
           # Wait for the site to be ready
           wait-on: "http://localhost:8080"
