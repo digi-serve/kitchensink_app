@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe.only("Form", () => {
+   describe("Form", () => {
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
