@@ -12,6 +12,8 @@ const testCases = [
    require("./test_cases/Menu.js"),
    require("./test_cases/Form.js"),
    require("./test_cases/FormSave.js"),
+   require("./test_cases/Tab.js"),
+   require("./test_cases/Comment.js"),
 ];
 
 // Don't stop tests on uncaught errors
