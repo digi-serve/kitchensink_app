@@ -1,7 +1,7 @@
 import path from "path";
 
 export default () => {
-   describe.only("DOCX Builder", () => {
+   describe("DOCX Builder", () => {
       beforeEach(() => {
          // Select the tab "DOCX Builder"
          cy.get('[data-cy^="tab-DOCXBuilder-"]').click();
