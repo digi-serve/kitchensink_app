@@ -14,6 +14,7 @@ const testCases = [
    require("./test_cases/FormSave.js"),
    require("./test_cases/Tab.js"),
    require("./test_cases/Comment.js"),
+   require("./test_cases/DOCXBuilder.js"),
 ];
 
 // Don't stop tests on uncaught errors
