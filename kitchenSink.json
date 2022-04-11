@@ -74,7 +74,8 @@
           "role": [
             "c9093730-0176-4f72-b410-bfb6856ff713",
             "4cb11fa7-3d79-412c-9a03-0ce8d7210cde",
-            "dd6c2d34-0982-48b7-bc44-2456474edbea"
+            "dd6c2d34-0982-48b7-bc44-2456474edbea",
+            "eb4f75ea-c995-4fc6-8bab-0ab2d6552508"
           ],
           "useAccount": "0",
           "account": ""
@@ -87,7 +88,7 @@
         }
       },
       "createdAt": "2021-09-13T04:30:02.000Z",
-      "updatedAt": "2022-04-08T06:29:27.000Z"
+      "updatedAt": "2022-04-08T09:22:17.000Z"
     },
     {
       "id": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
@@ -1480,7 +1481,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "8ba7d519-58fb-40f0-a73f-88f3ef8dca92"
+          "linkColumn": "076133f5-83cf-4389-bc94-09438c962892"
         },
         "translations": [
           {
@@ -1520,7 +1521,7 @@
           "indexField2": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "many",
           "linkViaType": "many",
-          "linkColumn": "a102efe3-3392-4746-a9c7-c52367d322de"
+          "linkColumn": "c03fb607-4233-492d-8f2c-2a49922f4fe7"
         },
         "translations": [
           {
@@ -2390,7 +2391,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "1a189f5e-0fd7-4972-b066-4c959615a5a8"
+          "linkColumn": "afe45e35-840d-480d-a057-4d63232e0c1b"
         },
         "translations": [
           {
@@ -3823,8 +3824,7 @@
           "linkFieldID": "",
           "objectWorkspace": {
             "filterConditions": {
-              "glue": "and",
-              "rules": []
+              "glue": "and"
             }
           },
           "fixSelect": "_FirstRecord",
@@ -4362,6 +4362,7 @@
       "updatedAt": "2022-03-30T06:32:30.000Z"
     },
     {
+      "id": "ef122104-25aa-484f-80eb-9d0524c02ac2",
       "name": "test-kcs-scoped-data",
       "type": "datacollection",
       "json": {
@@ -4389,9 +4390,8 @@
         ],
         "id": "ef122104-25aa-484f-80eb-9d0524c02ac2"
       },
-      "id": "ef122104-25aa-484f-80eb-9d0524c02ac2",
-      "createdAt": "2022-04-08T06:29:26.922Z",
-      "updatedAt": "2022-04-08T06:29:26.922Z"
+      "createdAt": "2022-04-08T06:29:26.000Z",
+      "updatedAt": "2022-04-08T06:29:26.000Z"
     },
     {
       "id": "b17f815f-cadc-4829-afb0-a7a726bde018",
@@ -16179,11 +16179,11 @@
       "updatedAt": "2022-04-08T06:30:12.000Z"
     },
     {
-      "id": "8ba7d519-58fb-40f0-a73f-88f3ef8dca92",
+      "id": "076133f5-83cf-4389-bc94-09438c962892",
       "type": "field",
       "name": "USER->test-kcs.user",
       "json": {
-        "id": "8ba7d519-58fb-40f0-a73f-88f3ef8dca92",
+        "id": "076133f5-83cf-4389-bc94-09438c962892",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -16213,11 +16213,11 @@
       "updatedAt": "2021-09-13T07:10:12.000Z"
     },
     {
-      "id": "a102efe3-3392-4746-a9c7-c52367d322de",
+      "id": "c03fb607-4233-492d-8f2c-2a49922f4fe7",
       "type": "field",
       "name": "USER->test-kcs.user(multi)",
       "json": {
-        "id": "a102efe3-3392-4746-a9c7-c52367d322de",
+        "id": "c03fb607-4233-492d-8f2c-2a49922f4fe7",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -16247,11 +16247,11 @@
       "updatedAt": "2021-09-13T07:12:06.000Z"
     },
     {
-      "id": "1a189f5e-0fd7-4972-b066-4c959615a5a8",
+      "id": "afe45e35-840d-480d-a057-4d63232e0c1b",
       "type": "field",
       "name": "USER->test-kcs-user-profile.user",
       "json": {
-        "id": "1a189f5e-0fd7-4972-b066-4c959615a5a8",
+        "id": "afe45e35-840d-480d-a057-4d63232e0c1b",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -16314,9 +16314,9 @@
   "errors": [],
   "siteObjectConnections": {
     "228e3d91-5e42-49ec-b37c-59323ae433a1": [
-      "8ba7d519-58fb-40f0-a73f-88f3ef8dca92",
-      "a102efe3-3392-4746-a9c7-c52367d322de",
-      "1a189f5e-0fd7-4972-b066-4c959615a5a8"
+      "076133f5-83cf-4389-bc94-09438c962892",
+      "c03fb607-4233-492d-8f2c-2a49922f4fe7",
+      "afe45e35-840d-480d-a057-4d63232e0c1b"
     ]
   },
   "roles": [
@@ -16339,7 +16339,7 @@
         {
           "uuid": "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e",
           "created_at": "2022-04-07T09:36:31.000Z",
-          "updated_at": null,
+          "updated_at": "2022-04-08T07:14:15.000Z",
           "properties": null,
           "translations": [
             {
@@ -16348,10 +16348,21 @@
               "description": "Restricted scope on test-kcs-scoped-data object"
             }
           ],
-          "Objects": "[\"01e0c6d4-ab5e-41ca-8715-77f0424e623f\",\"3f4f9295-4ad6-4279-9789-5c6c175852df\",\"5e576b80-0bd5-4bf1-90e4-c4f652c75f98\",\"68200b3f-7ce9-4569-8f58-5fe255f8da53\",\"72a93a34-ccc6-46ec-bd1a-118b490e7e1a\",\"80ccd9b6-ba26-4e63-9fc9-d37d3df60d68\",\"bd4243a8-7c19-4dc0-ad27-1a3b56960bb4\",\"c83bc5d5-41af-4307-85c9-852950efbd15\",\"dc5b5648-73f6-4ffa-b131-f9b998793ae8\",\"efdf6230-2013-459c-9c0e-a8c25521f31a\"]",
           "Filters": "{\"glue\":\"and\",\"rules\":[{\"key\":\"d8eccd82-530a-466d-8b09-51725ab9a964\",\"rule\":\"equals\",\"value\":\"A\"}]}",
           "allowAll": 0,
-          "createdBy": null
+          "createdBy": null,
+          "Objects": [
+            "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
+            "3f4f9295-4ad6-4279-9789-5c6c175852df",
+            "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
+            "68200b3f-7ce9-4569-8f58-5fe255f8da53",
+            "72a93a34-ccc6-46ec-bd1a-118b490e7e1a",
+            "80ccd9b6-ba26-4e63-9fc9-d37d3df60d68",
+            "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+            "c83bc5d5-41af-4307-85c9-852950efbd15",
+            "dc5b5648-73f6-4ffa-b131-f9b998793ae8",
+            "efdf6230-2013-459c-9c0e-a8c25521f31a"
+          ]
         }
       ],
       "ProcessForm30": [],
@@ -16377,7 +16388,7 @@
         {
           "uuid": "7d54e52e-65e6-4da7-8faa-26aed0c1160e",
           "created_at": "2022-04-07T09:38:19.000Z",
-          "updated_at": "2022-04-08T06:30:30.000Z",
+          "updated_at": "2022-04-08T06:38:03.000Z",
           "properties": null,
           "translations": [
             {
@@ -16386,10 +16397,21 @@
               "description": "Full Access Scope for Kitchensink App Objects"
             }
           ],
-          "Objects": "[\"01e0c6d4-ab5e-41ca-8715-77f0424e623f\",\"3f4f9295-4ad6-4279-9789-5c6c175852df\",\"5e576b80-0bd5-4bf1-90e4-c4f652c75f98\",\"68200b3f-7ce9-4569-8f58-5fe255f8da53\",\"72a93a34-ccc6-46ec-bd1a-118b490e7e1a\",\"80ccd9b6-ba26-4e63-9fc9-d37d3df60d68\",\"bd4243a8-7c19-4dc0-ad27-1a3b56960bb4\",\"c83bc5d5-41af-4307-85c9-852950efbd15\",\"dc5b5648-73f6-4ffa-b131-f9b998793ae8\",\"efdf6230-2013-459c-9c0e-a8c25521f31a\"]",
           "Filters": null,
           "allowAll": 0,
-          "createdBy": null
+          "createdBy": null,
+          "Objects": [
+            "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
+            "3f4f9295-4ad6-4279-9789-5c6c175852df",
+            "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
+            "68200b3f-7ce9-4569-8f58-5fe255f8da53",
+            "72a93a34-ccc6-46ec-bd1a-118b490e7e1a",
+            "80ccd9b6-ba26-4e63-9fc9-d37d3df60d68",
+            "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+            "c83bc5d5-41af-4307-85c9-852950efbd15",
+            "dc5b5648-73f6-4ffa-b131-f9b998793ae8",
+            "efdf6230-2013-459c-9c0e-a8c25521f31a"
+          ]
         }
       ],
       "ProcessForm30": [],
@@ -16433,6 +16455,54 @@
       "ProcessForm30": [],
       "name": "System Admin",
       "description": "Full Access"
+    },
+    {
+      "uuid": "eb4f75ea-c995-4fc6-8bab-0ab2d6552508",
+      "created_at": "2022-04-08T09:18:29.000Z",
+      "updated_at": "2022-04-08T09:19:14.000Z",
+      "properties": null,
+      "translations": [
+        {
+          "language_code": "en",
+          "name": "test-kcs-restricted-role",
+          "description": "No acces to the test-kcs-scoped-data"
+        }
+      ],
+      "users": [],
+      "Default Role": null,
+      "ProcessForm30__relation": [],
+      "scopes": [
+        {
+          "uuid": "506a6815-0073-436e-9e2a-b5bc6b655b8a",
+          "created_at": "2022-04-08T09:20:23.000Z",
+          "updated_at": null,
+          "properties": null,
+          "translations": [
+            {
+              "language_code": "en",
+              "name": "test-kcs-restricted-scope",
+              "description": "No acces to the test-kcs-scoped-data"
+            }
+          ],
+          "Filters": null,
+          "allowAll": 0,
+          "createdBy": null,
+          "Objects": [
+            "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
+            "3f4f9295-4ad6-4279-9789-5c6c175852df",
+            "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
+            "68200b3f-7ce9-4569-8f58-5fe255f8da53",
+            "80ccd9b6-ba26-4e63-9fc9-d37d3df60d68",
+            "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+            "c83bc5d5-41af-4307-85c9-852950efbd15",
+            "dc5b5648-73f6-4ffa-b131-f9b998793ae8",
+            "efdf6230-2013-459c-9c0e-a8c25521f31a"
+          ]
+        }
+      ],
+      "ProcessForm30": [],
+      "name": "test-kcs-restricted-role",
+      "description": "No acces to the test-kcs-scoped-data"
     }
   ]
 }
