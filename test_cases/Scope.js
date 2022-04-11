@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe.only("Scope", () => {
+   describe("Scope", () => {
       it("Filtered scope sees filtered data", () => {
          Common.RunSQL(cy, folderName, "assign_role_filtered.sql");
          reloadToScopePage();
