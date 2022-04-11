@@ -28,7 +28,8 @@
             "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
             "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
             "3f4f9295-4ad6-4279-9789-5c6c175852df",
-            "72a93a34-ccc6-46ec-bd1a-118b490e7e1a"
+            "72a93a34-ccc6-46ec-bd1a-118b490e7e1a",
+            "e529a15e-e818-4718-88e0-df247606c440"
           ],
           "objectListSettings": {
             "isOpen": "false",
@@ -50,7 +51,8 @@
             "ef122104-25aa-484f-80eb-9d0524c02ac2"
           ],
           "processIDs": [
-            "b17f815f-cadc-4829-afb0-a7a726bde018"
+            "b17f815f-cadc-4829-afb0-a7a726bde018",
+            "1945778d-c962-4548-95d4-1ebce578c5fa"
           ],
           "pageIDs": [
             "cb77ced0-a803-46b7-8a79-f9084d75d51c",
@@ -88,7 +90,7 @@
         }
       },
       "createdAt": "2021-09-13T04:30:02.000Z",
-      "updatedAt": "2022-04-08T09:22:17.000Z"
+      "updatedAt": "2022-04-11T03:19:13.000Z"
     },
     {
       "id": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
@@ -1481,7 +1483,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "076133f5-83cf-4389-bc94-09438c962892"
+          "linkColumn": "758892c7-c796-47ac-9d4c-cd6b685d429c"
         },
         "translations": [
           {
@@ -1521,7 +1523,7 @@
           "indexField2": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "many",
           "linkViaType": "many",
-          "linkColumn": "c03fb607-4233-492d-8f2c-2a49922f4fe7"
+          "linkColumn": "b8f38c20-01bd-4f2b-8539-a3b70ee4ddab"
         },
         "translations": [
           {
@@ -2306,7 +2308,8 @@
           "0730e793-698a-432c-b551-ef2f8a54c164",
           "db15e0b9-4665-4d15-a59b-e951646c56b6",
           "fbe3909d-fe56-4c56-a57d-86be9ee822a3",
-          "8bbdf9b5-3d59-4c8e-ab5d-295bdf2776ed"
+          "8bbdf9b5-3d59-4c8e-ab5d-295bdf2776ed",
+          "c0cea8cc-9fa4-4282-ba8b-ecfec284157c"
         ],
         "indexIDs": [
           "6f116b2e-c1de-44a4-a502-df3b727222ed"
@@ -2332,7 +2335,7 @@
         }
       },
       "createdAt": "2022-03-30T04:19:13.000Z",
-      "updatedAt": "2022-03-30T06:18:27.000Z"
+      "updatedAt": "2022-04-11T03:18:49.000Z"
     },
     {
       "id": "0730e793-698a-432c-b551-ef2f8a54c164",
@@ -2391,7 +2394,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "afe45e35-840d-480d-a057-4d63232e0c1b"
+          "linkColumn": "f1d3857c-aeec-4091-90d3-c43a0c6ee7f6"
         },
         "translations": [
           {
@@ -2768,6 +2771,304 @@
       },
       "createdAt": "2022-03-30T06:18:26.000Z",
       "updatedAt": "2022-03-30T06:18:26.000Z"
+    },
+    {
+      "name": "test-kcs-user->connectedField",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "connectObject",
+        "icon": "external-link",
+        "isImported": "0",
+        "columnName": "connectedField",
+        "settings": {
+          "showIcon": 1,
+          "linkObject": "e529a15e-e818-4718-88e0-df247606c440",
+          "linkType": "many",
+          "linkViaType": "one",
+          "isCustomFK": 1,
+          "indexField": "0730e793-698a-432c-b551-ef2f8a54c164",
+          "indexField2": "",
+          "isSource": 0,
+          "width": 180,
+          "required": 0,
+          "unique": 0,
+          "linkColumn": "3befe34e-74aa-4087-9cb8-263dda856150"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-onCreate"
+          }
+        ],
+        "id": "c0cea8cc-9fa4-4282-ba8b-ecfec284157c"
+      },
+      "id": "c0cea8cc-9fa4-4282-ba8b-ecfec284157c",
+      "createdAt": "2022-04-11T03:18:49.151Z",
+      "updatedAt": "2022-04-11T03:18:49.151Z"
+    },
+    {
+      "id": "e529a15e-e818-4718-88e0-df247606c440",
+      "name": "test-kcs-onCreate",
+      "type": "object",
+      "json": {
+        "id": "e529a15e-e818-4718-88e0-df247606c440",
+        "type": "object",
+        "name": "test-kcs-onCreate",
+        "labelFormat": "label",
+        "isImported": "0",
+        "isExternal": "0",
+        "tableName": "AB_testkcsonCreate",
+        "primaryColumnName": "uuid",
+        "transColumnName": "",
+        "urlPath": "",
+        "objectWorkspace": {
+          "frozenColumnID": "",
+          "sortFields": [],
+          "filterConditions": {},
+          "hiddenFields": []
+        },
+        "isSystemObject": "false",
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-onCreate"
+          }
+        ],
+        "fieldIDs": [
+          "06a93149-590d-4e4f-9463-5ff43a689fd1",
+          "1c3f7b7a-97c1-4602-b966-97d1e15c207d",
+          "d3fc05dc-80a9-45bc-a44c-202c4b1afe61",
+          "237f8e47-43ce-40ec-a954-bb329711ab93",
+          "3befe34e-74aa-4087-9cb8-263dda856150"
+        ],
+        "indexIDs": [
+          "5c5c56b8-a926-4814-b5b5-01db1cc99fd5"
+        ],
+        "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
+        "objectWorkspaceViews": {
+          "currentViewID": "eed1684d-2377-44e0-9710-c28160a63c51",
+          "list": [
+            {
+              "id": "eed1684d-2377-44e0-9710-c28160a63c51",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "label": "grid"
+                }
+              ],
+              "isDefaultView": "true",
+              "name": "Default Grid",
+              "frozenColumnID": "",
+              "type": "grid"
+            }
+          ]
+        }
+      },
+      "createdAt": "2022-04-11T03:16:26.000Z",
+      "updatedAt": "2022-04-11T03:18:49.000Z"
+    },
+    {
+      "name": "test-kcs-onCreate->label",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "string",
+        "icon": "font",
+        "isImported": "0",
+        "columnName": "label",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 100
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "label"
+          }
+        ],
+        "id": "06a93149-590d-4e4f-9463-5ff43a689fd1"
+      },
+      "id": "06a93149-590d-4e4f-9463-5ff43a689fd1",
+      "createdAt": "2022-04-11T03:16:34.091Z",
+      "updatedAt": "2022-04-11T03:16:34.091Z"
+    },
+    {
+      "name": "test-kcs-onCreate->text",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "string",
+        "icon": "font",
+        "isImported": "0",
+        "columnName": "text",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 100
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "text"
+          }
+        ],
+        "id": "1c3f7b7a-97c1-4602-b966-97d1e15c207d"
+      },
+      "id": "1c3f7b7a-97c1-4602-b966-97d1e15c207d",
+      "createdAt": "2022-04-11T03:16:48.164Z",
+      "updatedAt": "2022-04-11T03:16:48.164Z"
+    },
+    {
+      "name": "test-kcs-onCreate->status",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "list",
+        "icon": "th-list",
+        "isImported": "0",
+        "columnName": "status",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "isMultiple": 0,
+          "hasColors": 0,
+          "default": "1649646570068",
+          "options": [
+            {
+              "id": "created",
+              "text": "created",
+              "hex": "#F44336",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "created"
+                }
+              ]
+            },
+            {
+              "id": "updated",
+              "text": "updated",
+              "hex": "#E91E63",
+              "translations": [
+                {
+                  "language_code": "en",
+                  "text": "updated"
+                }
+              ]
+            }
+          ],
+          "width": 100,
+          "multipleDefault": []
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "status"
+          }
+        ],
+        "id": "d3fc05dc-80a9-45bc-a44c-202c4b1afe61"
+      },
+      "id": "d3fc05dc-80a9-45bc-a44c-202c4b1afe61",
+      "createdAt": "2022-04-11T03:17:14.917Z",
+      "updatedAt": "2022-04-11T03:17:14.917Z"
+    },
+    {
+      "name": "test-kcs-onCreate->updated",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "boolean",
+        "icon": "check-square-o",
+        "isImported": "0",
+        "columnName": "updated",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": 0,
+          "width": 110
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "updated"
+          }
+        ],
+        "id": "237f8e47-43ce-40ec-a954-bb329711ab93"
+      },
+      "id": "237f8e47-43ce-40ec-a954-bb329711ab93",
+      "createdAt": "2022-04-11T03:17:29.931Z",
+      "updatedAt": "2022-04-11T03:17:29.931Z"
+    },
+    {
+      "id": "3befe34e-74aa-4087-9cb8-263dda856150",
+      "name": "test-kcs-onCreate->connectedField",
+      "type": "field",
+      "json": {
+        "id": "3befe34e-74aa-4087-9cb8-263dda856150",
+        "type": "field",
+        "key": "connectObject",
+        "icon": "external-link",
+        "isImported": "0",
+        "columnName": "connectedField",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "linkObject": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+          "linkType": "one",
+          "linkViaType": "many",
+          "linkColumn": "c0cea8cc-9fa4-4282-ba8b-ecfec284157c",
+          "isSource": 1,
+          "isCustomFK": 1,
+          "indexField": "0730e793-698a-432c-b551-ef2f8a54c164",
+          "indexField2": "",
+          "width": 180
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "connectedField"
+          }
+        ]
+      },
+      "createdAt": "2022-04-11T03:18:48.000Z",
+      "updatedAt": "2022-04-11T03:18:49.000Z"
+    },
+    {
+      "name": "textIndex",
+      "type": "index",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en"
+          }
+        ],
+        "type": "index",
+        "name": "textIndex",
+        "unique": "1",
+        "fieldIDs": [
+          "06a93149-590d-4e4f-9463-5ff43a689fd1"
+        ],
+        "id": "5c5c56b8-a926-4814-b5b5-01db1cc99fd5"
+      },
+      "id": "5c5c56b8-a926-4814-b5b5-01db1cc99fd5",
+      "createdAt": "2022-04-11T03:17:49.934Z",
+      "updatedAt": "2022-04-11T03:17:49.934Z"
     },
     {
       "id": "6f116b2e-c1de-44a4-a502-df3b727222ed",
@@ -5122,6 +5423,231 @@
       },
       "createdAt": "2021-09-16T10:20:31.000Z",
       "updatedAt": "2021-12-09T04:36:37.000Z"
+    },
+    {
+      "id": "1945778d-c962-4548-95d4-1ebce578c5fa",
+      "name": "test-kcs-onCreate-process",
+      "type": "process",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-onCreate-process"
+          }
+        ],
+        "id": "1945778d-c962-4548-95d4-1ebce578c5fa",
+        "name": "test-kcs-onCreate-process",
+        "xmlDefinition": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn2:definitions xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn2=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"process-def-1945778d-c962-4548-95d4-1ebce578c5fa\" targetNamespace=\"http://bpmn.io/schema/bpmn\" xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"><bpmn2:process id=\"Process_1\" isExecutable=\"true\"><bpmn2:startEvent id=\"StartEvent_1\" name=\"oncreate\"><bpmn2:outgoing>SequenceFlow_101leml</bpmn2:outgoing></bpmn2:startEvent><bpmn2:sequenceFlow id=\"SequenceFlow_101leml\" sourceRef=\"StartEvent_1\" targetRef=\"Task_189a8nv\" /><bpmn2:serviceTask id=\"Task_189a8nv\" name=\"getUserProfile\"><bpmn2:incoming>SequenceFlow_101leml</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0dn7zpv</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0dn7zpv\" sourceRef=\"Task_189a8nv\" targetRef=\"Task_0ah9s5y\" /><bpmn2:serviceTask id=\"Task_0ah9s5y\" name=\"UpdateIt\"><bpmn2:incoming>SequenceFlow_0dn7zpv</bpmn2:incoming><bpmn2:outgoing>SequenceFlow_0d403o2</bpmn2:outgoing></bpmn2:serviceTask><bpmn2:sequenceFlow id=\"SequenceFlow_0d403o2\" sourceRef=\"Task_0ah9s5y\" targetRef=\"EndEvent_1o69rvg\" /><bpmn2:endEvent id=\"EndEvent_1o69rvg\"><bpmn2:incoming>SequenceFlow_0d403o2</bpmn2:incoming><bpmn2:terminateEventDefinition /></bpmn2:endEvent></bpmn2:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_1\" bpmnElement=\"Process_1\"><bpmndi:BPMNShape id=\"StartEvent_06na0gt_di\" bpmnElement=\"StartEvent_1\"><dc:Bounds x=\"292\" y=\"240\" width=\"36\" height=\"36\" /><bpmndi:BPMNLabel><dc:Bounds x=\"289\" y=\"283\" width=\"43\" height=\"14\" /></bpmndi:BPMNLabel></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_101leml_di\" bpmnElement=\"SequenceFlow_101leml\"><di:waypoint x=\"328\" y=\"258\" /><di:waypoint x=\"380\" y=\"258\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_1ce65bx_di\" bpmnElement=\"Task_189a8nv\"><dc:Bounds x=\"380\" y=\"218\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0dn7zpv_di\" bpmnElement=\"SequenceFlow_0dn7zpv\"><di:waypoint x=\"480\" y=\"258\" /><di:waypoint x=\"540\" y=\"258\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"ServiceTask_1iit11u_di\" bpmnElement=\"Task_0ah9s5y\"><dc:Bounds x=\"540\" y=\"218\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"SequenceFlow_0d403o2_di\" bpmnElement=\"SequenceFlow_0d403o2\"><di:waypoint x=\"640\" y=\"258\" /><di:waypoint x=\"702\" y=\"258\" /></bpmndi:BPMNEdge><bpmndi:BPMNShape id=\"EndEvent_0r0ke7q_di\" bpmnElement=\"EndEvent_1o69rvg\"><dc:Bounds x=\"702\" y=\"240\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn2:definitions>",
+        "elementIDs": [
+          "40f72b62-ecb3-45d6-93d5-0942f0129c70",
+          "2513a7e8-945b-4c3d-8f04-4bf13cb2ba90",
+          "e42a5fb2-f0ae-4fde-b3e7-8ea522854f46",
+          "7eb38497-46ca-46ca-86e9-80b3aaebf42a"
+        ],
+        "connections": {
+          "SequenceFlow_101leml": {
+            "id": "SequenceFlow_101leml",
+            "type": "bpmn:SequenceFlow",
+            "from": "StartEvent_1",
+            "to": "Task_189a8nv"
+          },
+          "SequenceFlow_0dn7zpv": {
+            "id": "SequenceFlow_0dn7zpv",
+            "type": "bpmn:SequenceFlow",
+            "from": "Task_189a8nv",
+            "to": "Task_0ah9s5y"
+          },
+          "SequenceFlow_0d403o2": {
+            "id": "SequenceFlow_0d403o2",
+            "type": "bpmn:SequenceFlow",
+            "from": "Task_0ah9s5y",
+            "to": "EndEvent_1o69rvg"
+          }
+        }
+      },
+      "createdAt": "2022-04-11T03:19:13.000Z",
+      "updatedAt": "2022-04-11T03:24:44.000Z"
+    },
+    {
+      "id": "40f72b62-ecb3-45d6-93d5-0942f0129c70",
+      "name": "oncreate",
+      "type": "trigger",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "oncreate"
+          }
+        ],
+        "id": "40f72b62-ecb3-45d6-93d5-0942f0129c70",
+        "name": "oncreate",
+        "type": "trigger",
+        "processID": "",
+        "diagramID": "StartEvent_1",
+        "laneDiagramID": "",
+        "key": "TriggerLifecycle",
+        "triggerKey": "e529a15e-e818-4718-88e0-df247606c440.added",
+        "objectID": "e529a15e-e818-4718-88e0-df247606c440",
+        "lifecycleKey": "added"
+      },
+      "createdAt": "2022-04-11T03:19:26.000Z",
+      "updatedAt": "2022-04-11T03:24:44.000Z"
+    },
+    {
+      "id": "2513a7e8-945b-4c3d-8f04-4bf13cb2ba90",
+      "name": "getUserProfile",
+      "type": "process.task.service.query",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "getUserProfile"
+          }
+        ],
+        "id": "2513a7e8-945b-4c3d-8f04-4bf13cb2ba90",
+        "name": "getUserProfile",
+        "type": "process.task.service.query",
+        "processID": "",
+        "diagramID": "Task_189a8nv",
+        "laneDiagramID": "",
+        "key": "TaskServiceQuery",
+        "qlObj": {
+          "key": "object",
+          "params": {
+            "name": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4"
+          },
+          "objectID": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+          "next": {
+            "key": "find",
+            "params": {
+              "cond": {
+                "glue": "or",
+                "rules": [
+                  {
+                    "key": "0730e793-698a-432c-b551-ef2f8a54c164",
+                    "value": "admin",
+                    "rule": "contains"
+                  }
+                ]
+              }
+            },
+            "objectID": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+            "next": {
+              "key": "first",
+              "objectID": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+              "next": {
+                "key": "row_pluck",
+                "params": {
+                  "field": "0730e793-698a-432c-b551-ef2f8a54c164"
+                },
+                "objectID": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+                "next": {
+                  "key": "value_save",
+                  "params": {
+                    "task_param": "Label"
+                  },
+                  "objectID": "bd4243a8-7c19-4dc0-ad27-1a3b56960bb4",
+                  "taskParam": "Label"
+                },
+                "fieldID": "0730e793-698a-432c-b551-ef2f8a54c164"
+              }
+            }
+          }
+        }
+      },
+      "createdAt": "2022-04-11T03:20:56.000Z",
+      "updatedAt": "2022-04-11T03:24:44.000Z"
+    },
+    {
+      "id": "e42a5fb2-f0ae-4fde-b3e7-8ea522854f46",
+      "name": "UpdateIt",
+      "type": "process.task.service.query",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "UpdateIt"
+          }
+        ],
+        "id": "e42a5fb2-f0ae-4fde-b3e7-8ea522854f46",
+        "name": "UpdateIt",
+        "type": "process.task.service.query",
+        "processID": "",
+        "diagramID": "Task_0ah9s5y",
+        "laneDiagramID": "",
+        "key": "TaskServiceQuery",
+        "qlObj": {
+          "key": "object",
+          "params": {
+            "name": "e529a15e-e818-4718-88e0-df247606c440"
+          },
+          "objectID": "e529a15e-e818-4718-88e0-df247606c440",
+          "next": {
+            "key": "find",
+            "params": {
+              "cond": {
+                "glue": "and",
+                "rules": [
+                  {
+                    "key": "this_object",
+                    "value": "StartEvent_1.uuid",
+                    "rule": "context_equals"
+                  }
+                ]
+              }
+            },
+            "objectID": "e529a15e-e818-4718-88e0-df247606c440",
+            "next": {
+              "key": "first",
+              "objectID": "e529a15e-e818-4718-88e0-df247606c440",
+              "next": {
+                "key": "update",
+                "params": {
+                  "values": [
+                    {
+                      "fieldId": "1c3f7b7a-97c1-4602-b966-97d1e15c207d",
+                      "value": "Manual Text"
+                    },
+                    {
+                      "fieldId": "d3fc05dc-80a9-45bc-a44c-202c4b1afe61",
+                      "value": "updated"
+                    },
+                    {
+                      "fieldId": "237f8e47-43ce-40ec-a954-bb329711ab93",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "objectID": "e529a15e-e818-4718-88e0-df247606c440"
+              }
+            }
+          }
+        }
+      },
+      "createdAt": "2022-04-11T03:22:15.000Z",
+      "updatedAt": "2022-04-11T03:24:44.000Z"
+    },
+    {
+      "id": "7eb38497-46ca-46ca-86e9-80b3aaebf42a",
+      "name": "name",
+      "type": "process.task.end",
+      "json": {
+        "translations": [
+          {
+            "language_code": "en",
+            "label": ""
+          }
+        ],
+        "id": "7eb38497-46ca-46ca-86e9-80b3aaebf42a",
+        "name": "",
+        "type": "process.task.end",
+        "processID": "",
+        "diagramID": "EndEvent_1o69rvg",
+        "laneDiagramID": "",
+        "key": "End"
+      },
+      "createdAt": "2022-04-11T03:22:20.000Z",
+      "updatedAt": "2022-04-11T03:24:44.000Z"
     },
     {
       "id": "cb77ced0-a803-46b7-8a79-f9084d75d51c",
@@ -15753,6 +16279,7 @@
         "type": "view",
         "key": "tab",
         "icon": "window-maximize",
+        "name": "Process.tab",
         "settings": {
           "columnSpan": "1",
           "rowSpan": "1",
@@ -15771,7 +16298,8 @@
         ],
         "viewIDs": [
           "a4459ed7-ee91-4f24-9d04-7252af85dcbc",
-          "499a4429-9cd3-43ea-bf5d-60e0caacc5eb"
+          "499a4429-9cd3-43ea-bf5d-60e0caacc5eb",
+          "bc6a8b04-709c-46ce-a273-cb3550a17282"
         ],
         "position": {
           "dx": 1,
@@ -15780,7 +16308,7 @@
         "isRoot": "false"
       },
       "createdAt": "2021-09-16T04:46:52.000Z",
-      "updatedAt": "2021-09-16T04:47:22.000Z"
+      "updatedAt": "2022-04-11T03:15:40.000Z"
     },
     {
       "id": "a4459ed7-ee91-4f24-9d04-7252af85dcbc",
@@ -16023,6 +16551,159 @@
       "updatedAt": "2021-09-16T09:55:01.000Z"
     },
     {
+      "id": "bc6a8b04-709c-46ce-a273-cb3550a17282",
+      "name": "onCreate",
+      "type": "view",
+      "json": {
+        "id": "bc6a8b04-709c-46ce-a273-cb3550a17282",
+        "type": "view",
+        "key": "viewcontainer",
+        "icon": "braille",
+        "tabicon": "expand",
+        "settings": {
+          "columns": "1",
+          "removable": "true",
+          "movable": "true"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "onCreate"
+          }
+        ],
+        "viewIDs": [
+          "2172ba78-b327-42a1-8918-d97852234aee",
+          "b00875b2-4c62-4ab4-8bc7-229054b226cc",
+          "4c2af349-da19-407e-9db0-ab34d1a35837"
+        ],
+        "position": {
+          "dx": 1,
+          "dy": 1
+        },
+        "isRoot": "false"
+      },
+      "createdAt": "2022-04-11T03:15:40.000Z",
+      "updatedAt": "2022-04-11T03:16:03.000Z"
+    },
+    {
+      "name": "onCreate.form",
+      "type": "view",
+      "json": {
+        "type": "view",
+        "key": "form",
+        "icon": "list-alt",
+        "settings": {
+          "columns": "1",
+          "removable": "true",
+          "movable": "true",
+          "labelPosition": "left",
+          "showLabel": "true",
+          "clearOnLoad": "false",
+          "clearOnSave": "false",
+          "labelWidth": "120",
+          "height": 200
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "onCreate.form"
+          }
+        ],
+        "position": {
+          "dx": 1,
+          "dy": 1
+        },
+        "isRoot": "false",
+        "id": "2172ba78-b327-42a1-8918-d97852234aee"
+      },
+      "id": "2172ba78-b327-42a1-8918-d97852234aee",
+      "createdAt": "2022-04-11T03:15:56.773Z",
+      "updatedAt": "2022-04-11T03:15:56.773Z"
+    },
+    {
+      "name": "onCreate.detail",
+      "type": "view",
+      "json": {
+        "type": "view",
+        "key": "detail",
+        "icon": "file-text-o",
+        "settings": {
+          "columns": "1",
+          "removable": "true",
+          "movable": "true",
+          "labelPosition": "left",
+          "showLabel": "true",
+          "labelWidth": "120",
+          "height": 0
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "onCreate.detail"
+          }
+        ],
+        "position": {
+          "dx": 1,
+          "dy": 1
+        },
+        "isRoot": "false",
+        "id": "b00875b2-4c62-4ab4-8bc7-229054b226cc"
+      },
+      "id": "b00875b2-4c62-4ab4-8bc7-229054b226cc",
+      "createdAt": "2022-04-11T03:16:00.595Z",
+      "updatedAt": "2022-04-11T03:16:00.595Z"
+    },
+    {
+      "name": "onCreate.grid",
+      "type": "view",
+      "json": {
+        "type": "view",
+        "key": "grid",
+        "icon": "table",
+        "settings": {
+          "columnSpan": "1",
+          "rowSpan": "1",
+          "dataviewID": "",
+          "isEditable": "0",
+          "massUpdate": "0",
+          "allowDelete": "0",
+          "isSortable": "1",
+          "isExportable": "0",
+          "hideHeader": "0",
+          "labelAsField": "0",
+          "hideButtons": "0",
+          "gridFilter": {
+            "filterOption": "1",
+            "userFilterPosition": "toolbar",
+            "isGlobalToolbar": "1"
+          },
+          "detailsPage": "",
+          "editPage": "",
+          "detailsTab": "",
+          "editTab": "",
+          "objectWorkspace": {
+            "frozenColumnID": ""
+          },
+          "height": 0
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "onCreate.grid"
+          }
+        ],
+        "position": {
+          "dx": 1,
+          "dy": 1
+        },
+        "isRoot": "false",
+        "id": "4c2af349-da19-407e-9db0-ab34d1a35837"
+      },
+      "id": "4c2af349-da19-407e-9db0-ab34d1a35837",
+      "createdAt": "2022-04-11T03:16:03.109Z",
+      "updatedAt": "2022-04-11T03:16:03.109Z"
+    },
+    {
       "id": "6995a20a-6804-40ad-85f9-b1a3ec8a1907",
       "name": "Permissions",
       "type": "view",
@@ -16179,11 +16860,11 @@
       "updatedAt": "2022-04-08T06:30:12.000Z"
     },
     {
-      "id": "076133f5-83cf-4389-bc94-09438c962892",
+      "id": "758892c7-c796-47ac-9d4c-cd6b685d429c",
       "type": "field",
       "name": "USER->test-kcs.user",
       "json": {
-        "id": "076133f5-83cf-4389-bc94-09438c962892",
+        "id": "758892c7-c796-47ac-9d4c-cd6b685d429c",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -16213,11 +16894,11 @@
       "updatedAt": "2021-09-13T07:10:12.000Z"
     },
     {
-      "id": "c03fb607-4233-492d-8f2c-2a49922f4fe7",
+      "id": "b8f38c20-01bd-4f2b-8539-a3b70ee4ddab",
       "type": "field",
       "name": "USER->test-kcs.user(multi)",
       "json": {
-        "id": "c03fb607-4233-492d-8f2c-2a49922f4fe7",
+        "id": "b8f38c20-01bd-4f2b-8539-a3b70ee4ddab",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -16247,11 +16928,11 @@
       "updatedAt": "2021-09-13T07:12:06.000Z"
     },
     {
-      "id": "afe45e35-840d-480d-a057-4d63232e0c1b",
+      "id": "f1d3857c-aeec-4091-90d3-c43a0c6ee7f6",
       "type": "field",
       "name": "USER->test-kcs-user-profile.user",
       "json": {
-        "id": "afe45e35-840d-480d-a057-4d63232e0c1b",
+        "id": "f1d3857c-aeec-4091-90d3-c43a0c6ee7f6",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -16314,9 +16995,9 @@
   "errors": [],
   "siteObjectConnections": {
     "228e3d91-5e42-49ec-b37c-59323ae433a1": [
-      "076133f5-83cf-4389-bc94-09438c962892",
-      "c03fb607-4233-492d-8f2c-2a49922f4fe7",
-      "afe45e35-840d-480d-a057-4d63232e0c1b"
+      "758892c7-c796-47ac-9d4c-cd6b685d429c",
+      "b8f38c20-01bd-4f2b-8539-a3b70ee4ddab",
+      "f1d3857c-aeec-4091-90d3-c43a0c6ee7f6"
     ]
   },
   "roles": [
@@ -16348,10 +17029,11 @@
               "description": "Restricted scope on test-kcs-scoped-data object"
             }
           ],
+          "Objects": "\n",
           "Filters": "{\"glue\":\"and\",\"rules\":[{\"key\":\"d8eccd82-530a-466d-8b09-51725ab9a964\",\"rule\":\"equals\",\"value\":\"A\"}]}",
           "allowAll": 0,
           "createdBy": null,
-          "Objects": [
+          "objectIds": [
             "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
             "3f4f9295-4ad6-4279-9789-5c6c175852df",
             "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
@@ -16397,10 +17079,11 @@
               "description": "Full Access Scope for Kitchensink App Objects"
             }
           ],
+          "Objects": "",
           "Filters": null,
           "allowAll": 0,
           "createdBy": null,
-          "Objects": [
+          "objectIds": [
             "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
             "3f4f9295-4ad6-4279-9789-5c6c175852df",
             "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
@@ -16449,7 +17132,8 @@
           "Objects": null,
           "Filters": null,
           "allowAll": 1,
-          "createdBy": null
+          "createdBy": null,
+          "objectIds": null
         }
       ],
       "ProcessForm30": [],
@@ -16484,10 +17168,11 @@
               "description": "No acces to the test-kcs-scoped-data"
             }
           ],
+          "Objects": null,
           "Filters": null,
           "allowAll": 0,
           "createdBy": null,
-          "Objects": [
+          "objectIds": [
             "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
             "3f4f9295-4ad6-4279-9789-5c6c175852df",
             "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",

@@ -1,6 +1,6 @@
 export default (folderName, Common) => {
    describe.only("Scope", () => {
-      it("Filtered scope does not see all Data", () => {
+      it("Filtered scope sees filtered data", () => {
          Common.RunSQL(cy, folderName, "assign_role_filtered.sql");
          reloadToScopePage();
          cy.get(
@@ -10,7 +10,7 @@ export default (folderName, Common) => {
             .and("contain", "Apple")
             .and("not.contain", "Banana");
       });
-      it("Unfiltered scope does sees all Data", () => {
+      it("Unfiltered scope sees all data", () => {
          Common.RunSQL(cy, folderName, "assign_role_unfiltered.sql");
          reloadToScopePage();
          cy.get(
@@ -20,7 +20,7 @@ export default (folderName, Common) => {
             .and("contain", "Apple")
             .and("contain", "Banana");
       });
-      it("When both filtered and unfiltered scopes sees all Data", () => {
+      it("With filtered and unfiltered scopes sees all data", () => {
          Common.RunSQL(cy, folderName, "assign_role_both.sql");
          reloadToScopePage();
          cy.get(
@@ -30,7 +30,7 @@ export default (folderName, Common) => {
             .and("contain", "Apple")
             .and("contain", "Banana");
       });
-      it.only("When scope does not include object no data loads", () => {
+      it("With scope that does not include object sees no data", () => {
          Common.RunSQL(cy, folderName, "assign_role_restricted.sql");
          reloadToScopePage();
          // Wait for loading to finish before checking that data does not exist
