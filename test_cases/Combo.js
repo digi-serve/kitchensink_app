@@ -37,7 +37,7 @@ export default (folderName, Common) => {
             .should("be.visible")
             .contains("Mr. Admin-Record B");
       });
-      it.only("new records work?", () => {
+      it("new records work?", () => {
 
          cy.get(".webix_spin").should("not.exist");
          cy.get('[data-cy="detail connected user 1dfb19ef-b689-4d5a-99f1-7cf1b9b524ac a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]')
