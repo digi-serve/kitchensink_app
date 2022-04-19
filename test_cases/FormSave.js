@@ -1,4 +1,4 @@
-export default (folderName, Common) => {
+export default () => {
    describe("Save Form Values", () => {
       beforeEach(() => {
          cy.get(
@@ -33,7 +33,7 @@ export default (folderName, Common) => {
          cy.get(
             '[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 0181c44e-08ec-4953-beee-d6b36d02b1eb"]'
          )
-            .should("be.visible")
+            .should("exist")
             .type("Please work")
             .clear()
             .type("Test Default Values");
@@ -50,7 +50,7 @@ export default (folderName, Common) => {
       });
       it("Submit Empty Number Field", () => {
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
-            .should("be.visible")
+            .should("exist")
             .click();
          cy.get(".edit").should("be.visible").click();
          cy.get(

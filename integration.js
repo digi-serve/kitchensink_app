@@ -13,6 +13,10 @@ const testCases = [
    require("./test_cases/Menu.js"),
    require("./test_cases/Form.js"),
    require("./test_cases/FormSave.js"),
+   require("./test_cases/Tab.js"),
+   require("./test_cases/Comment.js"),
+   require("./test_cases/DOCXBuilder.js"),
+   require("./test_cases/Scope.js"),
 ];
 
 // Don't stop tests on uncaught errors
@@ -28,10 +32,16 @@ before(() => {
 
 beforeEach(() => {
    Common.AuthLogin(cy);
-   Common.RunSQL(cy, folderName, ["reset_tables.sql"]);
-   Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
-   Common.RunSQL(cy, folderName, ["add_testkcs2-Menu.sql"]);
-   Common.RunSQL(cy, folderName, ["add_testkcs2-combo.sql"]);
+
+   Common.RunSQL(cy, folderName, [
+      "reset_tables.sql",
+      "reset_roles.sql",
+      "add_testkcs.sql",
+      "add_testkcs2-Menu.sql",
+      "add_testkcs2-combo.sql",
+      "add_testkcs2-ScopedData.sql",
+   ]);
+
    cy.visit("/");
 });
 
