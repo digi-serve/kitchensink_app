@@ -18,13 +18,14 @@ export default () => {
          cy.get(
             '[data-cy="button save 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]'
          ).click();
+         cy.get('[data-cy^="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]').scrollIntoView();
          cy.get(".webix_ss_center_scroll").contains("Test Record Rules");
          cy.get(".webix_ss_center_scroll").contains("5");
          cy.get(".webix_ss_center_scroll").contains("Option 2");
          cy.log(
             "'Mr. Admin' is set in a record rule: selected via data collection current-cursor-select. That method is used in almost every module."
          );
-         cy.get(".webix_ss_center_scroll").contains("Mr. Admin");
+         // cy.get(".webix_ss_center_scroll").contains("Mr. Admin");
          cy.get(".webix_ss_center_scroll").find(".fa-square-o");
          cy.get(".trash").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
