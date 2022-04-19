@@ -1484,7 +1484,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "c9dad608-0ea0-4c4c-b82a-5a380ff0c37e"
+          "linkColumn": "e3f17d87-c58e-4299-a42a-d1441ad441f3"
         },
         "translations": [
           {
@@ -1524,7 +1524,7 @@
           "indexField2": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "many",
           "linkViaType": "many",
-          "linkColumn": "466b6f17-99bd-43f7-8434-7868020f8860"
+          "linkColumn": "5bcab059-625b-490f-a85f-e785e484c6d0"
         },
         "translations": [
           {
@@ -2391,7 +2391,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "34cbeb3d-719e-41ee-97bd-08db4a8db2f3"
+          "linkColumn": "024c717d-595a-4b4b-9ce8-6acccfb5d31b"
         },
         "translations": [
           {
@@ -15495,6 +15495,15 @@
                       "op": "set",
                       "type": "boolean",
                       "valueType": "custom"
+                    },
+                    {
+                      "fieldID": "727e3976-075f-4ff5-ba7b-b41acd9d4b22",
+                      "value": "f9549150-c9a8-4e34-bdee-8d68a50937d1",
+                      "queryField": "",
+                      "op": "set",
+                      "type": "connectObject",
+                      "selectBy": "select-one",
+                      "valueType": "exist"
                     }
                   ]
                 },
@@ -15523,7 +15532,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:31:55.000Z",
-      "updatedAt": "2022-04-19T09:51:18.000Z"
+      "updatedAt": "2022-04-19T09:55:32.000Z"
     },
     {
       "id": "227da25e-9c38-4b90-8d30-80447e35d0b8",
@@ -15555,7 +15564,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:32:07.000Z",
-      "updatedAt": "2022-04-19T09:51:18.000Z"
+      "updatedAt": "2022-04-19T09:55:32.000Z"
     },
     {
       "id": "a9451e43-ec01-47c9-9403-6da2ff51072d",
@@ -15587,7 +15596,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-16T09:03:57.000Z",
-      "updatedAt": "2022-04-19T09:51:18.000Z"
+      "updatedAt": "2022-04-19T09:55:32.000Z"
     },
     {
       "id": "95659f44-5567-4213-af4e-ed6c6c29fb18",
@@ -15625,7 +15634,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:32:07.000Z",
-      "updatedAt": "2022-04-19T09:51:18.000Z"
+      "updatedAt": "2022-04-19T09:55:32.000Z"
     },
     {
       "id": "6a43b4b9-cbad-4756-a9f8-ce58bba6e9b7",
@@ -17058,11 +17067,11 @@
       "updatedAt": "2022-04-08T06:30:12.000Z"
     },
     {
-      "id": "c9dad608-0ea0-4c4c-b82a-5a380ff0c37e",
+      "id": "e3f17d87-c58e-4299-a42a-d1441ad441f3",
       "type": "field",
       "name": "USER->test-kcs.user",
       "json": {
-        "id": "c9dad608-0ea0-4c4c-b82a-5a380ff0c37e",
+        "id": "e3f17d87-c58e-4299-a42a-d1441ad441f3",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -17092,11 +17101,11 @@
       "updatedAt": "2021-09-13T07:10:12.000Z"
     },
     {
-      "id": "466b6f17-99bd-43f7-8434-7868020f8860",
+      "id": "5bcab059-625b-490f-a85f-e785e484c6d0",
       "type": "field",
       "name": "USER->test-kcs.user(multi)",
       "json": {
-        "id": "466b6f17-99bd-43f7-8434-7868020f8860",
+        "id": "5bcab059-625b-490f-a85f-e785e484c6d0",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -17126,11 +17135,11 @@
       "updatedAt": "2021-09-13T07:12:06.000Z"
     },
     {
-      "id": "34cbeb3d-719e-41ee-97bd-08db4a8db2f3",
+      "id": "024c717d-595a-4b4b-9ce8-6acccfb5d31b",
       "type": "field",
       "name": "USER->test-kcs-user-profile.user",
       "json": {
-        "id": "34cbeb3d-719e-41ee-97bd-08db4a8db2f3",
+        "id": "024c717d-595a-4b4b-9ce8-6acccfb5d31b",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -17193,9 +17202,9 @@
   "errors": [],
   "siteObjectConnections": {
     "228e3d91-5e42-49ec-b37c-59323ae433a1": [
-      "c9dad608-0ea0-4c4c-b82a-5a380ff0c37e",
-      "466b6f17-99bd-43f7-8434-7868020f8860",
-      "34cbeb3d-719e-41ee-97bd-08db4a8db2f3"
+      "e3f17d87-c58e-4299-a42a-d1441ad441f3",
+      "5bcab059-625b-490f-a85f-e785e484c6d0",
+      "024c717d-595a-4b4b-9ce8-6acccfb5d31b"
     ]
   },
   "roles": [
