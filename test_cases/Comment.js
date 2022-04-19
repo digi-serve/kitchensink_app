@@ -246,7 +246,7 @@ export default (folderName, Common) => {
       }); //End 9
 
       //10. can find the text "test" on the first textarea
-      it.only("can find the text test on the first textarea", () => {
+      it("can find the text test on the first textarea", () => {
          Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
