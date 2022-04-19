@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe.only("test-kcs-onCreate-process", () => {
+   describe("test-kcs-onCreate-process", () => {
       beforeEach(() => {
          Common.RunSQL(cy, folderName, [
             "process_test-kcs-onCreate-process.sql",
