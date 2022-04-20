@@ -17389,7 +17389,7 @@
             }
           ],
           "Objects": "\n",
-          "Filters": null,
+          "Filters": "{\"glue\":\"and\",\"rules\":[{\"key\":\"d8eccd82-530a-466d-8b09-51725ab9a964\",\"rule\":\"equals\",\"value\":\"A\"}]}",
           "allowAll": 0,
           "createdBy": null,
           "objectIds": [
