@@ -36,14 +36,7 @@ before(() => {
 
 beforeEach(() => {
    Common.AuthLogin(cy);
-   Common.RunSQL(cy, folderName, [
-      "reset_tables.sql",
-      "reset_roles.sql",
-      "add_testkcs.sql",
-      "add_testkcs2-Menu.sql",
-      "add_testkcs2-ScopedData.sql",
-   ]);
-   cy.visit("/");
+   Common.RunSQL(cy, folderName, ["reset_tables.sql", "reset_roles.sql"]);
 });
 
 describe("Smoke Test", () => {
@@ -59,6 +52,12 @@ describe("Smoke Test", () => {
 
 describe.only("Widget Tests", () => {
    beforeEach(() => {
+      Common.RunSQL(cy, folderName, [
+         "add_testkcs.sql",
+         "add_testkcs2-Menu.sql",
+         "add_testkcs2-ScopedData.sql",
+      ]);
+      cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]')
          .should("be.visible")
          .click();
@@ -75,6 +74,7 @@ describe.only("Widget Tests", () => {
 
 describe.only("Process Tests", () => {
    beforeEach(() => {
+      cy.visit("/");
       cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]').click();
    });
 
