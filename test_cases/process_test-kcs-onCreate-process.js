@@ -9,7 +9,7 @@ export default (folderName, Common) => {
          ).click();
       });
 
-      it('Can find the latest data with the fields label "test label", text "Manual Text", status "updated", updated is "checked" and connectedField is "mr. admin"', () => {
+      it('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
          cy.get(
             '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]'
          ).type("test label");
