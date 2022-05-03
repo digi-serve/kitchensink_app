@@ -32,7 +32,7 @@ export default (folderName, Common) => {
                expect($data.eq(3).find(".webix_icon"), "updated").to.have.class(
                   "fa-check-square-o"
                );
-               expect($data.eq(4), "connectedField").to.contain("mr. admin");
+               expect($data.eq(4), "connectedField").to.contain("Mr. Admin");
             });
       });
    });

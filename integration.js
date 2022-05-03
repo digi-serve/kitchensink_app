@@ -5,6 +5,7 @@ const folderName = __dirname.match(/[^\\/]+$/)[0];
 const WidgetTestCases = [
    require("./test_cases/Carousel.js"),
    require("./test_cases/ConditionalContainer.js"),
+   require("./test_cases/Combo.js"),
    require("./test_cases/Text.js"),
    require("./test_cases/Label.js"),
    require("./test_cases/Image.js"),
@@ -36,7 +37,15 @@ before(() => {
 
 beforeEach(() => {
    Common.AuthLogin(cy);
-   Common.RunSQL(cy, folderName, ["reset_tables.sql", "reset_roles.sql"]);
+
+   Common.RunSQL(cy, folderName, [
+      "reset_tables.sql",
+      "reset_roles.sql",
+      "add_testkcs.sql",
+      "add_testkcs2-Menu.sql",
+      "add_testkcs2-combo.sql",
+      "add_testkcs2-ScopedData.sql",
+   ]);
 });
 
 describe("Smoke Test", () => {

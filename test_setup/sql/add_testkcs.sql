@@ -115,4 +115,21 @@ VALUES (
   "email2@email.com",
   "admin2@email.com"
 );
+LOCK TABLES `AB_testkcsuser` WRITE;
+INSERT INTO `AB_testkcsuser` (
+  `uuid`,
+  `properties`,
+  `created_at`,
+  `updated_at`,
+  `label`,
+  `user`
+)
+VALUES (
+  "ae071b2a-0370-4dc7-bced-43e1d37171f3",
+  NULL,
+  NOW(),
+  NOW(),
+  "Mr. Admin",
+  "admin"
+);
 UNLOCK TABLES;
