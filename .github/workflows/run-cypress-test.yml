@@ -17,12 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Setup
-      - name: Install AppBuilder
-        run: docker swarm init && npx digi-serve/ab-cli install ab --stack=ab --port=8080 --db.expose=false --db.password=root --db.encryption=false --tag=develop --nginx.enable=true --ssl.none --bot.enable=false --smtp.enable=false --tenant.username=admin --tenant.password=admin --tenant.email=neo@thematrix.com
-
-      # Docker's daemon couldn't find the network "ab_default" so the services aren't created
-      - name: Restart Docker
-        run: sudo systemctl restart docker
+      - uses: digi-serve/ab-install-action@v1
+        with:
+          folder: ab
+          port: 8080
 
       # Up
       - name: Bring up AppBuilder
