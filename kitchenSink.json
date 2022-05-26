@@ -1484,7 +1484,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "07b0529b-a926-4f01-b45e-ce460ca347a9"
+          "linkColumn": "fbde6a3d-e095-4488-a36e-091c95d821df"
         },
         "translations": [
           {
@@ -1524,7 +1524,7 @@
           "indexField2": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "many",
           "linkViaType": "many",
-          "linkColumn": "ff3a40c3-40af-46e6-a724-25dfd459095c"
+          "linkColumn": "421a16b6-b0eb-43b0-87e1-ca902f4de343"
         },
         "translations": [
           {
@@ -2395,7 +2395,7 @@
           "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
           "linkType": "one",
           "linkViaType": "many",
-          "linkColumn": "b7707aa0-d13b-49cc-9904-cbb551147920"
+          "linkColumn": "a74f185f-9197-455a-8198-692613a6cf8b"
         },
         "translations": [
           {
@@ -2477,7 +2477,8 @@
           "3b55d003-c900-4fda-add0-46a6122c1b5a",
           "5adb3510-d314-4fd7-b25e-bfd8d56bc519",
           "b75b3530-b5de-4ca8-b136-0503c4c9a8c2",
-          "727e3976-075f-4ff5-ba7b-b41acd9d4b22"
+          "727e3976-075f-4ff5-ba7b-b41acd9d4b22",
+          "b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"
         ],
         "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
         "objectWorkspaceViews": {
@@ -2500,7 +2501,7 @@
         }
       },
       "createdAt": "2022-03-15T02:22:23.000Z",
-      "updatedAt": "2022-03-30T06:15:31.000Z"
+      "updatedAt": "2022-05-26T05:36:18.000Z"
     },
     {
       "id": "2e7a1c02-141a-4cdd-b93e-62c6c4e4765b",
@@ -2737,6 +2738,37 @@
       },
       "createdAt": "2022-03-30T06:15:31.000Z",
       "updatedAt": "2022-03-30T06:15:32.000Z"
+    },
+    {
+      "name": "test-kcs-forms->balance check example",
+      "type": "field",
+      "json": {
+        "type": "field",
+        "key": "calculate",
+        "icon": "calculator",
+        "isImported": "0",
+        "columnName": "balance check example",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "formula": "{Number allow empty}+{Number allow empty}",
+          "decimalSign": "period",
+          "decimalPlaces": "2",
+          "width": 250
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "balance check example"
+          }
+        ],
+        "id": "b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"
+      },
+      "id": "b42e1e16-15ff-4c85-abb5-4b2e9d80ff32",
+      "createdAt": "2022-05-26T05:36:18.439Z",
+      "updatedAt": "2022-05-26T05:36:18.439Z"
     },
     {
       "id": "8bbdf9b5-3d59-4c8e-ab5d-295bdf2776ed",
@@ -8312,6 +8344,7 @@
         "type": "view",
         "key": "form",
         "icon": "list-alt",
+        "name": "conditional record rule.form",
         "settings": {
           "columns": "1",
           "removable": "true",
@@ -8333,8 +8366,8 @@
                 "glue": "and",
                 "rules": [
                   {
-                    "key": "Number allow empty",
-                    "value": "0",
+                    "key": "balance check example",
+                    "value": "0.00",
                     "rule": "equal"
                   }
                 ]
@@ -8381,7 +8414,7 @@
                 "glue": "and",
                 "rules": [
                   {
-                    "key": "Number allow empty",
+                    "key": "balance check example",
                     "value": "1",
                     "rule": "greater_or_equal"
                   }
@@ -8433,7 +8466,7 @@
                 "glue": "and",
                 "rules": [
                   {
-                    "key": "Number allow empty",
+                    "key": "balance check example",
                     "value": "0",
                     "rule": "less_or_equal"
                   }
@@ -8452,7 +8485,7 @@
                 "glue": "and",
                 "rules": [
                   {
-                    "key": "Number allow empty",
+                    "key": "balance check example",
                     "value": "1",
                     "rule": "greater_or_equal"
                   }
@@ -8484,7 +8517,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-05-26T04:11:40.000Z",
-      "updatedAt": "2022-05-26T04:17:52.000Z"
+      "updatedAt": "2022-05-26T05:55:44.000Z"
     },
     {
       "id": "0795aace-6e0c-40a7-bf6c-5f5b82cda0e8",
@@ -8495,6 +8528,7 @@
         "type": "view",
         "key": "numberbox",
         "icon": "hashtag",
+        "name": "conditional record rule.form.numberbox",
         "settings": {
           "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
           "fieldId": "b75b3530-b5de-4ca8-b136-0503c4c9a8c2",
@@ -8515,7 +8549,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-05-26T04:11:56.000Z",
-      "updatedAt": "2022-05-26T04:17:52.000Z"
+      "updatedAt": "2022-05-26T05:55:44.000Z"
     },
     {
       "id": "31424381-9fed-4c6d-94c1-01b5dfcfb992",
@@ -8526,6 +8560,7 @@
         "type": "view",
         "key": "button",
         "icon": "square",
+        "name": "conditional record rule.form.button",
         "settings": {
           "includeSave": "true",
           "includeCancel": "false",
@@ -8547,7 +8582,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-05-26T04:11:56.000Z",
-      "updatedAt": "2022-05-26T04:17:52.000Z"
+      "updatedAt": "2022-05-26T05:55:44.000Z"
     },
     {
       "id": "b52e6e96-5033-4c7f-a104-29bd5ddcac4a",
@@ -17980,11 +18015,11 @@
       "updatedAt": "2022-04-08T06:30:12.000Z"
     },
     {
-      "id": "07b0529b-a926-4f01-b45e-ce460ca347a9",
+      "id": "fbde6a3d-e095-4488-a36e-091c95d821df",
       "type": "field",
       "name": "USER->test-kcs.user",
       "json": {
-        "id": "07b0529b-a926-4f01-b45e-ce460ca347a9",
+        "id": "fbde6a3d-e095-4488-a36e-091c95d821df",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -18014,11 +18049,11 @@
       "updatedAt": "2021-09-13T07:10:12.000Z"
     },
     {
-      "id": "ff3a40c3-40af-46e6-a724-25dfd459095c",
+      "id": "421a16b6-b0eb-43b0-87e1-ca902f4de343",
       "type": "field",
       "name": "USER->test-kcs.user(multi)",
       "json": {
-        "id": "ff3a40c3-40af-46e6-a724-25dfd459095c",
+        "id": "421a16b6-b0eb-43b0-87e1-ca902f4de343",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -18048,11 +18083,11 @@
       "updatedAt": "2021-09-13T07:12:06.000Z"
     },
     {
-      "id": "b7707aa0-d13b-49cc-9904-cbb551147920",
+      "id": "a74f185f-9197-455a-8198-692613a6cf8b",
       "type": "field",
       "name": "USER->test-kcs-user-profile.user",
       "json": {
-        "id": "b7707aa0-d13b-49cc-9904-cbb551147920",
+        "id": "a74f185f-9197-455a-8198-692613a6cf8b",
         "type": "field",
         "key": "connectObject",
         "icon": "external-link",
@@ -18115,9 +18150,9 @@
   "errors": [],
   "siteObjectConnections": {
     "228e3d91-5e42-49ec-b37c-59323ae433a1": [
-      "07b0529b-a926-4f01-b45e-ce460ca347a9",
-      "ff3a40c3-40af-46e6-a724-25dfd459095c",
-      "b7707aa0-d13b-49cc-9904-cbb551147920"
+      "fbde6a3d-e095-4488-a36e-091c95d821df",
+      "421a16b6-b0eb-43b0-87e1-ca902f4de343",
+      "a74f185f-9197-455a-8198-692613a6cf8b"
     ]
   },
   "roles": [
