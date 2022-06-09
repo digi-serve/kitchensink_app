@@ -192,12 +192,6 @@ export default () => {
             .should("exist")
             .contains("1337");
          cy.get(
-            '[data-cy^="detail text Number 568257d1-a957-49db-bf8f-b88979c9cd79"]'
-         )
-            .filter(":visible")
-            .should("exist")
-            .contains("1337");
-         cy.get(
             '[data-cy^="detail text Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b"]'
          )
             .filter(":visible")
