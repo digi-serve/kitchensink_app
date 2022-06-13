@@ -122,7 +122,7 @@ export default () => {
             '[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 0181c44e-08ec-4953-beee-d6b36d02b1eb"]'
          )
             // .scrollIntoView()
-            .should("exist");
+            .should("be.visible");
          cy.get(
             '[data-cy^="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]'
          ).scrollIntoView();
@@ -171,7 +171,7 @@ export default () => {
             '[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 0181c44e-08ec-4953-beee-d6b36d02b1eb"]'
          )
             // .scrollIntoView()
-            .should("be.exist");
+            .should("be.visible");
          cy.get(
             '[data-cy^="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]'
          ).scrollIntoView();
