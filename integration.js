@@ -21,7 +21,7 @@ const WidgetTestCases = [
 ];
 
 const ProcessTestCases = [
-   require("./test_cases/process_test-kcs.js"),
+   // require("./test_cases/process_test-kcs.js"),
    require("./test_cases/process_test-kcs-onCreate-process.js"),
 ];
 
