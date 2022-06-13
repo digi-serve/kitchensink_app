@@ -87,7 +87,7 @@ export default () => {
             .should("be.empty");
       });
 
-      it.only("conditional record rules - 0", () => {
+      it("conditional record rules - 0", () => {
          // open the popup
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
@@ -129,14 +129,14 @@ export default () => {
          cy.log(
             "If the record exists, but the data is wrong, it means the forms works -- and the record rules don't"
          );
-         cy.get(".webix_ss_center_scroll").contains("Number was zero");
-         cy.get(".webix_ss_center_scroll").contains("0");
          cy.get(".webix_ss_center_scroll").contains("Option 1");
+         cy.get(".webix_ss_center_scroll").contains("0");
+         cy.get(".webix_ss_center_scroll").contains("Number was zero");
          // cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
          // cy.get(".trash").click();
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
-      it.only("conditional record rules - greater than 1", () => {
+      it("conditional record rules - greater than 1", () => {
          // open the popup
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
@@ -178,10 +178,10 @@ export default () => {
          cy.log(
             "If the record exists, but the data is wrong, it means the forms works -- and the record rules don't"
          );
-         cy.get(".webix_ss_center_scroll").contains("Number was positive");
          cy.get(".webix_ss_center_scroll").contains("1337");
          cy.get(".webix_ss_center_scroll").contains("Option 2");
          cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
+         cy.get(".webix_ss_center_scroll").contains("Number was positive");
          cy.get(".webix_ss_center_scroll")
             .contains("1337")
             .click({ force: true });
