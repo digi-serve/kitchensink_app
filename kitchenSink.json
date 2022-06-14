@@ -12182,7 +12182,8 @@
               "translations": [
                 {
                   "language_code": "en",
-                  "label": "Menu"
+                  "label": "Menu",
+                  "aliasname": "Home"
                 }
               ]
             },
