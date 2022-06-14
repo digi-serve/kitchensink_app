@@ -7570,12 +7570,6 @@
           "dataviewID": "8b69b2a3-ba4a-4c31-9706-5190db5c5a86",
           "gravity": [
             "1"
-          ],
-          "submitRules": [
-            {
-              "selectedAction": "ABViewRuleActionFormSubmitRuleClosePopup",
-              "queryRules": ""
-            }
           ]
         },
         "translations": [
