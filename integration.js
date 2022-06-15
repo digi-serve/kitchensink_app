@@ -18,11 +18,12 @@ const WidgetTestCases = [
    require("./test_cases/DOCXBuilder.js"),
    require("./test_cases/Scope.js"),
    require("./test_cases/CSV_Exporter.js"),
+   require("./test_cases/process_approval.js"),
 ];
 
 const ProcessTestCases = [
    // require("./test_cases/process_test-kcs.js"),
-   require("./test_cases/process_test-kcs-onCreate-process.js"),
+   // require("./test_cases/process_test-kcs-onCreate-process.js"),
 ];
 
 // Don't stop tests on uncaught errors
@@ -43,6 +44,7 @@ beforeEach(() => {
       "reset_tables.sql",
       "reset_roles.sql",
       "add_testkcs.sql",
+      "add_testkcs_stock.sql",
       "add_testkcs2-Menu.sql",
       "add_testkcs2-combo.sql",
       "add_testkcs2-ScopedData.sql",
