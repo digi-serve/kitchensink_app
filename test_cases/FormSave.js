@@ -87,12 +87,39 @@ export default () => {
             .should("be.empty");
       });
 
-      it("conditional record rules - 0", () => {
-         // open the popup
+      it.only("conditional record rules - 0", () => {
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
 
+         // init some data
+         cy.get(
+            '[data-cy="menu-item initiate sub records 743969bc-cb8f-471e-abcd-1f4511b83815 88bb72eb-5908-46e5-9c87-1e4c6637e6c7"]'
+         )
+            .should("be.visible")
+            .click();
+
+         cy.get(
+            '[data-cy="number amount 79902266-40e5-463a-9869-cee01ef955a0 a573443e-6b82-4db9-a827-0a772a53af74"]'
+         )
+            .should("be.visible")
+            .type("1")
+            .clear()
+            .type("185");
+         // button save a573443e-6b82-4db9-a827-0a772a53af74
+         cy.get(
+            '[data-cy="number amount 7c8732a7-9f55-4844-be4e-51978f94d712 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
+         )
+            .type("-1")
+            .clear()
+            .type("-185");
+         // click all save buttons
+         // ! this might fail !
+         cy.get('[data-cy^="button save"]')
+            .filter(":visible")
+            .click({ multiple: true });
+
+         // open the popup
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )
@@ -104,7 +131,18 @@ export default () => {
             .should("exist")
             .type("111")
             .clear()
-            .type("0");
+            .type("1337");
+         cy.get('[data-cy^="connectObject Orders"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click();
+         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
+
+         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click();
+         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
 
          cy.get('[data-cy^="button save"]') // Auto Generate Record
             .filter(":visible")
@@ -137,11 +175,37 @@ export default () => {
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("conditional record rules - greater than 1", () => {
-         // open the popup
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
+         // init some data
+         cy.get(
+            '[data-cy="menu-item initiate sub records 743969bc-cb8f-471e-abcd-1f4511b83815 88bb72eb-5908-46e5-9c87-1e4c6637e6c7"]'
+         )
+            .should("be.visible")
+            .click();
 
+         cy.get(
+            '[data-cy="number amount 79902266-40e5-463a-9869-cee01ef955a0 a573443e-6b82-4db9-a827-0a772a53af74"]'
+         )
+            .should("be.visible")
+            .type("1")
+            .clear()
+            .type("185");
+         // button save a573443e-6b82-4db9-a827-0a772a53af74
+         cy.get(
+            '[data-cy="number amount 7c8732a7-9f55-4844-be4e-51978f94d712 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
+         )
+            .type("-1")
+            .clear()
+            .type("-185");
+         // click all save buttons
+         // ! this might fail !
+         cy.get('[data-cy^="button save"]')
+            .filter(":visible")
+            .click({ multiple: true });
+
+         // open the popup
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )

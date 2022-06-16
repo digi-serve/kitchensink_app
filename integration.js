@@ -3,26 +3,26 @@ const Common = require("../../../../setup/common.js");
 const folderName = __dirname.match(/[^\\/]+$/)[0];
 
 const WidgetTestCases = [
-   require("./test_cases/Carousel.js"),
-   require("./test_cases/ConditionalContainer.js"),
-   require("./test_cases/Combo.js"),
-   require("./test_cases/Text.js"),
-   require("./test_cases/Label.js"),
-   require("./test_cases/Image.js"),
-   require("./test_cases/Detail.js"),
-   require("./test_cases/Menu.js"),
-   require("./test_cases/Form.js"),
+   // require("./test_cases/Carousel.js"),
+   // require("./test_cases/ConditionalContainer.js"),
+   // require("./test_cases/Combo.js"),
+   // require("./test_cases/Text.js"),
+   // require("./test_cases/Label.js"),
+   // require("./test_cases/Image.js"),
+   // require("./test_cases/Detail.js"),
+   // require("./test_cases/Menu.js"),
+   // require("./test_cases/Form.js"),
    require("./test_cases/FormSave.js"),
-   require("./test_cases/Tab.js"),
-   require("./test_cases/Comment.js"),
-   require("./test_cases/DOCXBuilder.js"),
-   require("./test_cases/Scope.js"),
-   require("./test_cases/CSV_Exporter.js"),
+   // require("./test_cases/Tab.js"),
+   // require("./test_cases/Comment.js"),
+   // require("./test_cases/DOCXBuilder.js"),
+   // require("./test_cases/Scope.js"),
+   // require("./test_cases/CSV_Exporter.js"),
 ];
 
 const ProcessTestCases = [
    // require("./test_cases/process_test-kcs.js"),
-   require("./test_cases/process_test-kcs-onCreate-process.js"),
+   // require("./test_cases/process_test-kcs-onCreate-process.js"),
 ];
 
 // Don't stop tests on uncaught errors
