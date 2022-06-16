@@ -1,14 +1,14 @@
 export default (folderName, Common) => {
 
-    describe('kitchen-sink', () => {
+    describe('Process Approval', () => {
 
         beforeEach(() => {
-            Common.RunSQL(cy, folderName, ['process_test-kcs-onCreate-process.sql']);
+            Common.RunSQL(cy, folderName, ['add_testkcs_stock.sql'], ['process_test-kcs-onCreate-process.sql']);
         });
 
         // 1. Can see the message for approval in the inbox
 
-        it.only('Can see the message for approval in the inbox', () => {
+        it('Can see the message for approval in the inbox', () => {
 
             // Go to the tab "Process" > "Order"
 
@@ -83,7 +83,7 @@ export default (folderName, Common) => {
 
         // 2. Can find the latest "Coke" amount is increased
 
-        it.only("Can find the latest 'Coke' amount is increased", () => {
+        it("Can find the latest 'Coke' amount is increased", () => {
 
             cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
               .should('exist')
@@ -97,7 +97,7 @@ export default (folderName, Common) => {
 
         // 3. Can find the latest "Coke" amount is not increased
 
-        it.only("Can find the latest 'Coke' amount is not increased", () => {
+        it("Can find the latest 'Coke' amount is not increased", () => {
 
             // Go to the tab "Process" > "Order"
 
@@ -166,7 +166,7 @@ export default (folderName, Common) => {
 
         // 4. Checking for the latest Stock
 
-        it.only("Checking for the latest Stock", () => {
+        it("Checking for the latest Stock", () => {
 
             cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
               .should('exist')
