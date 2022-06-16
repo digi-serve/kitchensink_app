@@ -73,12 +73,6 @@ export default (folderName, Common) => {
               .scrollIntoView()
               .click();
 
-            cy.get('.webix_el_box')
-              .eq(14)
-              .find('button')
-              .should('exist')
-              .click();
-
         });
 
         // 2. Can find the latest "Coke" amount is increased
