@@ -8663,18 +8663,8 @@
             {
               "selectedAction": "ABViewRuleActionFormRecordRuleUpdate",
               "queryRules": {
-                "glue": "or",
+                "glue": "and",
                 "rules": [
-                  {
-                    "key": "balance check example",
-                    "value": "",
-                    "rule": "is_null"
-                  },
-                  {
-                    "key": "balance check example",
-                    "value": "0.00",
-                    "rule": "equal"
-                  },
                   {
                     "key": "balance check example",
                     "value": "0",
@@ -8752,33 +8742,6 @@
                       "value": "1",
                       "op": "set",
                       "type": "boolean",
-                      "valueType": "custom"
-                    }
-                  ]
-                },
-                "updateObjectURL": "#/_objects/efdf6230-2013-459c-9c0e-a8c25521f31a"
-              }
-            },
-            {
-              "selectedAction": "ABViewRuleActionFormRecordRuleUpdate",
-              "queryRules": {
-                "glue": "and",
-                "rules": [
-                  {
-                    "key": "balance check example",
-                    "value": "0",
-                    "rule": "equal"
-                  }
-                ]
-              },
-              "actionSettings": {
-                "valueRules": {
-                  "fieldOperations": [
-                    {
-                      "fieldID": "568257d1-a957-49db-bf8f-b88979c9cd79",
-                      "value": "0",
-                      "op": "set",
-                      "type": "number",
                       "valueType": "custom"
                     }
                   ]
@@ -8921,7 +8884,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-05-26T04:11:40.000Z",
-      "updatedAt": "2022-06-16T06:45:27.000Z"
+      "updatedAt": "2022-06-16T10:15:31.000Z"
     },
     {
       "id": "0795aace-6e0c-40a7-bf6c-5f5b82cda0e8",
@@ -8953,7 +8916,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-05-26T04:11:56.000Z",
-      "updatedAt": "2022-06-16T06:45:27.000Z"
+      "updatedAt": "2022-06-16T10:15:30.000Z"
     },
     {
       "id": "7b7b7854-33cc-47e8-8695-536b9d4a0709",
@@ -8995,7 +8958,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-06-14T08:57:37.000Z",
-      "updatedAt": "2022-06-16T06:45:27.000Z"
+      "updatedAt": "2022-06-16T10:15:30.000Z"
     },
     {
       "id": "4c72249e-05a0-4858-a0bc-eb60e14efb07",
@@ -9031,7 +8994,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-06-14T08:57:38.000Z",
-      "updatedAt": "2022-06-16T06:45:27.000Z"
+      "updatedAt": "2022-06-16T10:15:30.000Z"
     },
     {
       "id": "31424381-9fed-4c6d-94c1-01b5dfcfb992",
@@ -9064,7 +9027,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-05-26T04:11:56.000Z",
-      "updatedAt": "2022-06-16T06:45:27.000Z"
+      "updatedAt": "2022-06-16T10:15:30.000Z"
     },
     {
       "id": "743969bc-cb8f-471e-abcd-1f4511b83815",

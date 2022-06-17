@@ -1,5 +1,11 @@
+const Common = require("../../../../../setup/common.js");
+const folderName = __dirname.match(/[^\\/]+$/)[0];
+
 export default () => {
    describe("Save Form Values", () => {
+      before(() => {
+         Common.RunSQL(cy, folderName, ["form_save_selectable.sql"]);
+      });
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-FormSave-af33a28d-c6a8-4a88-a52a-6d3333c3151f-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
@@ -174,7 +180,7 @@ export default () => {
          // cy.get(".trash").click();
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
-      it("conditional record rules - greater than 1", () => {
+      it.only("conditional record rules - greater than 1", () => {
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
@@ -191,14 +197,14 @@ export default () => {
             .should("be.visible")
             .type("1")
             .clear()
-            .type("185");
+            .type("85");
          // button save a573443e-6b82-4db9-a827-0a772a53af74
          cy.get(
             '[data-cy="number amount 7c8732a7-9f55-4844-be4e-51978f94d712 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
          )
             .type("-1")
             .clear()
-            .type("-185");
+            .type("85");
          // click all save buttons
          // ! this might fail !
          cy.get('[data-cy^="button save"]')
@@ -218,6 +224,22 @@ export default () => {
             .type("111")
             .clear()
             .type("1337");
+
+         cy.get('[data-cy^="connectObject Orders"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click();
+         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
+
+         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click({ multiple: true });
+         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
+
+         cy.get(
+            '[data-cy^="connectObject Orders f03063b2-cfab-4778-b356-466810217f21"]'
+         ).click();
 
          cy.get('[data-cy^="button save"]') // Auto Generate Record
             .filter(":visible")
