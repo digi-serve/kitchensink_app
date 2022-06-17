@@ -125,6 +125,39 @@ export default () => {
             .filter(":visible")
             .click({ multiple: true });
 
+         // pre-setup the data in the popup
+         cy.get(
+            '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
+         )
+            .contains("Condition rule")
+            .should("exist")
+            .click();
+         cy.get('[data-cy^="connectObject Orders"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click();
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .filter(":visible")
+            .click();
+
+         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click({ multiple: true });
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .filter(":visible")
+            .click();
+         cy.get('[data-cy^="button save"]') // Auto Generate Record
+            .filter(":visible")
+            .contains("Update this record")
+            .should("exist")
+            .click();
+         // end pre-setup the data
+
          // open the popup
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
@@ -132,27 +165,34 @@ export default () => {
             .contains("Condition rule")
             .should("exist")
             .click();
+         // check whether balance check already exists
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .contains("0")
+            .should("exist");
+         //
          cy.get('[data-cy^="number Number allow"]')
             .filter(":visible")
             .should("exist")
             .type("111")
             .clear()
             .type("1337");
-         cy.get('[data-cy^="connectObject Orders"]').click();
-         cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .click();
-         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
+         // cy.get('[data-cy^="connectObject Orders"]').click();
+         // cy.get('[data-cy^="connectObject options"]')
+         //    .filter(":visible")
+         //    .click();
+         // cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
 
-         cy.get('[data-cy^="connectObject Processes"]').click();
-         cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .click();
-         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
+         // cy.get('[data-cy^="connectObject Processes"]').click();
+         // cy.get('[data-cy^="connectObject options"]')
+         //    .filter(":visible")
+         //    .click();
+         // cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
 
          cy.get('[data-cy^="button save"]') // Auto Generate Record
             .filter(":visible")
-            .contains("Save")
+            .contains("Submit and Run")
             .should("exist")
             .click();
          cy.get(".webix_spin").should("not.exist");
@@ -211,6 +251,38 @@ export default () => {
             .filter(":visible")
             .click({ multiple: true });
 
+         cy.get(
+            '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
+         )
+            .contains("Condition rule")
+            .should("exist")
+            .click();
+         cy.get('[data-cy^="connectObject Orders"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click();
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .filter(":visible")
+            .click();
+
+         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get('[data-cy^="connectObject options"]')
+            .filter(":visible")
+            .click({ multiple: true });
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .filter(":visible")
+            .click();
+         cy.get('[data-cy^="button save"]') // Auto Generate Record
+            .filter(":visible")
+            .contains("Update this record")
+            .should("exist")
+            .click();
+         //
+
          // open the popup
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
@@ -218,6 +290,11 @@ export default () => {
             .contains("Condition rule")
             .should("exist")
             .click();
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .contains("85")
+            .should("exist");
          cy.get('[data-cy^="number Number allow"]')
             .filter(":visible")
             .should("exist")
@@ -225,25 +302,9 @@ export default () => {
             .clear()
             .type("1337");
 
-         cy.get('[data-cy^="connectObject Orders"]').click();
-         cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .click();
-         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
-
-         cy.get('[data-cy^="connectObject Processes"]').click();
-         cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .click({ multiple: true });
-         cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
-
-         cy.get(
-            '[data-cy^="connectObject Orders f03063b2-cfab-4778-b356-466810217f21"]'
-         ).click();
-
          cy.get('[data-cy^="button save"]') // Auto Generate Record
             .filter(":visible")
-            .contains("Save")
+            .contains("Submit and Run Record Rules")
             .should("exist")
             .click();
          cy.get(".webix_spin").should("not.exist");
