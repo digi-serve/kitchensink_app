@@ -170,6 +170,7 @@ export default () => {
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
             .contains("0")
+            .should("not.contain", "185")
             .should("exist");
          //
          cy.get('[data-cy^="number Number allow"]')
@@ -220,7 +221,7 @@ export default () => {
          // cy.get(".trash").click();
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
-      it.only("conditional record rules - greater than 1", () => {
+      it("conditional record rules - greater than 1", () => {
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
