@@ -165,6 +165,18 @@ export default () => {
             .contains("Condition rule")
             .should("exist")
             .click();
+         cy.get('[data-cy^="button save"]') // Auto Generate Record
+            .filter(":visible")
+            .contains("Update this record")
+            .should("exist")
+            .click();
+         cy.get(
+            '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
+         )
+            .contains("Condition rule")
+            .should("exist")
+            .click();
+
          // check whether balance check already exists
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
@@ -179,17 +191,6 @@ export default () => {
             .type("111")
             .clear()
             .type("1337");
-         // cy.get('[data-cy^="connectObject Orders"]').click();
-         // cy.get('[data-cy^="connectObject options"]')
-         //    .filter(":visible")
-         //    .click();
-         // cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
-
-         // cy.get('[data-cy^="connectObject Processes"]').click();
-         // cy.get('[data-cy^="connectObject options"]')
-         //    .filter(":visible")
-         //    .click();
-         // cy.get('[data-cy^="number Number allow"]').filter(":visible").click();
 
          cy.get('[data-cy^="button save"]') // Auto Generate Record
             .filter(":visible")
@@ -214,9 +215,11 @@ export default () => {
          cy.log(
             "If the record exists, but the data is wrong, it means the forms works -- and the record rules don't"
          );
-         cy.get(".webix_ss_center_scroll").contains("Option 1");
-         cy.get(".webix_ss_center_scroll").contains("0");
          cy.get(".webix_ss_center_scroll").contains("Number was zero");
+         cy.get(".webix_ss_center_scroll").contains("0");
+         // cy.log("This needs to be zero:");
+         // cy.get(".webix_ss_center_scroll").should("not.contain", "1337");
+         cy.get(".webix_ss_center_scroll").contains("Option 1");
          // cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
          // cy.get(".trash").click();
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
@@ -326,10 +329,10 @@ export default () => {
          cy.log(
             "If the record exists, but the data is wrong, it means the forms works -- and the record rules don't"
          );
+         cy.get(".webix_ss_center_scroll").contains("Number was positive");
          cy.get(".webix_ss_center_scroll").contains("1337");
          cy.get(".webix_ss_center_scroll").contains("Option 2");
          cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
-         cy.get(".webix_ss_center_scroll").contains("Number was positive");
          cy.get(".webix_ss_center_scroll")
             .contains("1337")
             .click({ force: true });
