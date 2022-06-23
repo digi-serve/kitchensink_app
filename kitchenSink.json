@@ -2499,7 +2499,7 @@
         }
       },
       "createdAt": "2022-03-15T02:22:23.000Z",
-      "updatedAt": "2022-06-14T08:57:08.000Z"
+      "updatedAt": "2022-06-23T07:23:10.000Z"
     },
     {
       "id": "2e7a1c02-141a-4cdd-b93e-62c6c4e4765b",
@@ -3789,7 +3789,7 @@
         }
       },
       "createdAt": "2022-04-11T03:16:26.000Z",
-      "updatedAt": "2022-04-11T03:18:49.000Z"
+      "updatedAt": "2022-06-23T08:59:11.000Z"
     },
     {
       "id": "06a93149-590d-4e4f-9463-5ff43a689fd1",
@@ -4016,7 +4016,7 @@
         "id": "5e576b80-0bd5-4bf1-90e4-c4f652c75f98",
         "type": "object",
         "name": "test-kcs-key-a",
-        "labelFormat": "{cf08cd8a-f283-46d1-bda1-2a74c31c706e}{39b13c41-aebd-4e7c-8a17-b06e8b5b7023}",
+        "labelFormat": "{cf08cd8a-f283-46d1-bda1-2a74c31c706e}{89d025b4-4f0a-469e-8dcb-4d7ae066c59a}",
         "isImported": "0",
         "isExternal": "0",
         "tableName": "AB_testkcskeya",
@@ -4040,7 +4040,8 @@
           "cf08cd8a-f283-46d1-bda1-2a74c31c706e",
           "2e3c1460-c09c-4645-9366-cdec84902fcd",
           "55f60d41-93c2-4977-a015-73bafd5c2515",
-          "39b13c41-aebd-4e7c-8a17-b06e8b5b7023"
+          "39b13c41-aebd-4e7c-8a17-b06e8b5b7023",
+          "89d025b4-4f0a-469e-8dcb-4d7ae066c59a"
         ],
         "indexIDs": [
           "2051fa79-7b1b-4aff-8441-448ecf19a9b4"
@@ -4066,7 +4067,7 @@
         }
       },
       "createdAt": "2022-03-30T06:16:32.000Z",
-      "updatedAt": "2022-06-23T08:59:20.000Z"
+      "updatedAt": "2022-06-23T09:20:47.000Z"
     },
     {
       "id": "cf08cd8a-f283-46d1-bda1-2a74c31c706e",
@@ -4084,7 +4085,7 @@
           "required": 1,
           "unique": 0,
           "validationRules": "[]",
-          "default": "no label set here",
+          "default": "label",
           "supportMultilingual": 0,
           "width": 0
         },
@@ -4096,7 +4097,7 @@
         ]
       },
       "createdAt": "2022-03-30T06:16:42.000Z",
-      "updatedAt": "2022-06-23T08:50:34.000Z"
+      "updatedAt": "2022-06-23T09:25:40.000Z"
     },
     {
       "id": "2e3c1460-c09c-4645-9366-cdec84902fcd",
@@ -4169,9 +4170,11 @@
       "updatedAt": "2022-06-23T08:47:58.999Z"
     },
     {
+      "id": "39b13c41-aebd-4e7c-8a17-b06e8b5b7023",
       "name": "test-kcs-key-a->Long Text",
       "type": "field",
       "json": {
+        "id": "39b13c41-aebd-4e7c-8a17-b06e8b5b7023",
         "type": "field",
         "key": "LongText",
         "icon": "align-right",
@@ -4182,21 +4185,55 @@
           "required": 0,
           "unique": 0,
           "validationRules": "[]",
-          "default": "None set by object",
+          "default": "Normal longtext",
           "supportMultilingual": 0,
-          "width": 130
+          "width": 0
         },
         "translations": [
           {
             "language_code": "en",
             "label": "Long Text"
           }
-        ],
-        "id": "39b13c41-aebd-4e7c-8a17-b06e8b5b7023"
+        ]
       },
-      "id": "39b13c41-aebd-4e7c-8a17-b06e8b5b7023",
-      "createdAt": "2022-06-23T08:49:41.126Z",
-      "updatedAt": "2022-06-23T08:49:41.126Z"
+      "createdAt": "2022-06-23T08:49:41.000Z",
+      "updatedAt": "2022-06-23T09:25:56.000Z"
+    },
+    {
+      "id": "89d025b4-4f0a-469e-8dcb-4d7ae066c59a",
+      "name": "test-kcs-key-a->Multilingual long test",
+      "type": "field",
+      "json": {
+        "id": "89d025b4-4f0a-469e-8dcb-4d7ae066c59a",
+        "type": "field",
+        "key": "LongText",
+        "icon": "align-right",
+        "isImported": "0",
+        "columnName": "Multilingual long test",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "None - multilingual set by default in object",
+          "supportMultilingual": 1,
+          "width": 0,
+          "translations": [
+            {
+              "language_code": "en",
+              "default": "None - multilingual set by default in object"
+            }
+          ]
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Multilingual long test"
+          }
+        ]
+      },
+      "createdAt": "2022-06-23T09:19:49.000Z",
+      "updatedAt": "2022-06-23T09:26:17.000Z"
     },
     {
       "id": "2051fa79-7b1b-4aff-8441-448ecf19a9b4",
@@ -4235,7 +4272,7 @@
           "required": 1,
           "unique": 0,
           "validationRules": "[]",
-          "default": "no label set here",
+          "default": "label",
           "supportMultilingual": 0,
           "width": 0
         },
@@ -4247,7 +4284,7 @@
         ]
       },
       "createdAt": "2022-03-30T06:16:42.000Z",
-      "updatedAt": "2022-06-23T08:50:34.000Z"
+      "updatedAt": "2022-06-23T09:25:40.000Z"
     },
     {
       "id": "5c5c56b8-a926-4814-b5b5-01db1cc99fd5",
@@ -5998,7 +6035,7 @@
         }
       },
       "createdAt": "2022-04-11T03:19:13.000Z",
-      "updatedAt": "2022-06-23T08:57:58.000Z"
+      "updatedAt": "2022-06-23T09:27:14.000Z"
     },
     {
       "id": "40f72b62-ecb3-45d6-93d5-0942f0129c70",
@@ -6023,7 +6060,7 @@
         "lifecycleKey": "added"
       },
       "createdAt": "2022-04-11T03:19:26.000Z",
-      "updatedAt": "2022-04-18T08:52:07.000Z"
+      "updatedAt": "2022-06-23T09:27:14.000Z"
     },
     {
       "id": "2513a7e8-945b-4c3d-8f04-4bf13cb2ba90",
@@ -6085,7 +6122,7 @@
         }
       },
       "createdAt": "2022-04-11T03:20:56.000Z",
-      "updatedAt": "2022-04-18T08:52:07.000Z"
+      "updatedAt": "2022-06-23T09:27:14.000Z"
     },
     {
       "id": "e42a5fb2-f0ae-4fde-b3e7-8ea522854f46",
@@ -6154,7 +6191,7 @@
         }
       },
       "createdAt": "2022-04-11T03:22:15.000Z",
-      "updatedAt": "2022-04-18T08:52:07.000Z"
+      "updatedAt": "2022-06-23T09:27:14.000Z"
     },
     {
       "id": "7eb38497-46ca-46ca-86e9-80b3aaebf42a",
@@ -6176,7 +6213,7 @@
         "key": "End"
       },
       "createdAt": "2022-04-11T03:22:20.000Z",
-      "updatedAt": "2022-06-23T08:57:58.000Z"
+      "updatedAt": "2022-06-23T09:27:14.000Z"
     },
     {
       "id": "836162b7-f6a7-4796-81fc-56b5e9448385",
@@ -6212,7 +6249,11 @@
           },
           "39b13c41-aebd-4e7c-8a17-b06e8b5b7023": {
             "set": "1",
-            "value": "None set by process"
+            "value": "Normal longtext from process"
+          },
+          "89d025b4-4f0a-469e-8dcb-4d7ae066c59a": {
+            "set": "1",
+            "value": "None - set in process"
           }
         },
         "isRepeat": "false",
@@ -6220,7 +6261,7 @@
         "repeatColumn": ""
       },
       "createdAt": "2022-06-23T08:52:24.000Z",
-      "updatedAt": "2022-06-23T08:57:58.000Z"
+      "updatedAt": "2022-06-23T09:27:14.000Z"
     },
     {
       "id": "cb77ced0-a803-46b7-8a79-f9084d75d51c",
@@ -17250,7 +17291,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:25:30.000Z",
-      "updatedAt": "2022-04-04T09:29:53.000Z"
+      "updatedAt": "2022-06-23T07:19:58.000Z"
     },
     {
       "id": "0181c44e-08ec-4953-beee-d6b36d02b1eb",
@@ -17297,7 +17338,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:26:32.000Z",
-      "updatedAt": "2022-06-14T08:26:28.000Z"
+      "updatedAt": "2022-06-23T07:19:57.000Z"
     },
     {
       "id": "8f2b6202-7c95-4b78-83b0-bc406e283868",
@@ -17421,7 +17462,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:26:35.000Z",
-      "updatedAt": "2022-04-04T09:29:53.000Z"
+      "updatedAt": "2022-06-23T07:19:58.000Z"
     },
     {
       "id": "c2a70a89-1e38-4e3e-87f3-1e753ae5f771",
@@ -17454,7 +17495,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:30:05.000Z",
-      "updatedAt": "2022-04-04T09:29:53.000Z"
+      "updatedAt": "2022-06-23T07:19:58.000Z"
     },
     {
       "id": "7e074587-ddc5-4d34-9f37-a0ab88a4258b",
@@ -17537,7 +17578,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:31:55.000Z",
-      "updatedAt": "2022-06-14T09:11:37.000Z"
+      "updatedAt": "2022-06-23T07:19:58.000Z"
     },
     {
       "id": "227da25e-9c38-4b90-8d30-80447e35d0b8",
@@ -17672,7 +17713,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:33:56.000Z",
-      "updatedAt": "2022-04-04T09:29:53.000Z"
+      "updatedAt": "2022-06-23T07:19:58.000Z"
     },
     {
       "id": "cf45b88e-223d-4c53-b8da-bcaaf61ff9bf",
