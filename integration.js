@@ -5,7 +5,7 @@ const folderName = __dirname.match(/[^\\/]+$/)[0];
 const WidgetTestCases = [
    require("./test_cases/Carousel.js"),
    require("./test_cases/ConditionalContainer.js"),
-   // require("./test_cases/Combo.js"),
+   require("./test_cases/Combo.js"),
    require("./test_cases/Text.js"),
    require("./test_cases/Label.js"),
    require("./test_cases/Image.js"),
@@ -15,8 +15,8 @@ const WidgetTestCases = [
    require("./test_cases/FormSave.js"),
    require("./test_cases/Tab.js"),
    require("./test_cases/Comment.js"),
-   // require("./test_cases/DOCXBuilder.js"),
-   // require("./test_cases/Scope.js"),
+   require("./test_cases/DOCXBuilder.js"),
+   require("./test_cases/Scope.js"),
    // require("./test_cases/CSV_Exporter.js"),
 ];
 
