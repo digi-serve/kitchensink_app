@@ -26,20 +26,17 @@ export default (folderName, Common) => {
          cy.log(
             "There are two labels: the one we are looking for contains the word 'None'"
          );
-         cy.get(
-            '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]'
-         ).contains("None");
 
          cy.get(
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]  > .webix_ss_body > .webix_ss_center'
          )
             .find(".webix_column ")
             .should(($data) => {
-               expect($data, "5 columns").to.have.length(5);
+               expect($data, "6 columns").to.have.length(6);
                expect($data.eq(0), "label").to.contain("test label");
                expect($data.eq(1), "text").to.contain("Manual Text");
                expect($data.eq(2), "status").to.contain("updated");
-               expect($data.eq(5), "status").to.contain("THIS WILL FAIL");
+               expect($data.eq(5), "status").to.contain("None");
                expect($data.eq(3).find(".webix_icon"), "updated").to.have.class(
                   "fa-check-square-o"
                );
