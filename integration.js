@@ -21,8 +21,8 @@ const WidgetTestCases = [
 ];
 
 const ProcessTestCases = [
-   // require("./test_cases/process_test-kcs-onCreate-process.js"),
-   // require("./test_cases/process_approval.js"),
+   require("./test_cases/process_test-kcs-onCreate-process.js"),
+   require("./test_cases/process_approval.js"),
 ];
 
 // Don't stop tests on uncaught errors
