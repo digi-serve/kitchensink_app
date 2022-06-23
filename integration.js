@@ -17,7 +17,7 @@ const WidgetTestCases = [
    require("./test_cases/Comment.js"),
    require("./test_cases/DOCXBuilder.js"),
    require("./test_cases/Scope.js"),
-   // require("./test_cases/CSV_Exporter.js"),
+   require("./test_cases/CSV_Exporter.js"),
 ];
 
 const ProcessTestCases = [
