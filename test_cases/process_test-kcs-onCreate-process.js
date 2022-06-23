@@ -41,6 +41,7 @@ export default (folderName, Common) => {
 
          cy.get(".webix_progress_icon").should("not.exist");
 
+         // is text in child record working
          cy.get(
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]  > .webix_ss_body > .webix_ss_center'
          )
@@ -50,6 +51,7 @@ export default (folderName, Common) => {
                expect($data.eq(0), "label").to.contain("test label");
                expect($data.eq(1), "text").to.contain("Manual Text");
                expect($data.eq(2), "status").to.contain("updated");
+               expect($data.eq(5), "status").to.contain("THIS WILL FAIL");
                expect($data.eq(3).find(".webix_icon"), "updated").to.have.class(
                   "fa-check-square-o"
                );
