@@ -1477,7 +1477,14 @@
           "editable": 1,
           "isShowProfileImage": 1,
           "isShowUsername": 1,
-          "width": 100
+          "width": 100,
+          "linkObject": "228e3d91-5e42-49ec-b37c-59323ae433a1",
+          "isCustomFK": 1,
+          "isSource": 1,
+          "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
+          "linkType": "one",
+          "linkViaType": "many",
+          "linkColumn": "eb0117f1-4c28-4827-91a4-2884c496f360"
         },
         "translations": [
           {
@@ -1510,7 +1517,14 @@
           "editable": 1,
           "isShowProfileImage": 1,
           "isShowUsername": 1,
-          "width": 150
+          "width": 150,
+          "linkObject": "228e3d91-5e42-49ec-b37c-59323ae433a1",
+          "isCustomFK": 1,
+          "isSource": 1,
+          "indexField2": "5760560b-c078-47ca-98bf-e18ac492a561",
+          "linkType": "many",
+          "linkViaType": "many",
+          "linkColumn": "e0631943-8902-4b2d-b11c-25c9acfa061e"
         },
         "translations": [
           {
