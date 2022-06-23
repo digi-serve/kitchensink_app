@@ -46,6 +46,12 @@ export default () => {
          cy.get(".webix_ss_center_scroll").contains("1");
          cy.get(".webix_ss_center_scroll").contains("Option 3");
          cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
+         cy.window().then((win) => {
+            return win
+               .$$("ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable")
+               .scrollTo(1000, 1);
+         });
+         cy.get(".webix_ss_center_scroll").contains("None");
          cy.get(".trash").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
