@@ -11,7 +11,13 @@ export default (folderName, Common) => {
          cy.contains("label", "test-kcs-id").should("have.value", "");
       }); //End 2
       //3. can find the field "single-line-text(required)" with the value "test2"
-      it("can find single line text", () => {
+      it.only("can find fields", () => {
+         //can find select-list-multiselect
+         //TODO Make this more specific
+         cy.get(
+            '[data-cy="fieldcustom list selectlistmultiselect b257f0b5-2e2a-4eb5-96ef-c10d85d48ebe 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+         ).contains("item");
+         //can find single line text
          cy.get(
             '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
          )
