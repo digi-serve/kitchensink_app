@@ -10,6 +10,7 @@ const WidgetTestCases = [
    require("./test_cases/Label.js"),
    require("./test_cases/Image.js"),
    require("./test_cases/Detail.js"),
+   require("./test_cases/DataView.js"),
    require("./test_cases/Menu.js"),
    require("./test_cases/Form.js"),
    require("./test_cases/FormSave.js"),
@@ -21,8 +22,8 @@ const WidgetTestCases = [
 ];
 
 const ProcessTestCases = [
-   require("./test_cases/process_test-kcs-onCreate-process.js"),
-   require("./test_cases/process_approval.js"),
+   // require("./test_cases/process_test-kcs-onCreate-process.js"),
+   // require("./test_cases/process_approval.js"),
 ];
 
 // Don't stop tests on uncaught errors
