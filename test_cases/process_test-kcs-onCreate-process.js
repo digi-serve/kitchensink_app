@@ -30,7 +30,7 @@ export default (folderName, Common) => {
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"'
          ).should("contain", "updated");
       });
-      it.skip('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
+      it('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
          cy.get(
             '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]'
          ).type("test label");
@@ -55,6 +55,44 @@ export default (folderName, Common) => {
                );
                expect($data.eq(4), "connectedField").to.contain("Mr. Admin");
             });
+      });
+   });
+
+   describe("Test Query Task", () => {
+      beforeEach(() => {
+         Common.RunSQL(cy, folderName, [
+            "process_test-kcs-onCreate-process.sql",
+         ]);
+         cy.get(
+            '[data-cy="tab onCreate bc6a8b04-709c-46ce-a273-cb3550a17282 1169d7cf-d03d-4bd5-b282-4897b3329d7c"]'
+         ).click();
+      });
+      it("Can find the latest data with the fields status 'updated', updated is checked and connectedField is 'mr. admin'", () => {
+         cy.get(
+            '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]'
+         ).type("label");
+
+         cy.get(
+            '[data-cy="button save 2172ba78-b327-42a1-8918-d97852234aee"]'
+         ).click();
+
+         cy.get(".webix_progress_icon").should("not.exist");
+
+         cy.get(
+            '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]  > .webix_ss_body > .webix_ss_center'
+         )
+            .find(".webix_column")
+            .should("contain", "label")
+            .and("contain", "Manual Text")
+            .and("contain", "updated")
+            .find(".webix_icon")
+            .should("have.class", "fa-check-square-o");
+
+         cy.get(
+            '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]  > .webix_ss_body > .webix_ss_center'
+         )
+            .find(".webix_column")
+            .should("contain", "Mr. Admin");
       });
    });
 };
