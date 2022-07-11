@@ -6,6 +6,7 @@ const WidgetTestCases = [
    require("./test_cases/Carousel.js"),
    require("./test_cases/ConditionalContainer.js"),
    require("./test_cases/Combo.js"),
+   require("./test_cases/Chart.js"),
    require("./test_cases/Text.js"),
    require("./test_cases/Label.js"),
    require("./test_cases/Image.js"),
