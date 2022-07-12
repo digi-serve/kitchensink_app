@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe.only("Chart", () => {
+   describe("Chart", () => {
       beforeEach(() => {
          cy.visit("/");
          Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
