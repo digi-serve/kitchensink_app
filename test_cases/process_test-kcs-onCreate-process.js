@@ -35,7 +35,7 @@ export default (folderName, Common) => {
          ).contains("Record B");
          cy.get(
             '[data-cy="detail connected 1to1 connect field 3b23ad33-e680-4ff3-859f-edee74804570 b00875b2-4c62-4ab4-8bc7-229054b226cc"]'
-         ).contains("test-KCS-ID:0000000005");
+         ).contains("test-KCS-ID:0000000003");
          cy.get(
             '[data-cy="detail connected m2one connect field 898b142d-c18e-4060-91d9-05a0e29f50e4 b00875b2-4c62-4ab4-8bc7-229054b226cc"]'
          ).contains("ID: ");
@@ -45,7 +45,7 @@ export default (folderName, Common) => {
          )
             .find(".webix_column")
             .should(($data) => {
-               expect($data, "8 columns").to.have.length(5);
+               expect($data, "8 columns").to.have.length(7);
                expect($data.eq(0), "label").to.contain("test label");
                expect($data.eq(1), "text").to.contain("Manual Text");
                expect($data.eq(2), "status").to.contain("updated");
