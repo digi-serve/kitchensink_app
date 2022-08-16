@@ -8,7 +8,7 @@ export default (folderName, Common) => {
             '[data-cy="tab onCreate bc6a8b04-709c-46ce-a273-cb3550a17282 1169d7cf-d03d-4bd5-b282-4897b3329d7c"]'
          ).click();
       });
-      it('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
+      it.skip('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
          cy.get(
             '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]'
          ).type("test label");
