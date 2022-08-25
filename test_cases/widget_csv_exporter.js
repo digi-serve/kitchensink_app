@@ -1,6 +1,6 @@
 import path from "path";
 
-export default (folderName, Common) => {
+export default () => {
    describe("CSV Exporter", () => {
       beforeEach(() => {}); //End beforeEach
    }); //End describe

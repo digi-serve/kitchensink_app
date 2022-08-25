@@ -1,4 +1,4 @@
-export default (folderName, Common) => {
+export default () => {
    describe("Label", () => {
       it("Exists", () => {
          // Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);

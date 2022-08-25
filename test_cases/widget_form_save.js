@@ -198,6 +198,8 @@ export default () => {
             .should("exist")
             .click();
          cy.get(".webix_spin").should("not.exist");
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(10);
 
          // record should be generated, and popup should close itself
@@ -313,6 +315,8 @@ export default () => {
             .should("exist")
             .click();
          cy.get(".webix_spin").should("not.exist");
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(100);
 
          // record should be generated, and popup should close itself
