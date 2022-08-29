@@ -1,4 +1,4 @@
-export default (folderName, Common) => {
+export default () => {
    describe("Text", () => {
       it("Exists", () => {
          // Select the Text tab

@@ -1,4 +1,4 @@
-export default (folderName, Common) => {
+export default () => {
    const TARGET_VIEW_ID = "ABViewConditionalContainer";
 
    describe("ConditionalContainer", () => {
