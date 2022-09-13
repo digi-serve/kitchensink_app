@@ -1,6 +1,6 @@
 export default () => {
    describe("Detail", () => {
-      it.only("Exists", () => {
+      it("Exists", () => {
          cy.get(
             '[data-cy="tab-Detail-e8bcfd8a-e343-4cf6-82bb-533cafd45c3a-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
@@ -16,7 +16,7 @@ export default () => {
          ).should("include.text", "admin");
          // single user
          cy.get(
-            '[data-cy="detail text user 158fddff-d8d6-452a-8804-d032768a9f40 aa1c0a4d-001c-4227-970b-4cf1c676ad20"]'
+            '[data-cy="detail connected user 158fddff-d8d6-452a-8804-d032768a9f40 aa1c0a4d-001c-4227-970b-4cf1c676ad20"]'
          ).should("include.text", "admin");
       });
    });
