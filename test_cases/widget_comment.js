@@ -144,11 +144,15 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_list_icon webix_icon wxi-pencil"]')
@@ -175,11 +179,15 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').should("contain", "Edit");
@@ -204,11 +212,15 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_list_icon webix_icon wxi-trash"]')
@@ -235,11 +247,15 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').should("contain", "Remove");
@@ -276,6 +292,8 @@ export default (folderName, Common) => {
             .click({ force: true });
 
          cy.get('a[class="webix_list_item menu"]').eq(0).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(1000);
 
          cy.get("textarea")
@@ -302,16 +320,22 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]')
             .first()
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('textarea[class="webix_inp_textarea"]')
@@ -346,14 +370,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(0).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('textarea[class="webix_inp_textarea"]')
@@ -388,14 +418,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(1).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class="webix_popup_text"]')
@@ -422,14 +458,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(1).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class="webix_popup_button"]').should(
@@ -457,14 +499,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(1).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class="webix_popup_button confirm"]').should(
@@ -492,14 +540,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(1).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class="webix_popup_button"]').should(
@@ -528,14 +582,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(0).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('textarea[class="webix_inp_textarea"]')
@@ -550,19 +610,27 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(1).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class="webix_popup_button"]')
             .should("have.text", "Cancel")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class*="webix_comments_message"]')
@@ -589,14 +657,20 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(0).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('textarea[class="webix_inp_textarea"]')
@@ -611,20 +685,28 @@ export default (folderName, Common) => {
             .should("have.class", "webix_list_item webix_comments_current")
             .contains("admin")
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('span[class="webix_icon wxi-dots webix_comments_menu"]')
             .eq(0)
             .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('a[class="webix_list_item menu"]').eq(1).click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
          cy.get('div[class="webix_popup_button confirm"]')
             .should("have.text", "OK")
-            .click({ force: true })
-            .wait(500);
+            .click({ force: true });
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
+         cy.wait(500);
 
          cy.get('div[class*="webix_comments_message"]')
             .first()
