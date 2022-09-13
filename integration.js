@@ -54,6 +54,7 @@ beforeEach(() => {
 
 describe("Smoke Test", () => {
    it("App Loads", () => {
+      cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]')
          .should("be.visible")
          .click();
