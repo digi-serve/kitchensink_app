@@ -11,6 +11,18 @@ LOCK TABLES `AB_testkcsforms` WRITE;
 TRUNCATE TABLE `AB_testkcsforms`;
 UNLOCK TABLES;
 
+LOCK TABLES `AB_testkcskeya` WRITE;
+TRUNCATE TABLE `AB_testkcskeya`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_testkcskeyb` WRITE;
+TRUNCATE TABLE `AB_testkcskeyb`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_testkcs` WRITE;
+TRUNCATE TABLE `AB_testkcs`;
+UNLOCK TABLES;
+
 LOCK TABLES `AB_testkcsscopeddata` WRITE;
 TRUNCATE TABLE `AB_testkcsscopeddata`;
 UNLOCK TABLES;
