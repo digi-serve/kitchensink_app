@@ -198,6 +198,8 @@ export default () => {
             .should("exist")
             .click();
          cy.get(".webix_spin").should("not.exist");
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(10);
 
          // record should be generated, and popup should close itself
@@ -274,7 +276,8 @@ export default () => {
          cy.get('[data-cy^="connectObject Processes"]').click();
          cy.get('[data-cy^="connectObject options"]')
             .filter(":visible")
-            .click({ multiple: true });
+            .eq(1)
+            .click();
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
@@ -312,6 +315,8 @@ export default () => {
             .should("exist")
             .click();
          cy.get(".webix_spin").should("not.exist");
+
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(100);
 
          // record should be generated, and popup should close itself

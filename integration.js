@@ -3,27 +3,29 @@ const Common = require("../../../../setup/common.js");
 const folderName = __dirname.match(/[^\\/]+$/)[0];
 
 const WidgetTestCases = [
-   require("./test_cases/Carousel.js"),
-   require("./test_cases/ConditionalContainer.js"),
-   require("./test_cases/Combo.js"),
-   require("./test_cases/Text.js"),
-   require("./test_cases/Label.js"),
-   require("./test_cases/Image.js"),
-   require("./test_cases/Detail.js"),
-   require("./test_cases/DataView.js"),
-   require("./test_cases/Menu.js"),
-   require("./test_cases/Form.js"),
-   require("./test_cases/FormSave.js"),
-   require("./test_cases/Tab.js"),
-   require("./test_cases/Comment.js"),
-   require("./test_cases/DOCXBuilder.js"),
-   require("./test_cases/Scope.js"),
-   require("./test_cases/CSV_Exporter.js"),
+   require("./test_cases/widget_carousel.js"),
+   require("./test_cases/widget_chart.js"),
+   require("./test_cases/widget_combo.js"),
+   require("./test_cases/widget_comment.js"),
+   require("./test_cases/widget_conditional_container.js"),
+   require("./test_cases/widget_csv_exporter.js"),
+   require("./test_cases/widget_detail.js"),
+   require("./test_cases/widget_docx_builder.js"),
+   require("./test_cases/widget_filter_by_connected_record.js"),
+   require("./test_cases/widget_form_save.js"),
+   require("./test_cases/widget_form.js"),
+   require("./test_cases/widget_grid.js"),
+   require("./test_cases/widget_image.js"),
+   require("./test_cases/widget_label.js"),
+   require("./test_cases/widget_menu.js"),
+   require("./test_cases/widget_scope.js"),
+   require("./test_cases/widget_tab.js"),
+   require("./test_cases/widget_text.js"),
 ];
 
 const ProcessTestCases = [
-   // require("./test_cases/process_test-kcs-onCreate-process.js"),
-   // require("./test_cases/process_approval.js"),
+   require("./test_cases/process_approval.js"),
+   require("./test_cases/process_test-kcs-onCreate-process.js"),
 ];
 
 // Don't stop tests on uncaught errors
@@ -33,7 +35,7 @@ before(() => {
    Common.ResetDB(cy);
    Common.AuthLogin(cy);
    cy.request("POST", "/test/import", {
-      file: `imports/${folderName}/kitchenSink.json`,
+      file: `imports/${folderName}/appbuilder_app.json`,
    });
 });
 
@@ -52,6 +54,7 @@ beforeEach(() => {
 
 describe("Smoke Test", () => {
    it("App Loads", () => {
+      cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]')
          .should("be.visible")
          .click();
@@ -61,7 +64,7 @@ describe("Smoke Test", () => {
    });
 });
 
-describe.only("Widget Tests", () => {
+describe("Widget Tests", () => {
    beforeEach(() => {
       Common.RunSQL(cy, folderName, [
          "add_testkcs.sql",
@@ -83,7 +86,7 @@ describe.only("Widget Tests", () => {
    });
 });
 
-describe.only("Process Tests", () => {
+describe("Process Tests", () => {
    beforeEach(() => {
       cy.visit("/");
       cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]').click();

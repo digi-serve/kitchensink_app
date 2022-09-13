@@ -1,4 +1,4 @@
-export default (folderName, Common) => {
+export default () => {
    describe("Detail", () => {
       it.only("Exists", () => {
          cy.get(
