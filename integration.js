@@ -14,6 +14,7 @@ const WidgetTestCases = [
    require("./test_cases/widget_filter_by_connected_record.js"),
    require("./test_cases/widget_form_save.js"),
    require("./test_cases/widget_form.js"),
+   require("./test_cases/widget_grid.js"),
    require("./test_cases/widget_image.js"),
    require("./test_cases/widget_label.js"),
    require("./test_cases/widget_menu.js"),
@@ -62,7 +63,7 @@ describe("Smoke Test", () => {
    });
 });
 
-describe.only("Widget Tests", () => {
+describe("Widget Tests", () => {
    beforeEach(() => {
       Common.RunSQL(cy, folderName, [
          "add_testkcs.sql",
@@ -84,7 +85,7 @@ describe.only("Widget Tests", () => {
    });
 });
 
-describe.only("Process Tests", () => {
+describe("Process Tests", () => {
    beforeEach(() => {
       cy.visit("/");
       cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]').click();
