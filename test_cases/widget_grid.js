@@ -19,6 +19,21 @@ export default () => {
       it("Can edit connected records", () => {
          // We need to lookup grid cells by column and scroll to a postition.
          // These might change we add/remove/hide/show fields.
+
+         // ! this field is invalid and breaks other edits
+         const num = {
+            col: 9, // column property on the .webix_column
+            pos: 1500, // pixels to scrollTo
+         };
+         // Many Side
+         gridScroll(GRID, num.pos);
+         cy.get(
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]'
+         )
+            .contains("25")
+            .type("10");
+         // ! end field edit
+
          const connect_mm = {
             col: 27, // column property on the .webix_column
             pos: 5000, // pixels to scrollTo
