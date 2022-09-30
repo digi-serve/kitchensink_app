@@ -20,7 +20,7 @@ export default () => {
          // We need to lookup grid cells by column and scroll to a postition.
          // These might change we add/remove/hide/show fields.
          const connect_mm = {
-            col: 27, // column property on the .webix_column
+            col: 28, // column property on the .webix_column
             pos: 5000, // pixels to scrollTo
          };
          const connect_om = {
@@ -39,9 +39,7 @@ export default () => {
             .click({ force: true });
          cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
          // Click off the select list
-         cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]'
-         ).click();
+         cy.get(".webix_button").contains("Select").click();
          cy.get(
             `.webix_column[column="${connect_mm.col}"] > [role="gridcell"][aria-rowindex="1"]`
          ).should("contain", "test-KCS-ID:0000000001");
@@ -68,6 +66,7 @@ export default () => {
             .contains("test-KCS-ID:0000000001")
             .should("be.visible")
             .click();
+         cy.get(".webix_button").contains("Select").click();
          cy.get(
             `.webix_column[column="${connect_om.col}"] > [role="gridcell"][aria-rowindex="1"]`
          ).should("contain", "test-KCS-ID:0000000001");
