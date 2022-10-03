@@ -226,7 +226,7 @@ export default () => {
          // cy.get(".trash").click();
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
-      it("conditional record rules - greater than 1", () => {
+      it.skip("conditional record rules - greater than 1", () => {
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
@@ -251,21 +251,29 @@ export default () => {
             .type("-1")
             .clear()
             .type("85");
-         // click all save buttons
-         // ! this might fail !
-         cy.get('[data-cy^="button save"]')
-            .filter(":visible")
-            .click({ multiple: true });
+         // click save buttons
+         cy.get(
+            '[data-cy="button save a573443e-6b82-4db9-a827-0a772a53af74"]'
+         ).click();
 
          cy.get(
-            '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
+            '[data-cy="button save 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
+         ).click();
+
+         cy.get(
+            '[data-cy="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79 88bb72eb-5908-46e5-9c87-1e4c6637e6c7"]'
          )
-            .contains("Condition rule")
-            .should("exist")
+            .should("be.visible")
             .click();
-         cy.get('[data-cy^="connectObject Orders"]').click();
+
+         cy.get(
+            '[data-cy="connectObject Orders f03063b2-cfab-4778-b356-466810217f21 92d50041-cda0-4f3b-a215-c078a50d828a"]'
+         )
+            .should("be.visible")
+            .click();
          cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
+            .should("be.visible")
+            .first()
             .click();
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
@@ -273,10 +281,12 @@ export default () => {
             .filter(":visible")
             .click();
 
-         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get(
+            '[data-cy^="connectObject Processes d60649b7-d722-47e2-9c9d-40ae1387f5ba 92d50041-cda0-4f3b-a215-c078a50d828a"]'
+         ).click();
          cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .eq(1)
+            .should("be.visible")
+            .first()
             .click();
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
@@ -300,7 +310,7 @@ export default () => {
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
-            .contains("85")
+            .contains("170.00")
             .should("exist");
          cy.get('[data-cy^="number Number allow"]')
             .filter(":visible")
