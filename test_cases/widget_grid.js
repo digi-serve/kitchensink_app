@@ -39,10 +39,10 @@ export default () => {
             .click({ force: true });
          cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
          // Click off the select list
-         // cy.get(".webix_button").contains("Select").click();
-         cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_globalSearchToolbar"]'
-         ).click();
+         cy.get(".webix_button").contains("Select").click();
+         // cy.get(
+         //    '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_globalSearchToolbar"]'
+         // ).click();
          cy.get(
             `.webix_column[column="${connect_mm.col}"] > [role="gridcell"][aria-rowindex="1"]`
          ).should("contain", "test-KCS-ID:0000000001");
@@ -69,10 +69,10 @@ export default () => {
             .contains("test-KCS-ID:0000000001")
             .should("be.visible")
             .click();
-         // cy.get(".webix_button").contains("Select").click();
-         cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_globalSearchToolbar"]'
-         ).click();
+         cy.get(".webix_button").contains("Select").click();
+         // cy.get(
+         //    '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_globalSearchToolbar"]'
+         // ).click();
          cy.get(
             `.webix_column[column="${connect_om.col}"] > [role="gridcell"][aria-rowindex="1"]`
          ).should("contain", "test-KCS-ID:0000000001");
