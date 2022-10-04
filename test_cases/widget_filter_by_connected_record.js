@@ -6,21 +6,30 @@ export default (folderName, Common) => {
             .click();
       });
 
-      it("Filtering ByDefault", () => {
+      it("Insert Data for Tests", () => {
          Common.RunSQL(
             cy,
             folderName,
             "add_test_kcs_filterByConnectedRecord_2_and_3.sql"
          );
+         Common.RunSQL(
+            cy,
+            folderName,
+            "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql"
+         );
+      });
+
+      it("Filtering ByDefault", () => {
          cy.get(`[data-cy^="tab ByDefault"]`).should("be.visible").click();
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Must select item from 'connectto2' first.");
          cy.get('[data-cy^="connectObject connectto2"]').click();
-         cy.get('[data-cy^="connectObject options uuid21"]')
-            .should("be.visible")
-            .click();
+         cy.get('[data-cy^="connectObject options uuid21"]').should(
+            "be.visible"
+         );
+         cy.get('[data-cy^="connectObject options uuid21"]').click();
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
@@ -48,11 +57,6 @@ export default (folderName, Common) => {
       });
 
       it("Filtering ByCustomIndex", () => {
-         Common.RunSQL(
-            cy,
-            folderName,
-            "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql"
-         );
          cy.get('[data-cy^="tab ByCustomIndex"]').should("be.visible").click();
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
