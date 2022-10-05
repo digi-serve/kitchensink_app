@@ -112,18 +112,22 @@ export default () => {
             .type("1")
             .clear()
             .type("185");
-         // button save a573443e-6b82-4db9-a827-0a772a53af74
+         // We have to click one save at a time because the second save button
+         // will redirect us to a new view and it may be too late to click the
+         // first button at that time.
+         cy.get(
+            '[data-cy="button save a573443e-6b82-4db9-a827-0a772a53af74"]'
+         ).click();
+
          cy.get(
             '[data-cy="number amount 7c8732a7-9f55-4844-be4e-51978f94d712 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
          )
             .type("-1")
             .clear()
             .type("-185");
-         // click all save buttons
-         // ! this might fail !
-         cy.get('[data-cy^="button save"]')
-            .filter(":visible")
-            .click({ multiple: true });
+         cy.get(
+            '[data-cy="button save 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
+         ).click();
 
          // pre-setup the data in the popup
          cy.get(
