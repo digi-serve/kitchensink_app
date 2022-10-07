@@ -20,11 +20,11 @@ export default () => {
          // We need to lookup grid cells by column and scroll to a postition.
          // These might change we add/remove/hide/show fields.
          const connect_mm = {
-            col: 28, // column property on the .webix_column
+            col: 27, // column property on the .webix_column
             pos: 5000, // pixels to scrollTo
          };
          const connect_om = {
-            col: 29,
+            col: 28,
             pos: 5300,
          };
          // Many Side
