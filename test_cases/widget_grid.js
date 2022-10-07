@@ -20,11 +20,11 @@ export default () => {
          // We need to lookup grid cells by column and scroll to a postition.
          // These might change we add/remove/hide/show fields.
          const connect_mm = {
-            col: 28, // column property on the .webix_column
+            col: "connect-to-another-record-mm", // column property on the .webix_column
             pos: 5000, // pixels to scrollTo
          };
          const connect_om = {
-            col: 29,
+            col: "connect-to-another-record-om",
             pos: 5300,
          };
          // Many Side
@@ -32,20 +32,26 @@ export default () => {
          cy.log(
             "Find the cell in the 'connect-to-another-record-mm' column, row 1"
          );
-         cy.get(
-            `.webix_column[column="${connect_mm.col}"] > [role="gridcell"][aria-rowindex="1"]`
-         )
-            .should("exist")
-            .click({ force: true });
-         cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
-         // Click off the select list
-         cy.get(".webix_button").contains("Select").click();
-         // cy.get(
-         //    '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_globalSearchToolbar"]'
-         // ).click();
-         cy.get(
-            `.webix_column[column="${connect_mm.col}"] > [role="gridcell"][aria-rowindex="1"]`
-         ).should("contain", "test-KCS-ID:0000000001");
+
+         cy.get(".webix_hcell")
+            .contains(connect_mm.col)
+            .then(($column) => {
+               // debugger;
+               // cy.log($column.attr("column"));
+               const mmIndex = $column.attr("column");
+               cy.get(
+                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+               )
+                  .should("exist")
+                  .click({ force: true });
+               cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
+               // Click off the select list
+               cy.get(".webix_button").contains("Select").click();
+               cy.get(
+                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+               ).should("contain", "test-KCS-ID:0000000001");
+            });
+
          // We reload here because cypress gets confused when we scroll multiple
          // times in the same grid. We could do this as a seperate test, but
          // that adds overhead.
@@ -60,22 +66,23 @@ export default () => {
          cy.log(
             "Find the cell in the 'connect-to-another-record-om' column, row 1"
          );
-         cy.get(
-            `.webix_column[column="${connect_om.col}"] > [role="gridcell"][aria-rowindex="1"]`
-         )
-            .should("exist")
-            .click({ force: true });
-         cy.get(".webix_list > .webix_scroll_cont")
-            .contains("test-KCS-ID:0000000001")
-            .should("be.visible")
-            .click();
-         cy.get(".webix_button").contains("Select").click();
-         // cy.get(
-         //    '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_globalSearchToolbar"]'
-         // ).click();
-         cy.get(
-            `.webix_column[column="${connect_om.col}"] > [role="gridcell"][aria-rowindex="1"]`
-         ).should("contain", "test-KCS-ID:0000000001");
+
+         cy.get(".webix_hcell")
+            .contains(connect_om.col)
+            .then(($column) => {
+               // debugger;
+               // cy.log($column.attr("column"));
+               const omIndex = $column.attr("column");
+               cy.get(
+                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+               )
+                  .should("exist")
+                  .click({ force: true });
+               cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
+               cy.get(
+                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+               ).should("contain", "test-KCS-ID:0000000001");
+            });
       });
    });
 };
