@@ -1,0 +1,296 @@
+# Manually test code on differnt banches. Meant to test changes across multiple services
+name: Test Branches
+on:
+workflow_dispatch:
+  inputs:
+    webpack:
+      default: update
+      type: choice
+      options:
+        - update
+        - dev
+    appbuilder_platform_service:
+      default: master
+      type: string
+    appbuilder_class_core:
+      default: v2
+      type: string
+    ab_service_web:
+      default: master
+      type: string
+    ab_service_appbuilder:
+      default: develop
+      type: string
+    ab_service_process_manager:
+      default: develop
+      type: string
+    ab_service_custom_reports:
+      default: develop
+      type: string
+    ab_service_user_manager:
+      default: develop
+      type: string
+    ab_service_definition_manager:
+      default: develop
+      type: string
+    ab_service_file_processor:
+      default: develop
+      type: string
+    ab_platform_web:
+      default: master
+      type: string
+    ab_service_config:
+      default: develop
+      type: string
+    ab_service_api_sails:
+      default: develop
+      type: string
+    ab_service_tenant_manager:
+      default: develop
+      type: string
+    ab_service_notification_email:
+      default: develop
+      type: string
+    ab_service_log_manager:
+      default: develop
+      type: string
+    ab_service_relay:
+      default: develop
+      type: string
+    ab_runtime:
+      default: master
+      type: string
+    plugin_ABDesigner:
+      default: master
+      type: string
+jobs:
+  cypress-test:
+    runs-on: ubuntu-latest
+    steps:
+  #1. Checkout Repos
+    # ab_service_web
+    - name: Checkout ab_service_web
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_web
+        repository: digi-serve/ab_service_web
+        branch: ${{ inputs.ab_service_web }}
+    # ab_service_appbuilder
+    - name: Checkout ab_service_appbuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_appbuilder
+        repository: digi-serve/ab_service_appbuilder
+        branch: ${{ inputs.ab_service_appbuilder }}
+    # ab_service_process_manager
+    - name: Checkout ab_service_process_manager
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_process_manager
+        repository: digi-serve/ab_service_process_manager
+        branch: ${{ inputs.ab_service_process_manager }}
+    # ab_service_custom_reports
+    - name: Checkout ab_service_custom_reports
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_custom_reports
+        repository: digi-serve/ab_service_custom_reports
+        branch: ${{ inputs.ab_service_custom_reports }}
+    # ab_service_user_manager
+    - name: Checkout ab_service_user_manager
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_user_manager
+        repository: digi-serve/ab_service_user_manager
+        branch: ${{ inputs.ab_service_user_manager }}
+    # ab_service_definition_manager
+    - name: Checkout ab_service_definition_manager
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_definition_manager
+        repository: digi-serve/ab_service_definition_manager
+        branch: ${{ inputs.ab_service_definition_manager }}
+    # ab_service_file_processor
+    - name: Checkout ab_service_file_processor
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_file_processor
+        repository: digi-serve/ab_service_file_processor
+        branch: ${{ inputs.ab_service_file_processor }}
+    # ab_platform_web
+    - name: Checkout ab_platform_web
+      uses: actions/checkout@v3
+      with:
+        path: ab_platform_web
+        repository: digi-serve/ab_platform_web
+        branch: ${{ inputs.ab_platform_web }}
+    # ab_service_config
+    - name: Checkout ab_service_config
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_config
+        repository: digi-serve/ab_service_config
+        branch: ${{ inputs.ab_service_config }}
+    # ab_service_api_sails
+    - name: Checkout ab_service_api_sails
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_api_sails
+        repository: digi-serve/ab_service_api_sails
+        branch: ${{ inputs.ab_service_api_sails }}
+    # ab_service_tenant_manager
+    - name: Checkout ab_service_tenant_manager
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_tenant_manager
+        repository: digi-serve/ab_service_tenant_manager
+        branch: ${{ inputs.ab_service_tenant_manager }}
+    # ab_service_notification_email
+    - name: Checkout ab_service_notification_email
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_notification_email
+        repository: digi-serve/ab_service_notification_email
+        branch: ${{ inputs.ab_service_notification_email }}
+    # ab_service_log_manager
+    - name: Checkout ab_service_log_manager
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_log_manager
+        repository: digi-serve/ab_service_log_manager
+        branch: ${{ inputs.ab_service_log_manager }}
+    # ab_service_relay
+    - name: Checkout ab_service_relay
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_relay
+        repository: digi-serve/ab_service_relay
+        branch: ${{ inputs.ab_service_relay }}
+    # plugin_ABDesigner
+    - name: Checkout plugin_ABDesigner
+      uses: actions/checkout@v3
+      with:
+        path: plugin/plugin_ABDesigner
+        repository: digi-serve/plugin_ABDesigner
+        branch: ${{ inputs.plugin_ABDesigner }}
+  #2. Checkout Submodules
+    # Submodules ab_service_appbuilder
+    - name: Checkout ab_service_appbuilder > AppBuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_appbuilder/AppBuilder
+        repository: digi-serve/appbuilder_platform_service
+        branch: ${{ inputs.appbuilder_platform_service }}
+    - name: Checkout ab_service_appbuilder > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_appbuilder/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+    # Submodules ab_service_process_manager
+    - name: Checkout ab_service_process_manager > AppBuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_process_manager/AppBuilder
+        repository: digi-serve/appbuilder_platform_service
+        branch: ${{ inputs.appbuilder_platform_service }}
+    - name: Checkout ab_service_process_manager > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_process_manager/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+    # Submodules ab_service_custom_reports
+    - name: Checkout ab_service_custom_reports > AppBuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_custom_reports/AppBuilder
+        repository: digi-serve/appbuilder_platform_service
+        branch: ${{ inputs.appbuilder_platform_service }}
+    - name: Checkout ab_service_custom_reports > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_custom_reports/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+    # Submodules ab_service_user_manager
+    - name: Checkout ab_service_user_manager > AppBuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_user_manager/AppBuilder
+        repository: digi-serve/appbuilder_platform_service
+        branch: ${{ inputs.appbuilder_platform_service }}
+    - name: Checkout ab_service_user_manager > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_user_manager/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+    # Submodules ab_service_definition_manager
+    - name: Checkout ab_service_definition_manager > AppBuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_definition_manager/AppBuilder
+        repository: digi-serve/appbuilder_platform_service
+        branch: ${{ inputs.appbuilder_platform_service }}
+    - name: Checkout ab_service_definition_manager > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_definition_manager/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+    # Submodules ab_service_file_processor
+    - name: Checkout ab_service_file_processor > AppBuilder
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_file_processor/AppBuilder
+        repository: digi-serve/appbuilder_platform_service
+        branch: ${{ inputs.appbuilder_platform_service }}
+    - name: Checkout ab_service_file_processor > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_file_processor/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+    # Submodules ab_platform_web
+    - name: Checkout ab_platform_web > AppBuilder > core
+      uses: actions/checkout@v3
+      with:
+        path:  ab_platform_web/AppBuilder/core
+        repository: digi-serve/appbuilder_class_core
+        branch: ${{ inputs.appbuilder_class_core }}
+  # 3. Run Webpack
+    - name: Rename ab_service_web > web
+      run: mv ab_service_web web
+    - run: npm i
+      working-directory: ./ab_platform_web
+    - name: Webpack
+      run: npm run build:${{ inputs.webpack }}
+      working-directory: ./ab_platform_web
+    - run: npm i
+      working-directory: ./plugin/plugin_ABDesigner
+    - name: Webpack
+      run: npm run build:${{ inputs.webpack }}
+      working-directory: ./plugin/plugin_ABDesigner
+    - name: Rename web > ab_service_web 
+      run: mv web ab_service_web
+  # 4. Install AB
+    - uses: digi-serve/ab-install-action@v1
+      with:
+        folder: ab
+  # 5. Run Tests
+    - name: Checkout Kitchen Sink
+      uses: actions/checkout@v3
+      with:
+        path: ab/test/e2e/cypress/integration/kitchensink_app
+        runtime: ab_runtime
+    - name: Run Cypress Tests
+      uses: cypress-io/github-action@v2
+      with:
+        working-directory: ./ab
+        project: ./test/e2e
+        config: baseUrl=http://localhost,responseTimeout=120000,defaultCommandTimeout=24000,retries=2
+        wait-on: http://localhost:1337
+        wait-on-timeout: 300
+        env: stack=ab
+        install: false
