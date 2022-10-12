@@ -1,68 +1,68 @@
 # Manually test code on differnt banches. Meant to test changes across multiple services
 name: Test Branches
 on:
-workflow_dispatch:
-  inputs:
-    webpack:
-      default: update
-      type: choice
-      options:
-        - update
-        - dev
-    appbuilder_platform_service:
-      default: master
-      type: string
-    appbuilder_class_core:
-      default: v2
-      type: string
-    ab_service_web:
-      default: master
-      type: string
-    ab_service_appbuilder:
-      default: develop
-      type: string
-    ab_service_process_manager:
-      default: develop
-      type: string
-    ab_service_custom_reports:
-      default: develop
-      type: string
-    ab_service_user_manager:
-      default: develop
-      type: string
-    ab_service_definition_manager:
-      default: develop
-      type: string
-    ab_service_file_processor:
-      default: develop
-      type: string
-    ab_platform_web:
-      default: master
-      type: string
-    ab_service_config:
-      default: develop
-      type: string
-    ab_service_api_sails:
-      default: develop
-      type: string
-    ab_service_tenant_manager:
-      default: develop
-      type: string
-    ab_service_notification_email:
-      default: develop
-      type: string
-    ab_service_log_manager:
-      default: develop
-      type: string
-    ab_service_relay:
-      default: develop
-      type: string
-    ab_runtime:
-      default: master
-      type: string
-    plugin_ABDesigner:
-      default: master
-      type: string
+  workflow_dispatch:
+    inputs:
+      webpack:
+        default: update
+        type: choice
+        options:
+          - update
+          - dev
+      appbuilder_platform_service:
+        default: master
+        type: string
+      appbuilder_class_core:
+        default: v2
+        type: string
+      ab_service_web:
+        default: master
+        type: string
+      ab_service_appbuilder:
+        default: develop
+        type: string
+      ab_service_process_manager:
+        default: develop
+        type: string
+      ab_service_custom_reports:
+        default: develop
+        type: string
+      ab_service_user_manager:
+        default: develop
+        type: string
+      ab_service_definition_manager:
+        default: develop
+        type: string
+      ab_service_file_processor:
+        default: develop
+        type: string
+      ab_platform_web:
+        default: master
+        type: string
+      ab_service_config:
+        default: develop
+        type: string
+      ab_service_api_sails:
+        default: develop
+        type: string
+      ab_service_tenant_manager:
+        default: develop
+        type: string
+      ab_service_notification_email:
+        default: develop
+        type: string
+      ab_service_log_manager:
+        default: develop
+        type: string
+      ab_service_relay:
+        default: develop
+        type: string
+      ab_runtime:
+        default: master
+        type: string
+      plugin_ABDesigner:
+        default: master
+        type: string
 jobs:
   cypress-test:
     runs-on: ubuntu-latest
