@@ -332,7 +332,7 @@ jobs:
         working-directory: ./ab
         project: ./test/e2e
         config: baseUrl=http://localhost,responseTimeout=120000,defaultCommandTimeout=24000,retries=2
-        wait-on: http://localhost:1337
+        wait-on: http://localhost/
         wait-on-timeout: 300
         env: stack=ab
         install: false
