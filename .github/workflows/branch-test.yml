@@ -319,7 +319,7 @@ jobs:
     - uses: digi-serve/ab-install-action@v1
       with:
         folder: ab
-        repo: all/${{ needs.prep.outputs.services }}
+        repository: all/${{ needs.prep.outputs.services }}
         runtime: ${{ env.ab_runtime }}
   # 5. Run Tests
     - name: Checkout Kitchen Sink
