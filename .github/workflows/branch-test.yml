@@ -9,278 +9,312 @@ on:
         options:
           - update
           - dev
-      appbuilder_platform_service:
-        default: master
+      branches:
+        description: "Branches to test with (JSON) { ab_repo_name: mybranch, ... }"
         type: string
-      appbuilder_class_core:
-        default: v2
-        type: string
-      ab_service_web:
-        default: master
-        type: string
-      ab_service_appbuilder:
-        default: develop
-        type: string
-      ab_service_process_manager:
-        default: develop
-        type: string
-      ab_service_custom_reports:
-        default: develop
-        type: string
-      ab_service_user_manager:
-        default: develop
-        type: string
-      ab_service_definition_manager:
-        default: develop
-        type: string
-      ab_service_file_processor:
-        default: develop
-        type: string
-      ab_platform_web:
-        default: master
-        type: string
-      ab_service_config:
-        default: develop
-        type: string
-      ab_service_api_sails:
-        default: develop
-        type: string
-      ab_service_tenant_manager:
-        default: develop
-        type: string
-      ab_service_notification_email:
-        default: develop
-        type: string
-      ab_service_log_manager:
-        default: develop
-        type: string
-      ab_service_relay:
-        default: develop
-        type: string
-      ab_runtime:
-        default: master
-        type: string
-      plugin_ABDesigner:
-        default: master
-        type: string
+        default: "{}"
+env:
+  appbuilder_platform_service: ${{ fromJson(inputs.branches).appbuilder_platform_service }}
+  appbuilder_class_core: ${{ fromJson(inputs.branches).appbuilder_class_core }}
+  ab_service_config: ${{ fromJson(inputs.branches).ab_service_config }}
+  ab_service_api_sails: ${{ fromJson(inputs.branches).ab_service_api_sails }}
+  ab_service_tenant_manager: ${{ fromJson(inputs.branches).ab_service_tenant_manager }}
+  ab_service_notification_email: ${{ fromJson(inputs.branches).ab_service_notification_email }}
+  ab_service_log_manager: ${{ fromJson(inputs.branches).ab_service_log_manager }}
+  ab_service_relay: ${{ fromJson(inputs.branches).ab_service_relay }}
+  ab_runtime: ${{ fromJson(inputs.branches).ab_runtime }}
+  plugin_ABDesigner: ${{ fromJson(inputs.branches).plugin_ABDesigner }}
+  ab_service_web: ${{ fromJson(inputs.branches).ab_service_web }}
+  ab_service_appbuilder: ${{ fromJson(inputs.branches).ab_service_appbuilder }}
+  ab_service_process_manager: ${{ fromJson(inputs.branches).ab_service_process_manager }}
+  ab_service_custom_reports: ${{ fromJson(inputs.branches).ab_service_custom_reports }}
+  ab_service_user_manager: ${{ fromJson(inputs.branches).ab_service_user_manager }}
+  ab_service_definition_manager: ${{ fromJson(inputs.branches).ab_service_definition_manager }}
+  ab_service_file_processor: ${{ fromJson(inputs.branches).ab_service_file_processor }}
+  ab_platform_web: ${{ fromJson(inputs.branches).ab_platform_web }}
 jobs:
+  prep:
+    # Generate a list of services affected
+    runs-on: ubuntu-latest
+    outputs:
+      services: ${{ steps.ab_service_config.outputs.s }}${{ steps.ab_service_api_sails.outputs.s }}${{ steps.ab_service_tenant_manager.outputs.s }}${{ steps.ab_service_notification_email.outputs.s }}${{ steps.ab_service_log_manager.outputs.s }}${{ steps.ab_service_relay.outputs.s }}${{ steps.ab_service_appbuilder.outputs.s }}${{ steps.ab_service_process_manager.outputs.s }}${{ steps.ab_service_custom_reports.outputs.s }}${{ steps.ab_service_user_manager.outputs.s }}${{ steps.ab_service_definition_manager.outputs.s }}${{ steps.ab_service_file_processor.outputs.s }}${{ steps.ab_service_web.outputs.s }}
+    steps:
+      - run: echo "::set-output name=s::ab_service_config "
+        id: ab_service_config
+        if: ${{ env.ab_service_config }}
+      - run: echo "::set-output name=s::ab_service_api_sails "
+        id: ab_service_api_sails
+        if: ${{ env.ab_service_api_sails }}
+      - run: echo "::set-output name=s::ab_service_tenant_manager "
+        id: ab_service_tenant_manager
+        if: ${{ env.ab_service_tenant_manager }}
+      - run: echo "::set-output name=s::ab_service_notification_email "
+        id: ab_service_notification_email
+        if: ${{ env.ab_service_notification_email }}
+      - run: echo "::set-output name=s::ab_service_log_manager "
+        id: ab_service_log_manager
+        if: ${{ env.ab_service_log_manager }}
+      - run: echo "::set-output name=s::ab_service_relay "
+        id: ab_service_relay
+        if: ${{ env.ab_service_relay }}
+      - run: echo "::set-output name=s::ab_service_appbuilder "
+        id: ab_service_appbuilder
+        if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      - run: echo "::set-output name=s::ab_service_process_manager "
+        id: ab_service_process_manager
+        if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      - run: echo "::set-output name=s::ab_service_custom_reports "
+        id: ab_service_custom_reports
+        if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      - run: echo "::set-output name=s::ab_service_user_manager "
+        id: ab_service_user_manager
+        if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      - run: echo "::set-output name=s::ab_service_definition_manager "
+        id: ab_service_definition_manager
+        if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      - run: echo "::set-output name=s::ab_service_file_processor "
+        id: ab_service_file_processor
+        if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      - run: echo "::set-output name=s::ab_service_web "
+        id: ab_service_web
+        if: ${{ env.ab_service_web || env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner }}
   cypress-test:
     runs-on: ubuntu-latest
+    needs: prep
     steps:
   #1. Checkout Repos
-    # ab_service_web
-    - name: Checkout ab_service_web
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_web
-        repository: digi-serve/ab_service_web
-        branch: ${{ inputs.ab_service_web }}
-    # ab_service_appbuilder
-    - name: Checkout ab_service_appbuilder
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_appbuilder
-        repository: digi-serve/ab_service_appbuilder
-        branch: ${{ inputs.ab_service_appbuilder }}
-    # ab_service_process_manager
-    - name: Checkout ab_service_process_manager
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_process_manager
-        repository: digi-serve/ab_service_process_manager
-        branch: ${{ inputs.ab_service_process_manager }}
-    # ab_service_custom_reports
-    - name: Checkout ab_service_custom_reports
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_custom_reports
-        repository: digi-serve/ab_service_custom_reports
-        branch: ${{ inputs.ab_service_custom_reports }}
-    # ab_service_user_manager
-    - name: Checkout ab_service_user_manager
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_user_manager
-        repository: digi-serve/ab_service_user_manager
-        branch: ${{ inputs.ab_service_user_manager }}
-    # ab_service_definition_manager
-    - name: Checkout ab_service_definition_manager
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_definition_manager
-        repository: digi-serve/ab_service_definition_manager
-        branch: ${{ inputs.ab_service_definition_manager }}
-    # ab_service_file_processor
-    - name: Checkout ab_service_file_processor
-      uses: actions/checkout@v3
-      with:
-        path: ab_service_file_processor
-        repository: digi-serve/ab_service_file_processor
-        branch: ${{ inputs.ab_service_file_processor }}
-    # ab_platform_web
-    - name: Checkout ab_platform_web
-      uses: actions/checkout@v3
-      with:
-        path: ab_platform_web
-        repository: digi-serve/ab_platform_web
-        branch: ${{ inputs.ab_platform_web }}
     # ab_service_config
     - name: Checkout ab_service_config
+      if: ${{ env.ab_service_config }}
       uses: actions/checkout@v3
       with:
         path: ab_service_config
         repository: digi-serve/ab_service_config
-        branch: ${{ inputs.ab_service_config }}
+        branch: ${{ env.ab_service_config || develop }}
     # ab_service_api_sails
     - name: Checkout ab_service_api_sails
+      if: ${{ env.ab_service_api_sails }}
       uses: actions/checkout@v3
       with:
         path: ab_service_api_sails
         repository: digi-serve/ab_service_api_sails
-        branch: ${{ inputs.ab_service_api_sails }}
+        branch: ${{ env.ab_service_api_sails || develop }}
     # ab_service_tenant_manager
     - name: Checkout ab_service_tenant_manager
+      if: ${{ env.ab_service_tenant_manager }}
       uses: actions/checkout@v3
       with:
         path: ab_service_tenant_manager
         repository: digi-serve/ab_service_tenant_manager
-        branch: ${{ inputs.ab_service_tenant_manager }}
+        branch: ${{ env.ab_service_tenant_manager || develop }}
     # ab_service_notification_email
     - name: Checkout ab_service_notification_email
+      if: ${{ env.ab_service_notification_email }}
       uses: actions/checkout@v3
       with:
         path: ab_service_notification_email
         repository: digi-serve/ab_service_notification_email
-        branch: ${{ inputs.ab_service_notification_email }}
+        branch: ${{ env.ab_service_notification_email || develop }}
     # ab_service_log_manager
     - name: Checkout ab_service_log_manager
+      if: ${{ env.ab_service_log_manager }}
       uses: actions/checkout@v3
       with:
         path: ab_service_log_manager
         repository: digi-serve/ab_service_log_manager
-        branch: ${{ inputs.ab_service_log_manager }}
+        branch: ${{ env.ab_service_log_manager || develop }}
     # ab_service_relay
     - name: Checkout ab_service_relay
+      if: ${{ env.ab_service_relay }}
       uses: actions/checkout@v3
       with:
         path: ab_service_relay
         repository: digi-serve/ab_service_relay
-        branch: ${{ inputs.ab_service_relay }}
+        branch: ${{ env.ab_service_relay || develop }}
     # plugin_ABDesigner
     - name: Checkout plugin_ABDesigner
+      if: ${{ env.plugin_ABDesigner }}
       uses: actions/checkout@v3
       with:
         path: plugin/plugin_ABDesigner
         repository: digi-serve/plugin_ABDesigner
-        branch: ${{ inputs.plugin_ABDesigner }}
-  #2. Checkout Submodules
-    # Submodules ab_service_appbuilder
+        branch: ${{ env.plugin_ABDesigner || master }}
+    # ab_service_appbuilder
+    - name: Checkout ab_service_appbuilder
+      if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_appbuilder
+        repository: digi-serve/ab_service_appbuilder
+        branch: ${{ env.ab_service_appbuilder || develop }}
     - name: Checkout ab_service_appbuilder > AppBuilder
+      if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_appbuilder/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ inputs.appbuilder_platform_service }}
+        branch: ${{ env.appbuilder_platform_service || master }}
     - name: Checkout ab_service_appbuilder > AppBuilder > core
+      if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_appbuilder/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
-    # Submodules ab_service_process_manager
+        branch: ${{ env.appbuilder_class_core || v2 }}
+    # ab_service_process_manager
+    - name: Checkout ab_service_process_manager
+      if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_process_manager
+        repository: digi-serve/ab_service_process_manager
+        branch: ${{ env.ab_service_process_manager || develop }}
     - name: Checkout ab_service_process_manager > AppBuilder
+      if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_process_manager/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ inputs.appbuilder_platform_service }}
+        branch: ${{ env.appbuilder_platform_service || master }}
     - name: Checkout ab_service_process_manager > AppBuilder > core
+      if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_process_manager/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
-    # Submodules ab_service_custom_reports
+        branch: ${{ env.appbuilder_class_core || v2 }}
+    # ab_service_custom_reports
+    - name: Checkout ab_service_custom_reports
+      if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_custom_reports
+        repository: digi-serve/ab_service_custom_reports
+        branch: ${{ env.ab_service_custom_reports || develop }}
     - name: Checkout ab_service_custom_reports > AppBuilder
+      if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_custom_reports/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ inputs.appbuilder_platform_service }}
+        branch: ${{ env.appbuilder_platform_service || master }}
     - name: Checkout ab_service_custom_reports > AppBuilder > core
+      if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_custom_reports/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
-    # Submodules ab_service_user_manager
+        branch: ${{ env.appbuilder_class_core || v2 }}
+    # ab_service_user_manager
+    - name: Checkout ab_service_user_manager
+      if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_user_manager
+        repository: digi-serve/ab_service_user_manager
+        branch: ${{ env.ab_service_user_manager || develop }}
     - name: Checkout ab_service_user_manager > AppBuilder
+      if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_user_manager/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ inputs.appbuilder_platform_service }}
+        branch: ${{ env.appbuilder_platform_service || master }}
     - name: Checkout ab_service_user_manager > AppBuilder > core
+      if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_user_manager/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
-    # Submodules ab_service_definition_manager
+        branch: ${{ env.appbuilder_class_core || v2 }}
+    # ab_service_definition_manager
+    - name: Checkout ab_service_definition_manager
+      if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_definition_manager
+        repository: digi-serve/ab_service_definition_manager
+        branch: ${{ env.ab_service_definition_manager || develop }}
     - name: Checkout ab_service_definition_manager > AppBuilder
+      if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_definition_manager/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ inputs.appbuilder_platform_service }}
+        branch: ${{ env.appbuilder_platform_service || master }}
     - name: Checkout ab_service_definition_manager > AppBuilder > core
+      if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_definition_manager/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
-    # Submodules ab_service_file_processor
+        branch: ${{ env.appbuilder_class_core || v2 }}
+    # ab_service_file_processor
+    - name: Checkout ab_service_file_processor
+      if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_file_processor
+        repository: digi-serve/ab_service_file_processor
+        branch: ${{ env.ab_service_file_processor || develop }}
     - name: Checkout ab_service_file_processor > AppBuilder
+      if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_file_processor/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ inputs.appbuilder_platform_service }}
+        branch: ${{ env.appbuilder_platform_service || master }}
     - name: Checkout ab_service_file_processor > AppBuilder > core
+      if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
         path: ab_service_file_processor/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
-    # Submodules ab_platform_web
-    - name: Checkout ab_platform_web > AppBuilder > core
+        branch: ${{ env.appbuilder_class_core || v2 }}
+    # ab_platform_web
+    - name: Checkout ab_platform_web
+      if: ${{ env.ab_platform_web || env.appbuilder_class_core }}
       uses: actions/checkout@v3
       with:
-        path:  ab_platform_web/AppBuilder/core
+        path: ab_platform_web
+        repository: digi-serve/ab_platform_web
+        branch: ${{ env.ab_platform_web || master }}
+    - name: Checkout ab_platform_web > AppBuilder > core
+      if: ${{ env.ab_platform_web || env.appbuilder_class_core }}
+      uses: actions/checkout@v3
+      with:
+        path: ab_platform_web/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ inputs.appbuilder_class_core }}
+        branch: ${{ env.appbuilder_class_core || v2 }}
   # 3. Run Webpack
     - name: Rename ab_service_web > web
       run: mv ab_service_web web
+      if: ${{ env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner}}
     - run: npm i
       working-directory: ./ab_platform_web
+      if: ${{ env.ab_platform_web || env.appbuilder_class_core }}
     - name: Webpack
       run: npm run build:${{ inputs.webpack }}
       working-directory: ./ab_platform_web
+      if: ${{ env.ab_platform_web || env.appbuilder_class_core }}
     - run: npm i
       working-directory: ./plugin/plugin_ABDesigner
+      if: ${{ env.plugin_ABDesigner }}
     - name: Webpack
       run: npm run build:${{ inputs.webpack }}
       working-directory: ./plugin/plugin_ABDesigner
-    - name: Rename web > ab_service_web 
+      if: ${{ env.plugin_ABDesigner }}
+    - name: Rename web > ab_service_web
+      if: ${{ env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner}}
       run: mv web ab_service_web
   # 4. Install AB
     - uses: digi-serve/ab-install-action@v1
       with:
         folder: ab
+        repo: all/${{ needs.prep.outputs.services }}
   # 5. Run Tests
     - name: Checkout Kitchen Sink
-      uses: actions/checkout@v3
+      uses: actions/checkout@nh/rebuild_all
       with:
         path: ab/test/e2e/cypress/integration/kitchensink_app
         runtime: ab_runtime
