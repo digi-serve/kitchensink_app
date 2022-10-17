@@ -286,6 +286,14 @@ jobs:
         path: ab_platform_web/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
         branch: ${{ env.appbuilder_class_core || 'v2' }}
+    # ab_service_web
+    - name: Checkout ab_service_web
+      if: ${{ env.ab_service_web || env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner }} 
+      uses: actions/checkout@v3
+      with:
+        path: ab_service_web
+        repository: digi-serve/ab_service_web
+        branch: ${{ env.ab_service_web || 'develop' }}
   # 3. Run Webpack
     - name: Rename ab_service_web > web
       run: mv ab_service_web web
