@@ -316,7 +316,7 @@ jobs:
       if: ${{ env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner}}
       run: mv web ab_service_web
   # 4. Install AB
-    - uses: digi-serve/ab-install-action@v1
+    - uses: digi-serve/ab-install-action@nh/rebuild_all
       with:
         folder: ab
         repository: all/${{ needs.prep.outputs.services }}
