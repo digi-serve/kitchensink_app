@@ -90,7 +90,7 @@ jobs:
       with:
         path: ab_service_config
         repository: digi-serve/ab_service_config
-        branch: ${{ env.ab_service_config || 'develop' }}
+        ref: ${{ env.ab_service_config || 'develop' }}
     # ab_service_api_sails
     - name: Checkout ab_service_api_sails
       if: ${{ env.ab_service_api_sails }} 
@@ -98,7 +98,7 @@ jobs:
       with:
         path: ab_service_api_sails
         repository: digi-serve/ab_service_api_sails
-        branch: ${{ env.ab_service_api_sails || 'develop' }}
+        ref: ${{ env.ab_service_api_sails || 'develop' }}
     # ab_service_tenant_manager
     - name: Checkout ab_service_tenant_manager
       if: ${{ env.ab_service_tenant_manager }} 
@@ -106,7 +106,7 @@ jobs:
       with:
         path: ab_service_tenant_manager
         repository: digi-serve/ab_service_tenant_manager
-        branch: ${{ env.ab_service_tenant_manager || 'develop' }}
+        ref: ${{ env.ab_service_tenant_manager || 'develop' }}
     # ab_service_notification_email
     - name: Checkout ab_service_notification_email
       if: ${{ env.ab_service_notification_email }} 
@@ -114,7 +114,7 @@ jobs:
       with:
         path: ab_service_notification_email
         repository: digi-serve/ab_service_notification_email
-        branch: ${{ env.ab_service_notification_email || 'develop' }}
+        ref: ${{ env.ab_service_notification_email || 'develop' }}
     # ab_service_log_manager
     - name: Checkout ab_service_log_manager
       if: ${{ env.ab_service_log_manager }} 
@@ -122,7 +122,7 @@ jobs:
       with:
         path: ab_service_log_manager
         repository: digi-serve/ab_service_log_manager
-        branch: ${{ env.ab_service_log_manager || 'develop' }}
+        ref: ${{ env.ab_service_log_manager || 'develop' }}
     # ab_service_relay
     - name: Checkout ab_service_relay
       if: ${{ env.ab_service_relay }} 
@@ -130,7 +130,7 @@ jobs:
       with:
         path: ab_service_relay
         repository: digi-serve/ab_service_relay
-        branch: ${{ env.ab_service_relay || 'develop' }}
+        ref: ${{ env.ab_service_relay || 'develop' }}
     # plugin_ABDesigner
     - name: Checkout plugin_ABDesigner
       if: ${{ env.plugin_ABDesigner }} 
@@ -138,7 +138,7 @@ jobs:
       with:
         path: plugin/plugin_ABDesigner
         repository: digi-serve/plugin_ABDesigner
-        branch: ${{ env.plugin_ABDesigner || 'master' }}
+        ref: ${{ env.plugin_ABDesigner || 'master' }}
     # ab_service_appbuilder
     - name: Checkout ab_service_appbuilder
       if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }} 
@@ -146,21 +146,21 @@ jobs:
       with:
         path: ab_service_appbuilder
         repository: digi-serve/ab_service_appbuilder
-        branch: ${{ env.ab_service_appbuilder || 'develop' }}
+        ref: ${{ env.ab_service_appbuilder || 'develop' }}
     - name: Checkout ab_service_appbuilder > AppBuilder
       if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_appbuilder/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ env.appbuilder_platform_service || 'master' }}
+        ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_appbuilder > AppBuilder > core
       if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_appbuilder/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_service_process_manager
     - name: Checkout ab_service_process_manager
       if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
@@ -168,21 +168,21 @@ jobs:
       with:
         path: ab_service_process_manager
         repository: digi-serve/ab_service_process_manager
-        branch: ${{ env.ab_service_process_manager || 'develop' }}
+        ref: ${{ env.ab_service_process_manager || 'develop' }}
     - name: Checkout ab_service_process_manager > AppBuilder
       if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_process_manager/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ env.appbuilder_platform_service || 'master' }}
+        ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_process_manager > AppBuilder > core
       if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_process_manager/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_service_custom_reports
     - name: Checkout ab_service_custom_reports
       if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }} 
@@ -190,21 +190,21 @@ jobs:
       with:
         path: ab_service_custom_reports
         repository: digi-serve/ab_service_custom_reports
-        branch: ${{ env.ab_service_custom_reports || 'develop' }}
+        ref: ${{ env.ab_service_custom_reports || 'develop' }}
     - name: Checkout ab_service_custom_reports > AppBuilder
       if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_custom_reports/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ env.appbuilder_platform_service || 'master' }}
+        ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_custom_reports > AppBuilder > core
       if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_custom_reports/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_service_user_manager
     - name: Checkout ab_service_user_manager
       if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
@@ -212,21 +212,21 @@ jobs:
       with:
         path: ab_service_user_manager
         repository: digi-serve/ab_service_user_manager
-        branch: ${{ env.ab_service_user_manager || 'develop' }}
+        ref: ${{ env.ab_service_user_manager || 'develop' }}
     - name: Checkout ab_service_user_manager > AppBuilder
       if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_user_manager/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ env.appbuilder_platform_service || 'master' }}
+        ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_user_manager > AppBuilder > core
       if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_user_manager/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_service_definition_manager
     - name: Checkout ab_service_definition_manager
       if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
@@ -234,21 +234,21 @@ jobs:
       with:
         path: ab_service_definition_manager
         repository: digi-serve/ab_service_definition_manager
-        branch: ${{ env.ab_service_definition_manager || 'develop' }}
+        ref: ${{ env.ab_service_definition_manager || 'develop' }}
     - name: Checkout ab_service_definition_manager > AppBuilder
       if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_definition_manager/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ env.appbuilder_platform_service || 'master' }}
+        ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_definition_manager > AppBuilder > core
       if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_definition_manager/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_service_file_processor
     - name: Checkout ab_service_file_processor
       if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }} 
@@ -256,21 +256,21 @@ jobs:
       with:
         path: ab_service_file_processor
         repository: digi-serve/ab_service_file_processor
-        branch: ${{ env.ab_service_file_processor || 'develop' }}
+        ref: ${{ env.ab_service_file_processor || 'develop' }}
     - name: Checkout ab_service_file_processor > AppBuilder
       if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_file_processor/AppBuilder
         repository: digi-serve/appbuilder_platform_service
-        branch: ${{ env.appbuilder_platform_service || 'master' }}
+        ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_file_processor > AppBuilder > core
       if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_service_file_processor/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_platform_web
     - name: Checkout ab_platform_web
       if: ${{ env.ab_platform_web || env.appbuilder_class_core }} 
@@ -278,14 +278,14 @@ jobs:
       with:
         path: ab_platform_web
         repository: digi-serve/ab_platform_web
-        branch: ${{ env.ab_platform_web || 'master' }}
+        ref: ${{ env.ab_platform_web || 'master' }}
     - name: Checkout ab_platform_web > AppBuilder > core
       if: ${{ env.ab_platform_web || env.appbuilder_class_core }} 
       uses: actions/checkout@v3
       with:
         path: ab_platform_web/AppBuilder/core
         repository: digi-serve/appbuilder_class_core
-        branch: ${{ env.appbuilder_class_core || 'v2' }}
+        ref: ${{ env.appbuilder_class_core || 'v2' }}
     # ab_service_web
     - name: Checkout ab_service_web
       if: ${{ env.ab_service_web || env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner }} 
@@ -293,7 +293,7 @@ jobs:
       with:
         path: ab_service_web
         repository: digi-serve/ab_service_web
-        branch: ${{ env.ab_service_web || 'develop' }}
+        ref: ${{ env.ab_service_web || 'develop' }}
   # 3. Run Webpack
     - name: Rename ab_service_web > web
       run: mv ab_service_web web
