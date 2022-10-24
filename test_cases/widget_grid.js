@@ -33,6 +33,9 @@ export default () => {
             "Find the cell in the 'connect-to-another-record-mm' column, row 1"
          );
 
+         // eslint-disable-next-line cypress/no-unnecessary-waiting
+         cy.wait(500);
+
          cy.get(".webix_hcell")
             .contains(connect_mm.col)
             .then(($column) => {
