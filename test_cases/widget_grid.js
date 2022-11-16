@@ -58,7 +58,7 @@ export default () => {
          // We reload here because cypress gets confused when we scroll multiple
          // times in the same grid. We could do this as a seperate test, but
          // that adds overhead.
-         cy.reload();
+         cy.visit("/");
          cy.get(
             '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          )
