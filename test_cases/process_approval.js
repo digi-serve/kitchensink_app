@@ -24,8 +24,15 @@ export default (folderName, Common) => {
             .should("exist")
             .click();
 
-         // Click on the button "New Order"
+         // Our form has "clear on load setting", but the DC has cursor set to
+         // default to first selection. So if the datacollection has not
+         // finished loading the cursor gets set in the form. So instead of
+         // adding we are editing, which doesn't trigger the process.
+         // Not sure how to handle this yet, but it's not what we're testing
+         // here, so just wait for the DC to finish loading.
+         cy.get(".webix_progress_icon").should("not.be.visible");
 
+         // Click on the button "New Order"
          cy.get(
             '[data-cy="menu-item New Order ed0e35bb-9367-4fa8-83cc-b6318375fd56 25735600-076c-4f11-874b-d33863eea029"]'
          )
@@ -112,8 +119,15 @@ export default (folderName, Common) => {
             .should("exist")
             .click();
 
-         // Click on the button "New Order"
+         // Our form has "clear on load setting", but the DC has cursor set to
+         // default to first selection. So if the datacollection has not
+         // finished loading the cursor gets set in the form. So instead of
+         // adding we are editing, which doesn't trigger the process.
+         // Not sure how to handle this yet, but it's not what we're testing
+         // here, so just wait for the DC to finish loading.
+         cy.get(".webix_progress_icon").should("not.be.visible");
 
+         // Click on the button "New Order"
          cy.get(
             '[data-cy="menu-item New Order ed0e35bb-9367-4fa8-83cc-b6318375fd56 25735600-076c-4f11-874b-d33863eea029"]'
          )
