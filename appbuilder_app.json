@@ -13769,7 +13769,7 @@
         "settings": {
           "columnSpan": "1",
           "rowSpan": "1",
-          "isLegend": "1",
+          "isLegend": 1,
           "height": 200,
           "innerFontSize": "12",
           "labelFontSize": "12",
@@ -13804,7 +13804,7 @@
         "settings": {
           "columnSpan": "1",
           "rowSpan": "1",
-          "isLegend": "true",
+          "isLegend": 1,
           "height": 200,
           "labelFontSize": "12",
           "stepValue": "20",
@@ -13838,7 +13838,7 @@
         "settings": {
           "columnSpan": "1",
           "rowSpan": "1",
-          "isLegend": "true",
+          "isLegend": 1,
           "chartHeight": "200",
           "labelFontSize": "12",
           "stepValue": "20",
@@ -13871,7 +13871,7 @@
         "settings": {
           "columnSpan": "1",
           "rowSpan": "1",
-          "isLegend": "true",
+          "isLegend": 1,
           "chartHeight": "0",
           "labelFontSize": "12",
           "stepValue": "20",
