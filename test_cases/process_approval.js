@@ -30,7 +30,15 @@ export default (folderName, Common) => {
          // adding we are editing, which doesn't trigger the process.
          // Not sure how to handle this yet, but it's not what we're testing
          // here, so just wait for the DC to finish loading.
-         cy.get(".webix_progress_icon").should("not.be.visible");
+         // cy.get(".webix_progress_icon").should("not.be.visible");
+
+         // Sometimes the progress icon is gone too fast.
+         // let's make sure that by counting elements in the grid instead.
+         cy.get(
+            '[data-cy="ABViewGrid_b5ccd065-a499-48b0-ac86-6c0ae4247de2_datatable"]'
+         )
+            .children()
+            .should("have.length", 7);
 
          // Click on the button "New Order"
          cy.get(
@@ -125,7 +133,15 @@ export default (folderName, Common) => {
          // adding we are editing, which doesn't trigger the process.
          // Not sure how to handle this yet, but it's not what we're testing
          // here, so just wait for the DC to finish loading.
-         cy.get(".webix_progress_icon").should("not.be.visible");
+         // cy.get(".webix_progress_icon").should("not.be.visible");
+
+         // Sometimes the progress icon is gone too fast.
+         // let's make sure that by counting elements in the grid instead.
+         cy.get(
+            '[data-cy="ABViewGrid_b5ccd065-a499-48b0-ac86-6c0ae4247de2_datatable"]'
+         )
+            .children()
+            .should("have.length", 7);
 
          // Click on the button "New Order"
          cy.get(
