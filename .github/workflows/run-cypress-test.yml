@@ -32,6 +32,13 @@ jobs:
         with:
           path: ab/test/e2e/cypress/integration/kitchensink_app
 
+      # These next steps are to save our ablogs to file
+      - run: npm install pm2@latest -g
+        working-directory: ./ab
+      - name: Save Logs
+        run: pm2 start ./logs.js -- --toFile logs/ABServices.log
+        working-directory: ./ab
+
       #Run test
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v2
@@ -48,3 +55,13 @@ jobs:
           # We need to set the stack name as an environment variable for
           # the test reset script.
           env: stack=ab
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: ./ab/test/e2e/cypress/screenshots
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: ABServices.log
+          path: ./ab/logs/ABServices.log

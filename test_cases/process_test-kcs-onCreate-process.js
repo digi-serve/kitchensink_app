@@ -17,7 +17,15 @@ export default (folderName, Common) => {
             '[data-cy="button save 2172ba78-b327-42a1-8918-d97852234aee"]'
          ).click();
 
-         cy.get(".webix_progress_icon").should("not.exist");
+         // cy.get(".webix_progress_icon").should("not.exist");
+
+         // Sometimes the progress icon is gone too fast.
+         // let's make sure that by counting elements in the grid instead.
+         cy.get(
+            '[data-cy="ABViewGrid_b5ccd065-a499-48b0-ac86-6c0ae4247de2_datatable"]'
+         )
+            .children()
+            .should("have.length", 7);
 
          // is Default Text - multilingual label - for child record working?
          cy.log(
