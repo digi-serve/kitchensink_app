@@ -18,7 +18,7 @@ export default () => {
       });
       it("Can edit connected records", () => {
          // We need to lookup grid cells by column and scroll to a postition.
-         // These might change we add/remove/hide/show fields.xw
+         // These might change we add/remove/hide/show fields
          const connect_mm = {
             col: "connect-to-another-record-mm", // column property on the .webix_column
             pos: 5000, // pixels to scrollTo
