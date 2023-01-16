@@ -18,7 +18,7 @@ export default () => {
       });
       it("Can edit connected records", () => {
          // We need to lookup grid cells by column and scroll to a postition.
-         // These might change we add/remove/hide/show fields.
+         // These might change we add/remove/hide/show fields
          const connect_mm = {
             col: "connect-to-another-record-mm", // column property on the .webix_column
             pos: 5000, // pixels to scrollTo
@@ -33,37 +33,32 @@ export default () => {
             "Find the cell in the 'connect-to-another-record-mm' column, row 1"
          );
 
-         // eslint-disable-next-line cypress/no-unnecessary-waiting
-         cy.wait(500);
-
          cy.get(".webix_hcell")
             .contains(connect_mm.col)
+            .should("exist")
             .then(($column) => {
-               // debugger;
-               // cy.log($column.attr("column"));
                const mmIndex = $column.attr("column");
                cy.get(
                   `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
                )
                   .should("exist")
                   .click({ force: true });
-               cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
-               // Click off the select list
+               cy.get(".webix_view.webix_window.webix_popup")
+                  .filter('[style^="display: block"]')
+                  .eq(1)
+                  .as("list-test-KCS-ID")
+                  .contains("test-KCS-ID:0000000001")
+                  .click();
+               cy.get("@list-test-KCS-ID")
+                  .contains("test-KCS-ID:0000000002")
+                  .click();
                cy.get(".webix_button").contains("Select").click();
                cy.get(
                   `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
-               ).should("contain", "test-KCS-ID:0000000001");
+               )
+                  .should("contain", "test-KCS-ID:0000000001")
+                  .and("contain", "test-KCS-ID:0000000002");
             });
-
-         // We reload here because cypress gets confused when we scroll multiple
-         // times in the same grid. We could do this as a seperate test, but
-         // that adds overhead.
-         cy.visit("/");
-         cy.get(
-            '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-         )
-            .should("exist")
-            .click({ force: true });
          // One Side
          gridScroll(GRID, connect_om.pos);
          cy.log(
@@ -72,16 +67,20 @@ export default () => {
 
          cy.get(".webix_hcell")
             .contains(connect_om.col)
+            .should("exist")
             .then(($column) => {
-               // debugger;
-               // cy.log($column.attr("column"));
                const omIndex = $column.attr("column");
+
                cy.get(
                   `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
                )
                   .should("exist")
                   .click({ force: true });
-               cy.get(".webix_list").contains("test-KCS-ID:0000000001").click();
+               cy.get(".webix_view.webix_window.webix_popup")
+                  .filter('[style^="display: block"]')
+                  .eq(1)
+                  .contains("test-KCS-ID:0000000001")
+                  .click();
                cy.get(
                   `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
                ).should("contain", "test-KCS-ID:0000000001");
