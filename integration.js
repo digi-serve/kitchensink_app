@@ -29,7 +29,12 @@ const ProcessTestCases = [
 ];
 
 // Don't stop tests on uncaught errors
-Cypress.on("uncaught:exception", () => false);
+Cypress.on('uncaught:exception', (e) => {
+   // Unless the error matches below
+   if (!e.message.includes('this.parentFormComponent is not a function')) {
+      return false
+   }
+});
 
 before(() => {
    Common.ResetDB(cy);
