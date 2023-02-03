@@ -1,5 +1,5 @@
 export default () => {
-   describe.only("ConditionalContainer", () => {
+   describe("ConditionalContainer", () => {
       beforeEach(() => {
          // Select the Condition container tab
          cy.get(
