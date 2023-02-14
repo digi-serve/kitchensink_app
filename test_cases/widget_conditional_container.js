@@ -1,6 +1,4 @@
 export default () => {
-   const TARGET_VIEW_ID = "ABViewConditionalContainer";
-
    describe("ConditionalContainer", () => {
       beforeEach(() => {
          // Select the Condition container tab
@@ -10,7 +8,9 @@ export default () => {
       });
 
       it("Exists", () => {
-         cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("exist");
+         cy.get('div[view_id^="ABViewContainer_"]')
+            .find('div[view_id$="_batch"]')
+            .should("exist");
       });
 
       it("Should display if panel", () => {
@@ -24,7 +24,9 @@ export default () => {
          cy.get(
             "[data-cy='button save f36f8849-011c-4fbe-936d-00a872dcea9d']"
          ).click();
-         cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("have.text", "<2");
+         cy.get(`div[view_id^="ABViewContainer_"]`)
+            .find('div[view_id$="_batch"]')
+            .should("have.text", "<2");
       });
 
       it("Should display else panel", () => {
@@ -38,7 +40,9 @@ export default () => {
          cy.get(
             "[data-cy='button save f36f8849-011c-4fbe-936d-00a872dcea9d']"
          ).click();
-         cy.get(`div[view_id^="${TARGET_VIEW_ID}"]`).should("have.text", ">=2");
+         cy.get(`div[view_id^="ABViewContainer_"]`)
+            .find('div[view_id$="_batch"]')
+            .should("have.text", ">=2");
       });
    });
 };
