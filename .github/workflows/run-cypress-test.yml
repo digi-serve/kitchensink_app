@@ -44,12 +44,14 @@ jobs:
         working-directory: ./ab
 
       #Run test
-      - uses: ifaxity/wait-on-action@v1
+      - name: Wait for AB
+        uses: ifaxity/wait-on-action@v1
         with:
           resource: http://localhost:8080
           timeout: 300000
           
-      - run: npm run test:e2e:app
+      - name: Run Cypress Tests
+        run: npm run test:e2e:app -- --browser chrome
         working-directory: ./ab
 
       - uses: actions/upload-artifact@v2
