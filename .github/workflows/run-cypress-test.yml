@@ -40,21 +40,12 @@ jobs:
         working-directory: ./ab
 
       #Run test
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v5
+      - uses: ifaxity/wait-on-action@v1
         with:
-          working-directory: ./ab
-          project: ./test/e2e
-          install: false
-          config: responseTimeout=200000,defaultCommandTimeout=30000,retries=2
+          resource: http://localhost:8080
+          timeout: 300
+      - run: npm run test:e2e:app 
 
-          # Wait for the site to be ready
-          wait-on: "http://localhost:8080"
-          wait-on-timeout: 300
-
-          # We need to set the stack name as an environment variable for
-          # the test reset script.
-          env: stack=ab
       - uses: actions/upload-artifact@v2
         if: failure()
         with:
