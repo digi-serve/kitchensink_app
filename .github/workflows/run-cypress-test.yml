@@ -41,12 +41,12 @@ jobs:
 
       #Run test
       - name: Run Cypress Tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           working-directory: ./ab
           project: ./test/e2e
           install: false
-          config: baseUrl=http://localhost:8080,testFiles=**/*.js,responseTimeout=200000,defaultCommandTimeout=30000,retries=2
+          config: responseTimeout=200000,defaultCommandTimeout=30000,retries=2
 
           # Wait for the site to be ready
           wait-on: "http://localhost:8080"
