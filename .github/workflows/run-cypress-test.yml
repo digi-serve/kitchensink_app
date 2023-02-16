@@ -43,7 +43,7 @@ jobs:
       - uses: ifaxity/wait-on-action@v1
         with:
           resource: http://localhost:8080
-          timeout: 300
+          timeout: 300000
       - run: npm run test:e2e:app 
 
       - uses: actions/upload-artifact@v2
