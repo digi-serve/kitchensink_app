@@ -34,7 +34,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
         with:
-          path: ab/test/e2e/cypress/integration/kitchensink_app
+          path: ab/test/e2e/cypress/e2e/kitchensink_app
 
       # These next steps are to save our ablogs to file
       - run: npm install pm2@latest -g
