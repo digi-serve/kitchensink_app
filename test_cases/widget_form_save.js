@@ -150,9 +150,8 @@ export default () => {
          cy.get('[data-cy^="connectObject Processes"]').click();
          cy.get('[data-cy^="connectObject options"]')
             .filter(":visible")
-            .each(($el) => {
-               cy.wrap($el).click();
-            });
+            .first()
+            .click();
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
