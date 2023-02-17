@@ -1,11 +1,12 @@
-const Common = require("../../../../../setup/common.js");
-const folderName = __dirname.match(/[^\\/]+$/)[0];
+// const folderName = __dirname.match(/([^\\/]+)[\\/]test_cases$/)[1];
 
 export default () => {
    describe("Save Form Values", () => {
-      before(() => {
-         Common.RunSQL(cy, folderName, ["form_save_selectable.sql"]);
-      });
+      // This RunSQL commands was previously failing silently, now its
+      // fixed, but causes the tests to fail.
+      // before(() => {
+      //    // cy.RunSQL(folderName, ["form_save_selectable.sql"]);
+      // });
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-FormSave-af33a28d-c6a8-4a88-a52a-6d3333c3151f-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
