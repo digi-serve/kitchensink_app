@@ -75,7 +75,7 @@ export default () => {
       it("can upload photo", () => {
          const photoPath = path.join(
             "..",
-            "integration",
+            "e2e",
             `${folderName}`,
             "test_example",
             "images",
