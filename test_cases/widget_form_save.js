@@ -94,7 +94,7 @@ export default () => {
             .should("be.empty");
       });
 
-      it.skip("conditional record rules - 0", () => {
+      it("conditional record rules - 0", () => {
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
@@ -150,9 +150,8 @@ export default () => {
          cy.get('[data-cy^="connectObject Processes"]').click();
          cy.get('[data-cy^="connectObject options"]')
             .filter(":visible")
-            .each(($el) => {
-               cy.wrap($el).click();
-            });
+            .first()
+            .click();
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
