@@ -126,41 +126,49 @@ export default () => {
             .type("-1")
             .clear()
             .type("-185");
-         cy.get(
-            '[data-cy="button save 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
-         ).click();
+         cy.get('[data-cy="button save 63c31c80-81ff-4114-8aec-cd4d43c2533a"]')
+            .should("be.visible")
+            .click();
 
          // pre-setup the data in the popup
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )
             .contains("Condition rule")
-            .should("exist")
-            .click();
-         cy.get('[data-cy^="connectObject Orders"]').click();
-         cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .click({ force: true });
-         cy.get(
-            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
-         )
-            .filter(":visible")
+            .should("be.visible")
             .click();
 
-         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get('[data-cy^="connectObject Orders"]')
+            .should("be.visible")
+            .click();
+
          cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .first()
-            .click({ force: true });
+            .should("be.visible")
+            .click();
+
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
-            .filter(":visible")
+            .should("be.visible")
             .click();
+
+         cy.get('[data-cy^="connectObject Processes"]')
+            .should("be.visible")
+            .click();
+
+         cy.get('[data-cy^="connectObject options"]')
+            .should("be.visible")
+            .click();
+
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .should("be.visible")
+            .click();
+
          cy.get('[data-cy^="button save"]') // Auto Generate Record
-            .filter(":visible")
             .contains("Update this record")
-            .should("exist")
+            .should("be.visible")
             .click();
          // end pre-setup the data
 
@@ -169,19 +177,26 @@ export default () => {
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )
             .contains("Condition rule")
-            .should("exist")
+            .should("be.visible")
             .click();
+
          cy.get('[data-cy^="button save"]') // Auto Generate Record
-            .filter(":visible")
             .contains("Update this record")
-            .should("exist")
+            .should("be.visible")
             .click();
+
+         cy.get(".webix_spin").should("not.exist");
+
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )
             .contains("Condition rule")
-            .should("exist")
+            .should("be.visible")
             .click();
+
+         cy.get(
+            '[view_id="ABViewForm_c7cff6a1-dfed-467c-a3dc-481124f9926d_form"]'
+         ).should("be.visible");
 
          // check whether balance check already exists
          cy.get(
@@ -189,20 +204,22 @@ export default () => {
          )
             .contains("0")
             .should("not.contain", "185")
-            .should("exist");
+            .should("be.visible");
          //
-         cy.get('[data-cy^="number Number allow"]')
-            .filter(":visible")
-            .should("exist")
+         cy.get(
+            '[data-cy="number Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 c7cff6a1-dfed-467c-a3dc-481124f9926d"]'
+         )
+            .should("be.visible")
+            .click()
             .type("111")
             .clear()
             .type("1337");
 
          cy.get('[data-cy^="button save"]') // Auto Generate Record
-            .filter(":visible")
             .contains("Submit and Run")
-            .should("exist")
+            .should("be.visible")
             .click();
+
          cy.get(".webix_spin").should("not.exist");
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
