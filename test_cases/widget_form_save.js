@@ -120,48 +120,65 @@ export default () => {
             '[data-cy="button save a573443e-6b82-4db9-a827-0a772a53af74"]'
          ).click();
 
+         cy.get(".webix_spin").should("not.exist");
+
          cy.get(
             '[data-cy="number amount 7c8732a7-9f55-4844-be4e-51978f94d712 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
          )
             .type("-1")
             .clear()
             .type("-185");
-         cy.get(
-            '[data-cy="button save 63c31c80-81ff-4114-8aec-cd4d43c2533a"]'
-         ).click();
+
+         cy.get('[data-cy="button save 63c31c80-81ff-4114-8aec-cd4d43c2533a"]')
+            .should("be.visible")
+            .click();
+
+         cy.get(".webix_spin").should("not.exist");
 
          // pre-setup the data in the popup
          cy.get(
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )
             .contains("Condition rule")
-            .should("exist")
-            .click();
-         cy.get('[data-cy^="connectObject Orders"]').click();
-         cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
-            .click({ force: true });
-         cy.get(
-            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
-         )
-            .filter(":visible")
+            .should("be.visible")
             .click();
 
-         cy.get('[data-cy^="connectObject Processes"]').click();
+         cy.get('[data-cy^="connectObject Orders"]')
+            .should("be.visible")
+            .click();
+
          cy.get('[data-cy^="connectObject options"]')
-            .filter(":visible")
+            .should("be.visible")
             .first()
-            .click({ force: true });
+            .click();
+
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
          )
-            .filter(":visible")
+            .should("be.visible")
             .click();
+
+         cy.get('[data-cy^="connectObject Processes"]')
+            .should("be.visible")
+            .click();
+
+         cy.get('[data-cy^="connectObject options"]')
+            .should("be.visible")
+            .first()
+            .click();
+
+         cy.get(
+            '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
+         )
+            .should("be.visible")
+            .click();
+
          cy.get('[data-cy^="button save"]') // Auto Generate Record
-            .filter(":visible")
             .contains("Update this record")
-            .should("exist")
+            .should("be.visible")
             .click();
+
+         cy.get(".webix_spin").should("not.exist");
          // end pre-setup the data
 
          // open the popup
@@ -169,19 +186,35 @@ export default () => {
             '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
          )
             .contains("Condition rule")
-            .should("exist")
+            .should("be.visible")
             .click();
+
          cy.get('[data-cy^="button save"]') // Auto Generate Record
-            .filter(":visible")
             .contains("Update this record")
-            .should("exist")
+            .should("be.visible")
             .click();
+
+         cy.get(".webix_spin").should("not.exist");
+
+         cy.get('[view_id="de0a9a23-8204-4317-9026-97ede2670f79"').should(
+            "not.be.visible"
+         );
+
+         // hack to get the test to pass in headless browser
+         cy.wait(100);
+
          cy.get(
-            '[data-cy^="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79"]'
+            '[data-cy="menu-item conditional record rule de0a9a23-8204-4317-9026-97ede2670f79 88bb72eb-5908-46e5-9c87-1e4c6637e6c7"]'
          )
             .contains("Condition rule")
-            .should("exist")
+            .should("be.visible")
             .click();
+
+         cy.get(".webix_spin").should("not.exist");
+
+         cy.get('[view_id="de0a9a23-8204-4317-9026-97ede2670f79"]').should(
+            "be.visible"
+         );
 
          // check whether balance check already exists
          cy.get(
@@ -189,20 +222,22 @@ export default () => {
          )
             .contains("0")
             .should("not.contain", "185")
-            .should("exist");
+            .should("be.visible");
          //
-         cy.get('[data-cy^="number Number allow"]')
-            .filter(":visible")
-            .should("exist")
+         cy.get(
+            '[data-cy="number Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 c7cff6a1-dfed-467c-a3dc-481124f9926d"]'
+         )
+            .should("be.visible")
+            .click()
             .type("111")
             .clear()
             .type("1337");
 
          cy.get('[data-cy^="button save"]') // Auto Generate Record
-            .filter(":visible")
             .contains("Submit and Run")
-            .should("exist")
+            .should("be.visible")
             .click();
+
          cy.get(".webix_spin").should("not.exist");
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
