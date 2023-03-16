@@ -71,11 +71,11 @@ describe("Smoke Test", () => {
 
 describe("Widget Tests", () => {
    beforeEach(() => {
-      Common.RunSQL(cy, folderName, [
-         "add_testkcs.sql",
-         "add_testkcs2-Menu.sql",
-         "add_testkcs2-ScopedData.sql",
-      ]);
+      // Common.RunSQL(cy, folderName, [
+      //    "add_testkcs.sql",
+      //    "add_testkcs2-Menu.sql",
+      //    "add_testkcs2-ScopedData.sql",
+      // ]);
       cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]')
          .should("be.visible")
