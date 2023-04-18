@@ -67,9 +67,13 @@ export default (folderName, Common) => {
             .should("be.visible")
             .should("have.text", "test-KCS-ID:0000000003");
          cy.get(
+            '[data-cy="detail connected m2one connect field 898b142d-c18e-4060-91d9-05a0e29f50e4 b00875b2-4c62-4ab4-8bc7-229054b226cc"]'
+         ).contains("Mr. Admin-Record A");
+
+         cy.get(
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]  > .webix_ss_body > .webix_ss_center'
          )
-            .find(".webix_column")
+            .find(".webix_column ")
             .should(($data) => {
                expect($data, "8 columns").to.have.length(7);
                expect($data.eq(0), "label").to.contain("test label");
