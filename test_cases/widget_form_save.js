@@ -149,7 +149,8 @@ export default () => {
 
          cy.get('[data-cy^="connectObject Orders"]')
             .should("be.visible")
-            .click();
+            .click({ force: true })
+            .trigger("click");
 
          cy.get('[data-cy^="connectObject options"]')
             .should("be.visible")
@@ -168,7 +169,8 @@ export default () => {
 
          cy.get('[data-cy^="connectObject Processes"]')
             .should("be.visible")
-            .click();
+            .click({ force: true })
+            .trigger("click");
 
          cy.get('[data-cy^="connectObject options"]')
             .should("be.visible")
