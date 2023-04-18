@@ -1,3 +1,7 @@
+import path from "path";
+
+const folderName = path.join(__dirname, '..').match(/[^\\/]+$/)[0];
+
 export default () => {
    describe("Form", () => {
       beforeEach(() => {
@@ -67,5 +71,47 @@ export default () => {
             "Cypress hahaha is coming here now"
          );
       }); // End 6
+      //7. can upload photo
+      it("can upload photo", () => {
+         const photoPath = path.join(
+            "..",
+            "e2e",
+            `${folderName}`,
+            "test_example",
+            "images",
+            "digiServe_Color.png"
+         );
+         const fileExtension = "png";
+         cy.get("[data-cy=\"fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48\"] .ab-image-data-field").click();
+         cy.get("[data-cy=\"fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48\"]")
+            .invoke("attr", "data-uploader-id")
+            .then((uploader) => {
+               cy.fixture(photoPath).then((data) => {
+                  const blob = Cypress.Blob.base64StringToBlob(
+                   data,
+                     `image/${fileExtension}`
+                  );
+                  const file = new File([blob], photoPath, {
+                     type: `image/${fileExtension}`,
+                  });
+                  // wait till image is uploaded before saving
+                  cy.window()
+                     .then((win) => {
+                        return win
+                           .$$(uploader).attachEvent("onAfterFileAdd", function(file){
+                            //... some code here ... 
+                        });
+                     });
+                  // upload image
+                  cy.window()
+                     .then((win) => {
+                        return win
+                           .$$(uploader)
+                           .addFile(file, file.size, fileExtension);
+                     });
+               });
+            });
+         // cy.wait(500);
+      }); // End 7
    }); //End Describe
 }; //End Export

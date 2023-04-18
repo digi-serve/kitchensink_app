@@ -28,13 +28,13 @@ export default (folderName, Common) => {
          // check the tag area
          cy.get('div[view_id*="ABViewChartPie_6730433b"]')
             .find("area")
-            .eq(2)
+            .eq(0)
             .should("have.attr", "shape", "POLY")
             .should("have.length", 1)
             .should(
                "have.attr",
                "coords",
-               "286.5,62,331,105,323,112,314,118,304,122,293,124,282,124,271,123,261,119,251,114,243,107,236,99,234,96,286.5,62"
+               "303.5,62,303,0,314,0,324,3,334,8,343,14,351,22,357,31,362,41,362,43,303.5,62"
             );
          cy.get('div[view_id*="ABViewChartPie_6730433b"]')
             .find("area")
@@ -44,17 +44,17 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "286.5,62,345,43,348,53,348,64,347,75,344,85,339,95,332,104,331,105,286.5,62"
+               "303.5,62,362,43,365,53,365,64,364,75,361,85,356,95,349,104,348,105,303.5,62"
             );
          cy.get('div[view_id*="ABViewChartPie_6730433b"]')
             .find("area")
-            .eq(0)
+            .eq(2)
             .should("have.attr", "shape", "POLY")
             .should("have.length", 1)
             .should(
                "have.attr",
                "coords",
-               "286.5,62,286,0,297,0,307,3,317,8,326,14,334,22,340,31,345,41,345,43,286.5,62"
+               "303.5,62,348,105,340,112,331,118,321,122,310,124,299,124,288,123,278,119,268,114,260,107,253,99,251,96,303.5,62"
             );
          cy.get('div[view_id*="ABViewChartPie_6730433b"]')
             .find("area")
@@ -64,7 +64,7 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "286.5,62,234,96,229,87,225,77,224,66,224,55,226,44,230,34,236,25,243,17,252,10,254,8,286.5,62"
+               "303.5,62,251,96,246,87,242,77,241,66,241,55,243,44,247,34,253,25,260,17,269,10,271,8,303.5,62"
             );
          cy.get('div[view_id*="ABViewChartPie_6730433b"]')
             .find("area")
@@ -74,7 +74,7 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "286.5,62,254,8,264,4,274,1,285,0,286,0,286.5,62"
+               "303.5,62,271,8,281,4,291,1,302,0,303,0,303.5,62"
             );
       });
 
@@ -117,7 +117,7 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "31.80000000000001,101,75.80000000000001,125"
+               "35.19999999999999,101,79.19999999999999,125"
             );
          cy.get('div[view_id*="ABViewChartBar_7d435f94"]')
             .find("area")
@@ -127,14 +127,14 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "140.39999999999998,105,184.39999999999998,125"
+               "150.60000000000002,105,194.60000000000002,125"
             );
          cy.get('div[view_id*="ABViewChartBar_7d435f94"]')
             .find("area")
             .should("have.length", 5)
             .eq(2)
             .should("have.attr", "shape", "RECT")
-            .should("have.attr", "coords", "249,91,293,125");
+            .should("have.attr", "coords", "266,91,310,125");
 
          cy.get('div[view_id*="ABViewChartBar_7d435f94"]')
             .find("area")
@@ -144,18 +144,14 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "357.5999999999999,94,401.5999999999999,125"
+               "381.4000000000001,94,425.4000000000001,125"
             );
          cy.get('div[view_id*="ABViewChartBar_7d435f94"]')
             .find("area")
             .should("have.length", 5)
             .eq(4)
             .should("have.attr", "shape", "RECT")
-            .should(
-               "have.attr",
-               "coords",
-               "466.20000000000005,116,510.20000000000005,125"
-            );
+            .should("have.attr", "coords", "496.79999999999995,116,540.8,125");
       });
 
       it("Displays a Line Chart", () => {
@@ -189,7 +185,7 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "50.30000000000001,96,58.30000000000001,104"
+               "53.69999999999999,96,61.69999999999999,104"
             );
          cy.get('div[view_id*="ABViewChartLine_3af0be5a"]')
             .find("area")
@@ -199,14 +195,14 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "158.39999999999998,99.57499999999999,166.39999999999998,107.57499999999999"
+               "168.60000000000002,99.57499999999999,176.60000000000002,107.57499999999999"
             );
          cy.get('div[view_id*="ABViewChartLine_3af0be5a"]')
             .find("area")
             .should("have.attr", "shape", "RECT")
             .should("have.length", 5)
             .eq(2)
-            .should("have.attr", "coords", "267,85.2875,275,93.2875");
+            .should("have.attr", "coords", "284,85.2875,292,93.2875");
          cy.get('div[view_id*="ABViewChartLine_3af0be5a"]')
             .find("area")
             .should("have.attr", "shape", "RECT")
@@ -215,18 +211,14 @@ export default (folderName, Common) => {
             .should(
                "have.attr",
                "coords",
-               "375.5999999999999,88.8625,383.5999999999999,96.86250000000001"
+               "399.4000000000001,88.8625,407.4000000000001,96.86250000000001"
             );
          cy.get('div[view_id*="ABViewChartLine_3af0be5a"]')
             .find("area")
             .should("have.attr", "shape", "RECT")
             .should("have.length", 5)
             .eq(4)
-            .should(
-               "have.attr",
-               "coords",
-               "484.20000000000005,110.2875,492.20000000000005,118.2875"
-            );
+            .should("have.attr", "coords", "514.8,110.2875,522.8,118.2875");
       });
    });
 };

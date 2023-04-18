@@ -50,7 +50,7 @@ export default (folderName, Common) => {
 };
 
 function reloadToScopePage() {
-   cy.reload();
+   cy.visit("/");
    cy.get('[data-cy="portal_work_menu_sidebar"]').should("be.visible").click();
    cy.get('[data-cy="0ac51d6c-7c95-461c-aa8b-7da00afc4f48"]')
       .should("be.visible")

@@ -6,6 +6,7 @@ export default () => {
             '[data-cy="tab-Text-e6ce7b26-a908-4be6-afb4-8b59d2fee10d-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
          cy.get('[view_id^="ABViewText_"]')
+            .find('[view_id$="_text"]')
             .should("be.visible")
             .should("have.text", "longtext");
       });

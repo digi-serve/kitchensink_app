@@ -233,7 +233,9 @@ export default (folderName, Common) => {
          Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-         ).click();
+         )
+            .should("be.visible")
+            .click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
@@ -282,8 +284,22 @@ export default (folderName, Common) => {
             .last()
             .click({ force: true });
 
-         cy.get(".webix_progress_state").should("not.exist");
+         // cy.get(".webix_progress_state").should("not.exist");
 
+         // Sometimes the progress icon is gone too fast.
+         // let's make sure that by counting elements in the grid instead.
+         cy.get(
+            '[view_id="ABViewComment_2a2db721-5093-44a2-999d-3f4a58420129"]'
+         )
+            .find(".webix_view.webix_list")
+            .children()
+            .should("have.length", 1);
+         cy.get(
+            '[view_id="ABViewComment_aac06b2a-7f4e-4daf-9b39-ccd71858e150"]'
+         )
+            .find(".webix_view.webix_list")
+            .children()
+            .should("have.length", 1);
          cy.get(".webix_comments")
             .first()
             .find(".webix_comments_current")
@@ -718,7 +734,9 @@ export default (folderName, Common) => {
          Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-         ).click();
+         )
+            .should("be.visible")
+            .click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
