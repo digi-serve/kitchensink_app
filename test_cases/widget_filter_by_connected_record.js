@@ -30,11 +30,17 @@ export default (folderName, Common) => {
             "be.visible"
          );
          cy.get('[data-cy^="connectObject options uuid21"]').click();
+
+         cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
+            "not.exist"
+         );
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Select item");
-         cy.get('[data-cy^="connectObject connectto3"]').click();
+         cy.get('[data-cy^="connectObject connectto3"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get(
             ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
          )
@@ -48,7 +54,9 @@ export default (folderName, Common) => {
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Select item");
-         cy.get('[data-cy^="connectObject connectto3"]').click();
+         cy.get('[data-cy^="connectObject connectto3"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get(
             ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
          )
@@ -66,11 +74,16 @@ export default (folderName, Common) => {
          cy.get('[data-cy^="connectObject options uuid21"]')
             .should("be.visible")
             .click();
+         cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
+            "not.exist"
+         );
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Select item");
-         cy.get('[data-cy^="connectObject connectto3"]').click();
+         cy.get('[data-cy^="connectObject connectto3"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get(
             ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
          )
@@ -84,7 +97,9 @@ export default (folderName, Common) => {
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Select item");
-         cy.get('[data-cy^="connectObject connectto3"]').click();
+         cy.get('[data-cy^="connectObject connectto3"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get(
             ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
          )

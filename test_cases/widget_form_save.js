@@ -143,19 +143,20 @@ export default () => {
             .should("be.visible")
             .click();
 
+         cy.get('[data-cy^="connectObject Orders"]').should("be.visible");
+
          cy.get('[data-cy^="connectObject Orders"] .webix_spin').should(
             "not.exist"
          );
 
          cy.get('[data-cy^="connectObject Orders"]')
-            .should("be.visible")
             .click({ force: true })
             .trigger("click");
 
          cy.get('[data-cy^="connectObject options"]')
             .should("be.visible")
             .first()
-            .click();
+            .click({ force: true });
 
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
@@ -163,19 +164,19 @@ export default () => {
             .should("be.visible")
             .click();
 
-         cy.get('[data-cy^="connectObject Processes"] .webix_spin').should(
+         cy.get('[data-cy^="connectObject Processes"]').should("be.visible");
+         cy.get('[data-cy^="connectObject Processes"].webix_spin').should(
             "not.exist"
          );
 
          cy.get('[data-cy^="connectObject Processes"]')
-            .should("be.visible")
             .click({ force: true })
             .trigger("click");
 
          cy.get('[data-cy^="connectObject options"]')
             .should("be.visible")
             .first()
-            .click();
+            .click({ force: true });
 
          cy.get(
             '[data-cy^="detail text balance check example b42e1e16-15ff-4c85-abb5-4b2e9d80ff32"]'
