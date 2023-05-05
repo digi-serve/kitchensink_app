@@ -32,7 +32,7 @@ jobs:
         working-directory: ./ab
 
       - name: Check out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ab/test/e2e/cypress/e2e/kitchensink_app
 
@@ -45,7 +45,7 @@ jobs:
 
       #Run test
       - name: Wait for AB
-        uses: ifaxity/wait-on-action@v1
+        uses: ifaxity/wait-on-action@v1.1.0
         with:
           resource: http://localhost:8080
           timeout: 300000
@@ -54,12 +54,12 @@ jobs:
         run: npm run test:e2e:app -- --browser chrome
         working-directory: ./ab
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-screenshots
           path: ./ab/test/e2e/cypress/screenshots
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: ABServices.log
