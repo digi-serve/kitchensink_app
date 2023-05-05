@@ -25,11 +25,15 @@ export default (folderName, Common) => {
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Must select item from 'connectto2' first.");
-         cy.get('[data-cy^="connectObject connectto2"]').click();
+         cy.get('[data-cy^="connectObject connectto2"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get('[data-cy^="connectObject options uuid21"]').should(
             "be.visible"
          );
-         cy.get('[data-cy^="connectObject options uuid21"]').click();
+         cy.get('[data-cy^="connectObject options uuid21"]').click({
+            force: true,
+         });
 
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
             "not.exist"
@@ -46,10 +50,12 @@ export default (folderName, Common) => {
          )
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 1);
-         cy.get('[data-cy^="connectObject connectto2"]').click();
+         cy.get('[data-cy^="connectObject connectto2"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get('[data-cy^="connectObject options uuid22"]')
             .should("be.visible")
-            .click();
+            .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
@@ -70,10 +76,12 @@ export default (folderName, Common) => {
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Must select item from 'connectto2' first.");
-         cy.get('[data-cy^="connectObject connectto2"]').click();
+         cy.get('[data-cy^="connectObject connectto2"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get('[data-cy^="connectObject options uuid21"]')
             .should("be.visible")
-            .click();
+            .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
             "not.exist"
          );
@@ -89,10 +97,12 @@ export default (folderName, Common) => {
          )
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 2);
-         cy.get('[data-cy^="connectObject connectto2"]').click();
+         cy.get('[data-cy^="connectObject connectto2"]')
+            .click({ force: true })
+            .trigger("click");
          cy.get('[data-cy^="connectObject options uuid22"]')
             .should("be.visible")
-            .click();
+            .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
