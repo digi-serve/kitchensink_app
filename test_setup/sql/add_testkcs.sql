@@ -131,5 +131,5 @@ VALUES (
   NOW(),
   "Mr. Admin",
   "admin"
-);
+) ON DUPLICATE KEY UPDATE `updated_at`=NOW();
 UNLOCK TABLES;
