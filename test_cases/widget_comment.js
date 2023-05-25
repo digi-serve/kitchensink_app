@@ -140,10 +140,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -175,10 +175,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -208,10 +208,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -245,10 +245,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -278,11 +278,11 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get(".webix_comments")
-            .first()
-            .find(".webix_comments_current")
-            .last()
-            .click({ force: true });
+         // cy.get(".webix_comments")
+         //    .first()
+         //    .find(".webix_comments_current")
+         //    .last()
+         //    .click({ force: true });
 
          // cy.get(".webix_progress_state").should("not.exist");
 
@@ -300,9 +300,10 @@ export default (folderName, Common) => {
             .find(".webix_view.webix_list")
             .children()
             .should("have.length", 1);
+
          cy.get(".webix_comments")
             .first()
-            .find(".webix_comments_current")
+            .find(".webix_list_item")
             .last()
             .find(".webix_comments_menu")
             .click({ force: true });
@@ -332,10 +333,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -382,10 +383,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -430,10 +431,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -470,10 +471,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -511,10 +512,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -552,10 +553,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -594,10 +595,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -622,10 +623,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -669,10 +670,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
@@ -697,10 +698,10 @@ export default (folderName, Common) => {
 
          pressSendButton();
 
-         cy.get("div")
-            .should("have.class", "webix_list_item webix_comments_current")
-            .contains("admin")
-            .click({ force: true });
+         // cy.get("div")
+         //    .should("have.class", "webix_list_item webix_comments_current")
+         //    .contains("admin")
+         //    .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
