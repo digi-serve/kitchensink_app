@@ -21,7 +21,7 @@ jobs:
       CYPRESS_RETRIES: 2
     steps:
       # Setup
-      - uses: digi-serve/ab-install-action@v1
+      - uses: digi-serve/ab-install-action@main
         with:
           folder: ab
           port: 8080
