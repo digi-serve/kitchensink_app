@@ -25,23 +25,24 @@ jobs:
         with:
           folder: ab
           port: 8080
+          
+      # These next steps are to save our ablogs to file
+      - run: npm install pm2@latest -g
+        working-directory: ./ab
 
       # Up
       - name: Bring up AppBuilder
         run: ./UP.sh -q -t
         working-directory: ./ab
-
+      
+      - name: Save Logs
+        run: pm2 start ./logs.js -- --toFile logs/ABServices.log
+        working-directory: ./ab
+        
       - name: Check out
         uses: actions/checkout@v3
         with:
           path: ab/test/e2e/cypress/e2e/kitchensink_app
-
-      # These next steps are to save our ablogs to file
-      - run: npm install pm2@latest -g
-        working-directory: ./ab
-      - name: Save Logs
-        run: pm2 start ./logs.js -- --toFile logs/ABServices.log
-        working-directory: ./ab
 
       #Run test
       - name: Wait for AB
