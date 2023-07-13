@@ -316,32 +316,32 @@ jobs:
       if: ${{ env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner}}
       run: mv web ab_service_web
   # 4. Install AB
-    - uses: digi-serve/ab-install-action@nh/rebuild_all
+    - uses: digi-serve/ab-install-action@v1
       with:
+        port: 80
         folder: ab
-        repository: all/${{ needs.prep.outputs.services }}
+        repository: digi-serve/ab_service_web
         runtime: ${{ env.ab_runtime }}
   # 5. Run Tests
     - name: Checkout Kitchen Sink
       uses: actions/checkout@v3
       with:
-        path: ab/test/e2e/cypress/integration/kitchensink_app
+        repository: digi-serve/kitchensink_app
+        path: ab/test/e2e/cypress/e2e/kitchensink_app
     # These next steps are to save our ablogs to file
     - run: npm install pm2@latest -g
       working-directory: ./ab
     - name: Save Logs
       run: pm2 start ./logs.js -- --toFile logs/ABServices.log
       working-directory: ./ab
-    - name: Run Cypress Tests
-      uses: cypress-io/github-action@v2
+    - name: Wait for AB
+      uses: ifaxity/wait-on-action@v1
       with:
-        working-directory: ./ab
-        project: ./test/e2e
-        config: baseUrl=http://localhost,responseTimeout=120000,defaultCommandTimeout=24000,retries=2
-        wait-on: http://localhost/
-        wait-on-timeout: 300
-        env: stack=ab
-        install: false
+         resource: http://localhost/
+         timeout: 300000
+    - name: Run Cypress Tests
+      run: npm run test:e2e:app -- --browser chrome
+      working-directory: ./ab
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
