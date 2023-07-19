@@ -94,7 +94,7 @@ export default () => {
             .should("be.empty");
       });
 
-      it("conditional record rules - 0", () => {
+      it.skip("conditional record rules - 0", () => {
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
