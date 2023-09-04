@@ -22,6 +22,8 @@ export default (folderName, Common) => {
       it("Filtering ByDefault", () => {
          cy.get(`[data-cy^="tab ByDefault"]`).should("be.visible").click();
          cy.get('[data-cy^="connectObject connectto3"]')
+            .should("be.visible");
+         cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Must select item from 'connectto2' first.");
@@ -57,6 +59,8 @@ export default (folderName, Common) => {
             .should("be.visible")
             .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"]')
+            .should("be.visible");
+         cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Select item");
@@ -72,6 +76,8 @@ export default (folderName, Common) => {
 
       it("Filtering ByCustomIndex", () => {
          cy.get('[data-cy^="tab ByCustomIndex"]').should("be.visible").click();
+         cy.get('[data-cy^="connectObject connectto3"]')
+            .should("be.visible");
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")

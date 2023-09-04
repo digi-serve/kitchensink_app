@@ -198,7 +198,7 @@ export default (folderName, Common) => {
          Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-         ).click();
+         ).should("be.visible").click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
