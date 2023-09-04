@@ -36,7 +36,7 @@ export default () => {
          );
          // cy.get(".webix_ss_center_scroll").contains("Mr. Admin");
          cy.get(".webix_ss_center_scroll").find(".fa-square-o");
-         cy.get(".trash").click();
+         cy.get(".trash").should("be.visible").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("Submit Default Values Form", () => {
@@ -55,7 +55,7 @@ export default () => {
          cy.get(".webix_ss_center_scroll").contains("1");
          cy.get(".webix_ss_center_scroll").contains("Option 3");
          cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
-         cy.get(".trash").click();
+         cy.get(".trash").should("be.visible").click();
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("Submit Empty Number Field", () => {

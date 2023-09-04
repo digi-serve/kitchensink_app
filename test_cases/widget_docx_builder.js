@@ -9,7 +9,7 @@ export default () => {
 
       it("Downloading", () => {
          cy.get(
-            '[data-cy="docx download DOCX Builder 40a6c8f2-cf6f-4349-881f-9c9edcac02d7"] > .fa-file-word-o'
+            '[data-cy^="docx download DOCX Builder"] > .fa-file-word-o'
          )
             .should("be.visible")
             .click()
