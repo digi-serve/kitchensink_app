@@ -36,8 +36,8 @@ export default () => {
          );
          // cy.get(".webix_ss_center_scroll").contains("Mr. Admin");
          cy.get(".webix_ss_center_scroll").find(".fa-square-o");
-         cy.get(".trash").should("be.visible").click();
-            // .should("be.visible")
+         // this icon seems to be consistently covered by a 'progressbar'
+         cy.get(".trash")
             .click({force:true});
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
