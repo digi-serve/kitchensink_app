@@ -65,7 +65,19 @@ export default () => {
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
             .should("exist")
             .click();
-         cy.get(".edit").should("be.visible").click();
+         cy.get('.webix_progress_icon').then(($el) => {
+            if ($el.length === 0) {
+               // The blocking element doesn't exist
+               // You can perform other actions or assertions here
+               cy.log("no blocking element");
+            } else {
+               // The blocking element exists, wait for it to disappear
+               $el.should("not.be.visible");
+            }
+         });
+         cy.get(".edit")
+            .should("be.visible")
+            .click();
          cy.get(
             '[data-cy="detail text Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 ee223876-f1a2-4e69-837e-557ab2a3a3ba"]'
          )
