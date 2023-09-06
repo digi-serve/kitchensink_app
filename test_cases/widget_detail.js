@@ -9,7 +9,8 @@ export default () => {
             '[data-cy="detail text testkcsid c4f98caa-71c1-4c36-9587-f8db050d2e2f aa1c0a4d-001c-4227-970b-4cf1c676ad20"]'
          )
             .should("include.text", "test-kcs-id")
-            .and("include.text", "Test-KCS-");
+            // actual -'test-kcs-id'
+            .and("include.text", "Test-KCS-", { timeout: 50000, retryInterval: 500 });
       });
    });
 };

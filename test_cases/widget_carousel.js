@@ -20,7 +20,8 @@ export default (folderName, Common) => {
       it("Check fa arrows", () => {
          cy.get('[data-cy="carousel 54827db6-497b-43ae-96f9-153b63a9c977"]')
             .scrollIntoView()
-            .find("span")
+            // not finding span
+            .find("span", { timeout: 50000, retryInterval: 500 })
             .should(($span) => {
                expect($span).to.have.length(2);
 

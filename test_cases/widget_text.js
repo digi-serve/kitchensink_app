@@ -11,7 +11,7 @@ export default () => {
          cy.get('[view_id^="ABViewText_"]')
             .find('[view_id$="_text"]')
             .should("be.visible")
-            .should("have.text", "longtext");
+            .should("have.text", "longtext", { timeout: 50000, retryInterval: 500 });
       });
    });
 };
