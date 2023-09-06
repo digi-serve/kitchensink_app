@@ -19,7 +19,7 @@ export default (folderName, Common) => {
       //2. can find the button which has the icon "fa fa-arrows-alt"
       it("Check fa arrows", () => {
          cy.get('[data-cy="carousel 54827db6-497b-43ae-96f9-153b63a9c977"]')
-
+            .scrollIntoView()
             .find("span")
             .should(($span) => {
                expect($span).to.have.length(2);
