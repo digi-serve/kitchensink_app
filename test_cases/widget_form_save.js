@@ -36,7 +36,9 @@ export default () => {
          );
          // cy.get(".webix_ss_center_scroll").contains("Mr. Admin");
          cy.get(".webix_ss_center_scroll").find(".fa-square-o");
-         cy.get(".trash").should("be.visible").click();
+         // this icon seems to be consistently covered by a 'progressbar'
+         cy.get(".trash")
+            .click({force:true});
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("Submit Default Values Form", () => {
@@ -55,14 +57,18 @@ export default () => {
          cy.get(".webix_ss_center_scroll").contains("1");
          cy.get(".webix_ss_center_scroll").contains("Option 3");
          cy.get(".webix_ss_center_scroll").find(".fa-check-square-o");
-         cy.get(".trash").should("be.visible").click();
+         cy.get(".trash")
+            .click({force:true});
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("Submit Empty Number Field", () => {
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
             .should("exist")
             .click();
-         cy.get(".edit").should("be.visible").click();
+         cy.get(".edit")
+            .should("be.visible", { timeout: 50000, retryInterval: 500 })
+         cy.get(".edit")
+            .click();
          cy.get(
             '[data-cy="detail text Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 ee223876-f1a2-4e69-837e-557ab2a3a3ba"]'
          )

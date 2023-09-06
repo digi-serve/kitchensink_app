@@ -77,6 +77,7 @@ export default (folderName, Common) => {
       it("Filtering ByCustomIndex", () => {
          cy.get('[data-cy^="tab ByCustomIndex"]').should("be.visible").click();
          cy.get('[data-cy^="connectObject connectto3"]')
+            .scrollIntoView()
             .should("be.visible");
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")

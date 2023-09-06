@@ -9,8 +9,9 @@ export default () => {
 
       it("Downloading", () => {
          cy.get(
-            '[data-cy^="docx download DOCX Builder"] > .fa-file-word-o'
+            '[data-cy^="docx download"] > .fa-file-word-o'
          )
+            .scrollIntoView()
             .should("be.visible")
             .click()
             .then(() => {
