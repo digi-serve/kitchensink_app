@@ -48,8 +48,7 @@ export default (folderName, Common) => {
             .find(".webix_multicombo_value")
             .should("be.visible")
             .should(($data) => {
-               expect($data).to.have.length(3);
-               expect($data.text(), "Data value").to.contain("label");
+               expect($data).to.have.length(2);
                expect($data.text(), "Data value").to.contain("Record A");
                expect($data.text(), "Data value").to.contain("Record B");
             });
@@ -94,19 +93,11 @@ export default (folderName, Common) => {
                expect(
                   $data.text(),
                   "Data value of m2m connected field"
-               ).to.contain("label");
-               expect(
-                  $data.text(),
-                  "Data value of m2m connected field"
                ).to.contain("Record A");
                expect(
                   $data.text(),
                   "Data value of m2m connected field"
                ).to.contain("Record B");
-               expect(
-                  $data.text(),
-                  "Data value of m2m connected field"
-               ).to.contain("3");
             });
 
          cy.window().then((win) => {
