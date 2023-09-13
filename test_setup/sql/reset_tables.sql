@@ -26,4 +26,9 @@ UNLOCK TABLES;
 LOCK TABLES `AB_testkcsscopeddata` WRITE;
 TRUNCATE TABLE `AB_testkcsscopeddata`;
 UNLOCK TABLES;
+
+LOCK TABLES `AB_testkcsonCreate` WRITE;
+TRUNCATE TABLE `AB_testkcsonCreate`;
+UNLOCK TABLES;
+
 SET FOREIGN_KEY_CHECKS = 1;

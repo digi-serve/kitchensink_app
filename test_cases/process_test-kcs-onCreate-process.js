@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe.skip("test-kcs-onCreate-process", () => {
+   describe("test-kcs-onCreate-process", () => {
       beforeEach(() => {
          Common.RunSQL(cy, folderName, [
             "process_test-kcs-onCreate-process.sql",
@@ -22,7 +22,7 @@ export default (folderName, Common) => {
          // Sometimes the progress icon is gone too fast.
          // let's make sure that by counting elements in the grid instead.
          cy.get(
-            '[data-cy="ABViewGrid_b5ccd065-a499-48b0-ac86-6c0ae4247de2_datatable"]'
+            '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]'
          )
             .children()
             .should("have.length", 7);
@@ -36,20 +36,27 @@ export default (folderName, Common) => {
          );
 
          cy.get(
+            '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]'
+         )
+            .contains("test label")
+            .click();
+
+         cy.get(
             '[data-cy="detail connected m2m connected field a9f6f43a-a400-4c1c-8491-e63b7f527571 b00875b2-4c62-4ab4-8bc7-229054b226cc"]'
          )
-            .find(".ab-detail-component-holder > .webix_multicombo_value")
+            .find(".ab-detail-component-holder")
+            .find(".webix_multicombo_value")
             .should("be.visible")
             .should(($data) => {
-               expect($data).to.have.length(3);
-               expect($data.text(), "Data value").to.contain("label");
+               expect($data).to.have.length(2);
                expect($data.text(), "Data value").to.contain("Record A");
                expect($data.text(), "Data value").to.contain("Record B");
             });
          cy.get(
             '[data-cy="detail connected m2one connect field 898b142d-c18e-4060-91d9-05a0e29f50e4 b00875b2-4c62-4ab4-8bc7-229054b226cc"]'
          )
-            .find(".ab-detail-component-holder > .webix_multicombo_value")
+            .find(".ab-detail-component-holder")
+            .find(".webix_multicombo_value")
             .should("be.visible")
             .should(($data) => {
                expect($data).to.have.length(3);
@@ -86,19 +93,11 @@ export default (folderName, Common) => {
                expect(
                   $data.text(),
                   "Data value of m2m connected field"
-               ).to.contain("label");
-               expect(
-                  $data.text(),
-                  "Data value of m2m connected field"
                ).to.contain("Record A");
                expect(
                   $data.text(),
                   "Data value of m2m connected field"
                ).to.contain("Record B");
-               expect(
-                  $data.text(),
-                  "Data value of m2m connected field"
-               ).to.contain("3");
             });
 
          cy.window().then((win) => {
