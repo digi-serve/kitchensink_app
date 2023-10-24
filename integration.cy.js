@@ -3,7 +3,6 @@ const Common = require("../../../../setup/common.js");
 const folderName = __dirname.match(/[^\\/]+$/)[0];
 
 const WidgetTestCases = [
-   require("./test_cases/dataCollection.js"), // not a widget test - may refactor to a different group
    require("./test_cases/widget_carousel.js"),
    require("./test_cases/widget_chart.js"),
    require("./test_cases/widget_combo.js"),
@@ -38,15 +37,15 @@ Cypress.on("uncaught:exception", (e) => {
 });
 
 before(() => {
-   cy.ResetDB();
-   cy.AuthLogin();
+   Common.ResetDB(cy);
+   Common.AuthLogin(cy);
    cy.request("POST", "/test/import", {
       file: `imports/${folderName}/appbuilder_app.json`,
    });
 });
 
 beforeEach(() => {
-   cy.AuthLogin();
+   Common.AuthLogin(cy);
 
    Common.RunSQL(cy, folderName, [
       "reset_tables.sql",
