@@ -75,5 +75,35 @@ export default () => {
             .should("contain", "Record B")
             .and("not.contain", "Record A");
       });
+
+      it("Follows another datacollection's cursor", () => {
+         cy.get(
+            '[data-cy="tab Follow 415d32b3-5201-4a6f-bb06-10b3f4229f24 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+         cy.get(
+            '[data-cy="ABViewGrid_5ab47051-fa69-46df-91bc-b46f7e3dd757_table"] > .webix_dtable > .webix_ss_body',
+         )
+            .contains("Record A")
+            .as("recordA")
+            .should("be.visible");
+         cy.get("@recordA").click();
+
+         cy.get(
+            '[data-cy="detail connected Key A 2e3c1460-c09c-4645-9366-cdec84902fcd 4a9e79c9-83f7-4e62-9286-a48efccf3a3c"] > .webix_template',
+         )
+            .as("detailField")
+            .should("be.visible")
+            .and("contain", "Record A");
+
+         cy.get('.webix_dataview[role="listbox"] > .webix_scroll_cont')
+            .as("list")
+            .should("be.visible")
+            .find(".webix_dataview_item")
+            .should("have.length", 1)
+            .first()
+            .should("contain", "Record A");
+      });
    });
 };
