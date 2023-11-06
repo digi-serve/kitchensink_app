@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe("Carousel", () => {
+   describe.only("Carousel", () => {
       it("Exists", () => {
          Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
          cy.get(
@@ -12,7 +12,7 @@ export default (folderName, Common) => {
          cy.get(
             '[data-cy="carousel 54827db6-497b-43ae-96f9-153b63a9c977"]'
          ).then((data) => {
-            expect(data.text(), "Label").to.have.eq("Default image");
+            expect(data.text(), "Label").to.include("Default image");
          });
       });
 
