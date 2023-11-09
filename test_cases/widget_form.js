@@ -8,7 +8,7 @@ export default (folderName) => {
          ).click();
       });
 
-      it("edit and save changes", () => {
+      it("edits and saves changes", () => {
          // Check fields and current values
          cy.contains("label", "test-kcs-id").should("exist");
          cy.get(
@@ -37,34 +37,63 @@ export default (folderName) => {
          ).should("contain", "Edited by Cypress!");
       });
 
-         cy.contains("label", "single-line-text(required)").type(
-            "Cypress hahaha is coming here now"
-         );
-      }); //End 4
-      //5. can find the field validation error message "*This is a required field."
-      it("can find This is a required field", () => {
-         //Clear input value
+      it("enforces validation rules", () => {
+         const textalert = "This is a required field.";
          cy.get(
             '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-         ).clear();
-      }); //End 4
-      //5. can find the field validation error message "*This is a required field."
-      it("can find This is a required field", () => {
-         const textalert = "*This is a required field.";
-         //Clear input value
+         )
+            .as("textField")
+            .siblings("label")
+            .should("have.class", "webix_required"); // this class adds the *
          cy.get(
-            '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-         ).clear();
+            '[data-cy="date daterequired 07aaedeb-f90c-4389-8b1c-dd7da9709468 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+         )
+            .as("dateField")
+            .siblings("label")
+            .should("have.class", "webix_required"); // this class adds the *
+
+         //Clear input value
+         cy.get("@textField").clear();
+         cy.get("@dateField").clear();
 
          //Click Save button
          cy.get(
             '[data-cy="button save 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
          ).click();
 
-         cy.get(
-            '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-         ).invoke("val", textalert);
-      }); //End 5
+         // Check the popup
+         cy.get("div.webix_modal_box.webix_alert-error")
+            .as("alert")
+            .should("be.visible");
+         cy.get("@alert")
+            .children(".webix_popup_title")
+            .should("contain", "Problems Saving");
+         cy.get("@alert")
+            .children(".webix_popup_text")
+            .children("span")
+            .children("ul")
+            .children()
+            .as("warnings")
+            .should("have.length", 2);
+         cy.get("@warnings")
+            .eq(0)
+            .should("contain", "Missing Required Field daterequired");
+         cy.get("@warnings")
+            .eq(1)
+            .should("contain", "Missing Required Field singlelinetextrequired");
+         cy.get("@alert").children(".webix_popup_controls").click();
+         cy.get("@alert").should("not.exist");
+
+         // Check the fields for warnings
+         cy.get("@textField")
+            .parent()
+            .siblings(".webix_inp_bottom_label")
+            .should("contain", textalert);
+         cy.get("@dateField")
+            .parent()
+            .siblings(".webix_inp_bottom_label")
+            .should("contain", textalert);
+      });
 
       it("can upload photo", () => {
          const photoPath = path.join(
@@ -86,7 +115,7 @@ export default (folderName) => {
             .then((uploader) => {
                cy.fixture(photoPath).then((data) => {
                   const blob = Cypress.Blob.base64StringToBlob(
-                   data,
+                     data,
                      `image/${fileExtension}`
                   );
                   const file = new File([blob], photoPath, {
@@ -94,21 +123,20 @@ export default (folderName) => {
                   });
                   // wait till image is uploaded before saving
                   cy.window().then((win) => {
-                        return win
+                     return win
                         .$$(uploader)
                         .attachEvent("onAfterFileAdd", function (file) {
-                            //... some code here ... 
+                           //... some code here ...
                         });
-                     });
+                  });
                   // upload image
                   cy.window().then((win) => {
-                        return win
-                           .$$(uploader)
-                           .addFile(file, file.size, fileExtension);
-                     });
+                     return win
+                        .$$(uploader)
+                        .addFile(file, file.size, fileExtension);
+                  });
                });
             });
       });
    });
 };
-}; //End Export
