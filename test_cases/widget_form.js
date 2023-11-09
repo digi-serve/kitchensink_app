@@ -1,7 +1,7 @@
 import path from "path";
 
 export default (folderName) => {
-   describe.only("Form", () => {
+   describe("Form", () => {
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
@@ -107,12 +107,21 @@ export default (folderName) => {
          const fileExtension = "png";
          cy.get(
             '[data-cy="fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48"] .ab-image-data-field'
-         ).click();
+         ).scrollIntoView();
+
+         // Intercept the upload so we can delay it.
+         cy.intercept("POST", "/file/upload/*/*/1", (req) =>
+            req.on("response", (res) => res.setDelay(1000))
+         ).as("upload");
+
          cy.get(
             '[data-cy="fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
          )
+            .as("imgField")
+            // get the upploader id
             .invoke("attr", "data-uploader-id")
             .then((uploader) => {
+               // prepare the upload file
                cy.fixture(photoPath).then((data) => {
                   const blob = Cypress.Blob.base64StringToBlob(
                      data,
@@ -121,22 +130,42 @@ export default (folderName) => {
                   const file = new File([blob], photoPath, {
                      type: `image/${fileExtension}`,
                   });
-                  // wait till image is uploaded before saving
+                  //  get the window so we can access webix
                   cy.window().then((win) => {
-                     return win
-                        .$$(uploader)
-                        .attachEvent("onAfterFileAdd", function (file) {
-                           //... some code here ...
-                        });
-                  });
-                  // upload image
-                  cy.window().then((win) => {
-                     return win
-                        .$$(uploader)
-                        .addFile(file, file.size, fileExtension);
+                     const $uploader = win.$$(uploader);
+                     // attach an event to the webix uploader so we can run
+                     // assertions while the upload is in progress
+                     $uploader.attachEvent("onAfterFileAdd", () => {
+                        cy.get("@imgField")
+                           .find(".webix_progress_top")
+                           .should("be.visible");
+                        cy.get("@imgField")
+                           .find(".image-data-field-image")
+                           .should("be.visible")
+                           .and("have.css", "background-image");
+                        cy.get(
+                           '[data-cy="button save 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+                        ).click();
+                        cy.get("div.webix_modal_box.webix_alert-error")
+                           .should("be.visible")
+                           .and(
+                              "contain",
+                              "imageattachment: Image still uploading"
+                           );
+                        cy.get(".webix_popup_controls").click();
+                     });
+                     // add the file to the webix uploader (this starts the
+                     // upload)
+                     $uploader.addFile(file, file.size, fileExtension);
                   });
                });
             });
+         // now that the upload finished submit without validation errors
+         cy.wait("@upload");
+         cy.get(
+            '[data-cy="button save 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+         ).click();
+         cy.get("div.webix_modal_box.webix_alert-error").should("not.exist");
       });
    });
 };
