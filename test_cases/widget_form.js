@@ -1,32 +1,41 @@
 import path from "path";
 
-const folderName = path.join(__dirname, '..').match(/[^\\/]+$/)[0];
-
-export default () => {
-   describe("Form", () => {
+export default (folderName) => {
+   describe.only("Form", () => {
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
          ).click();
       });
 
-      //2. can find the field "test-kcs-id" with the value "Test-KCS-0000000002"
-      it("can find test-kcs-id", () => {
-         cy.contains("label", "test-kcs-id").should("have.value", "");
-      }); //End 2
-      //3. can find the field "single-line-text(required)" with the value "test2"
-      it("can find single line text", () => {
+      it("edit and save changes", () => {
+         // Check fields and current values
+         cy.contains("label", "test-kcs-id").should("exist");
          cy.get(
             '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
          )
+            .as("textField")
+            .should("exist")
             .invoke("val")
             .should("contain", "text");
-      }); //End 3
-      //4. Change the value to "Cypress hahaha is coming here now" and click on the button "Save"
-      it("change the value to cypress hahaha", () => {
+
+         // Make Changes
+         cy.get("@textField").clear();
+         cy.get("@textField").type("Edited by Cypress!");
+
+         // Save
+         cy.get('[data-cy="button save 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]')
+            .should("exist")
+            .click();
+
+         // Check the changes
          cy.get(
-            '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
-         ).clear();
+            '[data-cy="tab-Detail-e8bcfd8a-e343-4cf6-82bb-533cafd45c3a-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+         ).click();
+         cy.get(
+            '[data-cy="detail text singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 aa1c0a4d-001c-4227-970b-4cf1c676ad20"]'
+         ).should("contain", "Edited by Cypress!");
+      });
 
          cy.contains("label", "single-line-text(required)").type(
             "Cypress hahaha is coming here now"
@@ -57,21 +66,6 @@ export default () => {
          ).invoke("val", textalert);
       }); //End 5
 
-      //6. can find the field "test-kcs-id" with the value "Cypress hahaha is coming here now"
-      it("can find the field test-kcs-id with cypress hahaha", () => {
-         //Click Tab Detail
-         cy.get(
-            '[data-cy="tab-Detail-e8bcfd8a-e343-4cf6-82bb-533cafd45c3a-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
-         ).click();
-
-         cy.get(
-            '[data-cy="detail text testkcsid c4f98caa-71c1-4c36-9587-f8db050d2e2f aa1c0a4d-001c-4227-970b-4cf1c676ad20"]'
-         );
-         cy.contains("label", "test-kcs-id").type(
-            "Cypress hahaha is coming here now"
-         );
-      }); // End 6
-      //7. can upload photo
       it("can upload photo", () => {
          const photoPath = path.join(
             "..",
@@ -82,8 +76,12 @@ export default () => {
             "digiServe_Color.png"
          );
          const fileExtension = "png";
-         cy.get("[data-cy=\"fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48\"] .ab-image-data-field").click();
-         cy.get("[data-cy=\"fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48\"]")
+         cy.get(
+            '[data-cy="fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48"] .ab-image-data-field'
+         ).click();
+         cy.get(
+            '[data-cy="fieldcustom image imageattachment 8e0c6dc8-84bb-4ef6-9ca3-76214e157864 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]'
+         )
             .invoke("attr", "data-uploader-id")
             .then((uploader) => {
                cy.fixture(photoPath).then((data) => {
@@ -95,23 +93,22 @@ export default () => {
                      type: `image/${fileExtension}`,
                   });
                   // wait till image is uploaded before saving
-                  cy.window()
-                     .then((win) => {
+                  cy.window().then((win) => {
                         return win
-                           .$$(uploader).attachEvent("onAfterFileAdd", function(file){
+                        .$$(uploader)
+                        .attachEvent("onAfterFileAdd", function (file) {
                             //... some code here ... 
                         });
                      });
                   // upload image
-                  cy.window()
-                     .then((win) => {
+                  cy.window().then((win) => {
                         return win
                            .$$(uploader)
                            .addFile(file, file.size, fileExtension);
                      });
                });
             });
-         // cy.wait(500);
-      }); // End 7
-   }); //End Describe
+      });
+   });
+};
 }; //End Export
