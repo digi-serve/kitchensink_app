@@ -106,7 +106,7 @@ export default () => {
             .should("contain", "Record A");
       });
 
-      it.only("Should keep selected cursor when cursor of a linked DC changes", () => {
+      it("Should keep selected cursor when cursor of a linked DC changes", () => {
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor 3f06ceac-ac30-4e64-b165-e30002fff60c b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
