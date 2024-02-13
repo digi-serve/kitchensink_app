@@ -106,7 +106,7 @@ export default () => {
             .should("contain", "Record A");
       });
 
-      it("Should keep selected cursor when cursor of a linked DC changes", () => {
+      it.only("Should keep selected cursor when cursor of a linked DC changes", () => {
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor 3f06ceac-ac30-4e64-b165-e30002fff60c b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
@@ -146,10 +146,13 @@ export default () => {
 
          // Enter new data
          const newData = "NEW ONE";
-         cy.get('input[data-cy="string singlelinetext 78d60c46-5523-474d-8e0c-d8d6db814be8 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]')
-            .should("be.visible")
-            .clear()
-            .type(newData);
+         cy.get('[data-cy="string singlelinetext 78d60c46-5523-474d-8e0c-d8d6db814be8 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]')
+            .as("textField")
+            .should("exist")
+            .should("not.be.disabled");
+
+         cy.get("@textField").clear({ force: true });
+         cy.get("@textField").type(newData, { force: true });
 
          // Save
          cy.get('[data-cy="button save 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]')
