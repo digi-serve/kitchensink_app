@@ -55,6 +55,7 @@ beforeEach(() => {
       "add_testkcs2-Menu.sql",
       "add_testkcs2-combo.sql",
       "add_testkcs2-ScopedData.sql",
+      "assign_testkcs_testkcs2.sql",
    ]);
 });
 

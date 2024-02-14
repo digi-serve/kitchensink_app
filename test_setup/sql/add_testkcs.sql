@@ -115,6 +115,75 @@ VALUES (
   "email2@email.com",
   "admin2@email.com"
 );
+
+# Insert more sample rows
+DROP TEMPORARY TABLE IF EXISTS RUNNING_NUMBER;
+CREATE TEMPORARY TABLE RUNNING_NUMBER (Num INT);
+
+INSERT INTO RUNNING_NUMBER (Num)
+VALUES (3), (4), (5), (6), (7), (8), (9), (11), (12), (13), 
+(14), (15), (16), (17), (18), (19), (22), (23), (24), (25), 
+(26), (27), (28), (29), (30), (31), (32), (34), (35), (36);
+
+INSERT INTO `AB_testkcs` (
+  `uuid`,
+  `created_at`,
+  `updated_at`,
+  `properties`,
+  `testkcsid`,
+  `singlelinetext`,
+  `singlelinetextrequired`,
+  `longtext`,
+  `longtextrequired`,
+  `number`,
+  `numberrequired`,
+  `numberunique`,
+  `numberformatdecimalsthousands`,
+  `numbervalidation`,
+  `date`,
+  `daterequired`,
+  `datetime`,
+  `datetimerequired`,
+  `time`,
+  `checkbox`,
+  `checkboxrequired`,
+  `selectlist`,
+  `selectlistrequired`,
+  `selectlistmultiselect`,
+  `selectlistmultiselectrequired`,
+  `email`,
+  `emailrequired`
+)
+SELECT
+  UUID(),
+  NOW(),
+  NOW(),
+  CAST(CONCAT("text ", Num) AS CHAR),
+  Num,
+  CAST(CONCAT("text ", Num) AS CHAR),
+  CAST(CONCAT("text ", Num) AS CHAR),
+  CAST(CONCAT("longtext ", Num) AS CHAR),
+  CAST(CONCAT("longtext ", Num) AS CHAR),
+  Num + "101",
+  Num + "202",
+  Num + "303",
+  "21.9",
+  "25",
+  NOW(),
+  NOW(),
+  NOW(),
+  NOW(),
+  NOW(),
+  "1",
+  "1",
+  "item1",
+  "item5",
+  "[{\"id\":\"item1\",\"text\":\"item1\",\"hex\":\"#F44336\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item1\"}]},{\"id\":\"item2\",\"text\":\"item2\",\"hex\":\"#E91E63\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item2\"}]},{\"id\":\"item3\",\"text\":\"item3\",\"hex\":\"#9C27B0\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item3\"}]},{\"id\":\"item4\",\"text\":\"item4\",\"hex\":\"#673AB7\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item4\"}]},{\"id\":\"item5\",\"text\":\"item5\",\"hex\":\"#3F51B5\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item5\"}]}]",
+  "[{\"id\":\"item1\",\"text\":\"item1\",\"hex\":\"#F44336\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item1\"}]},{\"id\":\"item2\",\"text\":\"item2\",\"hex\":\"#E91E63\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item2\"}]},{\"id\":\"item3\",\"text\":\"item3\",\"hex\":\"#9C27B0\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item3\"}]},{\"id\":\"item4\",\"text\":\"item4\",\"hex\":\"#673AB7\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item4\"}]},{\"id\":\"item5\",\"text\":\"item5\",\"hex\":\"#3F51B5\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item5\"}]}]",
+  "email2@email.com",
+  "admin2@email.com"
+FROM RUNNING_NUMBER;
+
 LOCK TABLES `AB_testkcsuser` WRITE;
 INSERT INTO `AB_testkcsuser` (
   `uuid`,
