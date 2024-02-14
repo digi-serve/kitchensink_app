@@ -15,13 +15,13 @@ export default () => {
             .as("iconButtons")
             .should("have.length", 4);
 
-         //3. can find the button which has the icon "fa fa-arrows-left"
+         //3. can find the button which has the icon "fa fa-rotate-left"
          cy.get("@iconButtons")
             .first()
             .should("have.class", "fa")
             .and("have.class", "fa-rotate-left");
 
-         //4. can find the button which has the icon "fa fa-arrows-right"
+         //4. can find the button which has the icon "fa fa-rotate-right"
          cy.get("@iconButtons")
             .eq(1)
             .should("have.class", "fa")
@@ -31,7 +31,7 @@ export default () => {
          cy.get("@iconButtons")
             .eq(2)
             .should("have.class", "fa")
-            .and("have.class", "fa-rotate-alt");
+            .and("have.class", "fa-arrows-alt");
 
          //6. can find the button "previous"
          cy.get("@carousel")
