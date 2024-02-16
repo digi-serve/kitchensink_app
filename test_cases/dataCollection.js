@@ -121,6 +121,11 @@ export default () => {
             .first()
             .click();
 
+         // verify data is in grid before trying to bring up the scroll bar
+         cy.get(
+            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_first > [aria-rowindex="1"]',
+         ).should("be.visible");
+
          // Click to show the scroll bar
          cy.get('[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]')
             .find(".webix_ss_body .webix_ss_right")
