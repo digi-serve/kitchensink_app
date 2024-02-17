@@ -309,7 +309,7 @@ export default () => {
 
       // Issue: https://github.com/digi-serve/ns_app/issues/368
       // Fix:   https://github.com/digi-serve/appbuilder_class_core/pull/211
-      it.only("Should NOT add new entries that are not linked to same link cursor", () => {
+      it("Should NOT add new entries that are not linked to same link cursor", () => {
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
