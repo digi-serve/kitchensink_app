@@ -202,3 +202,30 @@ VALUES (
   "admin"
 ) ON DUPLICATE KEY UPDATE `updated_at`=NOW();
 UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsCharacters` WRITE;
+INSERT INTO `AB_kitchensink_testkcsCharacters` (`uuid`, `created_at`, `updated_at`, `properties`, `name`)
+VALUES
+  ('348b9e13-de18-48b4-a1e5-c6426c2f8296',NOW(),NOW(),NULL,'Sproket'),
+  ('77486297-b265-4cd4-87bf-200756f1b85f',NOW(),NOW(),NULL,'Morganto'),
+  ('fa9705f3-7fac-4099-b4db-96c8f1873a72',NOW(),NOW(),NULL,'Lester');
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsSpells` WRITE;
+INSERT INTO `AB_kitchensink_testkcsSpells` (`uuid`, `created_at`, `updated_at`, `properties`, `name`)
+VALUES
+  ('8f07bf6a-5c9d-47ac-8fb1-f43a4bae4f36',NOW(),NOW(),NULL,'Frostbolt'),
+  ('aeaa100a-0f7e-49fb-95ca-ffb789f09dbc',NOW(),NOW(),NULL,'Arcane Blast'),
+  ('c6c2c8de-4f3c-4b41-b6ef-6858297bd327',NOW(),NOW(),NULL,'Fireball');
+UNLOCK TABLES;
+
+LOCK TABLES `AB_JOINMN_test-kcs-Charac_test-kcs-Spells_spells` WRITE;
+INSERT INTO `AB_JOINMN_test-kcs-Charac_test-kcs-Spells_spells` (`id`, `created_at`, `updated_at`, `test-kcs-Characters`, `test-kcs-Spells`)
+VALUES
+  (4,NULL,NULL,'77486297-b265-4cd4-87bf-200756f1b85f','c6c2c8de-4f3c-4b41-b6ef-6858297bd327'),
+  (11,NULL,NULL,'77486297-b265-4cd4-87bf-200756f1b85f','8f07bf6a-5c9d-47ac-8fb1-f43a4bae4f36'),
+  (13,NULL,NULL,'fa9705f3-7fac-4099-b4db-96c8f1873a72','aeaa100a-0f7e-49fb-95ca-ffb789f09dbc'),
+  (14,NULL,NULL,'fa9705f3-7fac-4099-b4db-96c8f1873a72','c6c2c8de-4f3c-4b41-b6ef-6858297bd327'),
+  (15,NULL,NULL,'348b9e13-de18-48b4-a1e5-c6426c2f8296','aeaa100a-0f7e-49fb-95ca-ffb789f09dbc'),
+  (16,NULL,NULL,'348b9e13-de18-48b4-a1e5-c6426c2f8296','8f07bf6a-5c9d-47ac-8fb1-f43a4bae4f36');
+UNLOCK TABLES;
