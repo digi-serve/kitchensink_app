@@ -115,7 +115,9 @@ export default () => {
             .click();
 
          // Select a linked cursor
-         cy.get('[data-cy="ABViewGrid_497b6d7d-c4e2-40a4-8bcb-fcaa24cf875f_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_497b6d7d-c4e2-40a4-8bcb-fcaa24cf875f_datatable"]',
+         )
             .should("be.visible")
             .find(".webix_ss_body .webix_ss_right .webix_cell")
             .first()
@@ -127,31 +129,40 @@ export default () => {
          ).should("be.visible");
 
          // Click to show the scroll bar
-         cy.get('[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]',
+         )
             .find(".webix_ss_body .webix_ss_right")
             .click();
 
          // Close the popup
-         cy.get('[data-cy="Popup Close Button Edit TestKCS 5403c1cf-57f9-463d-b306-799d3641be11"]')
-            .click();
+         cy.get(
+            '[data-cy="Popup Close Button Edit TestKCS 5403c1cf-57f9-463d-b306-799d3641be11"]',
+         ).click();
 
          // Drag the scroll bar to bottom
-         cy.get('[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]',
+         )
             .find(".webix_c_scroll_y")
             .should("be.visible")
-            .trigger('mousedown')
-            .trigger('mousemove', { which: 1, pageY: 2000 })
-            .trigger('mouseup');
+            .trigger("mousedown")
+            .trigger("mousemove", { which: 1, pageY: 2000 })
+            .trigger("mouseup");
 
          // Select the edit item
-         cy.get('[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]',
+         )
             .find(".webix_ss_body .webix_ss_right")
             .find('[aria-rowindex="30"]')
             .click();
 
          // Enter new data
          const newData = "NEW ONE";
-         cy.get('[data-cy="string singlelinetext 78d60c46-5523-474d-8e0c-d8d6db814be8 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]')
+         cy.get(
+            '[data-cy="string singlelinetext 78d60c46-5523-474d-8e0c-d8d6db814be8 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]',
+         )
             .as("textField")
             .should("exist")
             .should("not.be.disabled");
@@ -160,11 +171,14 @@ export default () => {
          cy.get("@textField").type(newData, { force: true });
 
          // Save
-         cy.get('[data-cy="button save 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]')
-            .click();
+         cy.get(
+            '[data-cy="button save 5acd8c09-a0d2-4d3b-a993-b3c251858ed6"]',
+         ).click();
 
          // Assert
-         cy.get('[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]',
+         )
             .find(".webix_ss_body .webix_ss_center")
             .find('[aria-rowindex="30"]')
             .should("contain", newData)
