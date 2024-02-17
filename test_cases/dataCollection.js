@@ -306,5 +306,62 @@ export default () => {
             .should("contain", "Morganto")
             .should("not.contain", "Lester");
       });
+
+      // Issue: https://github.com/digi-serve/ns_app/issues/368
+      // Fix:   https://github.com/digi-serve/appbuilder_class_core/pull/211
+      it.only("Should NOT add new entries that are not linked to same link cursor", () => {
+         // Select the Tabview
+         cy.get(
+            '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+
+         //
+         // Manually Setup Test:
+         //
+
+         // Select 1st item in Spells grid
+         // clear popup
+         cy.get(
+            '[data-cy="ABViewGrid_aa3e9092-77c5-4df2-bac9-a9e3d8d3f9c4_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .textCell > [aria-rowindex="1"]',
+         )
+            .as("frostbolt")
+            .should("be.visible");
+         cy.get("@frostbolt").click();
+         cy.get(
+            '[data-cy="Popup Close Button Edit Spell c6f938f0-75cf-4484-8366-415fdd5657c0"]',
+         )
+            .should("be.visible")
+            .click();
+
+         // Verify Characters Linked to Spell has the 2 expected values:
+         cy.get(
+            '[data-cy="ABViewGrid_5bbafa43-1090-4e9d-8c1d-329a979fe6af_datatable"]',
+         )
+            .as("listCharactersFollowingSpell")
+            .should("contain", "Sproket")
+            .should("contain", "Morganto")
+            .should("not.contain", "Lester");
+
+         //
+         // Now ADD a new character to the DB
+         //
+         // 1) Create Character Spanky
+         let IDCharacters = "f75e0bb9-d079-48b9-aaf4-270a084e8b3b";
+         cy.ModelCreate(IDCharacters, { name: "Spanky" });
+
+         // Verify the new character showed up in our User list:
+         cy.get(
+            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"]',
+         ).should("contain", "Spanky");
+
+         // Verify Characters Linked to Spell has the 2 expected values:
+         cy.get("@listCharactersFollowingSpell")
+            .should("contain", "Sproket")
+            .should("contain", "Morganto")
+            .should("not.contain", "Lester")
+            .should("not.contain", "Spanky");
+      });
    });
 };
