@@ -48,7 +48,7 @@ before(() => {
 beforeEach(() => {
    cy.AuthLogin();
 
-   Common.RunSQL(cy, folderName, [
+   cy.RunSQL(folderName, [
       "reset_tables.sql",
       "reset_roles.sql",
       "add_testkcs.sql",
@@ -66,7 +66,7 @@ describe("Smoke Test", () => {
          .should("be.visible")
          .click();
       cy.get('[data-cy="0ac51d6c-7c95-461c-aa8b-7da00afc4f48"]').should(
-         "exist"
+         "exist",
       );
    });
 });
