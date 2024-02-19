@@ -1,7 +1,7 @@
 {
   "abVersion": "0.0.0",
-  "filename": "app_kitchen-sink_20240213",
-  "date": "20240213",
+  "filename": "app_kitchen-sink_20240217",
+  "date": "20240217",
   "definitions": [
     {
       "id": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
@@ -3707,30 +3707,15 @@
           "ba4940e2-0830-459e-927a-f8115d51c69a",
           "b42e1e16-15ff-4c85-abb5-4b2e9d80ff32",
           "3cf6564c-b011-45e1-bf88-1fbcee2bf625",
-          "62dc5a0f-8c9d-461d-8d78-9ba038f6e707"
+          "62dc5a0f-8c9d-461d-8d78-9ba038f6e707",
+          "df165b22-0912-4f4d-ab0b-beb5c62d6502"
         ],
-        "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
-        "objectWorkspaceViews": {
-          "currentViewID": "df2c8010-bd30-492a-b3d8-30235512fc23",
-          "list": [
-            {
-              "id": "df2c8010-bd30-492a-b3d8-30235512fc23",
-              "translations": [
-                {
-                  "language_code": "en",
-                  "label": "grid"
-                }
-              ],
-              "isDefaultView": "true",
-              "name": "Default Grid",
-              "frozenColumnID": "",
-              "type": "grid"
-            }
-          ]
-        }
+        "importedFieldIDs": [],
+        "indexIDs": [],
+        "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
       },
       "createdAt": "2022-03-15T02:22:23.000Z",
-      "updatedAt": "2022-08-23T06:34:33.000Z"
+      "updatedAt": "2024-02-17T09:51:41.000Z"
     },
     {
       "id": "2e7a1c02-141a-4cdd-b93e-62c6c4e4765b",
@@ -4925,6 +4910,46 @@
       },
       "createdAt": "2022-08-23T06:34:33.000Z",
       "updatedAt": "2022-08-23T06:34:34.000Z"
+    },
+    {
+      "id": "df165b22-0912-4f4d-ab0b-beb5c62d6502",
+      "name": "test-kcs-forms->date",
+      "type": "field",
+      "json": {
+        "id": "df165b22-0912-4f4d-ab0b-beb5c62d6502",
+        "type": "field",
+        "key": "date",
+        "icon": "calendar",
+        "isImported": 0,
+        "columnName": "date",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "dateFormat": 2,
+          "defaultDate": 1,
+          "defaultDateValue": null,
+          "validateCondition": "none",
+          "validateRangeUnit": "",
+          "validateRangeBefore": 0,
+          "validateRangeAfter": 0,
+          "validateStartDate": null,
+          "validateEndDate": null,
+          "width": 100,
+          "timeFormat": 2,
+          "defaultTime": 1,
+          "defaultTimeValue": null
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "date"
+          }
+        ]
+      },
+      "createdAt": "2024-02-17T09:51:41.000Z",
+      "updatedAt": "2024-02-17T09:51:41.000Z"
     },
     {
       "id": "8bbdf9b5-3d59-4c8e-ab5d-295bdf2776ed",
@@ -13866,7 +13891,7 @@
         "isRoot": false
       },
       "createdAt": "2021-09-14T03:56:23.000Z",
-      "updatedAt": "2023-10-20T08:32:08.000Z"
+      "updatedAt": "2024-02-17T09:33:49.000Z"
     },
     {
       "id": "e56d4ad0-d879-43c0-934a-a4004fcc7579",
@@ -21501,7 +21526,9 @@
           "42938e52-9da9-4ece-b492-deb253244d3e",
           "c2a70a89-1e38-4e3e-87f3-1e753ae5f771",
           "7e074587-ddc5-4d34-9f37-a0ab88a4258b",
-          "6a43b4b9-cbad-4756-a9f8-ce58bba6e9b7"
+          "6a43b4b9-cbad-4756-a9f8-ce58bba6e9b7",
+          "fc2c7cbe-ec65-474f-b216-506c00d0353e",
+          "6745fe13-0c2a-44bd-8561-39b95020a516"
         ],
         "position": {
           "dx": 1,
@@ -21510,7 +21537,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:25:30.000Z",
-      "updatedAt": "2022-06-23T07:19:58.000Z"
+      "updatedAt": "2024-02-17T09:52:47.000Z"
     },
     {
       "id": "0181c44e-08ec-4953-beee-d6b36d02b1eb",
@@ -21557,7 +21584,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:26:32.000Z",
-      "updatedAt": "2022-06-23T07:19:57.000Z"
+      "updatedAt": "2024-02-17T09:52:47.000Z"
     },
     {
       "id": "8f2b6202-7c95-4b78-83b0-bc406e283868",
@@ -21666,7 +21693,16 @@
           "groupBy": "",
           "objectWorkspace": {
             "frozenColumnID": ""
-          }
+          },
+          "padding": 17,
+          "showToolbar": 1,
+          "columnConfig": [],
+          "saveLocal": 1,
+          "trackView": 0,
+          "frozenColumnID": "",
+          "hiddenFields": [],
+          "summaryColumns": [],
+          "countColumns": []
         },
         "translations": [
           {
@@ -21678,12 +21714,12 @@
           "dx": 1,
           "dy": 1,
           "x": 0,
-          "y": 4
+          "y": 6
         },
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:26:35.000Z",
-      "updatedAt": "2022-06-23T07:19:58.000Z"
+      "updatedAt": "2024-02-17T09:52:47.000Z"
     },
     {
       "id": "c2a70a89-1e38-4e3e-87f3-1e753ae5f771",
@@ -21716,7 +21752,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:30:05.000Z",
-      "updatedAt": "2022-06-23T07:19:58.000Z"
+      "updatedAt": "2024-02-17T09:52:47.000Z"
     },
     {
       "id": "7e074587-ddc5-4d34-9f37-a0ab88a4258b",
@@ -21800,7 +21836,7 @@
         "isRoot": "false"
       },
       "createdAt": "2022-03-15T02:31:55.000Z",
-      "updatedAt": "2022-06-23T07:19:58.000Z"
+      "updatedAt": "2024-02-17T09:52:47.000Z"
     },
     {
       "id": "227da25e-9c38-4b90-8d30-80447e35d0b8",
@@ -21920,8 +21956,47 @@
         "settings": {
           "columnSpan": "1",
           "rowSpan": "1",
+          "height": 0,
+          "name": "Form Save.text",
+          "dataviewID": null
+        },
+        "accessLevels": {},
+        "translations": [
+          {
+            "language_code": "en",
+            "text": "<div style=\"background: #eee; padding: 20px; border-radius: 10px;\">\n<p>This form will save the submitted text and use record rules to set the current date value.</p>\n<ul>\n<li>date -&gt; Current Date</li>\n</ul>\n</div>",
+            "label": "Form Save.text"
+          }
+        ],
+        "viewIDs": [],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "x": 0,
+          "y": 4
+        },
+        "isRoot": false,
+        "views": []
+      },
+      "createdAt": "2022-03-15T02:33:56.000Z",
+      "updatedAt": "2024-02-17T09:52:47.000Z"
+    },
+    {
+      "id": "fc2c7cbe-ec65-474f-b216-506c00d0353e",
+      "name": "Form Save.text",
+      "type": "view",
+      "json": {
+        "id": "fc2c7cbe-ec65-474f-b216-506c00d0353e",
+        "type": "view",
+        "key": "text",
+        "icon": "font",
+        "name": "Form Save.text",
+        "settings": {
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 0
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
@@ -21929,16 +22004,168 @@
             "label": "Form Save.text"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "x": 0,
           "y": 0
         },
-        "isRoot": "false"
+        "isRoot": false,
+        "views": []
       },
-      "createdAt": "2022-03-15T02:33:56.000Z",
-      "updatedAt": "2022-06-23T07:19:58.000Z"
+      "createdAt": "2024-02-17T09:34:23.000Z",
+      "updatedAt": "2024-02-17T09:52:47.000Z"
+    },
+    {
+      "id": "6745fe13-0c2a-44bd-8561-39b95020a516",
+      "name": "Form Save.form",
+      "type": "view",
+      "json": {
+        "id": "6745fe13-0c2a-44bd-8561-39b95020a516",
+        "type": "view",
+        "key": "form",
+        "icon": "list-alt",
+        "name": "Form Save.form",
+        "settings": {
+          "height": 200,
+          "columns": 2,
+          "removable": true,
+          "movable": true,
+          "labelPosition": "left",
+          "showLabel": 1,
+          "clearOnLoad": 0,
+          "clearOnSave": 0,
+          "labelWidth": 70,
+          "dataviewID": "8b69b2a3-ba4a-4c31-9706-5190db5c5a86",
+          "gravity": [
+            1,
+            2
+          ],
+          "recordRules": [
+            {
+              "selectedAction": "ABViewRuleActionFormRecordRuleUpdate",
+              "queryRules": {
+                "rules": [],
+                "glue": "and"
+              },
+              "actionSettings": {
+                "valueRules": {
+                  "fieldOperations": [
+                    {
+                      "fieldID": "df165b22-0912-4f4d-ab0b-beb5c62d6502",
+                      "value": "ab-current-date",
+                      "op": "set",
+                      "type": "date",
+                      "valueType": "custom"
+                    }
+                  ]
+                },
+                "updateObjectID": "efdf6230-2013-459c-9c0e-a8c25521f31a"
+              }
+            }
+          ],
+          "submitRules": []
+        },
+        "accessLevels": {},
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Form Save.form"
+          }
+        ],
+        "viewIDs": [
+          "904969ba-42ab-4f5c-9429-d05a2e8437fa",
+          "29d964f5-a1cc-4c40-8fed-7a01c82ab7dd"
+        ],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "x": 0,
+          "y": 5
+        },
+        "isRoot": false
+      },
+      "createdAt": "2024-02-17T09:39:40.000Z",
+      "updatedAt": "2024-02-17T09:56:45.000Z"
+    },
+    {
+      "id": "904969ba-42ab-4f5c-9429-d05a2e8437fa",
+      "name": "Form Save.form.textbox",
+      "type": "view",
+      "json": {
+        "id": "904969ba-42ab-4f5c-9429-d05a2e8437fa",
+        "type": "view",
+        "key": "textbox",
+        "icon": "i-cursor",
+        "name": "Form Save.form.textbox",
+        "settings": {
+          "type": "single",
+          "objectId": "efdf6230-2013-459c-9c0e-a8c25521f31a",
+          "fieldId": "2e7a1c02-141a-4cdd-b93e-62c6c4e4765b",
+          "height": 0
+        },
+        "accessLevels": {},
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Form Save.form.textbox"
+          }
+        ],
+        "viewIDs": [],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "y": 0,
+          "x": 0
+        },
+        "isRoot": false
+      },
+      "createdAt": "2024-02-17T09:53:19.000Z",
+      "updatedAt": "2024-02-17T09:54:05.000Z"
+    },
+    {
+      "id": "29d964f5-a1cc-4c40-8fed-7a01c82ab7dd",
+      "name": "Form Save.form.button",
+      "type": "view",
+      "json": {
+        "id": "29d964f5-a1cc-4c40-8fed-7a01c82ab7dd",
+        "type": "view",
+        "key": "button",
+        "icon": "square",
+        "name": "Form Save.form.button",
+        "settings": {
+          "height": 0,
+          "translations": [],
+          "includeSave": 1,
+          "includeCancel": false,
+          "includeReset": false,
+          "isDefault": true,
+          "name": "Form Save.form.button",
+          "saveLabel": "",
+          "cancelLabel": "",
+          "resetLabel": "",
+          "afterCancel": "",
+          "alignment": "left"
+        },
+        "accessLevels": {},
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "Form Save.form.button"
+          }
+        ],
+        "viewIDs": [],
+        "position": {
+          "dx": 1,
+          "dy": 1,
+          "y": 0,
+          "x": 1
+        },
+        "isRoot": false
+      },
+      "createdAt": "2024-02-17T09:53:19.000Z",
+      "updatedAt": "2024-02-17T09:54:05.000Z"
     },
     {
       "id": "cf45b88e-223d-4c53-b8da-bcaaf61ff9bf",
@@ -25217,8 +25444,8 @@
   "files": {
     "072676f0-cb19-4d73-b68b-cc8c80ebe2ce": {
       "meta": {
-        "created_at": "2024-02-13 09:56:59",
-        "updated_at": "2024-02-13 09:56:59",
+        "created_at": "2024-02-17 09:08:59",
+        "updated_at": "2024-02-17 09:08:59",
         "field": null,
         "object": null,
         "file": "072676f0-cb19-4d73-b68b-cc8c80ebe2ce.docx",
@@ -25232,8 +25459,8 @@
     "789747da-ba6e-42dd-80e8-485e3fbe5b97": null,
     "fb91686f-43af-47b0-981c-3b3d179270b0": {
       "meta": {
-        "created_at": "2024-02-13 09:56:59",
-        "updated_at": "2024-02-13 09:56:59",
+        "created_at": "2024-02-17 09:08:59",
+        "updated_at": "2024-02-17 09:08:59",
         "field": "5d41635a-4e20-4159-9a9a-7aafff38feba",
         "object": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
         "file": "fb91686f-43af-47b0-981c-3b3d179270b0.png",
@@ -25255,8 +25482,8 @@
   "scopes": [
     {
       "uuid": "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e",
-      "created_at": "2023-10-24T09:11:26.000Z",
-      "updated_at": "2023-10-24T09:11:26.000Z",
+      "created_at": "2024-02-17T09:08:59.000Z",
+      "updated_at": "2024-02-17T09:08:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -25294,8 +25521,8 @@
     },
     {
       "uuid": "506a6815-0073-436e-9e2a-b5bc6b655b8a",
-      "created_at": "2023-10-24T09:11:26.000Z",
-      "updated_at": "2023-10-24T09:11:26.000Z",
+      "created_at": "2024-02-17T09:08:59.000Z",
+      "updated_at": "2024-02-17T09:08:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -25323,8 +25550,8 @@
     },
     {
       "uuid": "7d54e52e-65e6-4da7-8faa-26aed0c1160e",
-      "created_at": "2023-10-24T09:11:26.000Z",
-      "updated_at": "2023-10-24T09:11:26.000Z",
+      "created_at": "2024-02-17T09:08:59.000Z",
+      "updated_at": "2024-02-17T09:08:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -25355,8 +25582,8 @@
   "roles": [
     {
       "uuid": "4cb11fa7-3d79-412c-9a03-0ce8d7210cde",
-      "created_at": "2023-10-24T09:11:26.000Z",
-      "updated_at": "2023-10-24T09:11:26.000Z",
+      "created_at": "2024-02-17T09:08:59.000Z",
+      "updated_at": "2024-02-17T09:08:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -25378,8 +25605,8 @@
     },
     {
       "uuid": "c9093730-0176-4f72-b410-bfb6856ff713",
-      "created_at": "2023-10-24T09:11:26.000Z",
-      "updated_at": "2023-10-24T09:11:26.000Z",
+      "created_at": "2024-02-17T09:08:59.000Z",
+      "updated_at": "2024-02-17T09:08:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -25401,8 +25628,8 @@
     },
     {
       "uuid": "eb4f75ea-c995-4fc6-8bab-0ab2d6552508",
-      "created_at": "2023-10-24T09:11:26.000Z",
-      "updated_at": "2023-10-24T09:11:26.000Z",
+      "created_at": "2024-02-17T09:08:59.000Z",
+      "updated_at": "2024-02-17T09:08:59.000Z",
       "properties": null,
       "translations": [
         {

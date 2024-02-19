@@ -1,3 +1,5 @@
+import Utils from "../utils";
+
 export default () => {
    const GRID = "ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable";
    describe("Grid", () => {
@@ -28,7 +30,7 @@ export default () => {
             pos: 5300,
          };
          // Many Side
-         gridScroll(GRID, connect_mm.pos);
+         Utils.gridScroll(GRID, connect_mm.pos);
          cy.log(
             "Find the cell in the 'connect-to-another-record-mm' column, row 1"
          );
@@ -60,7 +62,7 @@ export default () => {
                   .and("contain", "test-KCS-ID:0000000002");
             });
          // One Side
-         gridScroll(GRID, connect_om.pos);
+         Utils.gridScroll(GRID, connect_om.pos);
          cy.log(
             "Find the cell in the 'connect-to-another-record-om' column, row 1"
          );
@@ -88,15 +90,3 @@ export default () => {
       });
    });
 };
-/**
- * helper for scrolling in a grid
- * @function gridScroll
- * @param {string} id webix id of the grid
- * @param {int} h horizontal scroll in pixels
- * @param {int=0} v veritcal scroll in pixels
- */
-function gridScroll(id, h, v = 0) {
-   cy.window().then((win) => {
-      return win.$$(id).scrollTo(h, v);
-   });
-}
