@@ -1,4 +1,5 @@
 // const folderName = __dirname.match(/([^\\/]+)[\\/]test_cases$/)[1];
+import Utils from "../utils";
 
 export default () => {
    describe("Save Form Values", () => {
@@ -430,6 +431,39 @@ export default () => {
          //    .contains("1337");
          // cy.get(".trash").click();
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
+      });
+
+      it("record rule - current date", async () => {
+         // Enter Data
+         cy.get('[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 6745fe13-0c2a-44bd-8561-39b95020a516"]')
+            .as("textField")
+            .should("exist");
+
+         cy.get("@textField").clear({ force: true });
+         cy.get("@textField").type("TEST ONE", { force: true });
+
+         // Save
+         cy.get('[data-cy="button save 6745fe13-0c2a-44bd-8561-39b95020a516"]')
+            .click();
+
+         // Scroll
+         await Utils.gridScroll("ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable", 2700)
+
+         // Expect value
+         const AB = await Utils.getAB();
+         const objectId = "efdf6230-2013-459c-9c0e-a8c25521f31a";
+         const fieldId = "df165b22-0912-4f4d-ab0b-beb5c62d6502";
+         const field = AB.objectByID(objectId).fieldByID(fieldId);
+         const vals = {};
+         vals[field.columnName] = new Date();
+         const expect = field.format(vals);
+
+         // Assert
+         cy.get('[data-cy="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_table"]')
+            .find(".webix_ss_body")
+            .find('[column="13"]')
+            .should("exist")
+            .contains(expect);
       });
    });
 };
