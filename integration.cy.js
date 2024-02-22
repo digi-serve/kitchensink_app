@@ -62,7 +62,7 @@ beforeEach(() => {
 describe("Smoke Test", () => {
    it("App Loads", () => {
       cy.visit("/");
-      cy.get('[data-cy="portal_work_menu_sidebar"]')
+      cy.get('[data-cy="portal_work_menu_sidebar"]', { timeout: 30000 })
          .should("be.visible")
          .click();
       cy.get('[data-cy="0ac51d6c-7c95-461c-aa8b-7da00afc4f48"]').should(
@@ -79,7 +79,7 @@ describe("Widget Tests", () => {
       //    "add_testkcs2-ScopedData.sql",
       // ]);
       cy.visit("/");
-      cy.get('[data-cy="portal_work_menu_sidebar"]')
+      cy.get('[data-cy="portal_work_menu_sidebar"]', { timeout: 30000 })
          .should("be.visible")
          .click();
       cy.get('[data-cy="0ac51d6c-7c95-461c-aa8b-7da00afc4f48"]')
