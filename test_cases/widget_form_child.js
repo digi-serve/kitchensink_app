@@ -1,14 +1,13 @@
-const Common = require("../../../../../setup/common.js");
 const folderName = __dirname.match(/[^\\/]+$/)[0];
 
 export default () => {
    describe("Save Form Values", () => {
       before(() => {
-         Common.RunSQL(cy, folderName, ["form_save_selectable.sql"]);
+         cy.RunSQL(folderName, ["form_save_selectable.sql"]);
       });
       beforeEach(() => {
          cy.get(
-            '[data-cy="tab-ChildData-d4c3fb66-94ff-4d70-9761-678e6a7d562f-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-ChildData-d4c3fb66-94ff-4d70-9761-678e6a7d562f-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
             .scrollIntoView()
             .click();
@@ -23,7 +22,7 @@ export default () => {
          cy.get(".fa-plus").click();
 
          cy.get(
-            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]'
+            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]',
          )
             .should("be.visible")
             .type("314")
@@ -31,7 +30,7 @@ export default () => {
             .type("314");
 
          cy.get(
-            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]'
+            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]',
          )
             .parent()
             .parent()
@@ -62,7 +61,7 @@ export default () => {
             .type("319");
 
          cy.get(
-            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]'
+            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]',
          )
             .parent()
             .parent()
@@ -83,7 +82,7 @@ export default () => {
             .should("have.value", "319");
 
          cy.get(
-            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]'
+            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]',
          )
             .parent()
             .parent()
@@ -97,7 +96,7 @@ export default () => {
 
          // cy.get('[data-cy=inputField]')
          cy.get(
-            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]'
+            '[data-cy^="number amount 79902266-40e5-463a-9869-cee01ef955a0"]',
          ).should("have.value", "");
          // .should("be.visible")
          // .should("not.contain", "3");

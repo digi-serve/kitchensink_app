@@ -1,15 +1,15 @@
-export default (folderName, Common) => {
+export default (folderName) => {
    describe("Comment", () => {
       beforeEach(() => {
-         // Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.visit("/");
       }); //End beforeEach
 
       //1. can find the first comment avatar text "A"
       it("can find the first A", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -27,9 +27,9 @@ export default (folderName, Common) => {
 
       //2. can find the first comment  name "admin"
       it("can find the first comment  name admin", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -45,9 +45,9 @@ export default (folderName, Common) => {
       }); //End 2
       //3. can find the first comment date "10 Sep, 00:00"
       it("can find the first comment date", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -87,9 +87,9 @@ export default (folderName, Common) => {
 
       //4. can find the first comment message "test"
       it("can find the first comment message test", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -106,9 +106,9 @@ export default (folderName, Common) => {
       }); //End 4
       //5. can find the first comment menu which has icon "wxi-dots"
       it("can find the first comment menu which has icon wxi-dots", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -126,10 +126,10 @@ export default (folderName, Common) => {
       }); //End 5
       //6. can find the option icon "wix-pencil"
       it("can find the option icon wix-pencil", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
 
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -162,9 +162,9 @@ export default (folderName, Common) => {
 
       //7. can find the option text "Edit"
       it("can find the option text Edit", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -195,9 +195,9 @@ export default (folderName, Common) => {
 
       //8. can find the option icon "wxi-trash"
       it("can find the option icon wxi-trash", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
             .scrollIntoView()
             .should("be.visible")
@@ -233,9 +233,9 @@ export default (folderName, Common) => {
 
       //9. can find the option text "Remove"
       it("can find the option text Remove", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
             .should("be.visible")
             .click();
@@ -268,9 +268,9 @@ export default (folderName, Common) => {
 
       //10. can find the text "test" on the first textarea
       it("can find the text test on the first textarea", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -292,13 +292,13 @@ export default (folderName, Common) => {
          // Sometimes the progress icon is gone too fast.
          // let's make sure that by counting elements in the grid instead.
          cy.get(
-            '[view_id="ABViewComment_2a2db721-5093-44a2-999d-3f4a58420129"]'
+            '[view_id="ABViewComment_2a2db721-5093-44a2-999d-3f4a58420129"]',
          )
             .find(".webix_view.webix_list")
             .children()
             .should("have.length", 1);
          cy.get(
-            '[view_id="ABViewComment_aac06b2a-7f4e-4daf-9b39-ccd71858e150"]'
+            '[view_id="ABViewComment_aac06b2a-7f4e-4daf-9b39-ccd71858e150"]',
          )
             .find(".webix_view.webix_list")
             .children()
@@ -323,9 +323,9 @@ export default (folderName, Common) => {
 
       //11. can find the text "cypress hahaha" on the first comment
       it("can find the text cypress hahaha on the first comment", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -373,9 +373,9 @@ export default (folderName, Common) => {
 
       //12. should't have found the text "test" on the first comment
       it("should't have found the text test on the first comment", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -421,9 +421,9 @@ export default (folderName, Common) => {
 
       //13. can find the text "The comment will be removed. Are you sure?"
       it("can find the text The comment will be removed. Are you sure?", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -461,9 +461,9 @@ export default (folderName, Common) => {
 
       //14. can find the button "Cancel" on the popup
       it("can find the button Cancel on the popup", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -496,15 +496,15 @@ export default (folderName, Common) => {
 
          cy.get('div[class="webix_popup_button"]').should(
             "have.text",
-            "Cancel"
+            "Cancel",
          );
       }); //End 14
 
       //15. can find the button which has the text "Ok" on the popup
       it("can find the button which has the text Ok on the popup", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -537,15 +537,15 @@ export default (folderName, Common) => {
 
          cy.get('div[class="webix_popup_button confirm"]').should(
             "have.text",
-            "OK"
+            "OK",
          );
       }); //End 15
 
       //16. can find the button which has the text "Cancel" on the popup
       it("can find the button which has the text Cancel on the popup", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -578,16 +578,16 @@ export default (folderName, Common) => {
 
          cy.get('div[class="webix_popup_button"]').should(
             "have.text",
-            "Cancel"
+            "Cancel",
          );
       }); //End 16
 
       //17. the text "cypress hahaha" should exist
       it("the text cypress hahaha should exist", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
 
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -660,9 +660,9 @@ export default (folderName, Common) => {
 
       //18. the text "cypress hahaha" shouldn't exist
       it("the text cypress hahaha shouldn't exist", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
 
          cy.get("textarea").should("have.class", "webix_inp_textarea");
@@ -735,9 +735,9 @@ export default (folderName, Common) => {
 
       //19. can find the text "cypress hahaha is coming back" on the comment container
       it("can find the text cypress hahaha is coming back on the comment container", () => {
-         Common.RunSQL(cy, folderName, ["add_testkcs.sql"]);
+         cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
-            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
             .should("be.visible")
             .click();

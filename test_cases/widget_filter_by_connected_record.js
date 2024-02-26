@@ -1,15 +1,13 @@
-export default (folderName, Common) => {
+export default (folderName) => {
    describe("FilterByConnectedRecord", () => {
       before(() => {
-         Common.RunSQL(
-            cy,
+         cy.RunSQL(
             folderName,
-            "add_test_kcs_filterByConnectedRecord_2_and_3.sql"
+            "add_test_kcs_filterByConnectedRecord_2_and_3.sql",
          );
-         Common.RunSQL(
-            cy,
+         cy.RunSQL(
             folderName,
-            "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql"
+            "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
          );
       });
 
@@ -21,8 +19,7 @@ export default (folderName, Common) => {
 
       it("Filtering ByDefault", () => {
          cy.get(`[data-cy^="tab ByDefault"]`).should("be.visible").click();
-         cy.get('[data-cy^="connectObject connectto3"]')
-            .should("be.visible");
+         cy.get('[data-cy^="connectObject connectto3"]').should("be.visible");
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
@@ -31,14 +28,14 @@ export default (folderName, Common) => {
             .click({ force: true })
             .trigger("click");
          cy.get('[data-cy^="connectObject options uuid21"]').should(
-            "be.visible"
+            "be.visible",
          );
          cy.get('[data-cy^="connectObject options uuid21"]').click({
             force: true,
          });
 
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
-            "not.exist"
+            "not.exist",
          );
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
@@ -48,7 +45,7 @@ export default (folderName, Common) => {
             .click({ force: true })
             .trigger("click");
          cy.get(
-            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
+            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
          )
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 1);
@@ -58,8 +55,7 @@ export default (folderName, Common) => {
          cy.get('[data-cy^="connectObject options uuid22"]')
             .should("be.visible")
             .click({ force: true });
-         cy.get('[data-cy^="connectObject connectto3"]')
-            .should("be.visible");
+         cy.get('[data-cy^="connectObject connectto3"]').should("be.visible");
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
@@ -68,7 +64,7 @@ export default (folderName, Common) => {
             .click({ force: true })
             .trigger("click");
          cy.get(
-            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
+            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
          )
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 3);
@@ -90,7 +86,7 @@ export default (folderName, Common) => {
             .should("be.visible")
             .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
-            "not.exist"
+            "not.exist",
          );
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
@@ -100,7 +96,7 @@ export default (folderName, Common) => {
             .click({ force: true })
             .trigger("click");
          cy.get(
-            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
+            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
          )
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 2);
@@ -118,7 +114,7 @@ export default (folderName, Common) => {
             .click({ force: true })
             .trigger("click");
          cy.get(
-            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont"
+            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
          )
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 4);
