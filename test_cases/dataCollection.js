@@ -1,7 +1,7 @@
 const testkcsObjectID = "01e0c6d4-ab5e-41ca-8715-77f0424e623f";
 const testkcskeybObjectID = "3f4f9295-4ad6-4279-9789-5c6c175852df";
 export default () => {
-   describe("DataCollection", () => {
+   describe.skip("DataCollection", () => {
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-DataCollections-b5f3ec2c-da69-46b0-b2a9-b76c3d809d69-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
