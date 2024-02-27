@@ -2,7 +2,7 @@ export default (folderName) => {
    describe("Chart", () => {
       beforeEach(() => {
          cy.visit("/");
-         cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Chart-41d39ac7-e7d9-405d-a570-b79686ccdd5a-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
