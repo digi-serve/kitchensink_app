@@ -63,11 +63,14 @@ export default (folderName) => {
          cy.get('[data-cy^="connectObject connectto3"]')
             .click({ force: true })
             .trigger("click");
+         // break this up since the popup will get refreshed.
+         // breaking it up causes cy to eval the updated version.
          cy.get(
             ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
          )
             .find('[webix_l_id^="uuid3"]')
-            .should("have.length", 3);
+            .as("conn3Popup");
+         cy.get("@conn3Popup").should("have.length", 3);
       });
 
       it("Filtering ByCustomIndex", () => {
@@ -115,7 +118,8 @@ export default (folderName) => {
             .trigger("click");
          cy.get(
             ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
-         )
+         ).as("pupuuid3");
+         cy.get("@pupuuid3")
             .find('[webix_l_id^="uuid3"]')
             .should("have.length", 4);
       });
