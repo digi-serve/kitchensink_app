@@ -12,5 +12,7 @@ VALUES (
   NOW(),
   "mr. admin",
   "admin"
-);
+)
+ON DUPLICATE KEY UPDATE
+    label = VALUES(label);
 UNLOCK TABLES;
