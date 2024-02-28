@@ -2,7 +2,7 @@ export default (folderName) => {
    describe("Tab", () => {
       //1. can find the text "test tab 1"
       it("can find the text test tab 1", () => {
-         cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Tab-7334ce3e-ca25-432d-94e1-40e53a72edb3-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
@@ -17,7 +17,7 @@ export default (folderName) => {
 
       //2. can find the text "test tab 2"
       it("can find the text test tab 2", () => {
-         cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Tab-7334ce3e-ca25-432d-94e1-40e53a72edb3-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
@@ -32,7 +32,7 @@ export default (folderName) => {
 
       //3. can find the text "test tab 3"
       it("can find the text test tab 3", () => {
-         cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Tab-7334ce3e-ca25-432d-94e1-40e53a72edb3-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
@@ -47,7 +47,7 @@ export default (folderName) => {
 
       //4. can find the text "test tab 4"
       it("can find the text test tab 4", () => {
-         cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Tab-7334ce3e-ca25-432d-94e1-40e53a72edb3-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
@@ -62,7 +62,7 @@ export default (folderName) => {
 
       //5. can find the text "test tab 5"
       it("can find the text test tab 5", () => {
-         cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          cy.get(
             '[data-cy="tab-Tab-7334ce3e-ca25-432d-94e1-40e53a72edb3-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
