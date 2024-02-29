@@ -1,4 +1,6 @@
+SET FOREIGN_KEY_CHECKS = 0;
 LOCK TABLES `AB_testkcsuser` WRITE;
+TRUNCATE TABLE `AB_testkcsuser`;
 INSERT INTO `AB_testkcsuser` (
   `uuid`,
   `created_at`,
@@ -10,9 +12,8 @@ VALUES (
   UUID(),
   NOW(),
   NOW(),
-  "mr. admin",
+  "Mr. Admin",
   "admin"
-)
-ON DUPLICATE KEY UPDATE
-    label = VALUES(label);
+);
 UNLOCK TABLES;
+SET FOREIGN_KEY_CHECKS = 1;
