@@ -1,12 +1,13 @@
 export default (folderName, Common) => {
    describe("Process Approval", () => {
-      beforeEach(() => {
-         cy.RunSQL(
-            folderName,
-            ["add_testkcs_stock.sql"],
-            ["process_test-kcs-onCreate-process.sql"],
-         );
-      });
+      // beforeEach(() => {
+      //    cy.log("::: Process Approval:beforeEach() :::");
+      //    // cy.RunSQL(
+      //    //    folderName,
+      //    //    ["add_testkcs_stock.sql",
+      //    //    "process_test-kcs-onCreate-process.sql"],
+      //    // );
+      // });
 
       // 1. Can see the message for approval in the inbox
 
