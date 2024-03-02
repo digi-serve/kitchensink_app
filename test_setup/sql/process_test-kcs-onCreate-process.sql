@@ -9,7 +9,7 @@ INSERT INTO `AB_testkcsuser` (
   `user`
 )
 VALUES (
-  UUID(),
+  "ae071b2a-0370-4dc7-bced-43e1d37171f3",
   NOW(),
   NOW(),
   "Mr. Admin",
