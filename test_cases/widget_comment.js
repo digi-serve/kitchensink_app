@@ -1,7 +1,7 @@
-export default (folderName) => {
+export default (folderName, Common) => {
    describe("Comment", () => {
       beforeEach(() => {
-         // cy.RunSQL(folderName, ["add_testkcs.sql"]);
+         // Common.Reset(cy, folderName);
          cy.visit("/");
       }); //End beforeEach
 
@@ -402,7 +402,9 @@ export default (folderName) => {
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
 
-         cy.get('a[class="webix_list_item menu"]').eq(0).click({ force: true });
+         cy.get('a[class="webix_list_item menu"]', { timeout: 30000 })
+            .eq(0)
+            .click({ force: true });
 
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(500);
