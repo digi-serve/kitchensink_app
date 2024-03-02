@@ -93,6 +93,28 @@ export default (folderName, Common) => {
             .scrollIntoView()
             .click();
 
+         cy.get('[data-cy="inbox_taskwindow_close"]')
+            .should("exist")
+            .and("be.visible")
+            .click();
+
+         cy.wait(500);
+
+         cy.get('[data-cy="inbox_icon"]')
+            .should("exist")
+            .click({ force: true });
+
+         cy.get(".webix_accordionitem_header")
+            .should("exist")
+            .and("be.visible");
+
+         cy.get(
+            '[data-cy="inbox-accordion-app-holder-0ac51d6c-7c95-461c-aa8b-7da00afc4f48_b17f815f-cadc-4829-afb0-a7a726bde018"]',
+         )
+            .contains("Admin Verify")
+            .scrollIntoView()
+            .click();
+
          cy.get(".formio-component-approve > button")
             .contains("Approve")
             .scrollIntoView()
@@ -180,6 +202,23 @@ export default (folderName, Common) => {
          // Say "Deny" on the email
 
          cy.get(".webix_badge").should("exist").and("be.visible");
+
+         cy.get('[data-cy="inbox_icon"]')
+            .should("exist")
+            .click({ force: true });
+
+         cy.get(".webix_accordionitem_header")
+            .should("exist")
+            .and("be.visible");
+
+         cy.get(
+            '[data-cy="inbox-accordion-app-holder-0ac51d6c-7c95-461c-aa8b-7da00afc4f48_b17f815f-cadc-4829-afb0-a7a726bde018"]',
+         )
+            .contains("Admin Verify")
+            .scrollIntoView()
+            .click();
+
+         cy.wait(500);
 
          cy.get('[data-cy="inbox_icon"]')
             .should("exist")
