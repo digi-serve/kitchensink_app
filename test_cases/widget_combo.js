@@ -39,10 +39,10 @@ export default () => {
       it("new records work?", () => {
          cy.get(".webix_spin").should("not.exist");
          cy.get(
-            '[data-cy="detail connected user 1dfb19ef-b689-4d5a-99f1-7cf1b9b524ac a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]'
-         )
-            .should("be.visible")
-            .should("contain", "Mr. Admin");
+            '[data-cy="detail connected user 1dfb19ef-b689-4d5a-99f1-7cf1b9b524ac a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]',
+         ).as("userMrAdmin");
+         cy.get("@userMrAdmin").should("be.visible");
+         cy.get("@userMrAdmin").should("contain", "Mr. Admin");
          cy.get('[data-cy^="button reset c44"]')
             .should("be.visible")
             .click({ force: true });

@@ -97,13 +97,16 @@ export default () => {
             .should("be.visible")
             .and("contain", "Record A");
 
-         cy.get('.webix_dataview[role="listbox"] > .webix_scroll_cont')
-            .as("list")
+         cy.get('.webix_dataview[role="listbox"] > .webix_scroll_cont').as(
+            "list",
+         );
+         cy.get("@list")
             .should("be.visible")
             .find(".webix_dataview_item")
-            .should("have.length", 1)
-            .first()
-            .should("contain", "Record A");
+            .as("item");
+         cy.get("@item").should("have.length", 1);
+         cy.get("@item").should("exist");
+         cy.get("@item").first().should("contain", "Record A");
       });
 
       it("Should keep selected cursor when cursor of a linked DC changes", () => {
