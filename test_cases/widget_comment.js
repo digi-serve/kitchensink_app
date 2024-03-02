@@ -74,13 +74,14 @@ export default (folderName) => {
          ];
          var d = new Date();
 
+         // Johnny: OK, when running locally, your server running in a docker
+         // container might be in a different time zone than your local computer
+         // and the days might be off.
+         // What's important here is that we find the date.
          var datestring =
-            d.getDate("dd") +
-            " " +
-            months[d.getMonth("M")] +
-            "," +
-            " " +
-            "00:00";
+            // d.getDate("dd") +
+            // " " +
+            months[d.getMonth("M")] + "," + " " + "00:00";
          cy.get("span");
          cy.contains("span", datestring);
       }); //End 3

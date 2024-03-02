@@ -1,7 +1,7 @@
 {
   "abVersion": "0.0.0",
-  "filename": "app_kitchen-sink_20240217",
-  "date": "20240217",
+  "filename": "app_kitchen-sink_20240302",
+  "date": "20240302",
   "definitions": [
     {
       "id": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
@@ -55,7 +55,8 @@
             "fc4c645a-7e1a-4ef9-a8a6-e5ca888a6d00",
             "7345fa1a-c288-4cdb-8761-a9bf996ba129",
             "f75e0bb9-d079-48b9-aaf4-270a084e8b3b",
-            "ffa09468-b556-49b4-90d3-6d1f457d46e8"
+            "ffa09468-b556-49b4-90d3-6d1f457d46e8",
+            "8e566e5f-2d6d-4fc5-a851-67c315f10b16"
           ],
           "objectListSettings": {
             "isOpen": false,
@@ -99,7 +100,8 @@
             "a80a039c-fd6b-4090-a561-5b8adfcc69d6",
             "84076d20-aef2-48ae-984d-6e51d673e8ad",
             "bc113ea4-8c99-4aac-9997-440fd52f204d",
-            "48becf54-deb4-4f2b-ba26-fcfa14685b51"
+            "48becf54-deb4-4f2b-ba26-fcfa14685b51",
+            "d1f1bb03-f6a8-4f9c-8611-7beb53e4bd8f"
           ],
           "pageIDs": [
             "cb77ced0-a803-46b7-8a79-f9084d75d51c",
@@ -145,7 +147,7 @@
         }
       },
       "createdAt": "2021-09-13T04:30:02.000Z",
-      "updatedAt": "2024-02-16T22:32:51.000Z"
+      "updatedAt": "2024-03-02T01:26:05.000Z"
     },
     {
       "id": "58901e0a-f3f9-469d-9dc2-10f9e5a96296",
@@ -6346,6 +6348,194 @@
       "updatedAt": "2024-02-16T22:29:12.000Z"
     },
     {
+      "id": "8e566e5f-2d6d-4fc5-a851-67c315f10b16",
+      "name": "test-kcs-Comments",
+      "type": "object",
+      "json": {
+        "id": "8e566e5f-2d6d-4fc5-a851-67c315f10b16",
+        "type": "object",
+        "name": "test-kcs-Comments",
+        "labelFormat": "",
+        "labelSettings": {
+          "isNoLabelDisplay": 0
+        },
+        "isImported": 0,
+        "isExternal": 0,
+        "tableName": "AB_kitchensink_testkcsComments",
+        "primaryColumnName": "uuid",
+        "transColumnName": "",
+        "urlPath": "",
+        "objectWorkspace": {
+          "sortFields": [],
+          "filterConditions": [],
+          "frozenColumnID": "",
+          "hiddenFields": []
+        },
+        "isSystemObject": 0,
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-Comments"
+          }
+        ],
+        "fieldIDs": [
+          "218f2af7-b415-4fb1-874a-2c145f4dabde",
+          "c51c47bc-eccb-4f0e-8f81-1eb67fd04b58",
+          "c5b1826c-e690-42eb-9d13-54f8d6f5f5dd"
+        ],
+        "importedFieldIDs": [],
+        "indexIDs": [],
+        "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
+      },
+      "createdAt": "2024-03-02T01:22:59.000Z",
+      "updatedAt": "2024-03-02T01:23:47.000Z"
+    },
+    {
+      "id": "218f2af7-b415-4fb1-874a-2c145f4dabde",
+      "name": "test-kcs-Comments->user",
+      "type": "field",
+      "json": {
+        "id": "218f2af7-b415-4fb1-874a-2c145f4dabde",
+        "type": "field",
+        "key": "user",
+        "icon": "user-o",
+        "isImported": 0,
+        "columnName": "user",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "isMultiple": 0,
+          "isCurrentUser": 0,
+          "editable": 0,
+          "isShowProfileImage": 0,
+          "isShowUsername": 0,
+          "width": 100,
+          "isSource": 1,
+          "isCustomFK": 1,
+          "linkObject": "228e3d91-5e42-49ec-b37c-59323ae433a1",
+          "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
+          "linkType": "one",
+          "linkViaType": "many",
+          "linkColumn": "724eb61b-6c8f-4d28-b386-cecf363f7ad8"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "user"
+          }
+        ]
+      },
+      "createdAt": "2024-03-02T01:23:12.000Z",
+      "updatedAt": "2024-03-02T01:23:15.000Z"
+    },
+    {
+      "id": "724eb61b-6c8f-4d28-b386-cecf363f7ad8",
+      "name": "USER->test-kcs-Comments",
+      "type": "field",
+      "json": {
+        "id": "724eb61b-6c8f-4d28-b386-cecf363f7ad8",
+        "type": "field",
+        "key": "connectObject",
+        "icon": "external-link",
+        "isImported": 0,
+        "columnName": "testkcsComments_user",
+        "settings": {
+          "showIcon": 1,
+          "linkObject": "8e566e5f-2d6d-4fc5-a851-67c315f10b16",
+          "linkType": "many",
+          "linkViaType": "one",
+          "isCustomFK": 1,
+          "indexField": "5760560b-c078-47ca-98bf-e18ac492a561",
+          "indexField2": "",
+          "isSource": 0,
+          "required": 0,
+          "width": 0,
+          "unique": 0,
+          "linkColumn": "218f2af7-b415-4fb1-874a-2c145f4dabde"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-Comments"
+          }
+        ]
+      },
+      "createdAt": "2024-03-02T01:23:13.000Z",
+      "updatedAt": "2024-03-02T01:23:13.000Z"
+    },
+    {
+      "id": "c51c47bc-eccb-4f0e-8f81-1eb67fd04b58",
+      "name": "test-kcs-Comments->comment",
+      "type": "field",
+      "json": {
+        "id": "c51c47bc-eccb-4f0e-8f81-1eb67fd04b58",
+        "type": "field",
+        "key": "LongText",
+        "icon": "align-right",
+        "isImported": 0,
+        "columnName": "comment",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 110
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "comment"
+          }
+        ]
+      },
+      "createdAt": "2024-03-02T01:23:30.000Z",
+      "updatedAt": "2024-03-02T01:23:30.000Z"
+    },
+    {
+      "id": "c5b1826c-e690-42eb-9d13-54f8d6f5f5dd",
+      "name": "test-kcs-Comments->date",
+      "type": "field",
+      "json": {
+        "id": "c5b1826c-e690-42eb-9d13-54f8d6f5f5dd",
+        "type": "field",
+        "key": "date",
+        "icon": "calendar",
+        "isImported": 0,
+        "columnName": "date",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "dateFormat": 2,
+          "defaultDate": 1,
+          "defaultDateValue": null,
+          "validateCondition": "none",
+          "validateRangeUnit": "",
+          "validateRangeBefore": 0,
+          "validateRangeAfter": 0,
+          "validateStartDate": null,
+          "validateEndDate": null,
+          "width": 100,
+          "timeFormat": 2,
+          "defaultTime": 1,
+          "defaultTimeValue": null
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "date"
+          }
+        ]
+      },
+      "createdAt": "2024-03-02T01:23:45.000Z",
+      "updatedAt": "2024-03-02T01:23:45.000Z"
+    },
+    {
       "id": "72a93a34-ccc6-46ec-bd1a-118b490e7e1a",
       "name": "test-kcs-scoped-data",
       "type": "object",
@@ -7833,6 +8023,41 @@
       },
       "createdAt": "2024-02-16T22:32:50.000Z",
       "updatedAt": "2024-02-16T22:33:08.000Z"
+    },
+    {
+      "id": "d1f1bb03-f6a8-4f9c-8611-7beb53e4bd8f",
+      "name": "test-Comments",
+      "type": "datacollection",
+      "json": {
+        "id": "d1f1bb03-f6a8-4f9c-8611-7beb53e4bd8f",
+        "name": "test-Comments",
+        "type": "datacollection",
+        "settings": {
+          "linkDatacollectionID": "",
+          "linkFieldID": "",
+          "followDatacollectionID": "",
+          "objectWorkspace": {
+            "filterConditions": {
+              "glue": "and",
+              "rules": []
+            },
+            "sortFields": []
+          },
+          "loadAll": false,
+          "isQuery": false,
+          "populate": true,
+          "syncType": 1,
+          "datasourceID": "8e566e5f-2d6d-4fc5-a851-67c315f10b16"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-Comments"
+          }
+        ]
+      },
+      "createdAt": "2024-03-02T01:26:04.000Z",
+      "updatedAt": "2024-03-02T01:26:04.000Z"
     },
     {
       "id": "1945778d-c962-4548-95d4-1ebce578c5fa",
@@ -15375,29 +15600,33 @@
         "type": "view",
         "key": "comment",
         "icon": "comments",
+        "name": "Comment.comment",
         "settings": {
-          "columnSpan": "1",
-          "rowSpan": "1",
+          "columnSpan": 1,
+          "rowSpan": 1,
           "height": 300,
-          "dataviewID": "2900d309-e9c3-434f-b937-202d8a972a11",
-          "columnUser": "158fddff-d8d6-452a-8804-d032768a9f40",
-          "columnComment": "78d60c46-5523-474d-8e0c-d8d6db814be8",
-          "columnDate": "86f8001e-f379-47f8-ad6e-a7facaf91600"
+          "dataviewID": "d1f1bb03-f6a8-4f9c-8611-7beb53e4bd8f",
+          "columnUser": "218f2af7-b415-4fb1-874a-2c145f4dabde",
+          "columnComment": "c51c47bc-eccb-4f0e-8f81-1eb67fd04b58",
+          "columnDate": "c5b1826c-e690-42eb-9d13-54f8d6f5f5dd",
+          "name": "Comment.comment"
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Comment.comment"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1
         },
-        "isRoot": "false"
+        "isRoot": false
       },
       "createdAt": "2021-09-14T04:39:09.000Z",
-      "updatedAt": "2021-09-14T04:39:31.000Z"
+      "updatedAt": "2024-03-02T01:27:09.000Z"
     },
     {
       "id": "aac06b2a-7f4e-4daf-9b39-ccd71858e150",
@@ -26171,8 +26400,8 @@
   "files": {
     "072676f0-cb19-4d73-b68b-cc8c80ebe2ce": {
       "meta": {
-        "created_at": "2024-02-16 22:26:54",
-        "updated_at": "2024-02-16 22:26:54",
+        "created_at": "2024-03-02 01:11:59",
+        "updated_at": "2024-03-02 01:11:59",
         "field": null,
         "object": null,
         "file": "072676f0-cb19-4d73-b68b-cc8c80ebe2ce.docx",
@@ -26186,8 +26415,8 @@
     "789747da-ba6e-42dd-80e8-485e3fbe5b97": null,
     "fb91686f-43af-47b0-981c-3b3d179270b0": {
       "meta": {
-        "created_at": "2024-02-16 22:26:54",
-        "updated_at": "2024-02-16 22:26:54",
+        "created_at": "2024-03-02 01:11:59",
+        "updated_at": "2024-03-02 01:11:59",
         "field": "5d41635a-4e20-4159-9a9a-7aafff38feba",
         "object": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
         "file": "fb91686f-43af-47b0-981c-3b3d179270b0.png",
@@ -26203,14 +26432,15 @@
     "228e3d91-5e42-49ec-b37c-59323ae433a1": [
       "be5a7381-2add-4e92-9517-f77de7b3a981",
       "93425f93-fd78-473e-99a4-2337e6969ba2",
-      "faa0ac73-bc49-4ff5-b722-ae518da83657"
+      "faa0ac73-bc49-4ff5-b722-ae518da83657",
+      "724eb61b-6c8f-4d28-b386-cecf363f7ad8"
     ]
   },
   "scopes": [
     {
       "uuid": "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e",
-      "created_at": "2024-02-16T22:02:00.000Z",
-      "updated_at": "2024-02-16T22:02:00.000Z",
+      "created_at": "2024-03-02T01:11:59.000Z",
+      "updated_at": "2024-03-02T01:11:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26248,8 +26478,8 @@
     },
     {
       "uuid": "7d54e52e-65e6-4da7-8faa-26aed0c1160e",
-      "created_at": "2024-02-16T22:02:03.000Z",
-      "updated_at": "2024-02-16T22:02:03.000Z",
+      "created_at": "2024-03-02T01:11:59.000Z",
+      "updated_at": "2024-03-02T01:11:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26278,8 +26508,8 @@
     },
     {
       "uuid": "506a6815-0073-436e-9e2a-b5bc6b655b8a",
-      "created_at": "2024-02-16T22:02:03.000Z",
-      "updated_at": "2024-02-16T22:02:03.000Z",
+      "created_at": "2024-03-02T01:11:59.000Z",
+      "updated_at": "2024-03-02T01:11:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26309,8 +26539,8 @@
   "roles": [
     {
       "uuid": "4cb11fa7-3d79-412c-9a03-0ce8d7210cde",
-      "created_at": "2024-02-16T22:02:03.000Z",
-      "updated_at": "2024-02-16T22:02:03.000Z",
+      "created_at": "2024-03-02T01:12:00.000Z",
+      "updated_at": "2024-03-02T01:12:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -26322,18 +26552,20 @@
       "Default Role": 0,
       "users__relation": [],
       "ProcessForm30__relation": [],
+      "keys__relation": [],
       "scopes": [
         "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e"
       ],
       "users": [],
       "ProcessForm30": [],
+      "keys": [],
       "name": "test-kcs-scoped-role",
       "description": "Test role with scope for Kitchensink App"
     },
     {
       "uuid": "c9093730-0176-4f72-b410-bfb6856ff713",
-      "created_at": "2024-02-16T22:02:03.000Z",
-      "updated_at": "2024-02-16T22:02:03.000Z",
+      "created_at": "2024-03-02T01:12:00.000Z",
+      "updated_at": "2024-03-02T01:12:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -26345,18 +26577,20 @@
       "Default Role": 0,
       "users__relation": [],
       "ProcessForm30__relation": [],
+      "keys__relation": [],
       "scopes": [
         "7d54e52e-65e6-4da7-8faa-26aed0c1160e"
       ],
       "users": [],
       "ProcessForm30": [],
+      "keys": [],
       "name": "test-kcs-fa-scope-role",
       "description": "Full Access Scope for Kitchensink App"
     },
     {
       "uuid": "eb4f75ea-c995-4fc6-8bab-0ab2d6552508",
-      "created_at": "2024-02-16T22:02:03.000Z",
-      "updated_at": "2024-02-16T22:02:03.000Z",
+      "created_at": "2024-03-02T01:12:00.000Z",
+      "updated_at": "2024-03-02T01:12:00.000Z",
       "properties": null,
       "translations": [
         {
@@ -26368,11 +26602,13 @@
       "Default Role": 0,
       "users__relation": [],
       "ProcessForm30__relation": [],
+      "keys__relation": [],
       "scopes": [
         "506a6815-0073-436e-9e2a-b5bc6b655b8a"
       ],
       "users": [],
       "ProcessForm30": [],
+      "keys": [],
       "name": "test-kcs-restricted-role",
       "description": "No acces to the test-kcs-scoped-data"
     }
