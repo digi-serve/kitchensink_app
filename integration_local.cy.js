@@ -1,17 +1,20 @@
 // const Common = require("../../../../setup/common.js");
 const Common = {
-   Reset: function (cy, foldername) {
-      // cy.log(":::  integration:beforeEach()  :::");
-      // cy.AuthLogin();
-      // cy.RunSQL(folderName, [
-      //    "reset_tables.sql",
-      //    "reset_roles.sql",
-      //    "add_testkcs.sql",
-      //    "add_testkcs2-Menu.sql",
-      //    "add_testkcs2-combo.sql",
-      //    "add_testkcs2-ScopedData.sql",
-      //    "assign_testkcs_testkcs2.sql",
-      // ]);
+   Reset: function (cy, nameFolder) {
+      // cy.log(":::  Common:Reset()  :::");
+      cy.AuthLogin();
+
+      cy.RunSQL(nameFolder, [
+         "reset_tables.sql",
+         "reset_roles.sql",
+         "add_testkcs.sql",
+         "add_testkcs2-Menu.sql",
+         "add_testkcs2-combo.sql",
+         "add_testkcs2-ScopedData.sql",
+         "assign_testkcs_testkcs2.sql",
+         "add_testkcs_stock.sql",
+         "process_test-kcs-onCreate-process.sql",
+      ]);
    },
 };
 
@@ -53,28 +56,32 @@ Cypress.on("uncaught:exception", (e) => {
 });
 
 before(() => {
+   // cy.log("::: integration:before() :::");
    cy.ResetDB();
    cy.AuthLogin();
    cy.request("POST", "/test/import", {
       file: `imports/${folderName}/appbuilder_app.json`,
    });
+   Common.Reset(cy, folderName);
+   cy.visit("/");
+   cy.get('[data-cy="portal_work_menu_sidebar"]', { timeout: 45000 }).should(
+      "be.visible",
+   );
 });
 
 beforeEach(() => {
    // cy.log(":::  integration:beforeEach()  :::");
    cy.AuthLogin();
 
-   cy.RunSQL(folderName, [
-      "reset_tables.sql",
-      "reset_roles.sql",
-      "add_testkcs.sql",
-      "add_testkcs2-Menu.sql",
-      "add_testkcs2-combo.sql",
-      "add_testkcs2-ScopedData.sql",
-      "assign_testkcs_testkcs2.sql",
-      "add_testkcs_stock.sql",
-      "process_test-kcs-onCreate-process.sql",
-   ]);
+   // cy.RunSQL(folderName, [
+   //    "reset_tables.sql",
+   //    "reset_roles.sql",
+   //    "add_testkcs.sql",
+   //    "add_testkcs2-Menu.sql",
+   //    "add_testkcs2-combo.sql",
+   //    "add_testkcs2-ScopedData.sql",
+   //    "assign_testkcs_testkcs2.sql",
+   // ]);
 });
 
 describe("Smoke Test", () => {
@@ -91,6 +98,7 @@ describe("Smoke Test", () => {
 
 describe("Widget Tests", () => {
    beforeEach(() => {
+      // cy.log("::: Describe(Process Tests): beforeEach() :::");
       // Common.RunSQL(cy, folderName, [
       //    "add_testkcs.sql",
       //    "add_testkcs2-Menu.sql",
@@ -98,8 +106,7 @@ describe("Widget Tests", () => {
       // ]);
       // cy.intercept(" /process/inbox/register").as("inboxRegistered");
       cy.visit("/");
-      // wait for the /inbox/register to complete
-      // cy.wait("@inboxRegistered");
+      // cy.wait("@inboxRegistered", { timeout: 30000 });
       cy.get('[data-cy="portal_work_menu_sidebar"]', { timeout: 45000 })
          .should("be.visible")
          .click();
@@ -116,6 +123,7 @@ describe("Widget Tests", () => {
 
 describe("Process Tests", () => {
    beforeEach(() => {
+      // cy.log("::: Describe(Process Tests): beforeEach() :::");
       cy.visit("/");
       cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]').click();
    });

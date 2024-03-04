@@ -1,37 +1,37 @@
-export default (folderName, Common) => {
+export default (folderName) => {
    describe("Scope", () => {
       it("Filtered scope sees filtered data", () => {
-         Common.RunSQL(cy, folderName, "assign_role_filtered.sql");
+         cy.RunSQL(folderName, "assign_role_filtered.sql");
          reloadToScopePage();
          cy.get(
-            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]'
+            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]',
          )
             .should("exist")
             .and("contain", "Apple")
             .and("not.contain", "Banana");
       });
       it("Unfiltered scope sees all data", () => {
-         Common.RunSQL(cy, folderName, "assign_role_unfiltered.sql");
+         cy.RunSQL(folderName, "assign_role_unfiltered.sql");
          reloadToScopePage();
          cy.get(
-            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]'
+            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]',
          )
             .should("exist")
             .and("contain", "Apple")
             .and("contain", "Banana");
       });
       it("With filtered and unfiltered scopes sees all data", () => {
-         Common.RunSQL(cy, folderName, "assign_role_both.sql");
+         cy.RunSQL(folderName, "assign_role_both.sql");
          reloadToScopePage();
          cy.get(
-            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]'
+            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]',
          )
             .should("exist")
             .and("contain", "Apple")
             .and("contain", "Banana");
       });
       it("With scope that does not include object sees no data", () => {
-         Common.RunSQL(cy, folderName, "assign_role_restricted.sql");
+         cy.RunSQL(folderName, "assign_role_restricted.sql");
          reloadToScopePage();
          // Wait for loading to finish before checking that data does not exist
          cy.get(".webix_spin").should("exist");
@@ -40,7 +40,7 @@ export default (folderName, Common) => {
          // eslint-disable-next-line cypress/no-unnecessary-waiting
          cy.wait(10);
          cy.get(
-            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]'
+            '[data-cy="ABViewGrid_8efd05d6-0d0e-4571-bd4c-7c01a66640e5_datatable"]',
          )
             .should("exist")
             .and("not.contain", "Apple")

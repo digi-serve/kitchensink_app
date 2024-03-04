@@ -43,4 +43,16 @@ LOCK TABLES `AB_kitchensink_testkcsSpells` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsSpells`;
 UNLOCK TABLES;
 
+LOCK TABLES `AB_testkcsuser` WRITE;
+TRUNCATE TABLE `AB_testkcsuser`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_testkcsprocessstock` WRITE;
+TRUNCATE TABLE `AB_testkcsprocessstock`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsComments` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsComments`;
+UNLOCK TABLES;
+
 SET FOREIGN_KEY_CHECKS = 1;
