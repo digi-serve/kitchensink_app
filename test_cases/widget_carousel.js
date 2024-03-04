@@ -32,10 +32,12 @@ export default () => {
          cy.get("@carousel")
             .find(".webix_nav_button_prev")
             .and("have.class", "webix_nav_button_side");
+
          //5. can find the button "next"
          cy.get("@carousel")
             .find(".webix_nav_button_next")
             .and("have.class", "webix_nav_button_side");
+
          //6. can find the "nav panel"
          cy.get("@carousel")
             .find(".webix_nav_panel")
