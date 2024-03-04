@@ -13,35 +13,49 @@ export default () => {
          cy.get("@carousel")
             .find("span")
             .as("iconButtons")
-            .should("have.length", 4);
+            .should("have.length", 6);
 
-         //3. can find the button which has the icon "fa fa-rotate-left"
+         //3. can find the button which has the icon "fa fa-search-plus"
          cy.get("@iconButtons")
             .first()
             .should("have.class", "fa")
-            .and("have.class", "fa-rotate-left");
+            .and("have.class", "fa-search-plus");
 
-         //4. can find the button which has the icon "fa fa-rotate-right"
+         //4. can find the button which has the icon "fa fa-search-minus"
          cy.get("@iconButtons")
             .eq(1)
             .should("have.class", "fa")
-            .and("have.class", "fa-rotate-right");
+            .and("have.class", "fa-search-minus");
 
-         //5. can find the button which has the icon "fa fa-arrows-alt"
+         //5. can find the button which has the icon "fa fa-rotate-left"
          cy.get("@iconButtons")
             .eq(2)
             .should("have.class", "fa")
+            .and("have.class", "fa-rotate-left");
+
+         //6. can find the button which has the icon "fa fa-rotate-right"
+         cy.get("@iconButtons")
+            .eq(3)
+            .should("have.class", "fa")
+            .and("have.class", "fa-rotate-right");
+
+         //7. can find the button which has the icon "fa fa-arrows-alt"
+         cy.get("@iconButtons")
+            .eq(4)
+            .should("have.class", "fa")
             .and("have.class", "fa-arrows-alt");
 
-         //6. can find the button "previous"
+         //8. can find the button "previous"
          cy.get("@carousel")
             .find(".webix_nav_button_prev")
             .and("have.class", "webix_nav_button_side");
-         //7. can find the button "next"
+
+         //9. can find the button "next"
          cy.get("@carousel")
             .find(".webix_nav_button_next")
             .and("have.class", "webix_nav_button_side");
-         //8. can find the "nav panel"
+
+         //10. can find the "nav panel"
          cy.get("@carousel")
             .find(".webix_nav_panel")
             .should("have.class", "webix_nav_panel_side");
