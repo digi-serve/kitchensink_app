@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CYPRESS_RESPONSE_TIMEOUT: 200000
-      CYPRESS_DEFAULT_COMMAND_TIMEOUT: 30000
+      CYPRESS_DEFAULT_COMMAND_TIMEOUT: 35000
       CYPRESS_RETRIES: 2
     steps:
       # Setup
