@@ -249,8 +249,10 @@ export default () => {
          // Verify Sproket & Frostbolt & listCharacters are correct
          //
          // Sproket no longer has Frostbolt
-         cy.get('[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"]')
-            .get(
+         cy.get(
+            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"]',
+         )
+            .find(
                ".webix_ss_center > .webix_ss_center_scroll > .webix_last > .webix_row_select",
             )
             .as("sproketConnections")
@@ -297,6 +299,8 @@ export default () => {
          cy.get('[data-cy="button save 2f658206-fdea-4823-87d9-82fe5b1680a4"]')
             .should("be.visible")
             .click();
+         // wait for the popup to close
+         cy.get("@dropListCharacters").should("not.be.visible");
 
          //
          // Verify Sproket & Frostbolt & listCharacters are correct
