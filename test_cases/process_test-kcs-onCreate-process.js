@@ -1,5 +1,5 @@
 export default (folderName, Common) => {
-   describe.skip("test-kcs-onCreate-process", () => {
+   describe("test-kcs-onCreate-process", () => {
       beforeEach(() => {
          cy.RunSQL(folderName, ["process_test-kcs-onCreate-process.sql"]);
          cy.get(

@@ -1,7 +1,7 @@
 const testkcsObjectID = "01e0c6d4-ab5e-41ca-8715-77f0424e623f";
 const testkcskeybObjectID = "3f4f9295-4ad6-4279-9789-5c6c175852df";
 export default () => {
-   describe.skip("DataCollection", () => {
+   describe("DataCollection", () => {
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-DataCollections-b5f3ec2c-da69-46b0-b2a9-b76c3d809d69-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
@@ -250,7 +250,7 @@ export default () => {
          //
          // Sproket no longer has Frostbolt
          cy.get(
-            ".webix_ss_center > .webix_ss_center_scroll > .webix_last > .webix_row_select",
+            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > .webix_row_select',
          )
             .as("sproketConnections")
             .should("not.contain", "Frostbolt");
@@ -296,6 +296,8 @@ export default () => {
          cy.get('[data-cy="button save 2f658206-fdea-4823-87d9-82fe5b1680a4"]')
             .should("be.visible")
             .click();
+         // wait for the popup to close
+         cy.get("@dropListCharacters").should("not.be.visible");
 
          //
          // Verify Sproket & Frostbolt & listCharacters are correct
