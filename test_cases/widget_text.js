@@ -8,7 +8,7 @@ const ID_FirstEntry = "9107ee66-3f8e-47a0-8ac3-36d1f27122ce";
 const ID_SecondEntry = "9107ee66-3f8e-47a0-8ac3-36d1f2712202";
 
 export default () => {
-   describe.only("Text", () => {
+   describe("Text", () => {
       beforeEach(() => {
          // Select the Text tab
          cy.get('[data-cy^="tab-Text-"]')
