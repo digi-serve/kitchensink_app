@@ -55,4 +55,8 @@ LOCK TABLES `AB_kitchensink_testkcsComments` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsComments`;
 UNLOCK TABLES;
 
+LOCK TABLES `AB_kitchensink_testkcsText` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsText`;
+UNLOCK TABLES;
+
 SET FOREIGN_KEY_CHECKS = 1;
