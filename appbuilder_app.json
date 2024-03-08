@@ -57,7 +57,8 @@
             "f75e0bb9-d079-48b9-aaf4-270a084e8b3b",
             "ffa09468-b556-49b4-90d3-6d1f457d46e8",
             "8e566e5f-2d6d-4fc5-a851-67c315f10b16",
-            "14038fde-cf9d-4627-be3b-31537fb1b181"
+            "14038fde-cf9d-4627-be3b-31537fb1b181",
+            "47ea98e0-7720-45b4-ac49-a290172561fd"
           ],
           "objectListSettings": {
             "isOpen": false,
@@ -103,7 +104,8 @@
             "bc113ea4-8c99-4aac-9997-440fd52f204d",
             "48becf54-deb4-4f2b-ba26-fcfa14685b51",
             "d1f1bb03-f6a8-4f9c-8611-7beb53e4bd8f",
-            "63278f55-c2c4-4725-9272-6125e0eb20f6"
+            "63278f55-c2c4-4725-9272-6125e0eb20f6",
+            "3ff56904-668e-40db-80f4-b92e97c40781"
           ],
           "pageIDs": [
             "cb77ced0-a803-46b7-8a79-f9084d75d51c",
@@ -149,7 +151,7 @@
         }
       },
       "createdAt": "2021-09-13T04:30:02.000Z",
-      "updatedAt": "2024-03-05T23:51:00.000Z"
+      "updatedAt": "2024-03-06T19:07:14.000Z"
     },
     {
       "id": "58901e0a-f3f9-469d-9dc2-10f9e5a96296",
@@ -6538,6 +6540,77 @@
       "updatedAt": "2024-03-02T01:23:45.000Z"
     },
     {
+      "id": "47ea98e0-7720-45b4-ac49-a290172561fd",
+      "name": "test-kcs-DCNoLink",
+      "type": "object",
+      "json": {
+        "id": "47ea98e0-7720-45b4-ac49-a290172561fd",
+        "type": "object",
+        "name": "test-kcs-DCNoLink",
+        "labelFormat": "",
+        "labelSettings": {
+          "isNoLabelDisplay": 0
+        },
+        "isImported": 0,
+        "isExternal": 0,
+        "tableName": "AB_kitchensink_testkcsDCNoLink",
+        "primaryColumnName": "uuid",
+        "transColumnName": "",
+        "urlPath": "",
+        "objectWorkspace": {
+          "sortFields": [],
+          "filterConditions": [],
+          "frozenColumnID": "",
+          "hiddenFields": []
+        },
+        "isSystemObject": 0,
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-DCNoLink"
+          }
+        ],
+        "fieldIDs": [
+          "310fc3dd-62be-40cb-a018-0afeabba211f"
+        ],
+        "importedFieldIDs": [],
+        "indexIDs": [],
+        "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
+      },
+      "createdAt": "2024-03-06T18:43:43.000Z",
+      "updatedAt": "2024-03-06T18:46:28.000Z"
+    },
+    {
+      "id": "310fc3dd-62be-40cb-a018-0afeabba211f",
+      "name": "test-kcs-DCNoLink->text",
+      "type": "field",
+      "json": {
+        "id": "310fc3dd-62be-40cb-a018-0afeabba211f",
+        "type": "field",
+        "key": "string",
+        "icon": "font",
+        "isImported": 0,
+        "columnName": "text",
+        "settings": {
+          "showIcon": 1,
+          "required": 0,
+          "unique": 0,
+          "validationRules": "[]",
+          "default": "",
+          "supportMultilingual": 0,
+          "width": 100
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "text"
+          }
+        ]
+      },
+      "createdAt": "2024-03-06T18:46:28.000Z",
+      "updatedAt": "2024-03-06T18:46:28.000Z"
+    },
+    {
       "id": "72a93a34-ccc6-46ec-bd1a-118b490e7e1a",
       "name": "test-kcs-scoped-data",
       "type": "object",
@@ -8210,6 +8283,41 @@
       },
       "createdAt": "2024-03-05T23:51:00.000Z",
       "updatedAt": "2024-03-06T00:26:22.000Z"
+    },
+    {
+      "id": "3ff56904-668e-40db-80f4-b92e97c40781",
+      "name": "test-kcs-DCNoLink",
+      "type": "datacollection",
+      "json": {
+        "id": "3ff56904-668e-40db-80f4-b92e97c40781",
+        "name": "test-kcs-DCNoLink",
+        "type": "datacollection",
+        "settings": {
+          "linkDatacollectionID": "",
+          "linkFieldID": "",
+          "followDatacollectionID": "",
+          "objectWorkspace": {
+            "filterConditions": {
+              "glue": "and",
+              "rules": []
+            },
+            "sortFields": []
+          },
+          "loadAll": false,
+          "isQuery": false,
+          "populate": true,
+          "syncType": 1,
+          "datasourceID": "47ea98e0-7720-45b4-ac49-a290172561fd"
+        },
+        "translations": [
+          {
+            "language_code": "en",
+            "label": "test-kcs-DCNoLink"
+          }
+        ]
+      },
+      "createdAt": "2024-03-06T19:07:12.000Z",
+      "updatedAt": "2024-03-06T19:07:12.000Z"
     },
     {
       "id": "1945778d-c962-4548-95d4-1ebce578c5fa",
@@ -23513,8 +23621,8 @@
           "columnSpan": 1,
           "rowSpan": 1,
           "name": "No Link.list",
-          "dataviewID": "2900d309-e9c3-434f-b937-202d8a972a11",
-          "field": "78d60c46-5523-474d-8e0c-d8d6db814be8"
+          "dataviewID": "3ff56904-668e-40db-80f4-b92e97c40781",
+          "field": "310fc3dd-62be-40cb-a018-0afeabba211f"
         },
         "accessLevels": {},
         "translations": [
@@ -23531,7 +23639,7 @@
         "isRoot": false
       },
       "createdAt": "2023-10-20T08:29:57.000Z",
-      "updatedAt": "2023-10-20T08:30:51.000Z"
+      "updatedAt": "2024-03-06T19:09:11.000Z"
     },
     {
       "id": "baae6c32-ca96-4e21-acd2-7a54f57de3d8",
@@ -26557,8 +26665,8 @@
   "files": {
     "072676f0-cb19-4d73-b68b-cc8c80ebe2ce": {
       "meta": {
-        "created_at": "2024-03-06 00:17:42",
-        "updated_at": "2024-03-06 00:17:42",
+        "created_at": "2024-03-06 18:26:58",
+        "updated_at": "2024-03-06 18:26:58",
         "field": null,
         "object": null,
         "file": "072676f0-cb19-4d73-b68b-cc8c80ebe2ce.docx",
@@ -26572,8 +26680,8 @@
     "789747da-ba6e-42dd-80e8-485e3fbe5b97": null,
     "fb91686f-43af-47b0-981c-3b3d179270b0": {
       "meta": {
-        "created_at": "2024-03-06 00:17:42",
-        "updated_at": "2024-03-06 00:17:42",
+        "created_at": "2024-03-06 18:26:58",
+        "updated_at": "2024-03-06 18:26:58",
         "field": "5d41635a-4e20-4159-9a9a-7aafff38feba",
         "object": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
         "file": "fb91686f-43af-47b0-981c-3b3d179270b0.png",
@@ -26596,8 +26704,8 @@
   "scopes": [
     {
       "uuid": "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e",
-      "created_at": "2024-03-06T00:17:42.000Z",
-      "updated_at": "2024-03-06T00:17:42.000Z",
+      "created_at": "2024-03-06T18:26:59.000Z",
+      "updated_at": "2024-03-06T18:26:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26635,8 +26743,8 @@
     },
     {
       "uuid": "7d54e52e-65e6-4da7-8faa-26aed0c1160e",
-      "created_at": "2024-03-06T00:17:43.000Z",
-      "updated_at": "2024-03-06T00:17:43.000Z",
+      "created_at": "2024-03-06T18:26:59.000Z",
+      "updated_at": "2024-03-06T18:26:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26665,8 +26773,8 @@
     },
     {
       "uuid": "506a6815-0073-436e-9e2a-b5bc6b655b8a",
-      "created_at": "2024-03-06T00:17:43.000Z",
-      "updated_at": "2024-03-06T00:17:43.000Z",
+      "created_at": "2024-03-06T18:26:59.000Z",
+      "updated_at": "2024-03-06T18:26:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26696,8 +26804,8 @@
   "roles": [
     {
       "uuid": "4cb11fa7-3d79-412c-9a03-0ce8d7210cde",
-      "created_at": "2024-03-06T00:17:43.000Z",
-      "updated_at": "2024-03-06T00:17:43.000Z",
+      "created_at": "2024-03-06T18:26:59.000Z",
+      "updated_at": "2024-03-06T18:26:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26721,8 +26829,8 @@
     },
     {
       "uuid": "c9093730-0176-4f72-b410-bfb6856ff713",
-      "created_at": "2024-03-06T00:17:43.000Z",
-      "updated_at": "2024-03-06T00:17:43.000Z",
+      "created_at": "2024-03-06T18:26:59.000Z",
+      "updated_at": "2024-03-06T18:26:59.000Z",
       "properties": null,
       "translations": [
         {
@@ -26746,8 +26854,8 @@
     },
     {
       "uuid": "eb4f75ea-c995-4fc6-8bab-0ab2d6552508",
-      "created_at": "2024-03-06T00:17:43.000Z",
-      "updated_at": "2024-03-06T00:17:43.000Z",
+      "created_at": "2024-03-06T18:26:59.000Z",
+      "updated_at": "2024-03-06T18:26:59.000Z",
       "properties": null,
       "translations": [
         {

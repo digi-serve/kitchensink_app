@@ -238,5 +238,13 @@ VALUES
   ('9107ee66-3f8e-47a0-8ac3-36d1f2712202',NOW(),NOW(),NULL,'Text 2',2);
 UNLOCK TABLES;
 
-
+LOCK TABLES `AB_kitchensink_testkcsDCNoLink` WRITE;
+## For Datacollection - No Link Tests
+## NOTE: keep the UUID for "One"
+INSERT INTO `AB_kitchensink_testkcsDCNoLink` (`uuid`, `created_at`, `updated_at`, `properties`, `text`)
+VALUES
+  ('3643aa6b-5c7f-4b1d-bef2-f8369fa9b182',NOW(),NOW(),NULL,'One'),
+  (UUID(),NOW(),NOW(),NULL,'Two'),
+  (UUID(),NOW(),NOW(),NULL,'Three');
+UNLOCK TABLES;
 
