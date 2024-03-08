@@ -65,9 +65,16 @@ export default () => {
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
             .should("exist")
             .click();
-         cy.get(".edit")
-            .should("be.visible", { timeout: 50000, retryInterval: 500 })
-         cy.get(".edit")
+
+         // choose the edit icon in the list (first one)
+         cy.get(
+            '[data-cy="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]  .edit',
+         )
+            .eq(0)
+            .should("be.visible", {
+               timeout: 50000,
+               retryInterval: 500,
+            })
             .click();
          cy.get(
             '[data-cy="detail text Number allow empty b75b3530-b5de-4ca8-b136-0503c4c9a8c2 ee223876-f1a2-4e69-837e-557ab2a3a3ba"]',
@@ -98,6 +105,13 @@ export default () => {
          )
             .find(".ab-detail-component-holder")
             .should("be.empty");
+
+         // now close the popup
+         cy.get(
+            '[data-cy="Popup Close Button Edit Form 8cfc7558-4ed0-4ac3-8753-07c37ac1dc7c"]',
+         )
+            .should("be.visible")
+            .click();
       });
 
       it.skip("conditional record rules - 0", () => {

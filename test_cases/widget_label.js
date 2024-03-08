@@ -10,10 +10,9 @@ export default () => {
       it("Exists", () => {
          // cy.RunSQL(folderName, ["add_testkcs.sql"]);
 
-         cy.get('[view_id^="ABViewLabel_"]').should(
-            "have.text",
-            "test lable widget",
-         );
+         cy.get(
+            '[view_id^="ABViewLabel_f512bda2-d907-4518-80b6-47badc2005d1"]',
+         ).should("have.text", "test lable widget");
       });
    });
 };

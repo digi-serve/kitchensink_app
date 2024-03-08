@@ -54,7 +54,12 @@ export default () => {
                cy.get("@list-test-KCS-ID")
                   .contains("test-KCS-ID:0000000002")
                   .click();
-               cy.get(".webix_button").contains("Select").click();
+
+               // cy.get(".webix_button")
+               cy.get("@list-test-KCS-ID")
+                  // .should("be.visible")
+                  .contains("Select")
+                  .click();
                cy.get(
                   `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
