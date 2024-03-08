@@ -10,6 +10,8 @@ const ID_SecondEntry = "9107ee66-3f8e-47a0-8ac3-36d1f2712202";
 export default () => {
    describe("Text", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          // Select the Text tab
          cy.get('[data-cy^="tab-Text-"]')
             .scrollIntoView()

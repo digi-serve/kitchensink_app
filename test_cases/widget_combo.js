@@ -1,6 +1,8 @@
 export default () => {
    describe("Does combo index work", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
             '[data-cy="tab-Combo-a51c4e1a-6b48-4c4c-a918-abb6faf0f6c0-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
