@@ -1,14 +1,14 @@
 export default (folderName) => {
    describe("FilterByConnectedRecord", () => {
       before(() => {
-         cy.RunSQL(
-            folderName,
+         cy.RunSQL(folderName, [
             "add_test_kcs_filterByConnectedRecord_2_and_3.sql",
-         );
-         cy.RunSQL(
-            folderName,
             "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
-         );
+         ]);
+         // cy.RunSQL(
+         //    folderName,
+         //    "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
+         // );
       });
 
       beforeEach(() => {
@@ -56,6 +56,9 @@ export default (folderName) => {
             .should("be.visible")
             .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"]').should("be.visible");
+         cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
+            "not.exist",
+         );
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
@@ -85,7 +88,9 @@ export default (folderName) => {
          cy.get('[data-cy^="connectObject connectto2"]')
             .click({ force: true })
             .trigger("click");
-         cy.get('[data-cy^="connectObject options uuid21"]')
+         cy.get(
+            '[data-cy="connectObject options uuid21 ad01ca35-4e06-4cde-9aa8-f0a0c5c0b465 adabf481-d11b-47bd-a905-9509202ce506"]',
+         )
             .should("be.visible")
             .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
@@ -99,29 +104,33 @@ export default (folderName) => {
             .click({ force: true })
             .trigger("click");
          cy.get(
-            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
-         )
-            .find('[webix_l_id^="uuid3"]')
-            .should("have.length", 2);
+            '[webix_l_id^="uuid3"][data-cy$="5ad9b94b-ae66-48e6-aafe-5c450959e774 adabf481-d11b-47bd-a905-9509202ce506"]',
+         ).should("have.length", 2);
          cy.get('[data-cy^="connectObject connectto2"]')
             .click({ force: true })
             .trigger("click");
-         cy.get('[data-cy^="connectObject options uuid22"]')
+         cy.get('[data-cy^="connectObject options uuid22 ad01"]')
             .should("be.visible")
             .click({ force: true });
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
             .invoke("attr", "placeholder")
             .should("contains", "Select item");
+
+         cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
+            "not.exist",
+         );
          cy.get('[data-cy^="connectObject connectto3"]')
             .click({ force: true })
             .trigger("click");
+         // cy.get(
+         //    ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
+         // ).as("pupuuid3");
+         // cy.get("@pupuuid3")
+         //    .find('[webix_l_id^="uuid3"]')
          cy.get(
-            ".webix_popup > .webix_win_content > .webix_win_body > .webix_list > .webix_scroll_cont",
-         ).as("pupuuid3");
-         cy.get("@pupuuid3")
-            .find('[webix_l_id^="uuid3"]')
-            .should("have.length", 4);
+            '[webix_l_id^="uuid3"][data-cy$="5ad9b94b-ae66-48e6-aafe-5c450959e774 adabf481-d11b-47bd-a905-9509202ce506"]',
+         ).should("have.length", 4);
       });
    });
 };
