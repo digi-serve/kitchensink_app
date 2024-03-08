@@ -10,9 +10,7 @@ export default () => {
       });
 
       it("Downloading", () => {
-         cy.get(
-            '[data-cy^="docx download"] > .fa-file-word-o'
-         )
+         cy.get('[data-cy^="docx download"] > .fa-file-word-o')
             .scrollIntoView()
             .should("be.visible")
             .click()
@@ -20,7 +18,7 @@ export default () => {
                // file path is relative to the working folder
                const filename = path.join(
                   Cypress.config("downloadsFolder"),
-                  "DOC.docx"
+                  "DOC.docx",
                );
 
                // browser might take a while to download the file,

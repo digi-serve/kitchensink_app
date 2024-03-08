@@ -5,17 +5,17 @@ export default () => {
          // Click the [Home] Tab:
          cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
-            '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
             .should("exist")
             .click();
       });
       it("Exists", () => {
          cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_toolbar"]'
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_toolbar"]',
          ).should("exist");
          cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]'
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]',
          ).should("exist");
       });
       it("Can edit connected records", () => {
@@ -32,7 +32,7 @@ export default () => {
          // Many Side
          gridScroll(GRID, connect_mm.pos);
          cy.log(
-            "Find the cell in the 'connect-to-another-record-mm' column, row 1"
+            "Find the cell in the 'connect-to-another-record-mm' column, row 1",
          );
 
          cy.get(".webix_hcell")
@@ -41,7 +41,7 @@ export default () => {
             .then(($column) => {
                const mmIndex = $column.attr("column");
                cy.get(
-                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
                   .should("exist")
                   .click({ force: true });
@@ -56,7 +56,7 @@ export default () => {
                   .click();
                cy.get(".webix_button").contains("Select").click();
                cy.get(
-                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
                   .should("contain", "test-KCS-ID:0000000001")
                   .and("contain", "test-KCS-ID:0000000002");
@@ -64,7 +64,7 @@ export default () => {
          // One Side
          gridScroll(GRID, connect_om.pos);
          cy.log(
-            "Find the cell in the 'connect-to-another-record-om' column, row 1"
+            "Find the cell in the 'connect-to-another-record-om' column, row 1",
          );
 
          cy.get(".webix_hcell")
@@ -74,7 +74,7 @@ export default () => {
                const omIndex = $column.attr("column");
 
                cy.get(
-                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
                   .should("exist")
                   .click({ force: true });
@@ -84,7 +84,7 @@ export default () => {
                   .contains("test-KCS-ID:0000000001")
                   .click();
                cy.get(
-                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                ).should("contain", "test-KCS-ID:0000000001");
             });
       });
