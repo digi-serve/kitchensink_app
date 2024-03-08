@@ -29,7 +29,7 @@ INSERT INTO `AB_testkcs` (
   `emailrequired`
 )
 VALUES (
-  UUID(),
+  "00000000-0000-0000-0000-000000000000",
   NOW(),
   NOW(),
   "text",
