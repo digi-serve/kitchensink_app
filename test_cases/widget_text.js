@@ -4,7 +4,7 @@ const ID_DC = "63278f55-c2c4-4725-9272-6125e0eb20f6";
 const ID_OBJ = "14038fde-cf9d-4627-be3b-31537fb1b181";
 // test-kcs-Text Object
 
-const ID_FirstEntry = "9107ee66-3f8e-47a0-8ac3-36d1f27122ce";
+const ID_FirstEntry = "9107ee66-3f8e-47a0-8ac3-36d1f2712200";
 const ID_SecondEntry = "9107ee66-3f8e-47a0-8ac3-36d1f2712202";
 
 export default () => {
@@ -17,6 +17,11 @@ export default () => {
             .scrollIntoView()
             .should("be.visible")
             .click();
+
+         // Switch the cursor to the second entry:
+         cy.DCSetCursor(ID_DC, ID_FirstEntry).then(() => {
+            cy.log("Cursor should be changed to First Entry");
+         });
 
          // Make sure the DC is initialized and showing the
          // 1st entry in the text:
