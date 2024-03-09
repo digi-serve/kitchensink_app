@@ -1,3 +1,6 @@
+function TestLog(log) {
+   cy.TestLog(`ConditionalContainer: ${log}`);
+}
 export default () => {
    describe("ConditionalContainer", () => {
       beforeEach(() => {
@@ -10,12 +13,14 @@ export default () => {
       });
 
       it("Exists", () => {
+         TestLog("Exists");
          cy.get('div[view_id^="ABViewContainer_"]')
             .find('div[view_id$="_batch"]')
             .should("exist");
       });
 
       it("Should display if panel", () => {
+         TestLog("Should display if panel");
          cy.get(
             "[data-cy='number number d327bf3a-c49c-4c0f-981f-7a39fbbb81b0 f36f8849-011c-4fbe-936d-00a872dcea9d']",
          )
@@ -32,6 +37,7 @@ export default () => {
       });
 
       it("Should display else panel", () => {
+         TestLog("Should display else panel");
          cy.get(
             "[data-cy='number number d327bf3a-c49c-4c0f-981f-7a39fbbb81b0 f36f8849-011c-4fbe-936d-00a872dcea9d']",
          )

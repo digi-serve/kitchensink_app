@@ -1,3 +1,6 @@
+function TestLog(log) {
+   cy.TestLog(`Carousel: ${log}`);
+}
 export default () => {
    describe("Carousel", () => {
       beforeEach(() => {
@@ -10,6 +13,7 @@ export default () => {
          ).click();
       });
       it("Check Carousel Component", () => {
+         TestLog("Check Carousel Component");
          //1. can find the label the text "Default image"
          cy.get('[data-cy="carousel 54827db6-497b-43ae-96f9-153b63a9c977"]')
             .as("carousel")

@@ -1,3 +1,6 @@
+function TestLog(log) {
+   cy.TestLog(`Label: ${log}`);
+}
 export default () => {
    describe("Label", () => {
       beforeEach(() => {
@@ -8,6 +11,7 @@ export default () => {
          ).click();
       });
       it("Exists", () => {
+         TestLog("Exists");
          // cy.RunSQL(folderName, ["add_testkcs.sql"]);
 
          cy.get(

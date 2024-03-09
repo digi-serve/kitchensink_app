@@ -1,3 +1,6 @@
+function TestLog(log) {
+   cy.TestLog(`Chart: ${log}`);
+}
 export default (folderName) => {
    describe("Chart", () => {
       beforeEach(() => {
@@ -9,6 +12,7 @@ export default (folderName) => {
       });
 
       it("Displays a Pie Chart", () => {
+         TestLog("Displays a Pie Chart");
          // check the legend of pie chart
          cy.get('*[class^="webix_chart_legend_item"]').then(($lis) => {
             expect($lis.eq(2)).to.contain("5");
@@ -79,6 +83,7 @@ export default (folderName) => {
       });
 
       it("Displays a Bar Chart", () => {
+         TestLog("Displays a Bar Chart");
          // check the legend of bar chart
          cy.get('*[class^="webix_chart_legend_item"]').then(($lis) => {
             expect($lis.eq(7)).to.contain("5");
@@ -151,6 +156,7 @@ export default (folderName) => {
       });
 
       it("Displays a Line Chart", () => {
+         TestLog("Displays a Line Chart");
          // check the canvas text (axis y)
          cy.get('div[class*="webix_canvas_text webix_axis_item_y"]').then(
             ($lis) => {

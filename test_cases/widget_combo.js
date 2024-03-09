@@ -1,3 +1,6 @@
+function TestLog(log) {
+   cy.TestLog(`Combo: ${log}`);
+}
 export default () => {
    describe("Does combo index work", () => {
       beforeEach(() => {
@@ -12,6 +15,7 @@ export default () => {
       });
 
       it("pre-existing records work?", () => {
+         TestLog("pre-existing records work?");
          cy.get(
             '[data-cy="detail text Combined Field 3b3e2150-8151-4d9b-8009-6c5a032b1968 a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]',
          ).should("be.visible");
@@ -39,6 +43,7 @@ export default () => {
             .contains("Mr. Admin-Record B");
       });
       it("new records work?", () => {
+         TestLog("new records work?");
          cy.get(".webix_spin").should("not.exist");
          cy.get(
             '[data-cy="detail connected user 1dfb19ef-b689-4d5a-99f1-7cf1b9b524ac a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]',

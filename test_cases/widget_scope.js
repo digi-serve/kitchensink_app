@@ -1,6 +1,10 @@
+function TestLog(log) {
+   cy.TestLog(`Scope: ${log}`);
+}
 export default (folderName) => {
    describe("Scope", () => {
       it("Filtered scope sees filtered data", () => {
+         TestLog("Filtered scope sees filtered data");
          cy.RunSQL(folderName, "assign_role_filtered.sql");
          reloadToScopePage();
          cy.get(
@@ -11,6 +15,7 @@ export default (folderName) => {
             .and("not.contain", "Banana");
       });
       it("Unfiltered scope sees all data", () => {
+         TestLog("Unfiltered scope sees all data");
          cy.RunSQL(folderName, "assign_role_unfiltered.sql");
          reloadToScopePage();
          cy.get(
@@ -21,6 +26,7 @@ export default (folderName) => {
             .and("contain", "Banana");
       });
       it("With filtered and unfiltered scopes sees all data", () => {
+         TestLog("With filtered and unfiltered scopes sees all data");
          cy.RunSQL(folderName, "assign_role_both.sql");
          reloadToScopePage();
          cy.get(
@@ -31,6 +37,7 @@ export default (folderName) => {
             .and("contain", "Banana");
       });
       it("With scope that does not include object sees no data", () => {
+         TestLog("With scope that does not include object sees no data");
          cy.RunSQL(folderName, "assign_role_restricted.sql");
          reloadToScopePage();
          // Wait for loading to finish before checking that data does not exist
@@ -51,6 +58,7 @@ export default (folderName) => {
          // clean up after themselves without using an after() statement.
          // after() statements wont get run if there is an error.
          // but it will try to run this next test:
+         TestLog("Successfully cleans up after itself");
          cy.RunSQL(folderName, "reset_roles.sql");
       });
    });

@@ -1,16 +1,19 @@
+function TestLog(log) {
+   cy.TestLog(`Process Approval: ${log}`);
+}
 export default (folderName, Common) => {
    describe("Process Approval", () => {
       beforeEach(() => {
-         cy.RunSQL(
-            folderName,
-            ["add_testkcs_stock.sql"],
-            ["process_test-kcs-onCreate-process.sql"],
-         );
+         cy.RunSQL(folderName, [
+            "add_testkcs_stock.sql",
+            "process_test-kcs-onCreate-process.sql",
+         ]);
       });
 
       // 1. Can see the message for approval in the inbox
 
       it("Can see the message for approval in the inbox", () => {
+         TestLog("Can see the message for approval in the inbox");
          // Go to the tab "Process" > "Order"
 
          cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
@@ -122,8 +125,8 @@ export default (folderName, Common) => {
       });
 
       // 2. Can find the latest "Coke" amount is increased
-
       it("Can find the latest 'Coke' amount is increased", () => {
+         TestLog("Can find the latest 'Coke' amount is increased");
          cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
             .should("exist")
             .click();
@@ -136,8 +139,8 @@ export default (folderName, Common) => {
       });
 
       // 3. Can find the latest "Coke" amount is not increased
-
       it("Can find the latest 'Coke' amount is not increased", () => {
+         TestLog("Can find the latest 'Coke' amount is not increased");
          // Go to the tab "Process" > "Order"
 
          cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
@@ -244,6 +247,7 @@ export default (folderName, Common) => {
       // 4. Checking for the latest Stock
 
       it("Checking for the latest Stock", () => {
+         TestLog("Checking for the latest Stock");
          cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
             .should("exist")
             .click();

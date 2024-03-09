@@ -1,4 +1,7 @@
-export default (folderName, Common) => {
+function TestLog(log) {
+   cy.TestLog(`Comment: ${log}`);
+}
+export default (/* folderName, Common */) => {
    describe("Comment", () => {
       beforeEach(() => {
          // Common.Reset(cy, folderName);
@@ -13,6 +16,7 @@ export default (folderName, Common) => {
 
       //1. can find the first comment avatar text "A"
       it("can find the first Avatar A", () => {
+         TestLog("can find the first Avatar A");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -28,7 +32,8 @@ export default (folderName, Common) => {
       }); //End 1
 
       //2. can find the first comment  name "admin"
-      it("can find the first comment  name admin", () => {
+      it("can find the first comment name admin", () => {
+         TestLog("can find the first comment name admin");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -44,6 +49,7 @@ export default (folderName, Common) => {
       }); //End 2
       //3. can find the first comment date "10 Sep, 00:00"
       it("can find the first comment date", () => {
+         TestLog("can find the first comment date");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -81,6 +87,7 @@ export default (folderName, Common) => {
 
       //4. can find the first comment message "test"
       it("can find the first comment message test", () => {
+         TestLog("can find the first comment message test");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -93,6 +100,7 @@ export default (folderName, Common) => {
       }); //End 4
       //5. can find the first comment menu which has icon "wxi-dots"
       it("can find the first comment menu which has icon wxi-dots", () => {
+         TestLog("can find the first comment menu which has icon wxi-dots");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -107,6 +115,7 @@ export default (folderName, Common) => {
       }); //End 5
       //6. can find the option icon "wix-pencil"
       it("can find the option icon wix-pencil", () => {
+         TestLog("can find the option icon wix-pencil");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -136,6 +145,7 @@ export default (folderName, Common) => {
 
       //7. can find the option text "Edit"
       it("can find the option text Edit", () => {
+         TestLog("can find the option text Edit");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -163,6 +173,7 @@ export default (folderName, Common) => {
 
       //8. can find the option icon "wxi-trash"
       it("can find the option icon wxi-trash", () => {
+         TestLog("can find the option icon wxi-trash");
          // cy.RunSQL(folderName, ["add_testkcs.sql"]);
          // cy.get(
          //    '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
@@ -200,6 +211,7 @@ export default (folderName, Common) => {
 
       //9. can find the option text "Remove"
       it("can find the option text Remove", () => {
+         TestLog("can find the option text Remove");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -227,6 +239,7 @@ export default (folderName, Common) => {
 
       //10. can find the text "test" on the first textarea
       it("Clicking Edit can find the text to edit in the textarea", () => {
+         TestLog("Clicking Edit can find the text to edit in the textarea");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -265,6 +278,7 @@ export default (folderName, Common) => {
       }); //End 10
       //11. can find the text "cypress hahaha" on the first comment
       it("can find the text cypress hahaha on the first comment", () => {
+         TestLog("can find the text cypress hahaha on the first comment");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -288,6 +302,7 @@ export default (folderName, Common) => {
       }); //End 11
       //12. should't have found the text "test" on the first comment
       it("should't have found the text test on the edited comment", () => {
+         TestLog("should't have found the text test on the edited comment");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -308,6 +323,9 @@ export default (folderName, Common) => {
 
       //13. can find the text "The comment will be removed. Are you sure?"
       it("can find the text The comment will be removed. Are you sure?", () => {
+         TestLog(
+            "can find the text The comment will be removed. Are you sure?",
+         );
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -330,6 +348,7 @@ export default (folderName, Common) => {
 
       //14. can find the button "Cancel" on the popup
       it("can find the button Cancel on the popup", () => {
+         TestLog("can find the button Cancel on the popup");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -353,6 +372,7 @@ export default (folderName, Common) => {
 
       //15. can find the button which has the text "Ok" on the popup
       it("can find the button which has the text Ok on the popup", () => {
+         TestLog("can find the button which has the text Ok on the popup");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -372,6 +392,7 @@ export default (folderName, Common) => {
       //// NOTE: Same as test 14
       // //16. can find the button which has the text "Cancel" on the popup
       // it("can find the button which has the text Cancel on the popup", () => {
+      //    TestLog("can find the button which has the text Cancel on the popup");
       //    // cy.RunSQL(folderName, ["add_testkcs.sql"]);
       //    cy.get(
       //       '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
@@ -393,6 +414,7 @@ export default (folderName, Common) => {
 
       //17. the text "cypress hahaha" should exist
       it("Comment Remove -> Cancel should keep text.", () => {
+         TestLog("Comment Remove -> Cancel should keep text.");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 
@@ -413,6 +435,7 @@ export default (folderName, Common) => {
 
       //18. the text "cypress hahaha" shouldn't exist
       it("Comment -> Remove should remove text", () => {
+         TestLog("Comment -> Remove should remove text");
          cy.get("textarea").should("have.class", "webix_inp_textarea");
          cy.get("textarea").first().click();
 

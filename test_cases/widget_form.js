@@ -3,6 +3,9 @@ import path from "path";
 const ID_DC_TestKCS = "2900d309-e9c3-434f-b937-202d8a972a11";
 const ID_Row1 = "00000000-0000-0000-0000-000000000000";
 
+function TestLog(log) {
+   cy.TestLog(`Form: ${log}`);
+}
 export default (folderName) => {
    describe("Form", () => {
       beforeEach(() => {
@@ -15,6 +18,7 @@ export default (folderName) => {
       });
 
       it("edits and saves changes", () => {
+         TestLog("edits and saves changes");
          // Check fields and current values
          cy.contains("label", "test-kcs-id").should("exist");
          cy.get(
@@ -44,6 +48,7 @@ export default (folderName) => {
       });
 
       it("enforces validation rules", () => {
+         TestLog("enforces validation rules");
          const textalert = "This is a required field.";
          cy.get(
             '[data-cy="string singlelinetextrequired a8c8fcfd-b85b-41c4-a2dd-bd37465fde18 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]',
@@ -109,6 +114,7 @@ export default (folderName) => {
       });
 
       it("can upload photo", () => {
+         TestLog("can upload photo");
          const photoPath = path.join(
             "..",
             "e2e",

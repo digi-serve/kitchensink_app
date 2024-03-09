@@ -1,5 +1,8 @@
 import path from "path";
 
+function TestLog(log) {
+   cy.TestLog(`DOCX Builder: ${log}`);
+}
 export default () => {
    describe("DOCX Builder", () => {
       beforeEach(() => {
@@ -10,6 +13,7 @@ export default () => {
       });
 
       it("Downloading", () => {
+         TestLog("Downloading");
          cy.get('[data-cy^="docx download"] > .fa-file-word-o')
             .scrollIntoView()
             .should("be.visible")

@@ -1,5 +1,8 @@
 // const folderName = __dirname.match(/([^\\/]+)[\\/]test_cases$/)[1];
 
+function TestLog(log) {
+   cy.TestLog(`Save Form Values: ${log}`);
+}
 export default () => {
    describe("Save Form Values", () => {
       // This RunSQL commands was previously failing silently, now its
@@ -16,6 +19,7 @@ export default () => {
       });
 
       it("Submit Record Rules Form", () => {
+         TestLog("Submit Record Rules Form");
          cy.get(
             '[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]',
          )
@@ -43,6 +47,7 @@ export default () => {
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("Submit Default Values Form", () => {
+         TestLog("Submit Default Values Form");
          cy.get(
             '[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 0181c44e-08ec-4953-beee-d6b36d02b1eb"]',
          )
@@ -62,6 +67,7 @@ export default () => {
          cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it("Submit Empty Number Field", () => {
+         TestLog("Submit Empty Number Field");
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
             .should("exist")
             .click();
@@ -115,6 +121,7 @@ export default () => {
       });
 
       it.skip("conditional record rules - 0", () => {
+         TestLog("conditional record rules - 0");
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
@@ -299,6 +306,7 @@ export default () => {
          // cy.get(".webix_popup_button.confirm").should("be.visible").click();
       });
       it.skip("conditional record rules - greater than 1", () => {
+         TestLog("conditional record rules - greater than 1");
          cy.get(
             '[data-cy="tab-Menu-773dca98-87e0-4dc2-b528-89ec7c98c448-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();

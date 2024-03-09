@@ -1,3 +1,6 @@
+// function TestLog(log) {
+//    cy.TestLog(`Detail: ${log}`);
+// }
 export default () => {
    describe("Detail", () => {
       beforeEach(() => {
@@ -8,6 +11,7 @@ export default () => {
          ).click();
       }); //End beforeEach
       it("Exists", () => {
+         // TestLog("Exists");
          cy.get(
             '[data-cy="detail text testkcsid c4f98caa-71c1-4c36-9587-f8db050d2e2f aa1c0a4d-001c-4227-970b-4cf1c676ad20"]',
          )
