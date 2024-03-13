@@ -19,6 +19,25 @@ export default (folderName) => {
             .invoke("val")
             .should("contain", "text");
 
+         // Check connected record fields
+         // https://github.com/digi-serve/ab_platform_web/issues/468
+         // many - many
+         cy.get(
+            '[data-cy="connectObject connecttoanotherrecordmm 2cb67a7a-5fb8-4c2a-bd98-b147890c182f 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]',
+         ).should("contain", "test-KCS-ID:0000000001");
+         // many - one
+         cy.get(
+            '[data-cy="connectObject connecttoanotherrecordmo fe852ef0-86b5-47ce-bb34-4e2d2a8ea582 90d353f9-664a-4ae6-85a6-8f5cafa76f48"]',
+         ).contains("test-KCS-ID:0000000001");
+         // one - many
+         cy.get(
+            '[data-cy="connectObject connecttoanotherrecordom 156642f6-76d4-4bce-a4f7-b9878d28e3f7 90d353f9-664a-4ae6-85a6-8f5cafa76f48"] > div > input',
+         ).should("have.value", "test-KCS-ID:0000000001");
+         // one - one
+         cy.get(
+            '[data-cy="connectObject connecttoanotherrecordoo f379d73a-60a4-414c-8ac2-18d09b945b92 90d353f9-664a-4ae6-85a6-8f5cafa76f48"] > div > input',
+         ).should("have.value", "test-KCS-ID:0000000001");
+
          // Make Changes
          cy.get("@textField").clear();
          cy.get("@textField").type("Edited by Cypress!");
