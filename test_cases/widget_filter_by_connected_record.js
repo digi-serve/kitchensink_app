@@ -3,16 +3,16 @@ function TestLog(log) {
 }
 export default (folderName) => {
    describe("FilterByConnectedRecord", () => {
-      before(() => {
-         cy.RunSQL(folderName, [
-            "add_test_kcs_filterByConnectedRecord_2_and_3.sql",
-            "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
-         ]);
-         // cy.RunSQL(
-         //    folderName,
-         //    "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
-         // );
-      });
+      // before(() => {
+      //    cy.RunSQL(folderName, [
+      //       "add_test_kcs_filterByConnectedRecord_2_and_3.sql",
+      //       "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
+      //    ]);
+      //    // cy.RunSQL(
+      //    //    folderName,
+      //    //    "add_test_kcs_filterByConnectedRecordByCustomIndex_2_and_3.sql",
+      //    // );
+      // });
 
       beforeEach(() => {
          cy.get('[data-cy="d35adfe4-d39c-411c-8991-ded70a1858bc"]')

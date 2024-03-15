@@ -358,9 +358,7 @@ export default () => {
          // Verify Sproket & Frostbolt & listCharacters are correct
          //
          // Sproket no longer has Frostbolt
-         cy.get(
-            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > .webix_row_select',
-         )
+         cy.get('[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="1"]')
             .as("sproketConnections")
             .should("not.contain", "Frostbolt");
 
