@@ -1,6 +1,3 @@
-function TestLog(log) {
-   cy.TestLog(`Grid: ${log}`);
-}
 export default () => {
    const GRID = "ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable";
    describe("Grid", () => {
@@ -14,7 +11,6 @@ export default () => {
             .click();
       });
       it("Exists", () => {
-         TestLog("Exists");
          cy.get(
             '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_toolbar"]',
          ).should("exist");
@@ -23,7 +19,6 @@ export default () => {
          ).should("exist");
       });
       it("Can edit connected records", () => {
-         TestLog("Can edit connected records");
          // We need to lookup grid cells by column and scroll to a postition.
          // These might change we add/remove/hide/show fields
          const connect_mm = {

@@ -1,8 +1,5 @@
 const folderName = __dirname.match(/[^\\/]+$/)[0];
 
-function TestLog(log) {
-   cy.TestLog(`Save Form Values - Child: ${log}`);
-}
 export default () => {
    describe("Save Form Values", () => {
       before(() => {
@@ -19,7 +16,6 @@ export default () => {
       });
 
       it("Submit Record Rules Form", () => {
-         TestLog("Submit Record Rules Form");
          cy.get('[data-cy="button reset cbde3adf-34fd-4358-af49-6e5707f443fa"]')
             .should("be.visible")
             .click();

@@ -1,6 +1,3 @@
-function TestLog(log) {
-   cy.TestLog(`Image: ${log}`);
-}
 export default () => {
    describe("Image", () => {
       beforeEach(() => {
@@ -11,7 +8,6 @@ export default () => {
          ).click();
       });
       it("Exists", () => {
-         TestLog("Exists");
          cy.get('[view_id^="ABViewImage_"]')
             .find("img")
             .should("have.attr", "src")

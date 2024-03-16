@@ -1,6 +1,3 @@
-function TestLog(log) {
-   cy.TestLog(`Label: ${log}`);
-}
 export default () => {
    describe("Menu", () => {
       beforeEach(() => {
@@ -12,7 +9,6 @@ export default () => {
       });
 
       it("Exists", () => {
-         TestLog("Exists");
          cy.get(
             '[data-cy="menu-item KitchenHome cb77ced0-a803-46b7-8a79-f9084d75d51c eac2cff7-5069-4f74-9bd9-523a3b633346"]',
          ).should("include.text", "Home");
@@ -35,7 +31,6 @@ export default () => {
       });
 
       it("Menu Carousel", () => {
-         TestLog("Menu Carousel");
          cy.get(
             '[data-cy="menu-item Carousel e56d4ad0-d879-43c0-934a-a4004fcc7579 eac2cff7-5069-4f74-9bd9-523a3b633346"]',
          ).click();
@@ -46,7 +41,6 @@ export default () => {
       });
 
       it("Menu Chart", () => {
-         TestLog("Menu Chart");
          cy.get(
             '[data-cy="menu-item Chart 41d39ac7-e7d9-405d-a570-b79686ccdd5a eac2cff7-5069-4f74-9bd9-523a3b633346"]',
          ).click();
@@ -55,7 +49,6 @@ export default () => {
       });
 
       it("Menu 1", () => {
-         TestLog("Menu 1");
          cy.get(
             '[data-cy="menu-item 1 93f39714-7d1b-4375-b5b2-89c94a3e96bd eac2cff7-5069-4f74-9bd9-523a3b633346"]',
          ).click();

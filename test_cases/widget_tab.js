@@ -1,6 +1,3 @@
-function TestLog(log) {
-   cy.TestLog(`Tab: ${log}`);
-}
 export default (folderName) => {
    describe("Tab", () => {
       beforeEach(() => {
@@ -12,7 +9,6 @@ export default (folderName) => {
       });
       //1. can find the text "test tab 1"
       it("can find the text test tab 1", () => {
-         TestLog("can find the text test tab 1");
          cy.get(
             'div[button_id="d30d565b-b56c-475b-be1b-b148f2cae4dc"]',
          ).click();

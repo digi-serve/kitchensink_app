@@ -3,9 +3,6 @@ const ID_DCNoLink_Row_One = "3643aa6b-5c7f-4b1d-bef2-f8369fa9b182";
 
 const testkcskeybObjectID = "3f4f9295-4ad6-4279-9789-5c6c175852df";
 
-function TestLog(log) {
-   cy.TestLog(`DataCollection: ${log}`);
-}
 export default () => {
    describe("DataCollection", () => {
       beforeEach(() => {
@@ -23,7 +20,6 @@ export default () => {
        * Data display, Add, Update and Delete operations.
        */
       it("Unlinked DC Loads/Updates/Deletes Data", () => {
-         TestLog("Unlinked DC Loads/Updates/Deletes Data");
          cy.get(
             '[data-cy="tab No Link af4de560-ebf3-4500-a320-6042d3794a26 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
          )
@@ -55,7 +51,6 @@ export default () => {
       });
 
       it("Linked DC loads data according to parent cursor", () => {
-         TestLog("Linked DC loads data according to parent cursor");
          cy.get(
             '[data-cy="tab Linked baae6c32-ca96-4e21-acd2-7a54f57de3d8 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
          )
@@ -107,7 +102,6 @@ export default () => {
       });
 
       it("Follows another datacollection's cursor", () => {
-         TestLog("Follows another datacollection's cursor");
          cy.get(
             '[data-cy="tab Follow 415d32b3-5201-4a6f-bb06-10b3f4229f24 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
          )
@@ -180,9 +174,6 @@ export default () => {
       });
 
       it("Should keep selected cursor when cursor of a linked DC changes", () => {
-         TestLog(
-            "Should keep selected cursor when cursor of a linked DC changes",
-         );
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor 3f06ceac-ac30-4e64-b165-e30002fff60c b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
@@ -263,7 +254,6 @@ export default () => {
       });
 
       it("Should Manage Updating Data across multiple DCs and cursors", () => {
-         TestLog("Should Manage Updating Data across multiple DCs and cursors");
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
@@ -358,7 +348,9 @@ export default () => {
          // Verify Sproket & Frostbolt & listCharacters are correct
          //
          // Sproket no longer has Frostbolt
-         cy.get('[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="1"]')
+         cy.get(
+            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="1"]',
+         )
             .as("sproketConnections")
             .should("not.contain", "Frostbolt");
 
@@ -422,9 +414,6 @@ export default () => {
       // Issue: https://github.com/digi-serve/ns_app/issues/368
       // Fix:   https://github.com/digi-serve/appbuilder_class_core/pull/211
       it("Should NOT add new entries that are not linked to same link cursor", () => {
-         TestLog(
-            "Should NOT add new entries that are not linked to same link cursor",
-         );
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',

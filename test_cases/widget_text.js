@@ -7,9 +7,6 @@ const ID_OBJ = "14038fde-cf9d-4627-be3b-31537fb1b181";
 const ID_FirstEntry = "9107ee66-3f8e-47a0-8ac3-36d1f2712200";
 const ID_SecondEntry = "9107ee66-3f8e-47a0-8ac3-36d1f2712202";
 
-function TestLog(log) {
-   cy.TestLog(`Text: ${log}`);
-}
 export default () => {
    describe("Text", () => {
       beforeEach(() => {
@@ -57,7 +54,6 @@ export default () => {
       // });
 
       it("Updates when there is a change in the cursor", () => {
-         TestLog("Updates when there is a change in the cursor");
          // Now lets test changing the cursor and detecting the
          // change.
 
@@ -83,7 +79,6 @@ export default () => {
       });
 
       it("Updates when there is a Stale cursor", () => {
-         TestLog("Updates when there is a Stale cursor");
          // Switch the cursor to the second entry:
          cy.DCSetCursor(ID_DC, ID_SecondEntry).then(() => {
             cy.log("Cursor should be changed.");

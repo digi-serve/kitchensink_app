@@ -1,6 +1,3 @@
-function TestLog(log) {
-   cy.TestLog(`FilterByConnectedRecord: ${log}`);
-}
 export default (folderName) => {
    describe("FilterByConnectedRecord", () => {
       // before(() => {
@@ -21,7 +18,6 @@ export default (folderName) => {
       });
 
       it("Filtering ByDefault", () => {
-         TestLog("Filtering ByDefault");
          cy.get(`[data-cy^="tab ByDefault"]`).should("be.visible").click();
          cy.get('[data-cy^="connectObject connectto3"]').should("be.visible");
          cy.get('[data-cy^="connectObject connectto3"]')
@@ -81,7 +77,6 @@ export default (folderName) => {
       });
 
       it("Filtering ByCustomIndex", () => {
-         TestLog("Filtering ByCustomIndex");
          cy.get('[data-cy^="tab ByCustomIndex"]').should("be.visible").click();
          cy.get('[data-cy^="connectObject connectto3"]')
             .scrollIntoView()

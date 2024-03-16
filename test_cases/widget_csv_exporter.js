@@ -1,8 +1,5 @@
 import path from "path";
 
-function TestLog(log) {
-   cy.TestLog(`CSV Exporter: ${log}`);
-}
 export default () => {
    describe("CSV Exporter", () => {
       beforeEach(() => {
@@ -14,7 +11,6 @@ export default () => {
       }); //End beforeEach
 
       it("exportCSV.csv should exist in cypress/downloads", () => {
-         TestLog("exportCSV.csv should exist in cypress/downloads");
          var index = 0;
 
          cy.get('button[class="webix_button webix_img_btn"]')
