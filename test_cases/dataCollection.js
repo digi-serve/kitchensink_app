@@ -188,7 +188,7 @@ export default () => {
             .should("have.class", "webix_row_select");
       });
 
-      it.skip("Should Manage Updating Data across multiple DCs and cursors", () => {
+      it("Should Manage Updating Data across multiple DCs and cursors", () => {
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
