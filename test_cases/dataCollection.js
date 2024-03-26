@@ -188,7 +188,7 @@ export default () => {
             .should("have.class", "webix_row_select");
       });
 
-      it.skip("Should Manage Updating Data across multiple DCs and cursors", () => {
+      it("Should Manage Updating Data across multiple DCs and cursors", () => {
          // Select the Tabview
          cy.get(
             '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
@@ -250,7 +250,7 @@ export default () => {
          //
          // Sproket no longer has Frostbolt
          cy.get(
-            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > .webix_row_select',
+            '[data-cy="ABViewGrid_c06a71ad-efe7-4c67-af01-1eb01cc854d8_datatable"] > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="1"]',
          )
             .as("sproketConnections")
             .should("not.contain", "Frostbolt");
