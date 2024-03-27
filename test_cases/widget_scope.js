@@ -46,6 +46,13 @@ export default (folderName) => {
             .and("not.contain", "Apple")
             .and("not.contain", "Banana");
       });
+      it("Successfully cleans up after itself", () => {
+         // OK, the real purpose of this test is to get the Scopes to
+         // clean up after themselves without using an after() statement.
+         // after() statements wont get run if there is an error.
+         // but it will try to run this next test:
+         cy.RunSQL(folderName, "reset_roles.sql");
+      });
    });
 };
 

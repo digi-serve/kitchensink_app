@@ -1,9 +1,11 @@
+
 export default (/*folderName*/) => {
    describe("Comment", () => {
       beforeEach(() => {
          cy.get(
             '[data-cy="tab-Comment-50a1d27a-a4a1-44a5-a264-707df2b07dbb-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
+
          cy.get(
             '[view_id="ABViewComment_2a2db721-5093-44a2-999d-3f4a58420129"]',
          )
@@ -22,6 +24,7 @@ export default (/*folderName*/) => {
             '[view_id="ABViewComment_2a2db721-5093-44a2-999d-3f4a58420129"] > .webix_comments > .webix_list > .webix_scroll_cont > .webix_list_item',
          ).as("theComment");
       });
+
 
       it("adds a comment", () => {
          //1. can find the first comment avatar text "A"
