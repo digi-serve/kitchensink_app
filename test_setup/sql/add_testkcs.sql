@@ -29,7 +29,7 @@ INSERT INTO `AB_testkcs` (
   `emailrequired`
 )
 VALUES (
-  UUID(),
+  '68d42ff6-a474-443e-8416-3f9ce2ece08d',
   NOW(),
   NOW(),
   "text",
@@ -56,37 +56,8 @@ VALUES (
   "[{\"id\":\"item1\",\"text\":\"item1\",\"hex\":\"#F44336\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item1\"}]},{\"id\":\"item2\",\"text\":\"item2\",\"hex\":\"#E91E63\",\"translations\":[{\"language_code\":\"en\",\"text\":\"item2\"}]}]",
   "email@email.com",
   "admin@email.com"
-);
-INSERT INTO `AB_testkcs` (
-  `uuid`,
-  `created_at`,
-  `updated_at`,
-  `properties`,
-  `testkcsid`,
-  `singlelinetext`,
-  `singlelinetextrequired`,
-  `longtext`,
-  `longtextrequired`,
-  `number`,
-  `numberrequired`,
-  `numberunique`,
-  `numberformatdecimalsthousands`,
-  `numbervalidation`,
-  `date`,
-  `daterequired`,
-  `datetime`,
-  `datetimerequired`,
-  `time`,
-  `checkbox`,
-  `checkboxrequired`,
-  `selectlist`,
-  `selectlistrequired`,
-  `selectlistmultiselect`,
-  `selectlistmultiselectrequired`,
-  `email`,
-  `emailrequired`
-)
-VALUES (
+),
+(
   UUID(),
   NOW(),
   NOW(),
@@ -121,8 +92,8 @@ DROP TEMPORARY TABLE IF EXISTS RUNNING_NUMBER;
 CREATE TEMPORARY TABLE RUNNING_NUMBER (Num INT);
 
 INSERT INTO RUNNING_NUMBER (Num)
-VALUES (3), (4), (5), (6), (7), (8), (9), (11), (12), (13), 
-(14), (15), (16), (17), (18), (19), (22), (23), (24), (25), 
+VALUES (3), (4), (5), (6), (7), (8), (9), (11), (12), (13),
+(14), (15), (16), (17), (18), (19), (22), (23), (24), (25),
 (26), (27), (28), (29), (30), (31), (32), (34), (35), (36);
 
 INSERT INTO `AB_testkcs` (
