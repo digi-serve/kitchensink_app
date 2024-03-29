@@ -139,6 +139,12 @@ export default (folderName) => {
                         cy.get("@imgField")
                            .find(".webix_progress_top")
                            .should("be.visible");
+                        // NOTE: if the system if fast enough, the progress
+                        // inidictor might be gone before cypress can execute
+                        // this next command.
+                        // cy.get("@imgField")
+                        //    .find(".webix_progress_top")
+                        //    .should("be.visible");
                         cy.get("@imgField")
                            .find(".image-data-field-image")
                            .should("be.visible")
