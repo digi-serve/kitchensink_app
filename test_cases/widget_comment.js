@@ -1,4 +1,3 @@
-
 export default (/*folderName*/) => {
    describe("Comment", () => {
       beforeEach(() => {
@@ -24,7 +23,6 @@ export default (/*folderName*/) => {
             '[view_id="ABViewComment_2a2db721-5093-44a2-999d-3f4a58420129"] > .webix_comments > .webix_list > .webix_scroll_cont > .webix_list_item',
          ).as("theComment");
       });
-
 
       it("adds a comment", () => {
          //1. can find the first comment avatar text "A"
@@ -81,6 +79,7 @@ export default (/*folderName*/) => {
       it("edits a comment", () => {
          cy.get("@theComment")
             .find(".webix_comments_menu")
+            .last()
             .click({ force: true });
          cy.get('[webix_l_id="edit"]').should("be.visible").click();
          cy.get(
@@ -98,12 +97,22 @@ export default (/*folderName*/) => {
          cy.get("@input").type("hey friends!");
          cy.get("@submitButton").click();
          cy.get("@theComment")
+            .last()
             .should("not.contain", "hello world!")
             .should("contain", "hey friends!");
       });
 
       it("deletes a comment", () => {
+         const textDelete = "DELETE THIS!";
+         cy.get("@input").clear();
+         cy.get("@input").click();
+         cy.get("@input").type(textDelete);
+         cy.get("@submitButton").find(".webix_disabled").should("not.exist");
+         cy.get("@submitButton").click();
+         cy.get(".webix_progress_state").should("not.exist");
          cy.get("@theComment")
+            .last()
+            .trigger("mouseover")
             .find(".webix_comments_menu")
             .as("commentMenu")
             .click({ force: true });
@@ -130,13 +139,21 @@ export default (/*folderName*/) => {
          //16. Cancel the delete
          cy.get("@cancel").click();
          cy.get("@theComment")
+            .last()
             .should("be.visible")
-            .and("contain", "hello world!");
+            .and("contain", textDelete);
          // 17. Delete the comment
-         cy.get("@commentMenu").click({ force: true });
-         cy.get("@remove").should("be.visible").click();
+         // cy.get("@commentMenu").click({ force: true });
+         // cy.get("@remove").should("be.visible").click();
+         cy.get("@theComment")
+            .last()
+            .trigger("mouseover")
+            .find(".webix_comments_menu")
+            .click({ force: true });
+         cy.get('[webix_l_id="remove"]').should("be.visible").click();
+
          cy.get("@confirm").click();
-         cy.get("@theComment").should("not.exist");
+         cy.get("@theComment").should("not.contain", textDelete);
       });
    });
 };
