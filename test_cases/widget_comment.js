@@ -130,8 +130,11 @@ export default (/*folderName*/) => {
             .should("be.visible")
             .and("contain", "hello world!");
          // 17. Delete the comment
-         cy.get("@commentMenu").click({ force: true });
-         cy.get("@remove").should("be.visible").click();
+         cy.get("@theComment")
+            .trigger("mouseover")
+            .find(".webix_comments_menu")
+            .click({ force: true });
+         cy.get('[webix_l_id="remove"]').should("be.visible").click();
          cy.get("@confirm").click();
          cy.get("@theComment").should("not.exist");
       });
