@@ -55,4 +55,8 @@ LOCK TABLES `AB_kitchensink_testkcsComments` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsComments`;
 UNLOCK TABLES;
 
+LOCK TABLES `AB_JOINMN_test-kcs_test-kcs2_connecttoanoth` WRITE;
+TRUNCATE TABLE `AB_JOINMN_test-kcs_test-kcs2_connecttoanoth`;
+UNLOCK TABLES;
+
 SET FOREIGN_KEY_CHECKS = 1;
