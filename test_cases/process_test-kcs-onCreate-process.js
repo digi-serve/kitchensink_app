@@ -26,12 +26,12 @@ export default (folderName, Common) => {
             .should("have.length", 7);
 
          // is Default Text - multilingual label - for child record working?
-         cy.log(
-            "we are attempting to set this in both the object and the process. Neither are working, it seems to be because the column allows for multilingual data.",
-         );
-         cy.log(
-            "There are two labels: the one we are looking for contains the word 'None'",
-         );
+         // cy.log(
+         //    "we are attempting to set this in both the object and the process. Neither are working, it seems to be because the column allows for multilingual data.",
+         // );
+         // cy.log(
+         //    "There are two labels: the one we are looking for contains the word 'None'",
+         // );
 
          cy.get(
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]',
