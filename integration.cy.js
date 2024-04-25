@@ -35,6 +35,7 @@ const WidgetTestCases = [
    require("./test_cases/widget_filter_by_connected_record.js"),
    require("./test_cases/widget_form_save.js"),
    require("./test_cases/widget_form.js"),
+   require("./test_cases/widget_form2.js"),
    require("./test_cases/widget_grid.js"),
    require("./test_cases/widget_image.js"),
    require("./test_cases/widget_label.js"),
