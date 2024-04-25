@@ -55,4 +55,21 @@ LOCK TABLES `AB_kitchensink_testkcsComments` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsComments`;
 UNLOCK TABLES;
 
+
+LOCK TABLES `AB_kitchensink_testkcsDCNoLink` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsDCNoLink`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_JOINMN_test-kcs-Form2_test-kcs-Form2-_link` WRITE;
+TRUNCATE TABLE `AB_JOINMN_test-kcs-Form2_test-kcs-Form2-_link`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsForm2` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsForm2`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsForm2Link` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsForm2Link`;
+UNLOCK TABLES;
+
 SET FOREIGN_KEY_CHECKS = 1;
