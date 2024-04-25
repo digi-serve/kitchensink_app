@@ -71,10 +71,8 @@ export default (folderName) => {
          cy.get(
             '.webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="2"]',
          ).should("contain", "b0ff");
-      });
 
-      it("adds connection to second record", () => {
-         // click first entry
+         // click Second entry
          cy.get(
             '[data-cy="ABViewGrid_bf1509c7-cb5e-458b-93ce-584c0b58f7be_datatable"]',
          )
@@ -118,9 +116,7 @@ export default (folderName) => {
          cy.get(
             '.webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="1"]',
          ).should("contain", "b0ff");
-      });
 
-      it("first connection still remains", () => {
          // verify the connection is made
          cy.get(
             '[data-cy="ABViewGrid_bf1509c7-cb5e-458b-93ce-584c0b58f7be_datatable"]',
