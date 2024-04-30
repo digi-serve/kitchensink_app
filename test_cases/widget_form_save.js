@@ -23,8 +23,8 @@ export default () => {
             .type("Test Record Rules");
 
          cy.get(
-            '[data-cy="button save 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]'
-         ).click();
+            '[data-cy="button save 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]',
+         ).click({ force: true });
          cy.get(
             '[data-cy^="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]'
          ).scrollIntoView();
