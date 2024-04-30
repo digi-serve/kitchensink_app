@@ -1,7 +1,7 @@
 {
   "abVersion": "0.0.0",
-  "filename": "app_kitchen-sink_20240424",
-  "date": "20240424",
+  "filename": "app_kitchen-sink_20240426",
+  "date": "20240426",
   "definitions": [
     {
       "id": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
@@ -23119,31 +23119,38 @@
       "name": "Form.form.textbox",
       "type": "view",
       "json": {
+        "id": "4ce791a0-f7af-4b64-91f3-37bbe4bb6e60",
         "type": "view",
         "key": "textbox",
         "icon": "i-cursor",
+        "name": "Form.form.textbox",
         "settings": {
-          "type": "multiple",
+          "type": "rich",
           "objectId": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
           "fieldId": "f36f0f53-6044-43d6-bdc9-4f2b675c37a5",
-          "height": 0
+          "height": 0,
+          "name": "Form.form.textbox",
+          "fieldLabel": "long-text",
+          "required": 0,
+          "disable": 0
         },
+        "accessLevels": {},
         "translations": [
           {
             "language_code": "en",
             "label": "Form.form.textbox"
           }
         ],
+        "viewIDs": [],
         "position": {
           "dx": 1,
           "dy": 1,
           "y": 3
         },
-        "isRoot": "false",
-        "id": "4ce791a0-f7af-4b64-91f3-37bbe4bb6e60"
+        "isRoot": false
       },
       "createdAt": "2021-09-14T07:09:02.000Z",
-      "updatedAt": "2021-09-14T07:09:02.000Z"
+      "updatedAt": "2024-04-26T04:21:18.000Z"
     },
     {
       "id": "844180aa-9c64-408e-a529-10d199c36254",
@@ -27583,8 +27590,8 @@
   "files": {
     "072676f0-cb19-4d73-b68b-cc8c80ebe2ce": {
       "meta": {
-        "created_at": "2024-04-15 21:18:20",
-        "updated_at": "2024-04-15 21:18:20",
+        "created_at": "2024-04-26 04:16:08",
+        "updated_at": "2024-04-26 04:16:08",
         "field": null,
         "object": null,
         "file": "072676f0-cb19-4d73-b68b-cc8c80ebe2ce.docx",
@@ -27598,8 +27605,8 @@
     "789747da-ba6e-42dd-80e8-485e3fbe5b97": null,
     "fb91686f-43af-47b0-981c-3b3d179270b0": {
       "meta": {
-        "created_at": "2024-04-15 21:18:20",
-        "updated_at": "2024-04-15 21:18:20",
+        "created_at": "2024-04-26 04:16:07",
+        "updated_at": "2024-04-26 04:16:07",
         "field": "5d41635a-4e20-4159-9a9a-7aafff38feba",
         "object": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
         "file": "fb91686f-43af-47b0-981c-3b3d179270b0.png",
@@ -27622,8 +27629,8 @@
   "scopes": [
     {
       "uuid": "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e",
-      "created_at": "2024-04-15T21:13:07.000Z",
-      "updated_at": "2024-04-15T21:13:07.000Z",
+      "created_at": "2024-04-26T04:16:08.000Z",
+      "updated_at": "2024-04-26T04:16:08.000Z",
       "properties": null,
       "translations": [
         {
@@ -27661,8 +27668,8 @@
     },
     {
       "uuid": "7d54e52e-65e6-4da7-8faa-26aed0c1160e",
-      "created_at": "2024-04-15T21:13:07.000Z",
-      "updated_at": "2024-04-15T21:13:07.000Z",
+      "created_at": "2024-04-26T04:16:09.000Z",
+      "updated_at": "2024-04-26T04:16:09.000Z",
       "properties": null,
       "translations": [
         {
@@ -27691,8 +27698,8 @@
     },
     {
       "uuid": "506a6815-0073-436e-9e2a-b5bc6b655b8a",
-      "created_at": "2024-04-15T21:13:07.000Z",
-      "updated_at": "2024-04-15T21:13:07.000Z",
+      "created_at": "2024-04-26T04:16:09.000Z",
+      "updated_at": "2024-04-26T04:16:09.000Z",
       "properties": null,
       "translations": [
         {
@@ -27722,8 +27729,8 @@
   "roles": [
     {
       "uuid": "4cb11fa7-3d79-412c-9a03-0ce8d7210cde",
-      "created_at": "2024-04-15T21:13:07.000Z",
-      "updated_at": "2024-04-15T21:13:07.000Z",
+      "created_at": "2024-04-26T04:16:09.000Z",
+      "updated_at": "2024-04-26T04:16:09.000Z",
       "properties": null,
       "translations": [
         {
@@ -27747,8 +27754,8 @@
     },
     {
       "uuid": "c9093730-0176-4f72-b410-bfb6856ff713",
-      "created_at": "2024-04-15T21:13:07.000Z",
-      "updated_at": "2024-04-15T21:13:07.000Z",
+      "created_at": "2024-04-26T04:16:09.000Z",
+      "updated_at": "2024-04-26T04:16:09.000Z",
       "properties": null,
       "translations": [
         {
@@ -27772,8 +27779,8 @@
     },
     {
       "uuid": "eb4f75ea-c995-4fc6-8bab-0ab2d6552508",
-      "created_at": "2024-04-15T21:13:07.000Z",
-      "updated_at": "2024-04-15T21:13:07.000Z",
+      "created_at": "2024-04-26T04:16:09.000Z",
+      "updated_at": "2024-04-26T04:16:09.000Z",
       "properties": null,
       "translations": [
         {

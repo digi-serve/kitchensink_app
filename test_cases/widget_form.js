@@ -25,6 +25,9 @@ export default (folderName) => {
             .invoke("val")
             .should("contain", "text");
 
+         // Test to ensure tiny mce loads correctly
+         cy.get(".tox-tinymce").should("exist").find(".tox-editor-container");
+
          // Make Changes
          cy.get("@textField").clear();
          cy.get("@textField").type("Edited by Cypress!");
