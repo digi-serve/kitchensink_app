@@ -30,9 +30,9 @@ export default (folderName) => {
          cy.get('[data-cy^="connectObject options uuid21"]').should(
             "be.visible",
          );
-         cy.get('[data-cy^="connectObject options uuid21"]').click({
-            force: true,
-         });
+         cy.get('[data-cy^="connectObject options uuid21"]')
+            .last()
+            .trigger("click");
 
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
             "not.exist",
@@ -92,7 +92,7 @@ export default (folderName) => {
             '[data-cy="connectObject options uuid21 ad01ca35-4e06-4cde-9aa8-f0a0c5c0b465 adabf481-d11b-47bd-a905-9509202ce506"]',
          )
             .should("be.visible")
-            .click({ force: true });
+            .trigger("click");
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
             "not.exist",
          );
