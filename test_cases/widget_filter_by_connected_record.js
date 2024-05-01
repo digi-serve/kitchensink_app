@@ -33,7 +33,6 @@ export default (folderName) => {
          cy.get('[data-cy^="connectObject options uuid21"]')
             .last()
             .trigger("click");
-
          cy.get('[data-cy^="connectObject connectto3"] .webix_spin').should(
             "not.exist",
          );

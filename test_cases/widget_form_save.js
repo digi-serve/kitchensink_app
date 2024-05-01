@@ -65,7 +65,6 @@ export default () => {
          cy.get('[data-cy="button save 0181c44e-08ec-4953-beee-d6b36d02b1eb"]')
             .should("exist")
             .click();
-
          // choose the edit icon in the list (first one)
          cy.get(
             '[data-cy="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]  .edit',
