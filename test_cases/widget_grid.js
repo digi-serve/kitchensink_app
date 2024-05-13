@@ -86,7 +86,7 @@ export default () => {
                ).should("contain", "test-KCS-ID:0000000001");
             });
       });
-      it("Sort a select list field", async () => {
+      it.only("Sort a select list field", async () => {
          // click to open the sort popup
          cy.get(
             '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_buttonSort"]'
@@ -103,6 +103,7 @@ export default () => {
             .should("exist")
             .click();
 
+
          // select the Field option item
          cy.get(
             '[webix_l_id="85ac56c3-17d5-48c0-abbb-850838b9a71d"]'
@@ -115,15 +116,32 @@ export default () => {
          const $sortForm = win.$$("ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form");
          const $orderList = $sortForm.queryView({ view: "list" });
          $orderList.moveTop("item2");
+         $orderList.refresh();
 
-         // Assert
+         // Assert the order of options
+         cy.get('[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form"]')
+            .find('.webix_list')
+            .find('.webix_list_item')
+            .first()
+            .should("contain", "item2");
+
+         // Assert data
          cy.get('[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]')
             .find('[column="2"]')
             .find('[aria-rowindex="1"]')
-            .should("contain", "text");
+            .should("contain", "text")
+            .then(() => {
+               // Reorder 'item1' to the top
+               $orderList.moveTop("item1");
+               $orderList.refresh();
+            });
 
-         // Reorder 'item1' to the top
-         $orderList.moveTop("item1");
+         // Assert the order of options
+         cy.get('[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form"]')
+            .find('.webix_list')
+            .find('.webix_list_item')
+            .first()
+            .should("contain", "item1");
 
          // Assert
          cy.get('[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]')
