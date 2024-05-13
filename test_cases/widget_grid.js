@@ -86,7 +86,7 @@ export default () => {
                ).should("contain", "test-KCS-ID:0000000001");
             });
       });
-      it.only("Sort a select list field", async () => {
+      it("Sort a select list field", async () => {
          // click to open the sort popup
          cy.get(
             '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_buttonSort"]'
