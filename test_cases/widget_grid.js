@@ -86,6 +86,51 @@ export default () => {
                ).should("contain", "test-KCS-ID:0000000001");
             });
       });
+      it("Sort a select list field", async () => {
+         // click to open the sort popup
+         cy.get(
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_buttonSort"]'
+         )
+            .should("exist")
+            .click();
+
+         // click to show the Field option list
+         cy.get(
+            '[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort"]'
+         )
+            .find('[view_id="sort_1"]')
+            .find('.webix_el_combo')
+            .should("exist")
+            .click();
+
+         // select the Field option item
+         cy.get(
+            '[webix_l_id="85ac56c3-17d5-48c0-abbb-850838b9a71d"]'
+         )
+            .should("exist")
+            .click();
+
+         // Reorder 'item2' to the top
+         const win = await getWindow();
+         const $sortForm = win.$$("ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form");
+         const $orderList = $sortForm.queryView({ view: "list" });
+         $orderList.moveTop("item2");
+
+         // Assert
+         cy.get('[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]')
+            .find('[column="2"]')
+            .find('[aria-rowindex="1"]')
+            .should("contain", "text");
+
+         // Reorder 'item1' to the top
+         $orderList.moveTop("item1");
+
+         // Assert
+         cy.get('[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]')
+            .find('[column="2"]')
+            .find('[aria-rowindex="1"]')
+            .should("contain", "text 2");
+      });
    });
 };
 /**
@@ -98,5 +143,13 @@ export default () => {
 function gridScroll(id, h, v = 0) {
    cy.window().then((win) => {
       return win.$$(id).scrollTo(h, v);
+   });
+}
+
+function getWindow() {
+   return new Promise((resolve) => {
+      cy.window().then((win) => {
+         resolve(win);
+      });
    });
 }
