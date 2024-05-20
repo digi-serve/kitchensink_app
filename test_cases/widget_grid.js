@@ -28,9 +28,9 @@ export default () => {
             pos: 5300,
          };
          // Many Side
-         gridScroll(GRID, connect_mm.pos);
+         cy.GridScroll(GRID, connect_mm.pos);
          cy.log(
-            "Find the cell in the 'connect-to-another-record-mm' column, row 1"
+            "Find the cell in the 'connect-to-another-record-mm' column, row 1",
          );
 
          cy.get(".webix_hcell")
@@ -60,7 +60,7 @@ export default () => {
                   .and("contain", "test-KCS-ID:0000000002");
             });
          // One Side
-         gridScroll(GRID, connect_om.pos);
+         cy.GridScroll(GRID, connect_om.pos);
          cy.log(
             "Find the cell in the 'connect-to-another-record-om' column, row 1"
          );
@@ -158,11 +158,11 @@ export default () => {
  * @param {int} h horizontal scroll in pixels
  * @param {int=0} v veritcal scroll in pixels
  */
-function gridScroll(id, h, v = 0) {
-   cy.window().then((win) => {
-      return win.$$(id).scrollTo(h, v);
-   });
-}
+// function gridScroll(id, h, v = 0) {
+//    cy.window().then((win) => {
+//       return win.$$(id).scrollTo(h, v);
+//    });
+// }
 
 function getWindow() {
    return new Promise((resolve) => {
