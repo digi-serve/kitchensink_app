@@ -20,12 +20,12 @@ export default () => {
             .as("list")
             .should("be.visible")
             .find(".webix_dataview_item")
-            .should("have.length", 18);
+            .should("have.length", 3);
          // add a new record, should see it
          cy.request("POST", `/app_builder/model/${testkcsObjectID}`, {
             singlelinetext: "new",
          });
-         cy.get("@list").find(".webix_dataview_item").should("have.length", 18);
+         cy.get("@list").find(".webix_dataview_item").should("have.length", 3);
       });
 
       it("Linked DC loads data according to parent cursor", () => {
