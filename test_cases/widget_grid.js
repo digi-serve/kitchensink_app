@@ -3,17 +3,17 @@ export default () => {
    describe("Grid", () => {
       beforeEach(() => {
          cy.get(
-            '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]'
+            '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
             .should("exist")
             .click();
       });
       it("Exists", () => {
          cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_toolbar"]'
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_toolbar"]',
          ).should("exist");
          cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]'
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]',
          ).should("exist");
       });
       it("Can edit connected records", () => {
@@ -39,7 +39,7 @@ export default () => {
             .then(($column) => {
                const mmIndex = $column.attr("column");
                cy.get(
-                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
                   .should("exist")
                   .click({ force: true });
@@ -54,7 +54,7 @@ export default () => {
                   .click();
                cy.get(".webix_button").contains("Select").click();
                cy.get(
-                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
                   .should("contain", "test-KCS-ID:0000000001")
                   .and("contain", "test-KCS-ID:0000000002");
@@ -62,7 +62,7 @@ export default () => {
          // One Side
          cy.GridScroll(GRID, connect_om.pos);
          cy.log(
-            "Find the cell in the 'connect-to-another-record-om' column, row 1"
+            "Find the cell in the 'connect-to-another-record-om' column, row 1",
          );
 
          cy.get(".webix_hcell")
@@ -72,7 +72,7 @@ export default () => {
                const omIndex = $column.attr("column");
 
                cy.get(
-                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )
                   .should("exist")
                   .click({ force: true });
@@ -82,51 +82,54 @@ export default () => {
                   .contains("test-KCS-ID:0000000001")
                   .click();
                cy.get(
-                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`
+                  `.webix_column[column="${omIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                ).should("contain", "test-KCS-ID:0000000001");
             });
       });
       it("Sort a select list field", async () => {
          // click to open the sort popup
          cy.get(
-            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_buttonSort"]'
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_buttonSort"]',
          )
             .should("exist")
             .click();
 
          // click to show the Field option list
          cy.get(
-            '[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort"]'
+            '[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort"]',
          )
             .find('[view_id="sort_1"]')
-            .find('.webix_el_combo')
+            .find(".webix_el_combo")
             .should("exist")
             .click();
 
-
          // select the Field option item
-         cy.get(
-            '[webix_l_id="85ac56c3-17d5-48c0-abbb-850838b9a71d"]'
-         )
+         cy.get('[webix_l_id="85ac56c3-17d5-48c0-abbb-850838b9a71d"]')
             .should("exist")
             .click();
 
          // Reorder 'item2' to the top
          const win = await getWindow();
-         const $sortForm = win.$$("ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form");
+         const $sortForm = win.$$(
+            "ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form",
+         );
          const $orderList = $sortForm.queryView({ view: "list" });
          $orderList.moveTop("item2");
          $orderList.refresh();
 
          // Assert the order of options
-         cy.get('[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form"]')
-            .find('.webix_list')
-            .find('.webix_list_item')
+         cy.get(
+            '[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form"]',
+         )
+            .find(".webix_list")
+            .find(".webix_list_item")
             .first()
             .should("contain", "item2");
 
          // Assert data
-         cy.get('[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]',
+         )
             .find('[column="2"]')
             .find('[aria-rowindex="1"]')
             .should("contain", "text")
@@ -137,14 +140,18 @@ export default () => {
             });
 
          // Assert the order of options
-         cy.get('[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form"]')
-            .find('.webix_list')
-            .find('.webix_list_item')
+         cy.get(
+            '[view_id="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_table_popupSort_form"]',
+         )
+            .find(".webix_list")
+            .find(".webix_list_item")
             .first()
             .should("contain", "item1");
 
          // Assert
-         cy.get('[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]')
+         cy.get(
+            '[data-cy="ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable"]',
+         )
             .find('[column="2"]')
             .find('[aria-rowindex="1"]')
             .should("contain", "text 2");
