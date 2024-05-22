@@ -18,13 +18,11 @@ export default () => {
             '[data-cy="string Title 2e7a1c02-141a-4cdd-b93e-62c6c4e4765b 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]',
          )
             .should("be.visible")
-            .type("Please work")
-            .clear()
-            .type("Test Record Rules");
+            .type("Test Record Rules", { delay: 0 });
 
-         cy.get(
-            '[data-cy="button save 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]',
-         ).click({ force: true });
+         cy.get('[data-cy="button save 7e074587-ddc5-4d34-9f37-a0ab88a4258b"]')
+            .should("be.enabled")
+            .click({ force: true });
          cy.get(
             '[data-cy^="ABViewGrid_42938e52-9da9-4ece-b492-deb253244d3e_datatable"]',
          ).scrollIntoView();

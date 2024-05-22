@@ -9,7 +9,11 @@ export default (folderName, Common) => {
       it('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
          cy.get(
             '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]',
-         ).type("test label");
+         )
+            .as("inputField")
+            .type("test label")
+            .clear();
+         cy.get("@inputField").type("test label", { delay: 0 });
 
          cy.get(
             '[data-cy="button save 2172ba78-b327-42a1-8918-d97852234aee"]',
@@ -32,6 +36,12 @@ export default (folderName, Common) => {
          // cy.log(
          //    "There are two labels: the one we are looking for contains the word 'None'",
          // );
+
+         cy.get(
+            '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]',
+         )
+            .find('[column="1"] > .webix_cell')
+            .should("not.be.empty");
 
          cy.get(
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]',

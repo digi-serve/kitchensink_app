@@ -53,6 +53,9 @@ export default (folderName) => {
          cy.get('[data-cy^="connectObject options uuid22"]')
             .should("be.visible")
             .click({ force: true });
+
+         cy.get(".webix_progress_icon").should("not.exist");
+
          cy.get('[data-cy^="connectObject connectto3"]').should("be.visible");
          cy.get('[data-cy^="connectObject connectto3"]')
             .find("input")
