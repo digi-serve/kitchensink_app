@@ -259,3 +259,9 @@ INSERT INTO `AB_kitchensink_testkcsForm2Link` (`uuid`, `created_at`, `updated_at
 VALUES
   ('b0ff1e8c-8257-4076-a5e9-dff84d6cfe6e','2024-04-22 22:16:43','2024-04-22 22:16:43',NULL,'Link1');
 UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsText` WRITE;
+INSERT INTO `AB_kitchensink_testkcsText` (`uuid`, `created_at`, `updated_at`, `properties`, `longtext`, `sort`)
+VALUES
+  (UUID(),NOW(),NOW(),NULL,'longtext',1);
+UNLOCK TABLES;

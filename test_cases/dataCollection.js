@@ -47,6 +47,12 @@ export default () => {
 
          // Delete an entry, should be back to 3 entries
          cy.ModelDelete(ID_DCNoLink, ID_DCNoLink_Row_One);
+
+         // // add a new record, should see it
+         // cy.request("POST", `/app_builder/model/${testkcsObjectID}`, {
+         //    singlelinetext: "new",
+         // });
+
          cy.get("@list").find(".webix_dataview_item").should("have.length", 3);
       });
 
@@ -196,27 +202,12 @@ export default () => {
          ).should("be.visible");
 
          // Click to show the scroll bar
-         cy.get(
-            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]',
-         )
-            .find(".webix_ss_body .webix_ss_right")
-            .click();
 
-         // Close the popup
-         cy.get(
-            '[data-cy="Popup Close Button Edit TestKCS 5403c1cf-57f9-463d-b306-799d3641be11"]',
-         ).click();
-
-         // Drag the scroll bar to bottom
-         cy.get(
-            '[data-cy="ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable"]',
-         )
-            .find(".webix_c_scroll_y")
-            .as("scrollBar");
-         cy.get("@scrollBar").should("be.visible");
-         cy.get("@scrollBar").trigger("mousedown");
-         cy.get("@scrollBar").trigger("mousemove", { which: 1, pageY: 2000 });
-         cy.get("@scrollBar").trigger("mouseup");
+         cy.GridScroll(
+            "ABViewGrid_d08be402-470e-4b9d-b5f4-72e27426522c_datatable",
+            0,
+            2000,
+         );
 
          // Select the edit item
          cy.get(
