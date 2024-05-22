@@ -9,13 +9,11 @@ export default (folderName, Common) => {
       it('Process inserts a record after inserting a label value on the tab "process > onCreate"', () => {
          cy.get(
             '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]',
-         ).type("test label", { delay: 0 });
-
-         cy.wait(1000);
-
-         cy.get(
-            '[data-cy="string label 06a93149-590d-4e4f-9463-5ff43a689fd1 2172ba78-b327-42a1-8918-d97852234aee"]',
-         ).type("test label", { delay: 0 });
+         )
+            .as("inputField")
+            .type("test label")
+            .clear();
+         cy.get("@inputField").type("test label", { delay: 0 });
 
          cy.get(
             '[data-cy="button save 2172ba78-b327-42a1-8918-d97852234aee"]',
