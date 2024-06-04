@@ -30,6 +30,33 @@ const ProcessTestCases = [
    require("./test_cases/process_test-kcs-onCreate-process.js"),
 ];
 
+/**
+ * reset/add the common data used in kitchen sink tests
+ * @param {Cypress} cy
+ */
+function addKSDefaultData(cy) {
+   cy.RunSQL(folderName, [
+      "reset_tables.sql",
+      "reset_roles.sql",
+      "add_testkcs.sql",
+      "add_testkcs2-Menu.sql",
+      "add_testkcs2-combo.sql",
+      "add_testkcs2-ScopedData.sql",
+      "assign_testkcs_testkcs2.sql",
+   ]);
+}
+
+/**
+ * Import an app
+ * @param {Cypress} cy
+ * @param {string} filepath from the test folder
+ */
+function importApp(cy, fileName) {
+   cy.request("POST", "/test/import", {
+      file: `imports/${folderName}/${fileName}`,
+   });
+}
+
 // Don't stop tests on uncaught errors
 Cypress.on("uncaught:exception", (e) => {
    // Unless the error matches below
@@ -41,26 +68,15 @@ Cypress.on("uncaught:exception", (e) => {
 before(() => {
    cy.ResetDB();
    cy.AuthLogin();
-   cy.request("POST", "/test/import", {
-      file: `imports/${folderName}/appbuilder_app.json`,
-   });
 });
 
 beforeEach(() => {
    cy.AuthLogin();
-
-   cy.RunSQL(folderName, [
-      "reset_tables.sql",
-      "reset_roles.sql",
-      "add_testkcs.sql",
-      "add_testkcs2-Menu.sql",
-      "add_testkcs2-combo.sql",
-      "add_testkcs2-ScopedData.sql",
-      "assign_testkcs_testkcs2.sql",
-   ]);
 });
 
 describe("Smoke Test", () => {
+   before(() => importApp(cy, "appbuilder_app.json"));
+
    it("App Loads", () => {
       cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]', { timeout: 30000 })
@@ -73,12 +89,10 @@ describe("Smoke Test", () => {
 });
 
 describe("Widget Tests", () => {
+   before(() => importApp(cy, "appbuilder_app.json"));
+
    beforeEach(() => {
-      // Common.RunSQL(cy, folderName, [
-      //    "add_testkcs.sql",
-      //    "add_testkcs2-Menu.sql",
-      //    "add_testkcs2-ScopedData.sql",
-      // ]);
+      addKSDefaultData(cy);
       cy.visit("/");
       cy.get('[data-cy="portal_work_menu_sidebar"]', { timeout: 30000 })
          .should("be.visible")
@@ -95,12 +109,32 @@ describe("Widget Tests", () => {
 });
 
 describe("Process Tests", () => {
+   before(() => importApp(cy, "appbuilder_app.json"));
+
    beforeEach(() => {
+      addKSDefaultData(cy);
       cy.visit("/");
       cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]').click();
    });
 
    ProcessTestCases.forEach((tc) => {
       tc(folderName, Common);
+   });
+});
+
+/** @TODO: Remove .only */
+describe.only("Simple Accounting", () => {
+   before(() => importApp(cy, "simpleAccounting.json"));
+
+   beforeEach(() => {
+      cy.RunSQL(folderName, ["accounting_data.sql"]);
+      cy.visit("/");
+      cy.get('[data-cy="portal_work_menu_sidebar"]').should("exist").click();
+      cy.get('[data-cy="bc7806f9-0048-4a97-8c9d-26c89954a0d3"]')
+         .should("exist")
+         .click();
+   });
+   it("test", () => {
+      cy.log("OK");
    });
 });
