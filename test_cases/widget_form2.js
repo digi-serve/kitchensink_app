@@ -70,7 +70,7 @@ export default (folderName) => {
          // verify the connection is made
          cy.get(
             '.webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="2"]',
-         ).should("contain", "b0ff");
+         ).should("contain", "Link1");
 
          // click Second entry
          cy.get(
@@ -115,7 +115,7 @@ export default (folderName) => {
          // verify the connection is made
          cy.get(
             '.webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="1"]',
-         ).should("contain", "b0ff");
+         ).should("contain", "Link1");
 
          // verify the connection is made
          cy.get(
@@ -124,7 +124,7 @@ export default (folderName) => {
             .find(
                '.webix_ss_center > .webix_ss_center_scroll > .webix_last > [aria-rowindex="2"]',
             )
-            .should("contain", "b0ff");
+            .should("contain", "Link1");
       });
    });
 };
