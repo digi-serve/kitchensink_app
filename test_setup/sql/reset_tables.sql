@@ -55,6 +55,9 @@ LOCK TABLES `AB_kitchensink_testkcsComments` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsComments`;
 UNLOCK TABLES;
 
+LOCK TABLES `AB_kitchensink_testkcsText` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsText`;
+UNLOCK TABLES;
 
 LOCK TABLES `AB_kitchensink_testkcsDCNoLink` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsDCNoLink`;

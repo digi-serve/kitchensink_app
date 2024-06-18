@@ -16,4 +16,47 @@ VALUES (
   "admin"
 );
 UNLOCK TABLES;
+LOCK TABLES `AB_testkcskeyb` WRITE;
+TRUNCATE TABLE `AB_testkcskeyb`;
+INSERT INTO `AB_testkcskeyb` (
+  `uuid`,
+  `created_at`,
+  `updated_at`,
+  `user`,
+  `Key A`
+)
+VALUES (
+  UUID(),
+  NOW(),
+  NOW(),
+  "Mr. Admin",
+  "Record A"
+);
+INSERT INTO `AB_testkcskeyb` (
+  `uuid`,
+  `created_at`,
+  `updated_at`,
+  `user`,
+  `Key A`
+)
+VALUES (
+  UUID(),
+  NOW(),
+  NOW(),
+  "Mr. Admin",
+  "Record B"
+);
+INSERT INTO `AB_testkcskeyb` (
+  `uuid`,
+  `created_at`,
+  `updated_at`,
+  `user`
+)
+VALUES (
+  UUID(),
+  NOW(),
+  NOW(),
+  "Mr. Admin"
+);
+UNLOCK TABLES;
 SET FOREIGN_KEY_CHECKS = 1;

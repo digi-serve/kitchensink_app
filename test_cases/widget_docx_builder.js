@@ -3,14 +3,14 @@ import path from "path";
 export default () => {
    describe("DOCX Builder", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          // Select the tab "DOCX Builder"
          cy.get('[data-cy^="tab-DOCXBuilder-"]').click();
       });
 
       it("Downloading", () => {
-         cy.get(
-            '[data-cy^="docx download"] > .fa-file-word-o'
-         )
+         cy.get('[data-cy^="docx download"] > .fa-file-word-o')
             .scrollIntoView()
             .should("be.visible")
             .click()
@@ -18,7 +18,7 @@ export default () => {
                // file path is relative to the working folder
                const filename = path.join(
                   Cypress.config("downloadsFolder"),
-                  "DOC.docx"
+                  "DOC.docx",
                );
 
                // browser might take a while to download the file,
