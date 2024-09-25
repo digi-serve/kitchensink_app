@@ -1,6 +1,8 @@
 export default () => {
    describe("Does combo index work", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
             '[data-cy="tab-Combo-a51c4e1a-6b48-4c4c-a918-abb6faf0f6c0-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
@@ -46,6 +48,7 @@ export default () => {
          cy.get('[data-cy^="button reset c44"]')
             .should("be.visible")
             .click({ force: true });
+         cy.get(".webix_spin").should("not.exist");
          cy.get(
             '[data-cy="detail connected user 1dfb19ef-b689-4d5a-99f1-7cf1b9b524ac a69d9ebf-194c-4161-ba3c-b7e0b0daebd5"]',
          )
