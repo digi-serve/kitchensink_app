@@ -6,6 +6,8 @@ export default () => {
          cy.RunSQL(folderName, ["form_save_selectable.sql"]);
       });
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
             '[data-cy="tab-ChildData-d4c3fb66-94ff-4d70-9761-678e6a7d562f-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
