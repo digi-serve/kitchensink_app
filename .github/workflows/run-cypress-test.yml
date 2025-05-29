@@ -49,17 +49,17 @@ jobs:
         with:
           resource: http://localhost:8080
           timeout: 300000
-          
+
       - name: Run Cypress Tests
         run: npm run test:e2e:app -- --browser chrome
         working-directory: ./ab
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
           path: ./ab/test/e2e/cypress/screenshots
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: ABServices.log
