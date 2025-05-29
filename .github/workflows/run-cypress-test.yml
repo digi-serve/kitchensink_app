@@ -2,7 +2,7 @@ name: Cypress Test
 on:
   # Run on any commit to the #master branch
   push:
-    branches: [master]
+    branches: [master, is/update]
 
   # Run on pull requests into the #master branch
 
@@ -54,12 +54,12 @@ jobs:
         run: npm run test:e2e:app -- --browser chrome
         working-directory: ./ab
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: cypress-screenshots
           path: ./ab/test/e2e/cypress/screenshots
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v
         if: failure()
         with:
           name: ABServices.log
