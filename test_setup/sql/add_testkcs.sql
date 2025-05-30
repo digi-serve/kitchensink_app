@@ -259,3 +259,43 @@ INSERT INTO `AB_kitchensink_testkcsText` (`uuid`, `created_at`, `updated_at`, `p
 VALUES
   (UUID(),NOW(),NOW(),NULL,'longtext',1);
 UNLOCK TABLES;
+
+
+
+LOCK TABLES `AB_kitchensink_testkcsDCRegion` WRITE;
+/*!40000 ALTER TABLE `AB_kitchensink_testkcsDCRegion` DISABLE KEYS */;
+
+INSERT INTO `AB_kitchensink_testkcsDCRegion` (`uuid`, `created_at`, `updated_at`, `properties`, `name`)
+VALUES
+	('018d67ad-2270-405f-b0c9-9d194dfc93ca','2025-05-29 08:15:16','2025-05-29 08:15:16',NULL,'C'),
+	('5013baa1-681b-425b-984a-05bb543390ca','2025-05-29 08:15:06','2025-05-29 08:15:06',NULL,'A'),
+	('c4a5c49f-a30d-458f-9033-e588ae7b18b8','2025-05-29 08:15:11','2025-05-29 08:15:11',NULL,'B');
+
+/*!40000 ALTER TABLE `AB_kitchensink_testkcsDCRegion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsDirectors` WRITE;
+/*!40000 ALTER TABLE `AB_kitchensink_testkcsDirectors` DISABLE KEYS */;
+
+INSERT INTO `AB_kitchensink_testkcsDirectors` (`uuid`, `created_at`, `updated_at`, `properties`, `name`)
+VALUES
+	('5f4a128b-620e-4263-ba95-5224d7dcc03f','2025-05-29 08:19:29','2025-05-29 08:19:29',NULL,'Lucas'),
+	('6d9d6bb1-27a5-4185-8994-9332f5c8afcd','2025-05-29 08:19:43','2025-05-29 08:19:43',NULL,'Hausman'),
+	('ecc703ac-ce37-4086-84da-6559ac3742bf','2025-05-29 08:19:35','2025-05-29 08:19:35',NULL,'Spielberg');
+
+/*!40000 ALTER TABLE `AB_kitchensink_testkcsDirectors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsDCMovie` WRITE;
+/*!40000 ALTER TABLE `AB_kitchensink_testkcsDCMovie` DISABLE KEYS */;
+
+INSERT INTO `AB_kitchensink_testkcsDCMovie` (`uuid`, `created_at`, `updated_at`, `properties`, `name`, `region`, `movie`)
+VALUES
+	('2817e6e0-c074-4bc5-8285-d6930516e3c4','2025-05-29 08:16:36','2025-05-29 08:16:36',NULL,'Matrix','c4a5c49f-a30d-458f-9033-e588ae7b18b8','6d9d6bb1-27a5-4185-8994-9332f5c8afcd'),
+	('3f70abf2-05da-455a-9bf2-19320d09e91f','2025-05-29 08:16:54','2025-05-29 08:16:54',NULL,'Lord Of The Rings',NULL,NULL),
+	('68f535e3-c51c-4298-8cd5-a1ecc2853976','2025-05-29 08:16:24','2025-05-29 08:16:24',NULL,'Star Wars','5013baa1-681b-425b-984a-05bb543390ca','5f4a128b-620e-4263-ba95-5224d7dcc03f');
+
+/*!40000 ALTER TABLE `AB_kitchensink_testkcsDCMovie` ENABLE KEYS */;
+UNLOCK TABLES;
+
+

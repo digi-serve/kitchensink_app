@@ -76,4 +76,16 @@ LOCK TABLES `AB_kitchensink_testkcsText` WRITE;
 TRUNCATE TABLE `AB_kitchensink_testkcsText`;
 UNLOCK TABLES;
 
+LOCK TABLES `AB_kitchensink_testkcsDCMovie` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsDCMovie`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsDCRegion` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsDCRegion`;
+UNLOCK TABLES;
+
+LOCK TABLES `AB_kitchensink_testkcsDirectors` WRITE;
+TRUNCATE TABLE `AB_kitchensink_testkcsDirectors`;
+UNLOCK TABLES;
+
 SET FOREIGN_KEY_CHECKS = 1;
