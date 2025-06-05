@@ -113,6 +113,7 @@ describe.skip("Process Tests", () => {
 
 describe("pwa Tests", () => {
    beforeEach(() => {
+      cy.viewport('iphone-6') // Set viewport to 375px x 667px
       cy.visit("/mobile/app/admin/c355634c-42ca-4317-a086-3aeb4f750d8b?route=First_Page");
       cy.get(".title-large-text", { timeout: 30000 }).should("be.visible").contains("First Page");
    });
