@@ -1,7 +1,7 @@
 {
    "abVersion": "0.0.0",
-   "filename": "app_kitchen-sink_20240523",
-   "date": "20240523",
+   "filename": "app_kitchen-sink_20250530",
+   "date": "20250530",
    "definitions": [
       {
          "id": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48",
@@ -60,7 +60,10 @@
                   "14038fde-cf9d-4627-be3b-31537fb1b181",
                   "47ea98e0-7720-45b4-ac49-a290172561fd",
                   "94bb377b-9810-487e-8e28-d3f8b49a3c65",
-                  "76a10201-8e9b-4957-9694-797fc3e7ed94"
+                  "76a10201-8e9b-4957-9694-797fc3e7ed94",
+                  "ff301d4c-c0e5-4b9a-aae0-7f48bb17f3db",
+                  "6580551e-2419-487f-ae48-7047255dce64",
+                  "e29189b2-aa3f-4b32-8d29-fddb28a4b536"
                ],
                "objectListSettings": {
                   "isOpen": false,
@@ -108,7 +111,11 @@
                   "d1f1bb03-f6a8-4f9c-8611-7beb53e4bd8f",
                   "63278f55-c2c4-4725-9272-6125e0eb20f6",
                   "3ff56904-668e-40db-80f4-b92e97c40781",
-                  "5797134e-129b-4b11-8205-3759d48c2ec2"
+                  "5797134e-129b-4b11-8205-3759d48c2ec2",
+                  "5eee1941-6d11-45e1-8b45-de33a6e6979a",
+                  "1c4caf52-622b-45fc-b40b-e759c705996e",
+                  "3cafec23-ea8a-483d-9603-dabaf730400b",
+                  "c17b6b9c-48f2-454b-b215-3d10bc277e65"
                ],
                "pageIDs": [
                   "cb77ced0-a803-46b7-8a79-f9084d75d51c",
@@ -154,7 +161,7 @@
             }
          },
          "createdAt": "2021-09-13T04:30:02.000Z",
-         "updatedAt": "2024-04-22T22:20:34.000Z"
+         "updatedAt": "2025-05-29T08:27:22.000Z"
       },
       {
          "id": "58901e0a-f3f9-469d-9dc2-10f9e5a96296",
@@ -6523,6 +6530,370 @@
          "updatedAt": "2024-03-02T01:23:45.000Z"
       },
       {
+         "id": "e29189b2-aa3f-4b32-8d29-fddb28a4b536",
+         "name": "test-kcs-Directors",
+         "type": "object",
+         "json": {
+            "id": "e29189b2-aa3f-4b32-8d29-fddb28a4b536",
+            "type": "object",
+            "name": "test-kcs-Directors",
+            "labelFormat": "",
+            "labelSettings": {
+               "isNoLabelDisplay": 0
+            },
+            "isImported": 0,
+            "isExternal": 0,
+            "tableName": "AB_kitchensink_testkcsDirectors",
+            "primaryColumnName": "uuid",
+            "transColumnName": "",
+            "urlPath": "",
+            "objectWorkspace": {
+               "sortFields": [],
+               "filterConditions": [],
+               "frozenColumnID": "",
+               "hiddenFields": []
+            },
+            "isSystemObject": 0,
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCDirectors"
+               }
+            ],
+            "fieldIDs": [
+               "5a134c94-9af1-4bcf-b328-da3f1c66ceb0",
+               "97db5d4e-65d0-43db-a01b-e553dde966c9"
+            ],
+            "importedFieldIDs": [],
+            "indexIDs": [],
+            "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
+         },
+         "createdAt": "2025-05-29T08:18:13.000Z",
+         "updatedAt": "2025-05-29T08:19:24.000Z"
+      },
+      {
+         "id": "5a134c94-9af1-4bcf-b328-da3f1c66ceb0",
+         "name": "test-kcs-Directors->name",
+         "type": "field",
+         "json": {
+            "id": "5a134c94-9af1-4bcf-b328-da3f1c66ceb0",
+            "type": "field",
+            "key": "string",
+            "icon": "font",
+            "isImported": 0,
+            "columnName": "name",
+            "settings": {
+               "showIcon": 1,
+               "required": 0,
+               "unique": 0,
+               "validationRules": "[]",
+               "default": "",
+               "maxLength": "",
+               "supportMultilingual": 0,
+               "width": 100
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "name"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:18:55.000Z",
+         "updatedAt": "2025-05-29T08:18:55.000Z"
+      },
+      {
+         "id": "97db5d4e-65d0-43db-a01b-e553dde966c9",
+         "name": "test-kcs-Directors->movie",
+         "type": "field",
+         "json": {
+            "id": "97db5d4e-65d0-43db-a01b-e553dde966c9",
+            "type": "field",
+            "key": "connectObject",
+            "icon": "external-link",
+            "isImported": 0,
+            "columnName": "movie",
+            "settings": {
+               "showIcon": 1,
+               "required": 0,
+               "unique": 0,
+               "validationRules": "[]",
+               "linkObject": "6580551e-2419-487f-ae48-7047255dce64",
+               "linkType": "many",
+               "linkViaType": "one",
+               "linkColumn": "2515ed33-14cd-4289-bd75-be82893b5c77",
+               "isSource": 1,
+               "isCustomFK": 0,
+               "indexField": "",
+               "indexField2": "",
+               "netsuiteOneColumn": "",
+               "width": 100
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "movie"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:19:24.000Z",
+         "updatedAt": "2025-05-29T08:19:24.000Z"
+      },
+      {
+         "id": "6580551e-2419-487f-ae48-7047255dce64",
+         "name": "test-kcs-DCMovie",
+         "type": "object",
+         "json": {
+            "id": "6580551e-2419-487f-ae48-7047255dce64",
+            "type": "object",
+            "name": "test-kcs-DCMovie",
+            "labelFormat": "",
+            "labelSettings": {
+               "isNoLabelDisplay": 0
+            },
+            "isImported": 0,
+            "isExternal": 0,
+            "tableName": "AB_kitchensink_testkcsDCMovie",
+            "primaryColumnName": "uuid",
+            "transColumnName": "",
+            "urlPath": "",
+            "objectWorkspace": {
+               "sortFields": [],
+               "filterConditions": [],
+               "frozenColumnID": "",
+               "hiddenFields": []
+            },
+            "isSystemObject": 0,
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCMovie"
+               }
+            ],
+            "fieldIDs": [
+               "c65918dc-d763-433a-b4a1-04fac706f50d",
+               "19af417b-5b19-4068-85d6-c62245be2425",
+               "2515ed33-14cd-4289-bd75-be82893b5c77"
+            ],
+            "importedFieldIDs": [],
+            "indexIDs": [],
+            "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
+         },
+         "createdAt": "2025-05-29T08:15:39.000Z",
+         "updatedAt": "2025-05-29T08:19:24.000Z"
+      },
+      {
+         "id": "c65918dc-d763-433a-b4a1-04fac706f50d",
+         "name": "test-kcs-DCMovie->name",
+         "type": "field",
+         "json": {
+            "id": "c65918dc-d763-433a-b4a1-04fac706f50d",
+            "type": "field",
+            "key": "string",
+            "icon": "font",
+            "isImported": 0,
+            "columnName": "name",
+            "settings": {
+               "showIcon": 1,
+               "required": 0,
+               "unique": 0,
+               "validationRules": "[]",
+               "default": "",
+               "maxLength": "",
+               "supportMultilingual": 0,
+               "width": 100
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "name"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:15:49.000Z",
+         "updatedAt": "2025-05-29T08:15:49.000Z"
+      },
+      {
+         "id": "19af417b-5b19-4068-85d6-c62245be2425",
+         "name": "test-kcs-DCMovie->region",
+         "type": "field",
+         "json": {
+            "id": "19af417b-5b19-4068-85d6-c62245be2425",
+            "type": "field",
+            "key": "connectObject",
+            "icon": "external-link",
+            "isImported": 0,
+            "columnName": "region",
+            "settings": {
+               "showIcon": 1,
+               "required": 0,
+               "unique": 0,
+               "validationRules": "[]",
+               "linkObject": "ff301d4c-c0e5-4b9a-aae0-7f48bb17f3db",
+               "linkType": "one",
+               "linkViaType": "many",
+               "linkColumn": "2a8765e4-eb56-4e0a-80ac-d0ac8ca33475",
+               "isSource": 1,
+               "isCustomFK": 0,
+               "indexField": "",
+               "indexField2": "",
+               "netsuiteOneColumn": "",
+               "width": 100
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "region"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:16:18.000Z",
+         "updatedAt": "2025-05-29T08:16:19.000Z"
+      },
+      {
+         "id": "ff301d4c-c0e5-4b9a-aae0-7f48bb17f3db",
+         "name": "test-kcs-DCRegion",
+         "type": "object",
+         "json": {
+            "id": "ff301d4c-c0e5-4b9a-aae0-7f48bb17f3db",
+            "type": "object",
+            "name": "test-kcs-DCRegion",
+            "labelFormat": "",
+            "labelSettings": {
+               "isNoLabelDisplay": 0
+            },
+            "isImported": 0,
+            "isExternal": 0,
+            "tableName": "AB_kitchensink_testkcsDCRegion",
+            "primaryColumnName": "uuid",
+            "transColumnName": "",
+            "urlPath": "",
+            "objectWorkspace": {
+               "sortFields": [],
+               "filterConditions": [],
+               "frozenColumnID": "",
+               "hiddenFields": []
+            },
+            "isSystemObject": 0,
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCRegion"
+               }
+            ],
+            "fieldIDs": [
+               "0506af2e-6b80-4e2d-8b2d-0b6fa31b8fae",
+               "2a8765e4-eb56-4e0a-80ac-d0ac8ca33475"
+            ],
+            "importedFieldIDs": [],
+            "indexIDs": [],
+            "createdInAppID": "0ac51d6c-7c95-461c-aa8b-7da00afc4f48"
+         },
+         "createdAt": "2025-05-29T08:14:50.000Z",
+         "updatedAt": "2025-05-29T08:16:19.000Z"
+      },
+      {
+         "id": "0506af2e-6b80-4e2d-8b2d-0b6fa31b8fae",
+         "name": "test-kcs-DCRegion->name",
+         "type": "field",
+         "json": {
+            "id": "0506af2e-6b80-4e2d-8b2d-0b6fa31b8fae",
+            "type": "field",
+            "key": "string",
+            "icon": "font",
+            "isImported": 0,
+            "columnName": "name",
+            "settings": {
+               "showIcon": 1,
+               "required": 0,
+               "unique": 0,
+               "validationRules": "[]",
+               "default": "",
+               "maxLength": "",
+               "supportMultilingual": 0,
+               "width": 100
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "name"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:15:01.000Z",
+         "updatedAt": "2025-05-29T08:15:01.000Z"
+      },
+      {
+         "id": "2a8765e4-eb56-4e0a-80ac-d0ac8ca33475",
+         "name": "test-kcs-DCRegion->test-kcs-DCMovie",
+         "type": "field",
+         "json": {
+            "id": "2a8765e4-eb56-4e0a-80ac-d0ac8ca33475",
+            "type": "field",
+            "key": "connectObject",
+            "icon": "external-link",
+            "isImported": 0,
+            "columnName": "region",
+            "settings": {
+               "showIcon": 1,
+               "linkObject": "6580551e-2419-487f-ae48-7047255dce64",
+               "linkType": "many",
+               "linkViaType": "one",
+               "isCustomFK": 0,
+               "indexField": "",
+               "indexField2": "",
+               "isSource": 0,
+               "width": 100,
+               "required": 0,
+               "unique": 0,
+               "linkColumn": "19af417b-5b19-4068-85d6-c62245be2425"
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCMovie"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:16:19.000Z",
+         "updatedAt": "2025-05-29T08:16:19.000Z"
+      },
+      {
+         "id": "2515ed33-14cd-4289-bd75-be82893b5c77",
+         "name": "test-kcs-DCMovie->test-kcs-DCDirectors",
+         "type": "field",
+         "json": {
+            "id": "2515ed33-14cd-4289-bd75-be82893b5c77",
+            "type": "field",
+            "key": "connectObject",
+            "icon": "external-link",
+            "isImported": 0,
+            "columnName": "movie",
+            "settings": {
+               "showIcon": 1,
+               "linkObject": "e29189b2-aa3f-4b32-8d29-fddb28a4b536",
+               "linkType": "one",
+               "linkViaType": "many",
+               "isCustomFK": 0,
+               "indexField": "",
+               "indexField2": "",
+               "isSource": 0,
+               "width": 100,
+               "required": 0,
+               "unique": 0,
+               "linkColumn": "97db5d4e-65d0-43db-a01b-e553dde966c9"
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCDirectors"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:19:24.000Z",
+         "updatedAt": "2025-05-29T08:19:24.000Z"
+      },
+      {
          "id": "47ea98e0-7720-45b4-ac49-a290172561fd",
          "name": "test-kcs-DCNoLink",
          "type": "object",
@@ -8547,6 +8918,177 @@
          },
          "createdAt": "2024-04-22T22:20:34.000Z",
          "updatedAt": "2024-04-22T22:20:34.000Z"
+      },
+      {
+         "id": "5eee1941-6d11-45e1-8b45-de33a6e6979a",
+         "name": "test-kcs-DCRegions",
+         "type": "datacollection",
+         "json": {
+            "id": "5eee1941-6d11-45e1-8b45-de33a6e6979a",
+            "name": "test-kcs-DCRegions",
+            "type": "datacollection",
+            "settings": {
+               "linkDatacollectionID": "",
+               "linkFieldID": "19af417b-5b19-4068-85d6-c62245be2425",
+               "followDatacollectionID": "",
+               "objectWorkspace": {
+                  "filterConditions": {
+                     "glue": "and",
+                     "rules": []
+                  },
+                  "sortFields": [
+                     {
+                        "key": "0506af2e-6b80-4e2d-8b2d-0b6fa31b8fae",
+                        "dir": "desc"
+                     }
+                  ]
+               },
+               "fixSelect": "_FirstRecordDefault",
+               "loadAll": 0,
+               "isQuery": false,
+               "populate": true,
+               "syncType": 1,
+               "datasourceID": "ff301d4c-c0e5-4b9a-aae0-7f48bb17f3db"
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCRegions"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:20:50.000Z",
+         "updatedAt": "2025-05-29T08:22:48.000Z"
+      },
+      {
+         "id": "1c4caf52-622b-45fc-b40b-e759c705996e",
+         "name": "test-kcs-DCMoviesInRegion",
+         "type": "datacollection",
+         "json": {
+            "id": "1c4caf52-622b-45fc-b40b-e759c705996e",
+            "name": "test-kcs-DCMoviesInRegion",
+            "type": "datacollection",
+            "settings": {
+               "linkDatacollectionID": "5eee1941-6d11-45e1-8b45-de33a6e6979a",
+               "linkFieldID": "19af417b-5b19-4068-85d6-c62245be2425",
+               "followDatacollectionID": "",
+               "objectWorkspace": {
+                  "filterConditions": {
+                     "glue": "and",
+                     "rules": []
+                  },
+                  "sortFields": []
+               },
+               "fixSelect": "",
+               "loadAll": 0,
+               "isQuery": false,
+               "populate": true,
+               "syncType": 1,
+               "datasourceID": "6580551e-2419-487f-ae48-7047255dce64"
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCMoviesInRegion"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:21:28.000Z",
+         "updatedAt": "2025-05-29T08:21:38.000Z"
+      },
+      {
+         "id": "3cafec23-ea8a-483d-9603-dabaf730400b",
+         "name": "test-kcs-DCDirectorsAssigned",
+         "type": "datacollection",
+         "json": {
+            "id": "3cafec23-ea8a-483d-9603-dabaf730400b",
+            "name": "test-kcs-DCDirectorsAssigned",
+            "type": "datacollection",
+            "settings": {
+               "linkDatacollectionID": "",
+               "linkFieldID": "19af417b-5b19-4068-85d6-c62245be2425",
+               "followDatacollectionID": "",
+               "objectWorkspace": {
+                  "filterConditions": {
+                     "glue": "and",
+                     "rules": [
+                        {
+                           "key": "97db5d4e-65d0-43db-a01b-e553dde966c9",
+                           "rule": "in_data_collection",
+                           "value": "1c4caf52-622b-45fc-b40b-e759c705996e"
+                        }
+                     ]
+                  },
+                  "sortFields": [
+                     {
+                        "key": "0506af2e-6b80-4e2d-8b2d-0b6fa31b8fae",
+                        "dir": "desc"
+                     }
+                  ]
+               },
+               "fixSelect": "",
+               "loadAll": 0,
+               "isQuery": false,
+               "populate": true,
+               "syncType": 1,
+               "datasourceID": "e29189b2-aa3f-4b32-8d29-fddb28a4b536"
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCDirectorsAssigned"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:23:39.000Z",
+         "updatedAt": "2025-05-29T08:26:31.000Z"
+      },
+      {
+         "id": "c17b6b9c-48f2-454b-b215-3d10bc277e65",
+         "name": "test-kcs-DCDirectorsUnassigned",
+         "type": "datacollection",
+         "json": {
+            "id": "c17b6b9c-48f2-454b-b215-3d10bc277e65",
+            "name": "test-kcs-DCDirectorsUnassigned",
+            "type": "datacollection",
+            "settings": {
+               "linkDatacollectionID": "",
+               "linkFieldID": "19af417b-5b19-4068-85d6-c62245be2425",
+               "followDatacollectionID": "",
+               "objectWorkspace": {
+                  "filterConditions": {
+                     "glue": "and",
+                     "rules": [
+                        {
+                           "key": "97db5d4e-65d0-43db-a01b-e553dde966c9",
+                           "rule": "not_in_data_collection",
+                           "value": "1c4caf52-622b-45fc-b40b-e759c705996e"
+                        }
+                     ]
+                  },
+                  "sortFields": [
+                     {
+                        "key": "0506af2e-6b80-4e2d-8b2d-0b6fa31b8fae",
+                        "dir": "desc"
+                     }
+                  ]
+               },
+               "fixSelect": "",
+               "loadAll": 0,
+               "isQuery": false,
+               "populate": true,
+               "syncType": 1,
+               "datasourceID": "e29189b2-aa3f-4b32-8d29-fddb28a4b536"
+            },
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "test-kcs-DCDirectorsUnassigned"
+               }
+            ]
+         },
+         "createdAt": "2025-05-29T08:27:22.000Z",
+         "updatedAt": "2025-05-29T08:27:36.000Z"
       },
       {
          "id": "1945778d-c962-4548-95d4-1ebce578c5fa",
@@ -24275,7 +24817,8 @@
                "baae6c32-ca96-4e21-acd2-7a54f57de3d8",
                "415d32b3-5201-4a6f-bb06-10b3f4229f24",
                "3f06ceac-ac30-4e64-b165-e30002fff60c",
-               "0139ab53-3d56-42d4-afd6-da7cb5df503b"
+               "0139ab53-3d56-42d4-afd6-da7cb5df503b",
+               "ff27350d-ef93-40f8-91fc-7d314525b391"
             ],
             "position": {
                "dx": 1,
@@ -24286,7 +24829,7 @@
             "isRoot": false
          },
          "createdAt": "2023-10-20T08:28:32.000Z",
-         "updatedAt": "2024-04-15T21:41:34.000Z"
+         "updatedAt": "2025-05-29T08:29:07.000Z"
       },
       {
          "id": "af4de560-ebf3-4500-a320-6042d3794a26",
@@ -25352,6 +25895,579 @@
          },
          "createdAt": "2024-04-15T21:43:44.000Z",
          "updatedAt": "2024-04-15T21:46:26.000Z"
+      },
+      {
+         "id": "ff27350d-ef93-40f8-91fc-7d314525b391",
+         "name": "InDataCollection Filter",
+         "type": "view",
+         "json": {
+            "id": "ff27350d-ef93-40f8-91fc-7d314525b391",
+            "type": "view",
+            "key": "viewcontainer",
+            "icon": "braille",
+            "name": "InDataCollection Filter",
+            "settings": {
+               "height": 0,
+               "columns": 1,
+               "removable": true,
+               "movable": true
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter"
+               }
+            ],
+            "viewIDs": ["4843c51c-523c-4eee-b099-86b551377789"],
+            "position": {
+               "dx": 1,
+               "dy": 1
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-29T08:29:03.000Z",
+         "updatedAt": "2025-05-30T07:28:04.000Z"
+      },
+      {
+         "id": "4843c51c-523c-4eee-b099-86b551377789",
+         "name": "InDataCollection Filter.layout",
+         "type": "view",
+         "json": {
+            "id": "4843c51c-523c-4eee-b099-86b551377789",
+            "type": "view",
+            "key": "layout",
+            "icon": "columns",
+            "name": "InDataCollection Filter.layout",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter.layout"
+               }
+            ],
+            "viewIDs": [
+               "56475099-331e-4595-869e-518f69306d1c",
+               "675290fe-d512-47f0-8e5e-ea694490783e"
+            ],
+            "position": {
+               "dx": 1,
+               "dy": 1
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T07:28:04.000Z",
+         "updatedAt": "2025-05-30T07:32:11.000Z"
+      },
+      {
+         "id": "56475099-331e-4595-869e-518f69306d1c",
+         "name": "InDataCollection Filter.layout.viewcontainer",
+         "type": "view",
+         "json": {
+            "id": "56475099-331e-4595-869e-518f69306d1c",
+            "type": "view",
+            "key": "viewcontainer",
+            "icon": "braille",
+            "name": "InDataCollection Filter.layout.viewcontainer",
+            "settings": {
+               "height": 0,
+               "columns": 1,
+               "removable": true,
+               "movable": true
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter.layout.viewcontainer"
+               }
+            ],
+            "viewIDs": [
+               "deba09c4-1745-41bb-9bb7-7e888d046ed4",
+               "ff7cc08b-a2b9-40c8-a44b-37b0f26beecf",
+               "bddb809b-f5f7-4c98-8f52-bce301ebc203",
+               "2be37c58-74bc-4309-8b5c-7d4db9f20918",
+               "3e72b411-6d4c-4eed-81b1-f684591edc8a"
+            ],
+            "position": {
+               "dx": 1,
+               "dy": 1
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T07:31:56.000Z",
+         "updatedAt": "2025-05-30T08:03:23.000Z"
+      },
+      {
+         "id": "deba09c4-1745-41bb-9bb7-7e888d046ed4",
+         "name": "InDataCollection Filter.layout.viewcontainer.label",
+         "type": "view",
+         "json": {
+            "id": "deba09c4-1745-41bb-9bb7-7e888d046ed4",
+            "type": "view",
+            "key": "label",
+            "icon": "font",
+            "name": "InDataCollection Filter.layout.viewcontainer.label",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "format": 0,
+               "alignment": "left",
+               "name": "Region",
+               "text": "All Regions"
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "Region",
+                  "text": "All Regions"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 0
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T07:32:40.000Z",
+         "updatedAt": "2025-05-30T08:03:23.000Z"
+      },
+      {
+         "id": "ff7cc08b-a2b9-40c8-a44b-37b0f26beecf",
+         "name": "All Region Grid",
+         "type": "view",
+         "json": {
+            "id": "ff7cc08b-a2b9-40c8-a44b-37b0f26beecf",
+            "type": "view",
+            "key": "grid",
+            "icon": "table",
+            "name": "All Region Grid",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "dataviewID": "5eee1941-6d11-45e1-8b45-de33a6e6979a",
+               "gridFilter": {
+                  "filterOption": 0,
+                  "queryRules": [],
+                  "isGlobalToolbar": 0
+               },
+               "detailsPage": "2be37c58-74bc-4309-8b5c-7d4db9f20918",
+               "editPage": "",
+               "detailsTab": "",
+               "editTab": "",
+               "frozenColumnID": "",
+               "hiddenFields": [],
+               "summaryColumns": [],
+               "countColumns": [],
+               "isEditable": 0,
+               "massUpdate": 0,
+               "allowDelete": 0,
+               "isSortable": 0,
+               "isExportable": 0,
+               "showToolbar": 0,
+               "hideHeader": 0,
+               "labelAsField": 0,
+               "hideButtons": 0,
+               "groupBy": ""
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "All Region Grid"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 1
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T07:54:23.000Z",
+         "updatedAt": "2025-05-30T08:18:29.000Z"
+      },
+      {
+         "id": "bddb809b-f5f7-4c98-8f52-bce301ebc203",
+         "name": "Movies In Region Grid",
+         "type": "view",
+         "json": {
+            "id": "bddb809b-f5f7-4c98-8f52-bce301ebc203",
+            "type": "view",
+            "key": "grid",
+            "icon": "table",
+            "name": "Movies In Region Grid",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "dataviewID": "1c4caf52-622b-45fc-b40b-e759c705996e",
+               "gridFilter": {
+                  "filterOption": 0,
+                  "queryRules": [],
+                  "isGlobalToolbar": 0
+               },
+               "detailsPage": "",
+               "editPage": "",
+               "detailsTab": "",
+               "editTab": "",
+               "frozenColumnID": "",
+               "hiddenFields": [],
+               "summaryColumns": [],
+               "countColumns": [],
+               "isEditable": 0,
+               "massUpdate": 0,
+               "allowDelete": 0,
+               "isSortable": 0,
+               "isExportable": 0,
+               "showToolbar": 0,
+               "hideHeader": 0,
+               "labelAsField": 0,
+               "hideButtons": 0,
+               "groupBy": ""
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "Movies In Region Grid"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 3
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T08:01:00.000Z",
+         "updatedAt": "2025-05-30T08:03:23.000Z"
+      },
+      {
+         "id": "2be37c58-74bc-4309-8b5c-7d4db9f20918",
+         "name": "Region Details",
+         "type": "view",
+         "json": {
+            "id": "2be37c58-74bc-4309-8b5c-7d4db9f20918",
+            "type": "view",
+            "key": "detail",
+            "icon": "file-text-o",
+            "name": "Region Details",
+            "settings": {
+               "height": 0,
+               "columns": 1,
+               "removable": true,
+               "movable": true,
+               "labelPosition": "left",
+               "showLabel": 1,
+               "labelWidth": 120,
+               "dataviewID": "5eee1941-6d11-45e1-8b45-de33a6e6979a",
+               "gravity": []
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "Region Details"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 4
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T08:01:50.000Z",
+         "updatedAt": "2025-05-30T08:03:23.000Z"
+      },
+      {
+         "id": "3e72b411-6d4c-4eed-81b1-f684591edc8a",
+         "name": "InDataCollection Filter.layout.viewcontainer.label",
+         "type": "view",
+         "json": {
+            "id": "3e72b411-6d4c-4eed-81b1-f684591edc8a",
+            "type": "view",
+            "key": "label",
+            "icon": "font",
+            "name": "InDataCollection Filter.layout.viewcontainer.label",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "format": 0,
+               "alignment": "left",
+               "name": "InDataCollection Filter.layout.viewcontainer.label",
+               "text": "movies in Region"
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter.layout.viewcontainer.label",
+                  "text": "movies in Region"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 2
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T08:02:59.000Z",
+         "updatedAt": "2025-05-30T08:03:23.000Z"
+      },
+      {
+         "id": "675290fe-d512-47f0-8e5e-ea694490783e",
+         "name": "InDataCollection Filter.layout.viewcontainer",
+         "type": "view",
+         "json": {
+            "id": "675290fe-d512-47f0-8e5e-ea694490783e",
+            "type": "view",
+            "key": "viewcontainer",
+            "icon": "braille",
+            "name": "InDataCollection Filter.layout.viewcontainer",
+            "settings": {
+               "height": 0,
+               "columns": 1,
+               "removable": true,
+               "movable": true
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter.layout.viewcontainer"
+               }
+            ],
+            "viewIDs": [
+               "80b1c275-a1ee-4b57-aeed-6a89fb757d59",
+               "0fce95ee-a00b-412a-9eb1-3e21a9d401d7",
+               "6f0a2ef6-4bbe-4e44-9c1b-8163f20392f1",
+               "2c11432e-909d-4401-9056-93da17e9bf8d"
+            ],
+            "position": {
+               "dx": 1,
+               "dy": 1
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T07:32:08.000Z",
+         "updatedAt": "2025-05-30T08:17:14.000Z"
+      },
+      {
+         "id": "80b1c275-a1ee-4b57-aeed-6a89fb757d59",
+         "name": "Assigned Grid",
+         "type": "view",
+         "json": {
+            "id": "80b1c275-a1ee-4b57-aeed-6a89fb757d59",
+            "type": "view",
+            "key": "grid",
+            "icon": "table",
+            "name": "Assigned Grid",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "dataviewID": "3cafec23-ea8a-483d-9603-dabaf730400b",
+               "gridFilter": {
+                  "filterOption": 0,
+                  "queryRules": [],
+                  "isGlobalToolbar": 0
+               },
+               "detailsPage": "",
+               "editPage": "",
+               "detailsTab": "",
+               "editTab": "",
+               "frozenColumnID": "",
+               "hiddenFields": [],
+               "summaryColumns": [],
+               "countColumns": [],
+               "isEditable": 0,
+               "massUpdate": 0,
+               "allowDelete": 0,
+               "isSortable": 0,
+               "isExportable": 0,
+               "showToolbar": 0,
+               "hideHeader": 0,
+               "labelAsField": 0,
+               "hideButtons": 0,
+               "groupBy": ""
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "Assigned Grid"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 1
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T07:59:01.000Z",
+         "updatedAt": "2025-05-30T08:17:13.000Z"
+      },
+      {
+         "id": "0fce95ee-a00b-412a-9eb1-3e21a9d401d7",
+         "name": "UnAssigned Grid",
+         "type": "view",
+         "json": {
+            "id": "0fce95ee-a00b-412a-9eb1-3e21a9d401d7",
+            "type": "view",
+            "key": "grid",
+            "icon": "table",
+            "name": "UnAssigned Grid",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "dataviewID": "c17b6b9c-48f2-454b-b215-3d10bc277e65",
+               "gridFilter": {
+                  "filterOption": 0,
+                  "queryRules": [],
+                  "isGlobalToolbar": 0
+               },
+               "detailsPage": "",
+               "editPage": "",
+               "detailsTab": "",
+               "editTab": "",
+               "frozenColumnID": "",
+               "hiddenFields": [],
+               "summaryColumns": [],
+               "countColumns": [],
+               "isEditable": 0,
+               "massUpdate": 0,
+               "allowDelete": 0,
+               "isSortable": 0,
+               "isExportable": 0,
+               "showToolbar": 0,
+               "hideHeader": 0,
+               "labelAsField": 0,
+               "hideButtons": 0,
+               "groupBy": ""
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "UnAssigned Grid"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 3
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T08:00:00.000Z",
+         "updatedAt": "2025-05-30T08:17:13.000Z"
+      },
+      {
+         "id": "6f0a2ef6-4bbe-4e44-9c1b-8163f20392f1",
+         "name": "InDataCollection Filter.layout.viewcontainer.label",
+         "type": "view",
+         "json": {
+            "id": "6f0a2ef6-4bbe-4e44-9c1b-8163f20392f1",
+            "type": "view",
+            "key": "label",
+            "icon": "font",
+            "name": "InDataCollection Filter.layout.viewcontainer.label",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "format": 0,
+               "alignment": "left",
+               "name": "InDataCollection Filter.layout.viewcontainer.label",
+               "text": "Assigned Directors"
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter.layout.viewcontainer.label",
+                  "text": "Assigned Directors"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 0
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T08:05:03.000Z",
+         "updatedAt": "2025-05-30T08:17:13.000Z"
+      },
+      {
+         "id": "2c11432e-909d-4401-9056-93da17e9bf8d",
+         "name": "InDataCollection Filter.layout.viewcontainer.label",
+         "type": "view",
+         "json": {
+            "id": "2c11432e-909d-4401-9056-93da17e9bf8d",
+            "type": "view",
+            "key": "label",
+            "icon": "font",
+            "name": "InDataCollection Filter.layout.viewcontainer.label",
+            "settings": {
+               "height": 0,
+               "columnSpan": 1,
+               "rowSpan": 1,
+               "format": 0,
+               "alignment": "left",
+               "name": "InDataCollection Filter.layout.viewcontainer.label",
+               "text": "UnAssigned"
+            },
+            "accessLevels": {},
+            "translations": [
+               {
+                  "language_code": "en",
+                  "label": "InDataCollection Filter.layout.viewcontainer.label",
+                  "text": "UnAssigned"
+               }
+            ],
+            "viewIDs": [],
+            "position": {
+               "dx": 1,
+               "dy": 1,
+               "x": 0,
+               "y": 2
+            },
+            "isRoot": false
+         },
+         "createdAt": "2025-05-30T08:10:33.000Z",
+         "updatedAt": "2025-05-30T08:17:13.000Z"
       },
       {
          "id": "dd6f7981-cc7b-457c-b231-742ce85004f8",
@@ -27415,8 +28531,8 @@
    "files": {
       "072676f0-cb19-4d73-b68b-cc8c80ebe2ce": {
          "meta": {
-            "created_at": "2024-05-22 06:57:25",
-            "updated_at": "2024-05-22 06:57:25",
+            "created_at": "2025-05-29 08:13:43",
+            "updated_at": "2025-05-29 08:13:43",
             "field": null,
             "object": null,
             "file": "072676f0-cb19-4d73-b68b-cc8c80ebe2ce.docx",
@@ -27430,8 +28546,8 @@
       "789747da-ba6e-42dd-80e8-485e3fbe5b97": null,
       "fb91686f-43af-47b0-981c-3b3d179270b0": {
          "meta": {
-            "created_at": "2024-05-22 06:57:25",
-            "updated_at": "2024-05-22 06:57:25",
+            "created_at": "2025-05-29 08:13:43",
+            "updated_at": "2025-05-29 08:13:43",
             "field": "5d41635a-4e20-4159-9a9a-7aafff38feba",
             "object": "01e0c6d4-ab5e-41ca-8715-77f0424e623f",
             "file": "fb91686f-43af-47b0-981c-3b3d179270b0.png",
@@ -27454,8 +28570,8 @@
    "scopes": [
       {
          "uuid": "6fc24a82-01f6-4fb4-b45b-e734ecb8e87e",
-         "created_at": "2024-05-22T06:57:23.000Z",
-         "updated_at": "2024-05-22T06:57:23.000Z",
+         "created_at": "2024-04-15T21:13:07.000Z",
+         "updated_at": "2024-04-15T21:13:07.000Z",
          "properties": null,
          "translations": [
             {
@@ -27488,13 +28604,15 @@
          },
          "allowAll": 0,
          "createdBy": null,
+         "roles__relation": null,
+         "roles": null,
          "name": "test-kcs-scope",
          "description": "Restricted scope on test-kcs-scoped-data object"
       },
       {
          "uuid": "7d54e52e-65e6-4da7-8faa-26aed0c1160e",
-         "created_at": "2024-05-22T06:57:23.000Z",
-         "updated_at": "2024-05-22T06:57:23.000Z",
+         "created_at": "2024-04-15T21:13:07.000Z",
+         "updated_at": "2024-04-15T21:13:07.000Z",
          "properties": null,
          "translations": [
             {
@@ -27518,13 +28636,15 @@
          "Filters": null,
          "allowAll": 0,
          "createdBy": null,
+         "roles__relation": null,
+         "roles": null,
          "name": "test-kcs-fa",
          "description": "Full Access Scope for Kitchensink App Objects"
       },
       {
          "uuid": "506a6815-0073-436e-9e2a-b5bc6b655b8a",
-         "created_at": "2024-05-22T06:57:23.000Z",
-         "updated_at": "2024-05-22T06:57:23.000Z",
+         "created_at": "2024-04-15T21:13:07.000Z",
+         "updated_at": "2024-04-15T21:13:07.000Z",
          "properties": null,
          "translations": [
             {
@@ -27547,6 +28667,8 @@
          "Filters": null,
          "allowAll": 0,
          "createdBy": null,
+         "roles__relation": null,
+         "roles": null,
          "name": "test-kcs-restricted-scope",
          "description": "No acces to the test-kcs-scoped-data"
       }
@@ -27554,8 +28676,8 @@
    "roles": [
       {
          "uuid": "4cb11fa7-3d79-412c-9a03-0ce8d7210cde",
-         "created_at": "2024-05-22T06:57:23.000Z",
-         "updated_at": "2024-05-22T06:57:23.000Z",
+         "created_at": "2024-04-15T21:13:07.000Z",
+         "updated_at": "2024-04-15T21:13:07.000Z",
          "properties": null,
          "translations": [
             {
@@ -27577,8 +28699,8 @@
       },
       {
          "uuid": "c9093730-0176-4f72-b410-bfb6856ff713",
-         "created_at": "2024-05-22T06:57:23.000Z",
-         "updated_at": "2024-05-22T06:57:23.000Z",
+         "created_at": "2024-04-15T21:13:07.000Z",
+         "updated_at": "2024-04-15T21:13:07.000Z",
          "properties": null,
          "translations": [
             {
@@ -27600,8 +28722,8 @@
       },
       {
          "uuid": "eb4f75ea-c995-4fc6-8bab-0ab2d6552508",
-         "created_at": "2024-05-22T06:57:23.000Z",
-         "updated_at": "2024-05-22T06:57:23.000Z",
+         "created_at": "2024-04-15T21:13:07.000Z",
+         "updated_at": "2024-04-15T21:13:07.000Z",
          "properties": null,
          "translations": [
             {
