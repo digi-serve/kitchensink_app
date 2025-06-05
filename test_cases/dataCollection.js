@@ -355,7 +355,7 @@ export default () => {
             .should("not.contain", "Spanky");
       });
 
-      it.only("Filters with in_data_collection should follow updated Datacollections", () => {
+      it("Filters with in_data_collection should follow updated Datacollections", () => {
          // Select the Tabview
          cy.get(
             '[data-cy="tab InDataCollection Filter ff27350d-ef93-40f8-91fc-7d314525b391 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
