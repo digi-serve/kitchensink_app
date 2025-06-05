@@ -43,6 +43,10 @@ jobs:
         run: pm2 start ./logs.js -- --toFile logs/ABServices.log
         working-directory: ./ab
 
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
+  
       #Run test
       - name: Wait for AB
         uses: ifaxity/wait-on-action@v1.1.0
