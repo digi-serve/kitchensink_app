@@ -298,8 +298,8 @@ export default () => {
             .should("not.contain", "Lester");
       });
 
-      // Issue: https://github.com/digi-serve/ns_app/issues/368
-      // Fix:   https://github.com/digi-serve/appbuilder_class_core/pull/211
+      // Issue: https://github.com/CruGlobal/ns_app/issues/368
+      // Fix:   https://github.com/CruGlobal/appbuilder_class_core/pull/211
       it("Should NOT add new entries that are not linked to same link cursor", () => {
          // Select the Tabview
          cy.get(
