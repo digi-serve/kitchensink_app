@@ -354,5 +354,108 @@ export default () => {
             .should("not.contain", "Lester")
             .should("not.contain", "Spanky");
       });
+
+      it("Filters with in_data_collection should follow updated Datacollections", () => {
+         // Select the Tabview
+         cy.get(
+            '[data-cy="tab InDataCollection Filter ff27350d-ef93-40f8-91fc-7d314525b391 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+
+         //
+         // Setup My References to the Different Grids
+         //
+
+         cy.get(
+            '[data-cy="ABViewGrid_ff7cc08b-a2b9-40c8-a44b-37b0f26beecf_datatable"]',
+         ).should("contain", "Matrix");
+
+         cy.get(
+            // '[data-cy="ABViewGrid_15c6bacc-a158-4441-9f76-128a68a8d8b4_datatable"]  > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll >  .textCell > [aria-rowindex="1"] ',
+            '[data-cy="ABViewGrid_ff7cc08b-a2b9-40c8-a44b-37b0f26beecf_datatable"]  > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll >  .textCell',
+         ).as("Regions");
+
+         cy.get(
+            // '[data-cy="ABViewGrid_15c6bacc-a158-4441-9f76-128a68a8d8b4_datatable"]  > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll >  .textCell > [aria-rowindex="1"] ',
+            '[data-cy="ABViewGrid_0fce95ee-a00b-412a-9eb1-3e21a9d401d7_datatable"]  > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll >  .textCell',
+         ).as("UnAssignedDirectors");
+
+         cy.get(
+            // '[data-cy="ABViewGrid_15c6bacc-a158-4441-9f76-128a68a8d8b4_datatable"]  > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll >  .textCell > [aria-rowindex="1"] ',
+            '[data-cy="ABViewGrid_80b1c275-a1ee-4b57-aeed-6a89fb757d59_datatable"]  > .webix_ss_body > .webix_ss_center > .webix_ss_center_scroll >  .textCell',
+         ).as("AssignedDirectors");
+
+         cy.get(
+            '[data-cy="ABViewGrid_bddb809b-f5f7-4c98-8f52-bce301ebc203_datatable"]',
+         ).as("MoviesInRegion");
+
+         //
+         // Define common variables and checkState() routine
+         //
+         let movieNames = ["Matrix", "Lord Of The Rings", "Star Wars"];
+         let directorNames = ["Hausman", "Lucas", "Spielberg"];
+
+         function checkState(row, movies, assigned, unassigned) {
+            // making sure data is available and spinners are gone with this statement:
+
+            cy.get("@Regions")
+               .find(`[aria-rowindex='${row}']`)
+               .should("be.visible")
+               .first()
+               .click();
+
+            // having problems actually capturing the spinner to waif for it to dissappear
+            // so lets start by checking the data that should exist and then once it does
+            // we can verify that the other places don't have the data.
+            let uad = cy.get("@UnAssignedDirectors");
+            directorNames.forEach((name) => {
+               if (unassigned.indexOf(name) > -1) {
+                  uad = uad.should("contain", name);
+               } else {
+                  uad = uad.should("not.contain", name);
+               }
+            });
+
+            let ad = cy.get("@AssignedDirectors");
+            directorNames.forEach((name) => {
+               if (assigned.indexOf(name) > -1) {
+                  ad = ad.should("contain", name);
+               } else {
+                  ad = ad.should("not.contain", name);
+               }
+            });
+
+            let m = cy.get("@MoviesInRegion");
+            movieNames.forEach((name) => {
+               if (movies.indexOf(name) > -1) {
+                  m = m.should("contain", name);
+               } else {
+                  m = m.should("not.contain", name);
+               }
+            });
+         }
+
+         // Check : If Region C is selected, there should be
+         // 0 records in Movies In Region
+         // 0 records in Movies Assigned
+         // 3 records in Movies Unassigned
+         // select Region C (Row 1)
+         checkState(1, [], [], ["Hausman", "Lucas", "Spielberg"]);
+
+         // Check : If Region B is selected, there should be
+         // 1 records in Movies In Region : Matrix
+         // 1 records in Assigned         : Hausman
+         // 2 records in Unassigned       : Lucas, Spielberg
+         // select Region B (Row 2)
+         checkState(2, ["Matrix"], ["Hausman"], ["Lucas", "Spielberg"]);
+
+         // Check : If Region A is selected, there should be
+         // 1 records in Movies In Region : Star Wars
+         // 1 records in Assigned         : Lucas
+         // 2 records in Unassigned       : Hausman, Spielberg
+         // select Region A (Row 3)
+         checkState(3, ["Star Wars"], ["Lucas"], ["Hausman", "Spielberg"]);
+      });
    });
 };
