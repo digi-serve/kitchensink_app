@@ -86,7 +86,7 @@ jobs:
     # ab_service_config
     - name: Checkout ab_service_config
       if: ${{ env.ab_service_config }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_config
         repository: CruGlobal/ab_service_config
@@ -94,7 +94,7 @@ jobs:
     # ab_service_api_sails
     - name: Checkout ab_service_api_sails
       if: ${{ env.ab_service_api_sails }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_api_sails
         repository: CruGlobal/ab_service_api_sails
@@ -102,7 +102,7 @@ jobs:
     # ab_service_tenant_manager
     - name: Checkout ab_service_tenant_manager
       if: ${{ env.ab_service_tenant_manager }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_tenant_manager
         repository: CruGlobal/ab_service_tenant_manager
@@ -110,7 +110,7 @@ jobs:
     # ab_service_notification_email
     - name: Checkout ab_service_notification_email
       if: ${{ env.ab_service_notification_email }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_notification_email
         repository: CruGlobal/ab_service_notification_email
@@ -118,7 +118,7 @@ jobs:
     # ab_service_log_manager
     - name: Checkout ab_service_log_manager
       if: ${{ env.ab_service_log_manager }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_log_manager
         repository: CruGlobal/ab_service_log_manager
@@ -126,7 +126,7 @@ jobs:
     # ab_service_relay
     - name: Checkout ab_service_relay
       if: ${{ env.ab_service_relay }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_relay
         repository: CruGlobal/ab_service_relay
@@ -134,7 +134,7 @@ jobs:
     # plugin_ABDesigner
     - name: Checkout plugin_ABDesigner
       if: ${{ env.plugin_ABDesigner }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: plugin/plugin_ABDesigner
         repository: CruGlobal/plugin_ABDesigner
@@ -142,21 +142,21 @@ jobs:
     # ab_service_appbuilder
     - name: Checkout ab_service_appbuilder
       if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_appbuilder
         repository: CruGlobal/ab_service_appbuilder
         ref: ${{ env.ab_service_appbuilder || 'develop' }}
     - name: Checkout ab_service_appbuilder > AppBuilder
       if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_appbuilder/AppBuilder
         repository: CruGlobal/appbuilder_platform_service
         ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_appbuilder > AppBuilder > core
       if: ${{ env.ab_service_appbuilder || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_appbuilder/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -164,21 +164,21 @@ jobs:
     # ab_service_process_manager
     - name: Checkout ab_service_process_manager
       if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_process_manager
         repository: CruGlobal/ab_service_process_manager
         ref: ${{ env.ab_service_process_manager || 'develop' }}
     - name: Checkout ab_service_process_manager > AppBuilder
       if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_process_manager/AppBuilder
         repository: CruGlobal/appbuilder_platform_service
         ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_process_manager > AppBuilder > core
       if: ${{ env.ab_service_process_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_process_manager/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -186,21 +186,21 @@ jobs:
     # ab_service_custom_reports
     - name: Checkout ab_service_custom_reports
       if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_custom_reports
         repository: CruGlobal/ab_service_custom_reports
         ref: ${{ env.ab_service_custom_reports || 'develop' }}
     - name: Checkout ab_service_custom_reports > AppBuilder
       if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_custom_reports/AppBuilder
         repository: CruGlobal/appbuilder_platform_service
         ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_custom_reports > AppBuilder > core
       if: ${{ env.ab_service_custom_reports || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_custom_reports/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -208,21 +208,21 @@ jobs:
     # ab_service_user_manager
     - name: Checkout ab_service_user_manager
       if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_user_manager
         repository: CruGlobal/ab_service_user_manager
         ref: ${{ env.ab_service_user_manager || 'develop' }}
     - name: Checkout ab_service_user_manager > AppBuilder
       if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_user_manager/AppBuilder
         repository: CruGlobal/appbuilder_platform_service
         ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_user_manager > AppBuilder > core
       if: ${{ env.ab_service_user_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_user_manager/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -230,21 +230,21 @@ jobs:
     # ab_service_definition_manager
     - name: Checkout ab_service_definition_manager
       if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_definition_manager
         repository: CruGlobal/ab_service_definition_manager
         ref: ${{ env.ab_service_definition_manager || 'develop' }}
     - name: Checkout ab_service_definition_manager > AppBuilder
       if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_definition_manager/AppBuilder
         repository: CruGlobal/appbuilder_platform_service
         ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_definition_manager > AppBuilder > core
       if: ${{ env.ab_service_definition_manager || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_definition_manager/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -252,21 +252,21 @@ jobs:
     # ab_service_file_processor
     - name: Checkout ab_service_file_processor
       if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_file_processor
         repository: CruGlobal/ab_service_file_processor
         ref: ${{ env.ab_service_file_processor || 'develop' }}
     - name: Checkout ab_service_file_processor > AppBuilder
       if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_file_processor/AppBuilder
         repository: CruGlobal/appbuilder_platform_service
         ref: ${{ env.appbuilder_platform_service || 'master' }}
     - name: Checkout ab_service_file_processor > AppBuilder > core
       if: ${{ env.ab_service_file_processor || env.appbuilder_platform_service || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_file_processor/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -274,14 +274,14 @@ jobs:
     # ab_platform_web
     - name: Checkout ab_platform_web
       if: ${{ env.ab_platform_web || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_platform_web
         repository: CruGlobal/ab_platform_web
         ref: ${{ env.ab_platform_web || 'master' }}
     - name: Checkout ab_platform_web > AppBuilder > core
       if: ${{ env.ab_platform_web || env.appbuilder_class_core }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_platform_web/AppBuilder/core
         repository: CruGlobal/appbuilder_class_core
@@ -289,7 +289,7 @@ jobs:
     # ab_service_web
     - name: Checkout ab_service_web
       if: ${{ env.ab_service_web || env.ab_platform_web || env.appbuilder_class_core || env.plugin_ABDesigner }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         path: ab_service_web
         repository: CruGlobal/ab_service_web
@@ -324,7 +324,7 @@ jobs:
         runtime: ${{ env.ab_runtime }}
   # 5. Run Tests
     - name: Checkout Kitchen Sink
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: CruGlobal/kitchensink_app
         path: ab/test/e2e/cypress/e2e/kitchensink_app
