@@ -2,7 +2,7 @@ name: Cypress Test
 on:
   # Run on any commit to the #master branch
   push:
-    branches: [master, is/update]
+    branches: [master]
 
   # Run on pull requests into the #master branch
 
