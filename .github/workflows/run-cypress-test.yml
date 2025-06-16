@@ -44,11 +44,17 @@ jobs:
         working-directory: ./ab
 
       #Run test
+      - name: Check AB Logs
+        run: |
+          echo "Checking AppBuilder logs..."
+          cat ./logs/ABServices.log || true
+        working-directory: ./ab
+
       - name: Wait for AB
         uses: ifaxity/wait-on-action@v1.2.1
         with:
           resource: http://localhost:8080
-          timeout: 300000
+          timeout: 600000  # Increased to 10 minutes
 
       - name: Run Cypress Tests
         run: npm run test:e2e:app -- --browser chrome
