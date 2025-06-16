@@ -47,14 +47,27 @@ jobs:
       - name: Check AB Logs
         run: |
           echo "Checking AppBuilder logs..."
-          cat ./logs/ABServices.log || true
+          if [ -f ./logs/ABServices.log ]; then
+            echo "=== Last 20 lines of log file ==="
+            tail -n 20 ./logs/ABServices.log
+            echo "=== End of log file ==="
+          else
+            echo "No log file found. Checking process status..."
+            echo "=== PM2 Process List ==="
+            pm2 list
+            echo "=== Node Processes ==="
+            ps aux | grep node || true
+            echo "=== Checking logs directory ==="
+            ls -la ./logs || true
+          fi
         working-directory: ./ab
 
       - name: Wait for AB
         uses: ifaxity/wait-on-action@v1.2.1
         with:
           resource: http://localhost:8080
-          timeout: 600000  # Increased to 10 minutes
+          timeout: 600000  # 10 minutes
+          failOnError: true  # Ensure the step fails on timeout
 
       - name: Run Cypress Tests
         run: npm run test:e2e:app -- --browser chrome
