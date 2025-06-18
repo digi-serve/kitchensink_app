@@ -28,7 +28,41 @@ jobs:
 
       # Up
       - name: Bring up AppBuilder
-        run: ./UP.sh -q -t
+        run: |
+          echo "Starting AppBuilder with UP.sh..."
+          ./UP.sh -q -t 2>&1 | tee up_output.log
+          echo "UP.sh completed with exit code: $?"
+          echo "=== UP.sh output ==="
+          cat up_output.log || echo "No output log found"
+        working-directory: ./ab
+
+      - name: Debug AppBuilder Startup
+        run: |
+          echo "=== Checking if AppBuilder processes are running ==="
+          ps aux | grep -E "(node|appbuilder|AB)" | grep -v grep || echo "No AppBuilder processes found"
+          
+          echo "=== Checking what's listening on port 8080 ==="
+          netstat -tlnp | grep :8080 || echo "Nothing listening on port 8080"
+          
+          echo "=== Checking if port 8080 is in use ==="
+          lsof -i :8080 || echo "Port 8080 is not in use"
+          
+          echo "=== Checking AppBuilder directory structure ==="
+          ls -la ./ || echo "Cannot list current directory"
+          
+          echo "=== Checking for any error logs ==="
+          find . -name "*.log" -type f -exec echo "=== {} ===" \; -exec tail -n 10 {} \; 2>/dev/null || echo "No log files found"
+          
+          echo "=== Checking if UP.sh script exists and is executable ==="
+          ls -la ./UP.sh || echo "UP.sh not found"
+          
+          echo "=== Checking AppBuilder configuration ==="
+          if [ -f "./config.js" ]; then
+            echo "config.js found, checking port configuration:"
+            grep -i port ./config.js || echo "No port configuration found in config.js"
+          else
+            echo "config.js not found"
+          fi
         working-directory: ./ab
 
       - name: Check out
