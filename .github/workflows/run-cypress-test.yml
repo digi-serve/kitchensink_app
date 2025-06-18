@@ -66,8 +66,10 @@ jobs:
         uses: ifaxity/wait-on-action@v1.2.1
         with:
           resource: http://localhost:8080
-          timeout: 600000  # 10 minutes
-          failOnError: true  # Ensure the step fails on timeout
+          timeout: 300000  # 5 minutes
+          delay: 5000      # Wait 5 seconds before starting to check
+          interval: 5000   # Check every 5 seconds
+          verbose: true    
 
       - name: Run Cypress Tests
         run: npm run test:e2e:app -- --browser chrome
