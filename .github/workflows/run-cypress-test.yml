@@ -66,14 +66,18 @@ jobs:
 
       - name: Docker Compose Status & Logs
         run: |
-          echo "=== Docker Compose ps ==="
-          docker compose ps
-          echo "=== Docker ps ==="
+          echo "=== Docker Compose ps (all services) ==="
+          docker compose ps -a
+          echo "=== Docker ps (all containers) ==="
           docker ps -a
-          echo "=== Docker Compose logs (last 100 lines) ==="
-          docker compose logs --tail=100 || true
-          echo "=== ab_appbuilder logs (if available) ==="
-          docker logs $(docker ps -aqf "name=ab_appbuilder") 2>/dev/null || echo "No ab_appbuilder container logs found"
+          echo "=== Docker network inspect ==="
+          docker network inspect ab_default || true
+          echo "=== MySQL Container Check ==="
+          docker ps -a | grep -i mysql || echo "No MySQL containers found"
+          echo "=== Docker Compose Config ==="
+          docker compose config | grep -A 5 "db:" || true
+          echo "=== Docker Compose logs (all services) ==="
+          docker compose logs --tail=100
         working-directory: ./ab
 
       - name: Check out
