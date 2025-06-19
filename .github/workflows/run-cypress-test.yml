@@ -25,6 +25,9 @@ jobs:
         with:
           folder: ab
           port: 8080
+          dbExpose: true
+          dbPort: 8888
+          tenant: '{"username": "admin", "password": "admin", "email": "admin@email.com"}'
 
       # Up
       - name: Bring up AppBuilder
@@ -63,6 +66,18 @@ jobs:
           else
             echo "config.js not found"
           fi
+        working-directory: ./ab
+
+      - name: Docker Compose Status & Logs
+        run: |
+          echo "=== Docker Compose ps ==="
+          docker compose ps
+          echo "=== Docker ps ==="
+          docker ps -a
+          echo "=== Docker Compose logs (last 100 lines) ==="
+          docker compose logs --tail=100 || true
+          echo "=== ab_appbuilder logs (if available) ==="
+          docker logs $(docker ps -aqf "name=ab_appbuilder") 2>/dev/null || echo "No ab_appbuilder container logs found"
         working-directory: ./ab
 
       - name: Check out
