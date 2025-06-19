@@ -25,10 +25,6 @@ jobs:
         with:
           folder: ab
           port: 8080
-          dbExpose: true
-          dbPort: 8888
-          tenant: '{"username": "admin", "password": "admin", "email": "admin@email.com"}'
-
       # Up
       - name: Bring up AppBuilder
         run: |
@@ -54,7 +50,7 @@ jobs:
           ls -la ./ || echo "Cannot list current directory"
           
           echo "=== Checking for any error logs ==="
-          find . -name "*.log" -type f -exec echo "=== {} ===" \; -exec tail -n 10 {} \; 2>/dev/null || echo "No log files found"
+          find . -name "*.log" -type f -exec echo "=== {} ===" \; -exec tail -n 80 {} \; 2>/dev/null || echo "No log files found"
           
           echo "=== Checking if UP.sh script exists and is executable ==="
           ls -la ./UP.sh || echo "UP.sh not found"
