@@ -29,17 +29,12 @@ jobs:
       - name: Bring up AppBuilder
         run: |
           echo "Starting AppBuilder with UP.sh..."
-          ./UP.sh -q -t 2>&1 | tee up_output.log
-          echo "UP.sh completed with exit code: $?"
-          echo "=== UP.sh output ==="
-          cat up_output.log || echo "No output log found"
+          ./UP.sh -q -t 
         working-directory: ./ab
 
       - name: Debug AppBuilder Startup
         run: |
-          echo "=== Checking if AppBuilder processes are running ==="
-          ps aux | grep -E "(node|appbuilder|AB)" | grep -v grep || echo "No AppBuilder processes found"
-          
+          sleep 180
           echo "=== Checking what's listening on port 8080 ==="
           netstat -tlnp | grep :8080 || echo "Nothing listening on port 8080"
           
@@ -62,6 +57,10 @@ jobs:
           else
             echo "config.js not found"
           fi
+
+          echo "=== Checking if AppBuilder processes are running ==="
+          ps aux | grep -E "(node|appbuilder|AB)" | grep -v grep || echo "No AppBuilder processes found"
+          
         working-directory: ./ab
 
       - name: Docker Compose Status & Logs
@@ -111,14 +110,14 @@ jobs:
           fi
         working-directory: ./ab
 
-      # - name: Wait for AB
-      #   uses: ifaxity/wait-on-action@v1.2.1
-      #   with:
-      #     resource: http://localhost:8080
-      #     timeout: 300000  # 5 minutes
-      #     delay: 5000      # Wait 5 seconds before starting to check
-      #     interval: 5000   # Check every 5 seconds
-      #     verbose: true    
+      - name: Wait for AB
+        uses: ifaxity/wait-on-action@v1.2.1
+        with:
+          resource: http://localhost:8080
+          timeout: 300000  # 5 minutes
+          delay: 5000      # Wait 5 seconds before starting to check
+          interval: 5000   # Check every 5 seconds
+          verbose: true    
 
       - name: Run Cypress Tests
         run: npm run test:e2e:app -- --browser chrome
