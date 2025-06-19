@@ -72,8 +72,8 @@ jobs:
           docker ps -a
           echo "=== Docker network inspect ==="
           docker network inspect ab_default || true
-          echo "=== MySQL Container Check ==="
-          docker ps -a | grep -i mysql || echo "No MySQL containers found"
+          echo "=== db Container Check ==="
+          docker ps -a | grep -i db || echo "No db containers found"
           echo "=== Docker Compose Config ==="
           docker compose config | grep -A 5 "db:" || true
           echo "=== Docker Compose logs (all services) ==="
@@ -111,14 +111,14 @@ jobs:
           fi
         working-directory: ./ab
 
-      - name: Wait for AB
-        uses: ifaxity/wait-on-action@v1.2.1
-        with:
-          resource: http://localhost:8080
-          timeout: 300000  # 5 minutes
-          delay: 5000      # Wait 5 seconds before starting to check
-          interval: 5000   # Check every 5 seconds
-          verbose: true    
+      # - name: Wait for AB
+      #   uses: ifaxity/wait-on-action@v1.2.1
+      #   with:
+      #     resource: http://localhost:8080
+      #     timeout: 300000  # 5 minutes
+      #     delay: 5000      # Wait 5 seconds before starting to check
+      #     interval: 5000   # Check every 5 seconds
+      #     verbose: true    
 
       - name: Run Cypress Tests
         run: npm run test:e2e:app -- --browser chrome
