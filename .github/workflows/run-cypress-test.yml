@@ -24,22 +24,22 @@ jobs:
       - uses: CruGlobal/ab-install-action@v1
         with:
           folder: ab
-          port: 80
+          port: 8090
       # Up
       - name: Bring up AppBuilder
         run: |
           echo "Starting AppBuilder with UP.sh..."
-          ./UP.sh -q -t 
+          npm run test:boot
         working-directory: ./ab
 
       - name: Debug AppBuilder Startup
         run: |
           sleep 61
-          echo "=== Checking what's listening on port 80 ==="
-          netstat -tlnp | grep :80 || echo "Nothing listening on port 80"
+          echo "=== Checking what's listening on port 8090 ==="
+          netstat -tlnp | grep :8090 || echo "Nothing listening on port 8090"
           
-          echo "=== Checking if port 80 is in use ==="
-          lsof -i :80 || echo "Port 80 is not in use"
+          echo "=== Checking if port 8090 is in use ==="
+          lsof -i :8090 || echo "Port 8090 is not in use"
         working-directory: ./ab
 
       - name: Docker Compose Status & Logs
@@ -48,14 +48,19 @@ jobs:
           docker compose ps -a
           echo "=== Docker ps (all containers) ==="
           docker ps -a
+          echo "=== Web Container Logs ==="
+          docker logs $(docker ps -aqf "name=ab_web") 2>/dev/null || echo "No web container logs found"
+          echo "=== Failed Web Container Logs ==="
+          for container_id in $(docker ps -aqf "name=ab_web" -f "status=exited"); do
+            echo "=== Logs for failed container $container_id ==="
+            docker logs $container_id 2>&1 || true
+          done
           echo "=== Docker network inspect ==="
           docker network inspect ab_default || true
           echo "=== db Container Check ==="
           docker ps -a | grep -i db || echo "No db containers found"
           echo "=== Docker Compose Config ==="
-          docker compose config | grep -A 5 "db:" || true
-          echo "=== Docker Compose logs (all services) ==="
-          docker compose logs --tail=100
+          docker compose config | grep -A 10 "web:" || true
         working-directory: ./ab
 
       - name: Check out
@@ -89,10 +94,10 @@ jobs:
           fi
         working-directory: ./ab
 
-      - name: Wait for AB
+      - name: Wait for test AB
         uses: ifaxity/wait-on-action@v1.2.1
         with:
-          resource: http://localhost:80
+          resource: http://localhost:8088
           timeout: 300000  # 5 minutes
           delay: 5000      # Wait 5 seconds before starting to check
           interval: 5000   # Check every 5 seconds
