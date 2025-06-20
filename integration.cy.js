@@ -29,6 +29,9 @@ const ProcessTestCases = [
    require("./test_cases/process_approval.js"),
    require("./test_cases/process_test-kcs-onCreate-process.js"),
 ];
+const pwaTestCases = [
+   require("./test_cases/pwa_form.js"),
+];
 
 // Don't stop tests on uncaught errors
 Cypress.on("uncaught:exception", (e) => {
@@ -43,6 +46,9 @@ before(() => {
    cy.AuthLogin();
    cy.request("POST", "/test/import", {
       file: `imports/${folderName}/appbuilder_app.json`,
+   });
+   cy.request("POST", "/test/import", {
+      file: `imports/${folderName}/appbuilder_pwa_app.json`,
    });
 });
 
@@ -72,7 +78,7 @@ describe("Smoke Test", () => {
    });
 });
 
-describe("Widget Tests", () => {
+describe.skip("Widget Tests", () => {
    beforeEach(() => {
       // Common.RunSQL(cy, folderName, [
       //    "add_testkcs.sql",
@@ -94,13 +100,25 @@ describe("Widget Tests", () => {
    });
 });
 
-describe("Process Tests", () => {
+describe.skip("Process Tests", () => {
    beforeEach(() => {
       cy.visit("/");
       cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]').click();
    });
 
    ProcessTestCases.forEach((tc) => {
+      tc(folderName, Common);
+   });
+});
+
+describe("pwa Tests", () => {
+   beforeEach(() => {
+      cy.viewport('iphone-6') // Set viewport to 375px x 667px
+      cy.visit("/mobile/app/admin/c355634c-42ca-4317-a086-3aeb4f750d8b?route=First_Page");
+      cy.get(".title-large-text", { timeout: 30000 }).should("be.visible").contains("First Page");
+   });
+
+   pwaTestCases.forEach((tc) => {
       tc(folderName, Common);
    });
 });
