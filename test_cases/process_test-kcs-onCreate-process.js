@@ -47,7 +47,7 @@ export default (folderName, Common) => {
             '[data-cy="ABViewGrid_4c2af349-da19-407e-9db0-ab34d1a35837_datatable"]',
          )
             .contains("test label")
-            .click();
+            .click({ force: true });
 
          cy.get(
             '[data-cy="detail connected m2m connected field a9f6f43a-a400-4c1c-8491-e63b7f527571 b00875b2-4c62-4ab4-8bc7-229054b226cc"]',

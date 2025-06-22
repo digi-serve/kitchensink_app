@@ -1,11 +1,17 @@
 import path from "path";
 
+const ID_DC_TestKCS = "2900d309-e9c3-434f-b937-202d8a972a11";
+const ID_Row1 = "00000000-0000-0000-0000-000000000000";
+
 export default (folderName) => {
    describe("Form", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
             '[data-cy="tab-Form-b5b74f39-3f9a-478c-b8b5-1376b77c74da-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          ).click();
+         cy.DCSetCursor(ID_DC_TestKCS, ID_Row1);
       });
 
       it("edits and saves changes", () => {
@@ -96,6 +102,13 @@ export default (folderName) => {
             .parent()
             .siblings(".webix_inp_bottom_label")
             .should("contain", textalert);
+
+         // put the values back
+         cy.get("@textField").clear();
+         cy.get("@textField").type("Cleaned Up");
+
+         cy.get("@dateField").clear();
+         cy.get("@dateField").type("09/01/1969");
       });
 
       it("can upload photo", () => {

@@ -2,6 +2,8 @@ export default () => {
    const GRID = "ABViewGrid_7aa0b5b1-8667-4293-ae9a-93e6639c4681_datatable";
    describe("Grid", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
             '[data-cy="tab-Grid-e7c04584-4fbd-4ca9-b64b-0f5bcb477c1e-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
@@ -52,7 +54,12 @@ export default () => {
                cy.get("@list-test-KCS-ID")
                   .contains("test-KCS-ID:0000000002")
                   .click();
-               cy.get(".webix_button").contains("Select").click();
+
+               // cy.get(".webix_button")
+               cy.get("@list-test-KCS-ID")
+                  // .should("be.visible")
+                  .contains("Select")
+                  .click();
                cy.get(
                   `.webix_column[column="${mmIndex}"] > [role="gridcell"][aria-rowindex="1"]`,
                )

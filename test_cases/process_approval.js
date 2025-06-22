@@ -1,11 +1,10 @@
 export default (folderName, Common) => {
    describe("Process Approval", () => {
       beforeEach(() => {
-         cy.RunSQL(
-            folderName,
-            ["add_testkcs_stock.sql"],
-            ["process_test-kcs-onCreate-process.sql"],
-         );
+         cy.RunSQL(folderName, [
+            "add_testkcs_stock.sql",
+            "process_test-kcs-onCreate-process.sql",
+         ]);
       });
 
       // 1. Can see the message for approval in the inbox
@@ -122,7 +121,6 @@ export default (folderName, Common) => {
       });
 
       // 2. Can find the latest "Coke" amount is increased
-
       it("Can find the latest 'Coke' amount is increased", () => {
          cy.get('[data-cy="dd6f7981-cc7b-457c-b231-742ce85004f8"]')
             .should("exist")
@@ -136,7 +134,6 @@ export default (folderName, Common) => {
       });
 
       // 3. Can find the latest "Coke" amount is not increased
-
       it("Can find the latest 'Coke' amount is not increased", () => {
          // Go to the tab "Process" > "Order"
 

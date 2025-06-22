@@ -1,8 +1,13 @@
-const testkcsObjectID = "01e0c6d4-ab5e-41ca-8715-77f0424e623f";
+const ID_DCNoLink = "47ea98e0-7720-45b4-ac49-a290172561fd";
+const ID_DCNoLink_Row_One = "3643aa6b-5c7f-4b1d-bef2-f8369fa9b182";
+
 const testkcskeybObjectID = "3f4f9295-4ad6-4279-9789-5c6c175852df";
+
 export default () => {
    describe("DataCollection", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          cy.get(
             '[data-cy="tab-DataCollections-b5f3ec2c-da69-46b0-b2a9-b76c3d809d69-b52e6e96-5033-4c7f-a104-29bd5ddcac4a"]',
          )
@@ -10,21 +15,44 @@ export default () => {
             .click();
       });
 
-      it("Unlinked DC Loads Data", () => {
+      /*
+       * Make sure our Basic DataCollection responds to a basic set of
+       * Data display, Add, Update and Delete operations.
+       */
+      it("Unlinked DC Loads/Updates/Deletes Data", () => {
          cy.get(
             '[data-cy="tab No Link af4de560-ebf3-4500-a320-6042d3794a26 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
          )
             .should("be.visible")
             .click();
+
+         // Basic Display: should have 3 entries
          cy.get('.webix_dataview[role="listbox"] > .webix_scroll_cont')
             .as("list")
             .should("be.visible")
             .find(".webix_dataview_item")
             .should("have.length", 3);
-         // add a new record, should see it
-         cy.request("POST", `/app_builder/model/${testkcsObjectID}`, {
-            singlelinetext: "new",
+
+         // Add a new Record, should now have 4 entries
+         cy.ModelCreate(ID_DCNoLink, {
+            text: "New",
          });
+         cy.get("@list").find(".webix_dataview_item").should("have.length", 4);
+
+         // Update a Record, should see it's new value in the list
+         cy.ModelUpdate(ID_DCNoLink, ID_DCNoLink_Row_One, {
+            text: "Uno",
+         });
+         cy.get("@list").find(".webix_dataview_item").should("contain", "Uno");
+
+         // Delete an entry, should be back to 3 entries
+         cy.ModelDelete(ID_DCNoLink, ID_DCNoLink_Row_One);
+
+         // // add a new record, should see it
+         // cy.request("POST", `/app_builder/model/${testkcsObjectID}`, {
+         //    singlelinetext: "new",
+         // });
+
          cy.get("@list").find(".webix_dataview_item").should("have.length", 3);
       });
 
@@ -41,7 +69,10 @@ export default () => {
             .find(".webix_dataview_item")
             .should("have.length", 0);
          // check we don't get newly created values
-         cy.request("POST", `/app_builder/model/${testkcskeybObjectID}`, {
+         // cy.request("POST", `/app_builder/model/${testkcskeybObjectID}`, {
+         //    "Key A": "Record C",
+         // });
+         cy.ModelCreate(testkcskeybObjectID, {
             "Key A": "Record C",
          });
          cy.get("@list").find(".webix_dataview_tiem").should("have.length", 0);
@@ -97,6 +128,44 @@ export default () => {
             .should("be.visible")
             .and("contain", "Record A");
 
+         // In order to give the UI a chance to update before Cypress
+         // tests the value of @item: we'll switch tabs and recheck Record A
+         // Seems unnecessary, but tends to give slower systems a chance
+         // to update in time.
+
+         // click the next tab
+         cy.get(
+            '[data-cy="tab Cursor 3f06ceac-ac30-4e64-b165-e30002fff60c b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+
+         // wait for data in DC to load
+         // really wait for the eye selector for the 1st row to appear
+         cy.get(
+            '[data-cy="ABViewGrid_497b6d7d-c4e2-40a4-8bcb-fcaa24cf875f_datatable"]',
+         )
+            .should("be.visible")
+            .find(".webix_ss_body .webix_ss_right .webix_cell", {
+               timeout: 30000,
+            })
+            .first()
+            .should("exist");
+
+         // click back
+         cy.get(
+            '[data-cy="tab Follow 415d32b3-5201-4a6f-bb06-10b3f4229f24 b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+
+         cy.get(
+            '[data-cy="detail connected Key A 2e3c1460-c09c-4645-9366-cdec84902fcd 4a9e79c9-83f7-4e62-9286-a48efccf3a3c"] > .webix_template',
+         )
+            .as("detailField")
+            .should("be.visible")
+            .and("contain", "Record A");
+
          cy.get('.webix_dataview[role="listbox"] > .webix_scroll_cont').as(
             "list",
          );
@@ -106,6 +175,7 @@ export default () => {
             .as("item");
          cy.get("@item").should("have.length", 1);
          cy.get("@item").should("exist");
+
          cy.get("@item").first().should("contain", "Record A");
       });
 
@@ -200,6 +270,38 @@ export default () => {
             .should("be.visible")
             .click();
 
+         // Keep in mind we just loaded the web page before this test.
+         // Datacollections are in the middle of initializing, so
+         // we will do a little switch to a tab, wait for it's DC to
+         // load and switch back, which should give plenty of time for
+         // this display to update.
+
+         // click the next tab
+         cy.get(
+            '[data-cy="tab Cursor 3f06ceac-ac30-4e64-b165-e30002fff60c b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+
+         // wait for data in DC to load
+         // really wait for the eye selector for the 1st row to appear
+         cy.get(
+            '[data-cy="ABViewGrid_497b6d7d-c4e2-40a4-8bcb-fcaa24cf875f_datatable"]',
+         )
+            .should("be.visible")
+            .find(".webix_ss_body .webix_ss_right .webix_cell", {
+               timeout: 30000,
+            })
+            .first()
+            .should("exist");
+
+         // Switch back to our Tabview
+         cy.get(
+            '[data-cy="tab Cursor ++ 0139ab53-3d56-42d4-afd6-da7cb5df503b b82e7941-b47f-477d-9c10-1d7ef85185ff"]',
+         )
+            .should("be.visible")
+            .click();
+
          // Verify Characters Linked to Spell has the 2 expected values:
          cy.get(
             '[data-cy="ABViewGrid_5bbafa43-1090-4e9d-8c1d-329a979fe6af_datatable"]',
@@ -223,13 +325,15 @@ export default () => {
          cy.get(
             '[optvalue="8f07bf6a-5c9d-47ac-8fb1-f43a4bae4f36"] > .webix_multicombo_delete',
          )
-            .should("be.visible")
-            .click();
+            .as("delBtn")
+            .should("be.visible");
+         cy.get("@delBtn").click();
 
          // click [save]
          cy.get('[data-cy="button save 6a38ac65-7048-46ae-a771-29c7260f177e"]')
-            .should("be.visible")
-            .click();
+            .as("saveBtn")
+            .should("be.visible");
+         cy.get("@saveBtn").click();
 
          //
          // Verify Sproket & Frostbolt & listCharacters are correct

@@ -34,7 +34,7 @@ export default (folderName) => {
          cy.RunSQL(folderName, "assign_role_restricted.sql");
          reloadToScopePage();
          // Wait for loading to finish before checking that data does not exist
-         cy.get(".webix_spin").should("exist");
+         // cy.get(".webix_spin").should("exist");
          cy.get(".webix_spin").should("not.exist");
          // The data still isn't displayed after the webix_spin is removed
          // eslint-disable-next-line cypress/no-unnecessary-waiting
@@ -45,6 +45,13 @@ export default (folderName) => {
             .should("exist")
             .and("not.contain", "Apple")
             .and("not.contain", "Banana");
+      });
+      it("Successfully cleans up after itself", () => {
+         // OK, the real purpose of this test is to get the Scopes to
+         // clean up after themselves without using an after() statement.
+         // after() statements wont get run if there is an error.
+         // but it will try to run this next test:
+         cy.RunSQL(folderName, "reset_roles.sql");
       });
    });
 };

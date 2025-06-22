@@ -1,6 +1,8 @@
 export default () => {
    describe("ConditionalContainer", () => {
       beforeEach(() => {
+         // Click the [Home] Tab:
+         cy.get('[data-cy="cb77ced0-a803-46b7-8a79-f9084d75d51c"]').click();
          // Select the Condition container tab
          cy.get(
             'div[webix_tm_id="566273fc-d2ba-481a-b12d-20d50319a57a_menu"]',
